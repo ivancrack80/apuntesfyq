@@ -189,10 +189,10 @@ body.font-xlarge li { font-size: 1.35rem !important; }
 .gs-header-meta {
     font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--gs-text-muted);
-    font-weight: 600;
-    margin-bottom: 5px;
+    letter-spacing: 2px;
+    color: var(--gs-accent);
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 .gs-title {
     font-family: 'Crimson Pro', serif;
@@ -212,21 +212,7 @@ body.dyslexia-mode .gs-title {
     font-weight: 500;
 }
 
-h2 {
-    font-family: 'Crimson Pro', serif;
-    font-size: 1.6rem;
-    color: var(--gs-primary);
-    margin: 35px 0 15px 0;
-    border-bottom: 1px solid var(--gs-border);
-    padding-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-body.dyslexia-mode h2 {
-    font-family: 'Atkinson Hyperlegible', sans-serif !important;
-    font-weight: 700;
-}
+
 h3 {
     font-size: 1.15rem;
     color: var(--gs-primary);
@@ -839,7 +825,7 @@ code {
 
     .gs-title { font-size: 20pt !important; color: #000000 !important; }
     .gs-subtitle { font-size: 16pt !important; color: #333333 !important; }
-    h2 { font-size: 18pt !important; color: #000000 !important; border-bottom: 2px solid #000000 !important; }
+    .gs-section-title { font-size: 18pt !important; color: #000000 !important; border-left: 4px solid #000000 !important; }
     h3 { font-size: 15pt !important; color: #000000 !important; }
 
     th, td {
@@ -944,24 +930,25 @@ code {
     color: #93c5fd;
 }
 
-/* TÍTULO DE SECCIÓN DE PORTADA */
-.gs-hero-section-title {
+.gs-section-title {
     font-family: 'Crimson Pro', serif;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     color: var(--gs-primary);
-    margin: 0 0 20px 0;
+    margin: 40px 0 20px 0;
+    border-left: 4px solid var(--gs-accent);
+    padding-left: 15px;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-weight: 700;
-    border: none;
-    padding: 0;
+    gap: 10px;
+    border-bottom: none;
+    padding-bottom: 0;
 }
-.gs-hero-section-title i {
+
+.gs-section-title i {
     color: var(--gs-accent);
     font-size: 1.4rem;
 }
-
 /* TARJETAS DE PILARES (grid 4 adaptable) */
 .gs-pillars-grid {
     display: grid;
@@ -1011,6 +998,62 @@ code {
     color: var(--gs-text-muted);
     margin: 0;
     line-height: 1.5;
+}
+
+/* Párrafo introductorio destacado */
+.gs-intro-lead {
+    font-size: 1.15rem;
+    color: var(--gs-text-strong);
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+/* Grid de bloques (listado vertical) */
+.gs-bloques-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+.gs-bloque-card {
+    background: var(--gs-bg);
+    border: 1px solid var(--gs-border);
+    border-radius: 8px;
+    padding: 20px 25px;
+    transition: all 0.2s ease-in-out;
+}
+.gs-bloque-card:hover {
+    border-color: var(--gs-primary);
+    background: var(--gs-primary-bg);
+    transform: translateY(-2px);
+}
+.gs-bloque-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.gs-bloque-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--gs-primary);
+}
+.gs-bloque-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: #cbd5e1;
+    color: #475569;
+    padding: 3px 10px;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+.gs-bloque-card:hover .gs-bloque-badge {
+    background: var(--gs-primary);
+    color: #ffffff;
+}
+.gs-bloque-content {
+    font-size: 0.95rem;
+    color: #475569;
 }
 
 /* TARJETAS DE CURSOS / NIVELES */
