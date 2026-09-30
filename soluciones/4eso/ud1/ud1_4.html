@@ -1,0 +1,65 @@
+
+      <h3 style="color: #16a34a; font-size: 1.3rem; margin-top: 0;"><i class="fa-solid fa-square-check"></i> Solucionario Detallado con Esquemas Vectoriales</h3>
+      <p>Comprueba paso a paso las soluciones de los ejercicios propuestos:</p>
+      
+      <!-- SOLUCIÓN 1 -->
+      <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
+        <strong>Solución 1: Dron en Vuelo (III Cuadrante)</strong>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 10px;">
+          <div style="flex: 1; min-width: 280px;">
+            <ol style="margin-top: 0; margin-bottom: 0;">
+              <li><strong>Ubicación:</strong> Al ser \(\theta = 210^\circ\), el vector está situado en el <strong>III Cuadrante</strong> (\(180^\circ < 210^\circ < 270^\circ\)).</li>
+              <li><strong>Componente $X$:</strong> \(v_x = 15 \cdot \cos(210^\circ) = 15 \cdot (-0.8660) \approx -12.99\text{ m/s}\)</li>
+              <li><strong>Componente $Y$:</strong> \(v_y = 15 \cdot \sin(210^\circ) = 15 \cdot (-0.5) = -7.50\text{ m/s}\)</li>
+              <li><strong>Forma Canónica:</strong> \(\vec{v} = -12.99\vec{i} - 7.50\vec{j}\text{ m/s}\)</li>
+            </ol>
+          </div>
+          <div style="width: 260px; margin: 0 auto;">
+            <div id="box_sol_v1" class="jxgbox" style="width:100%; aspect-ratio: 1/1; border-radius: 8px; border: 1px solid #cbd5e1;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOLUCIÓN 2 -->
+      <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
+        <strong>Solución 2: Fuerza Resultante</strong>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 10px;">
+          <div style="flex: 1; min-width: 280px;">
+            <ol style="margin-top: 0; margin-bottom: 0;">
+              <li><strong>Suma de Vectores:</strong>
+                $$\vec{F}_R = (6 - 2)\vec{i} + (-2 + 8)\vec{j} = 4\vec{i} + 6\vec{j}\text{ N}$$
+              </li>
+              <li><strong>Módulo Resultante:</strong>
+                $$|\vec{F}_R| = \sqrt{4^2 + 6^2} = \sqrt{16 + 36} = \sqrt{52} \approx 7.21\text{ N}$$
+              </li>
+              <li><strong>Ángulo de Dirección:</strong>
+                $$\theta = \arctan\left(\frac{6}{4}\right) = \arctan(1.5) \approx 56.31^\circ$$
+              </li>
+            </ol>
+          </div>
+          <div style="width: 260px; margin: 0 auto;">
+            <div id="box_sol_v2" class="jxgbox" style="width:100%; aspect-ratio: 1/1; border-radius: 8px; border: 1px solid #cbd5e1;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOLUCIÓN 3 -->
+      <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
+        <strong>Solución 3: Ortogonalidad y Producto Escalar Nulo</strong>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 10px;">
+          <div style="flex: 1; min-width: 280px;">
+            <ol style="margin-top: 0; margin-bottom: 0;">
+              <li><strong>Condición de Perpendicularidad (\(\vec{A} \cdot \vec{B} = 0\)):</strong>
+                $$\vec{A} \cdot \vec{B} = (4 \cdot 3) + (k \cdot (-2)) = 0 \implies 12 - 2k = 0 \implies 2k = 12 \implies k = 6$$
+              </li>
+              <li><strong>Comprobación Numérica:</strong>
+                Para \(k = 6\), tenemos \(\vec{A} = 4\vec{i} + 6\vec{j}\).
+                $$\vec{A} \cdot \vec{B} = (4 \cdot 3) + (6 \cdot (-2)) = 12 - 12 = 0$$
+              </li>
+            </ol>
+          </div>
+          <div style="width: 260px; margin: 0 auto;">
+            <div id="box_sol_v3" class="jxgbox" style="width:100%; aspect-ratio: 1/1; border-radius: 8px; border: 1px solid #cbd5e1;"></div>
+          </div>
+        </div>
+      </div>
