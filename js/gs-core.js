@@ -1,9 +1,15 @@
 /* ==========================================================================
    GS-CORE.JS — Sistema unificado de JavaScript para apuntes de Física y Química
-   Uso: <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+   Prefijo de clases: gs-
+   Incluye: Font Awesome, Google Fonts, MathJax 3, JSXGraph, accesibilidad,
+   solucionario GAS, generador de PDF, evento gs-ready.
    
-   El script detecta automáticamente qué elementos hay en la página y solo
-   activa las funciones correspondientes. Si no hay solucionario, no hace nada.
+   Uso en cada HTML:
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+   <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+   
+   El HTML debe incluir un <div class="gs-container"> con el contenido.
+   Si la página tiene solucionario, usar <div class="sol-lock-box" data-unit="4eso_ud1_2">.
    ========================================================================== */
 
 (function () {
@@ -14,12 +20,107 @@
     // ======================================================================
     var GS_CONFIG = {
         gasUrl: "https://script.google.com/macros/s/AKfycbwL3akk3R8Fp2IIgczae9t1nCDuKpLGCibGJ5gNRATL1AIccTX1fqLFZ6OmlctGoX-y/exec",
-        // El ID de unidad se lee desde el atributo data-unit del solucionario
-        // o desde window.CURRENT_UNIT_ID si se define en el HTML
+        cdnBase: "https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main",
+        fontsUrl: "https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&family=Inter:wght@400;500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap",
+        fontAwesomeUrl: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
+        mathjaxUrl: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js",
+        jsxgraphCore: "https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js",
+        jsxgraphCss: "https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css"
     };
 
     // ======================================================================
-    // 1. ACCESIBILIDAD
+    // 1. CARGA DINÁMICA DE RECURSOS EXTERNOS
+    // ======================================================================
+    function loadCSS(url) {
+        return new Promise(function (resolve) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = url;
+            link.onload = resolve;
+            link.onerror = resolve; // No bloqueamos si falla
+            document.head.appendChild(link);
+        });
+    }
+
+    function loadScript(url, attributes) {
+        return new Promise(function (resolve) {
+            var script = document.createElement('script');
+            script.src = url;
+            if (attributes) {
+                Object.keys(attributes).forEach(function (key) {
+                    script.setAttribute(key, attributes[key]);
+                });
+            }
+            script.onload = resolve;
+            script.onerror = resolve; // No bloqueamos si falla
+            document.head.appendChild(script);
+        });
+    }
+
+    // ======================================================================
+    // 2. CONFIGURACIÓN DE MATHJAX (antes de cargarlo)
+    // ======================================================================
+    window.MathJax = {
+        loader: {
+            load: ['[tex]/cancel', '[tex]/color', '[tex]/html', '[tex]/mathtools', '[tex]/mhchem', '[tex]/physics', '[tex]/textmacros']
+        },
+        tex: {
+            packages: { '[+]': ['cancel', 'color', 'html', 'mathtools', 'mhchem', 'physics', 'textmacros'] },
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        startup: {
+            typeset: false // No renderiza automáticamente; esperamos a gs-ready
+        }
+    };
+
+    // ======================================================================
+    // 3. CARGA ORDENADA Y DISPARO DEL EVENTO gs-ready
+    // ======================================================================
+    var readyDispatched = false;
+
+    function dispatchReady() {
+        if (readyDispatched) return;
+        readyDispatched = true;
+        document.dispatchEvent(new CustomEvent('gs-ready'));
+        console.log('[gs-core] Evento gs-ready disparado.');
+    }
+
+    function loadAllResources() {
+        Promise.all([
+            // CSS
+            loadCSS(GS_CONFIG.fontsUrl),
+            loadCSS(GS_CONFIG.fontAwesomeUrl),
+            loadCSS(GS_CONFIG.jsxgraphCss),
+            // Scripts
+            loadScript(GS_CONFIG.jsxgraphCore),
+            loadScript(GS_CONFIG.mathjaxUrl)
+        ]).then(function () {
+            // Cuando MathJax termina de cargar, esperamos a que esté listo
+            // (MathJax.startup.promise nos lo confirma)
+            if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+                window.MathJax.startup.promise.then(function () {
+                    dispatchReady();
+                }).catch(function () {
+                    dispatchReady();
+                });
+            } else {
+                // Si no hay startup.promise (porque MathJax no cargó), disparamos igual
+                setTimeout(dispatchReady, 100);
+            }
+        });
+    }
+
+    // ======================================================================
+    // 4. ACCESIBILIDAD
     // ======================================================================
     function setFontSize(size) {
         document.body.classList.remove('font-small', 'font-large', 'font-xlarge');
@@ -46,7 +147,7 @@
     window.toggleDyslexiaMode = toggleDyslexiaMode;
 
     // ======================================================================
-    // 2. GENERADOR DE PDF SIN SOLUCIONARIO
+    // 5. GENERADOR DE PDF SIN SOLUCIONARIO
     // ======================================================================
     function generarPDFSinSolucionario() {
         var container = document.querySelector('.gs-container');
@@ -88,13 +189,11 @@
     window.generarPDFSinSolucionario = generarPDFSinSolucionario;
 
     // ======================================================================
-    // 3. SOLUCIONARIO PROTEGIDO CON GOOGLE APPS SCRIPT
+    // 6. SOLUCIONARIO PROTEGIDO CON GAS
     // ======================================================================
     function getCurrentUnitId() {
-        // Prioridad 1: atributo data-unit en el contenedor del solucionario
         var solBox = document.querySelector('.sol-lock-box');
         if (solBox && solBox.dataset.unit) return solBox.dataset.unit;
-        // Prioridad 2: variable global definida en el HTML
         if (window.CURRENT_UNIT_ID) return window.CURRENT_UNIT_ID;
         return null;
     }
@@ -162,7 +261,7 @@
                 contentDiv.style.display = 'block';
                 if (lockIcon) lockIcon.className = 'fa-solid fa-user-check';
 
-                // Renderizar fórmulas MathJax si están disponibles
+                // Renderizar fórmulas MathJax si está disponible
                 if (window.MathJax && window.MathJax.typesetPromise) {
                     window.MathJax.typesetPromise([contentDiv]);
                 }
@@ -195,7 +294,7 @@
     window.verifySolPin = verifySolPin;
 
     // ======================================================================
-    // 4. AUTO-INICIALIZACIÓN
+    // 7. AUTO-INICIALIZACIÓN
     // ======================================================================
     document.addEventListener('DOMContentLoaded', function () {
         // Enter en el input del PIN
@@ -206,5 +305,8 @@
             });
         }
     });
+
+    // Iniciar carga de recursos externos
+    loadAllResources();
 
 })();
