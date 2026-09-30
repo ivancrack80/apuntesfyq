@@ -1,0 +1,48 @@
+      <h4 style="color: #1e3a8a; margin: 0 0 15px 0; font-size: 1.1rem;">
+        <i class="fa-solid fa-key"></i> Solucionario Oficial: Análisis Dimensional
+      </h4>
+      <div style="display: flex; flex-direction: column; gap: 15px; color: #334155;">
+        
+        <div style="background-color: #f0fdf4; border-left: 4px solid #16a34a; padding: 15px; border-radius: 6px;">
+          <strong>Solución 1 (MRUA):</strong> Analizamos cada término por separado:
+          <ul style="margin-top: 5px; margin-bottom: 5px; padding-left: 20px;">
+            <li>\([x] = \text{L}\)</li>
+            <li>\([x_0] = \text{L}\)</li>
+            <li>\([v_0 \cdot t] = (\text{L} \cdot \text{T}^{-1}) \cdot \text{T} = \text{L}\)</li>
+            <li>\([\frac{1}{2} \cdot a \cdot t^2] = 1 \cdot (\text{L} \cdot \text{T}^{-2}) \cdot \text{T}^2 = \text{L}\)</li>
+          </ul>
+          Como \(\text{L} = \text{L} = \text{L} = \text{L}\), la ecuación <strong>es homogénea y dimensionalmente correcta</strong>.
+        </div>
+
+        <div style="background-color: #f0fdf4; border-left: 4px solid #16a34a; padding: 15px; border-radius: 6px;">
+          <strong>Solución 2 (Ley de Stokes):</strong> Despejamos \(k \implies k = \frac{F}{v}\). 
+          <br>Sustituyendo dimensiones: \([k] = \frac{\text{M} \cdot \text{L} \cdot \text{T}^{-2}}{\text{L} \cdot \text{T}^{-1}} = \text{M} \cdot \text{T}^{-1}\). 
+          <br>Su unidad en el SI es el <strong>\(\text{kg} \cdot \text{s}^{-1}\)</strong> (o kg/s).
+        </div>
+
+        <div style="background-color: #f0fdf4; border-left: 4px solid #16a34a; padding: 15px; border-radius: 6px;">
+          <strong>Solución 3 (Coeficiente de arrastre):</strong> Despejamos \(C_d = \frac{F}{\frac{1}{2} \cdot \rho \cdot A \cdot v^2}\).
+          <br>Sustituimos dimensiones:
+          <div class="gs-latex-container">$$[C_d] = \frac{\text{M} \cdot \text{L} \cdot \text{T}^{-2}}{1 \cdot (\text{M} \cdot \text{L}^{-3}) \cdot \text{L}^2 \cdot (\text{L} \cdot \text{T}^{-1})^2} = \frac{\text{M} \cdot \text{L} \cdot \text{T}^{-2}}{\text{M} \cdot \text{L} \cdot \text{T}^{-2}} = 1$$</div>
+          Queda demostrado matemáticamente que es <strong>adimensional</strong>.
+        </div>
+
+        <div style="background-color: #f0fdf4; border-left: 4px solid #16a34a; padding: 15px; border-radius: 6px;">
+          <strong>Solución 4 (Conductividad térmica):</strong> La dimensión de la potencia térmica es \([\frac{Q}{t}] = \frac{\text{M} \cdot \text{L}^2 \cdot \text{T}^{-2}}{\text{T}} = \text{M} \cdot \text{L}^2 \cdot \text{T}^{-3}\).
+          <br>Despejamos \(K \implies K = \frac{(Q/t) \cdot x}{A \cdot \Delta T}\). Sustituimos dimensiones:
+          <div class="gs-latex-container">$$[K] = \frac{(\text{M} \cdot \text{L}^2 \cdot \text{T}^{-3}) \cdot \text{L}}{\text{L}^2 \cdot \Theta} = \text{M} \cdot \text{L} \cdot \text{T}^{-3} \cdot \Theta^{-1}$$</div>
+        </div>
+
+        <div style="background-color: #f0fdf4; border-left: 4px solid #16a34a; padding: 15px; border-radius: 6px;">
+          <strong>Solución 5 (Velocidad del sonido):</strong> Ecuación dimensional planteada:
+          <div class="gs-latex-container">$$\text{L} \cdot \text{T}^{-1} = (\text{M} \cdot \text{L}^{-1} \cdot \text{T}^{-2})^x \cdot (\text{M} \cdot \text{L}^{-3})^y \implies \text{M}^0 \cdot \text{L}^1 \cdot \text{T}^{-1} = \text{M}^{x+y} \cdot \text{L}^{-x-3y} \cdot \text{T}^{-2x}$$</div>
+          Igualamos exponentes por componentes:
+          <ul style="margin-top: 5px; padding-left: 20px;">
+            <li>Tiempo (\(\text{T}\)): \(-1 = -2x \implies x = \frac{1}{2}\)</li>
+            <li>Masa (\(\text{M}\)): \(0 = x + y \implies y = -x = -\frac{1}{2}\)</li>
+            <li>Verificación en Longitud (\(\text{L}\)): \(1 = -x - 3y = -\frac{1}{2} + \frac{3}{2} = 1\) (consistente).</li>
+          </ul>
+          Los exponentes son <strong>\(x = \frac{1}{2}\)</strong> e <strong>\(y = -\frac{1}{2}\)</strong> (ley física: \(v = k \sqrt{\frac{P}{d}}\)).
+        </div>
+
+      </div>
