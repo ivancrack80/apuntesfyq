@@ -13,6 +13,10 @@
     --gs-primary-light: #2563eb;
     --gs-primary-bg: #eff6ff;
 
+   /* Color de acento (usado en portada y páginas especiales) */
+    --gs-accent: #0d9488;
+    --gs-accent-light: #ccfbf1;
+
     /* Colores semánticos */
     --gs-green: #16a34a;
     --gs-green-bg: #f0fdf4;
@@ -762,6 +766,9 @@ code {
     .gs-pictograma-img { width: 80px; height: 80px; }
     .gs-material-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .gs-material-img { height: 100px; }
+    .gs-hero-title { font-size: 2.3rem; }
+    .gs-footer-banner { flex-direction: column; text-align: center; }
+    .gs-btn-moodle { width: 100%; justify-content: center; }
 }
 
 /* --------------------------------------------------------------------------
@@ -848,4 +855,269 @@ code {
     .gs-pictograma-img { width: 90px !important; height: 90px !important; }
     .gs-material-grid { grid-template-columns: repeat(3, 1fr) !important; }
     .gs-material-img { height: 110px !important; }
+    .gs-hero, .gs-quote-box, .gs-pillar-card, .gs-course-card, .gs-footer-banner {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .gs-quote-box {
+        background: #f8fafc !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+    }
+    .gs-quote-text, .gs-quote-author, .gs-quote-icon {
+        color: #000000 !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   17. PORTADA Y PÁGINAS ESPECIALES
+   (hero, cita, pilares, tarjetas de curso, banner footer)
+   -------------------------------------------------------------------------- */
+
+/* HERO / BIENVENIDA */
+.gs-hero {
+    text-align: center;
+    padding: 30px 20px 40px 20px;
+    border-bottom: 2px dashed var(--gs-border);
+    margin-bottom: 35px;
+}
+.gs-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gs-accent);
+    font-weight: 700;
+    background: var(--gs-accent-light);
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+.gs-hero-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.5rem;
+    color: var(--gs-primary);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 15px 0;
+}
+.gs-hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--gs-text-muted);
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* BANNER DE CITA */
+.gs-quote-box {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: #ffffff;
+    border-radius: 14px;
+    padding: 35px;
+    margin-bottom: 45px;
+    position: relative;
+    box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.25);
+    text-align: center;
+}
+.gs-quote-icon {
+    font-size: 2.2rem;
+    color: var(--gs-accent);
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+.gs-quote-text {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.45rem;
+    font-style: italic;
+    line-height: 1.5;
+    margin: 0 0 15px 0;
+    color: #f8fafc;
+}
+.gs-quote-author {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #93c5fd;
+}
+
+/* TÍTULO DE SECCIÓN DE PORTADA */
+.gs-hero-section-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.9rem;
+    color: var(--gs-primary);
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    border: none;
+    padding: 0;
+}
+.gs-hero-section-title i {
+    color: var(--gs-accent);
+    font-size: 1.4rem;
+}
+
+/* TARJETAS DE PILARES (grid 4 adaptable) */
+.gs-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+    margin-bottom: 45px;
+}
+.gs-pillar-card {
+    background: var(--gs-bg);
+    border: 1px solid var(--gs-border);
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+.gs-pillar-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gs-primary);
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.06);
+    background: #ffffff;
+}
+.gs-pillar-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gs-primary-bg);
+    color: var(--gs-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin: 0 auto 15px auto;
+    transition: all 0.25s ease;
+}
+.gs-pillar-card:hover .gs-pillar-icon {
+    background: var(--gs-primary);
+    color: #ffffff;
+}
+.gs-pillar-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gs-text-strong);
+    margin-bottom: 8px;
+}
+.gs-pillar-desc {
+    font-size: 0.88rem;
+    color: var(--gs-text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* TARJETAS DE CURSOS / NIVELES */
+.gs-courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-bottom: 45px;
+}
+.gs-course-card {
+    border: 1px solid var(--gs-border);
+    border-radius: 12px;
+    padding: 24px;
+    background: #ffffff;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.gs-course-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gs-accent);
+}
+.gs-course-card:hover {
+    border-color: var(--gs-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -5px rgba(13, 148, 136, 0.12);
+}
+.gs-course-header { margin-bottom: 12px; }
+.gs-course-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gs-accent);
+    margin-bottom: 4px;
+    display: block;
+}
+.gs-course-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gs-primary);
+    margin: 0 0 8px 0;
+}
+.gs-course-desc {
+    font-size: 0.9rem;
+    color: var(--gs-text-muted);
+    margin-bottom: 18px;
+}
+.gs-course-link {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--gs-primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+}
+.gs-course-card:hover .gs-course-link {
+    gap: 10px;
+    color: var(--gs-accent);
+}
+
+/* BANNER FOOTER (Moodle, avisos) */
+.gs-footer-banner {
+    background: var(--gs-bg);
+    border: 1px solid var(--gs-border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.gs-footer-info h4 {
+    margin: 0 0 4px 0;
+    color: var(--gs-text-strong);
+    font-size: 1.05rem;
+}
+.gs-footer-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--gs-text-muted);
+}
+.gs-btn-moodle {
+    background: var(--gs-primary);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+.gs-btn-moodle:hover {
+    background: #1e40af;
 }
