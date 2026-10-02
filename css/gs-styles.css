@@ -157,6 +157,7 @@ body.dyslexia-mode {
     letter-spacing: 0.05em !important;
     word-spacing: 0.1em !important;
     line-height: 2.0 !important;
+    background-color: #fefaf0;
 }
 body.dyslexia-mode .gs-title,
 body.dyslexia-mode .gs-section-title,
@@ -1048,6 +1049,57 @@ code {
 }
 .gs-btn-moodle:hover {
     background: #1e40af;
+}
+
+/* --------------------------------------------------------------------------
+   APARTADOS TEMÁTICOS
+   -------------------------------------------------------------------------- */
+.gs-apartado-box {
+    border-radius: var(--gs-radius);
+    padding: 22px;
+    margin-bottom: 25px;
+}
+.gs-apartado-box h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.gs-apartado-box p:last-child { margin-bottom: 0; }
+.gs-apartado-box ul:last-child { margin-bottom: 0; }
+
+.gs-apartado-box--gris {
+    background: var(--gs-bg);
+    border: 1px solid #cbd5e1;
+}
+.gs-apartado-box--gris h3 { color: var(--gs-accent); }
+
+.gs-apartado-box--azul {
+    background: var(--gs-primary-bg);
+    border: 1px solid #bfdbfe;
+}
+.gs-apartado-box--azul h3 { color: var(--gs-primary); }
+
+.gs-apartado-box--verde {
+    background: var(--gs-green-bg);
+    border: 1px solid var(--gs-green-border);
+}
+.gs-apartado-box--verde h3 { color: var(--gs-green-text); }
+
+/* --------------------------------------------------------------------------
+   ETIQUETA DE PENALIZACIÓN
+   -------------------------------------------------------------------------- */
+.badge-penalty {
+    background-color: #fee2e2;
+    color: #991b1b;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 /* --------------------------------------------------------------------------
