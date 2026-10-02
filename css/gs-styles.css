@@ -13,7 +13,7 @@
     --gs-primary-light: #2563eb;
     --gs-primary-bg: #eff6ff;
 
-   /* Color de acento (usado en portada y páginas especiales) */
+    /* Color de acento (usado en portada y páginas especiales) */
     --gs-accent: #0d9488;
     --gs-accent-light: #ccfbf1;
 
@@ -159,7 +159,7 @@ body.dyslexia-mode {
     line-height: 2.0 !important;
 }
 body.dyslexia-mode .gs-title,
-body.dyslexia-mode h2,
+body.dyslexia-mode .gs-section-title,
 body.dyslexia-mode h3 {
     font-family: 'Atkinson Hyperlegible', sans-serif !important;
     font-weight: 700;
@@ -212,6 +212,29 @@ body.dyslexia-mode .gs-title {
     font-weight: 500;
 }
 
+/* Título de sección unificado (borde lateral teal) */
+.gs-section-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.8rem;
+    color: var(--gs-primary);
+    margin: 40px 0 20px 0;
+    border-left: 4px solid var(--gs-accent);
+    padding-left: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+body.dyslexia-mode .gs-section-title {
+    font-family: 'Atkinson Hyperlegible', sans-serif !important;
+    font-weight: 700;
+}
+.gs-section-title i {
+    color: var(--gs-accent);
+    font-size: 1.4rem;
+}
 
 h3 {
     font-size: 1.15rem;
@@ -227,6 +250,14 @@ p {
     margin-bottom: 15px;
 }
 strong { color: var(--gs-text-strong); }
+
+/* Párrafo introductorio destacado */
+.gs-intro-lead {
+    font-size: 1.15rem;
+    color: var(--gs-text-strong);
+    font-weight: 500;
+    line-height: 1.7;
+}
 
 /* --------------------------------------------------------------------------
    6. BLOQUES PEDAGÓGICOS
@@ -546,7 +577,57 @@ strong { color: var(--gs-text-strong); }
 }
 
 /* --------------------------------------------------------------------------
-   10. TABLAS Y LISTAS
+   10. BLOQUES CURRICULARES (listado vertical)
+   -------------------------------------------------------------------------- */
+.gs-bloques-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+.gs-bloque-card {
+    background: var(--gs-bg);
+    border: 1px solid var(--gs-border);
+    border-radius: 8px;
+    padding: 20px 25px;
+    transition: all 0.2s ease-in-out;
+}
+.gs-bloque-card:hover {
+    border-color: var(--gs-primary);
+    background: var(--gs-primary-bg);
+    transform: translateY(-2px);
+}
+.gs-bloque-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.gs-bloque-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--gs-primary);
+}
+.gs-bloque-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: #cbd5e1;
+    color: #475569;
+    padding: 3px 10px;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+.gs-bloque-card:hover .gs-bloque-badge {
+    background: var(--gs-primary);
+    color: #ffffff;
+}
+.gs-bloque-content {
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+/* --------------------------------------------------------------------------
+   11. TABLAS Y LISTAS
    -------------------------------------------------------------------------- */
 ul, ol { padding-left: 20px; margin-top: 5px; margin-bottom: 15px; }
 li { margin-bottom: 8px; text-align: justify; }
@@ -599,7 +680,7 @@ li { margin-bottom: 8px; text-align: justify; }
 .gs-actividades li { margin-bottom: 20px; text-align: justify; }
 
 /* --------------------------------------------------------------------------
-   11. FLOWCHART (del método científico)
+   12. FLOWCHART (del método científico)
    -------------------------------------------------------------------------- */
 .flowchart {
     display: flex;
@@ -689,7 +770,7 @@ li { margin-bottom: 8px; text-align: justify; }
 }
 
 /* --------------------------------------------------------------------------
-   12. SOLUCIONARIO PROTEGIDO
+   13. SOLUCIONARIO PROTEGIDO
    -------------------------------------------------------------------------- */
 .sol-lock-box {
     border-radius: var(--gs-radius);
@@ -718,7 +799,7 @@ li { margin-bottom: 8px; text-align: justify; }
 }
 
 /* --------------------------------------------------------------------------
-   13. APPLETS JSXGRAPH
+   14. APPLETS JSXGRAPH
    -------------------------------------------------------------------------- */
 .jxgbox {
     width: 100%;
@@ -729,7 +810,7 @@ li { margin-bottom: 8px; text-align: justify; }
 }
 
 /* --------------------------------------------------------------------------
-   14. CÓDIGO
+   15. CÓDIGO
    -------------------------------------------------------------------------- */
 code {
     font-family: 'Courier New', Courier, monospace;
@@ -742,125 +823,8 @@ code {
 }
 
 /* --------------------------------------------------------------------------
-   15. RESPONSIVE (móviles)
+   16. PORTADA Y PÁGINAS ESPECIALES
    -------------------------------------------------------------------------- */
-@media (max-width: 640px) {
-    .gs-container { padding: 18px 12px; }
-    .flow-branches, .sub-branches { flex-direction: column; width: 100%; }
-    .flow-step, .flow-decision { width: 100%; }
-    .gs-pictogramas-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .gs-pictograma-img { width: 80px; height: 80px; }
-    .gs-material-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .gs-material-img { height: 100px; }
-    .gs-hero-title { font-size: 2.3rem; }
-    .gs-footer-banner { flex-direction: column; text-align: center; }
-    .gs-btn-moodle { width: 100%; justify-content: center; }
-}
-
-/* --------------------------------------------------------------------------
-   16. IMPRESIÓN / PDF
-   ————————————————————————————————————————————————————————————————————————
-   FIX: @page con tamaño y márgenes fijos. Sin esto, el navegador escala
-   proporcionalmente y los 14-16pt se convierten en 9-10pt.
-   -------------------------------------------------------------------------- */
-@page {
-    size: A4;
-    margin: 1.5cm;
-}
-
-@media print {
-    .accessibility-bar,
-    .sol-lock-box,
-    .no-print {
-        display: none !important;
-    }
-
-    body {
-        background-color: #ffffff !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-
-    .gs-container {
-        max-width: 100% !important;
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    table, tbody, tr, td, th,
-    .gs-box, .gs-norma-box, .gs-material-grupo, .gs-material-card,
-    .gs-pictograma-card, .gs-dialogo, .comparative-table,
-    .flowchart, li, blockquote {
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-
-    thead { display: table-header-group !important; }
-
-    h1, h2, h3 {
-        page-break-after: avoid !important;
-        break-after: avoid !important;
-    }
-
-    .mjx-chtml, .mjx-math, svg {
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-
-    body, p, td, th, li {
-        font-size: 14pt !important;
-        line-height: 1.6 !important;
-        color: #000000 !important;
-        font-family: 'Atkinson Hyperlegible', 'Inter', sans-serif !important;
-    }
-
-    .gs-title { font-size: 20pt !important; color: #000000 !important; }
-    .gs-subtitle { font-size: 16pt !important; color: #333333 !important; }
-    .gs-section-title { font-size: 18pt !important; color: #000000 !important; border-left: 4px solid #000000 !important; }
-    h3 { font-size: 15pt !important; color: #000000 !important; }
-
-    th, td {
-        border: 2px solid #000000 !important;
-        padding: 12px 14px !important;
-    }
-    th {
-        background-color: #f1f5f9 !important;
-        color: #000000 !important;
-    }
-
-    .gs-pictogramas-grid { grid-template-columns: repeat(3, 1fr) !important; }
-    .gs-pictograma-img { width: 90px !important; height: 90px !important; }
-    .gs-material-grid { grid-template-columns: repeat(3, 1fr) !important; }
-    .gs-material-img { height: 110px !important; }
-    .gs-hero, .gs-quote-box, .gs-pillar-card, .gs-course-card, .gs-footer-banner {
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-    .gs-quote-box {
-        background: #f8fafc !important;
-        color: #000000 !important;
-        box-shadow: none !important;
-    }
-    .gs-quote-text, .gs-quote-author, .gs-quote-icon {
-        color: #000000 !important;
-    }
-}
-
-/* --------------------------------------------------------------------------
-   17. PORTADA Y PÁGINAS ESPECIALES
-   (hero, cita, pilares, tarjetas de curso, banner footer)
-   -------------------------------------------------------------------------- */
-
-/* HERO / BIENVENIDA */
 .gs-hero {
     text-align: center;
     padding: 30px 20px 40px 20px;
@@ -897,7 +861,6 @@ code {
     line-height: 1.6;
 }
 
-/* BANNER DE CITA */
 .gs-quote-box {
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     color: #ffffff;
@@ -930,26 +893,6 @@ code {
     color: #93c5fd;
 }
 
-.gs-section-title {
-    font-family: 'Crimson Pro', serif;
-    font-size: 1.8rem;
-    color: var(--gs-primary);
-    margin: 40px 0 20px 0;
-    border-left: 4px solid var(--gs-accent);
-    padding-left: 15px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.gs-section-title i {
-    color: var(--gs-accent);
-    font-size: 1.4rem;
-}
-/* TARJETAS DE PILARES (grid 4 adaptable) */
 .gs-pillars-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -1000,63 +943,6 @@ code {
     line-height: 1.5;
 }
 
-/* Párrafo introductorio destacado */
-.gs-intro-lead {
-    font-size: 1.15rem;
-    color: var(--gs-text-strong);
-    font-weight: 500;
-    line-height: 1.7;
-}
-
-/* Grid de bloques (listado vertical) */
-.gs-bloques-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 25px;
-}
-.gs-bloque-card {
-    background: var(--gs-bg);
-    border: 1px solid var(--gs-border);
-    border-radius: 8px;
-    padding: 20px 25px;
-    transition: all 0.2s ease-in-out;
-}
-.gs-bloque-card:hover {
-    border-color: var(--gs-primary);
-    background: var(--gs-primary-bg);
-    transform: translateY(-2px);
-}
-.gs-bloque-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-.gs-bloque-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--gs-primary);
-}
-.gs-bloque-badge {
-    font-size: 0.8rem;
-    font-weight: 700;
-    background: #cbd5e1;
-    color: #475569;
-    padding: 3px 10px;
-    border-radius: 20px;
-    transition: all 0.2s;
-}
-.gs-bloque-card:hover .gs-bloque-badge {
-    background: var(--gs-primary);
-    color: #ffffff;
-}
-.gs-bloque-content {
-    font-size: 0.95rem;
-    color: #475569;
-}
-
-/* TARJETAS DE CURSOS / NIVELES */
 .gs-courses-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1126,7 +1012,6 @@ code {
     color: var(--gs-accent);
 }
 
-/* BANNER FOOTER (Moodle, avisos) */
 .gs-footer-banner {
     background: var(--gs-bg);
     border: 1px solid var(--gs-border);
@@ -1163,4 +1048,115 @@ code {
 }
 .gs-btn-moodle:hover {
     background: #1e40af;
+}
+
+/* --------------------------------------------------------------------------
+   17. RESPONSIVE (móviles)
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+    .gs-container { padding: 18px 12px; }
+    .flow-branches, .sub-branches { flex-direction: column; width: 100%; }
+    .flow-step, .flow-decision { width: 100%; }
+    .gs-pictogramas-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .gs-pictograma-img { width: 80px; height: 80px; }
+    .gs-material-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .gs-material-img { height: 100px; }
+    .gs-hero-title { font-size: 2.3rem; }
+    .gs-footer-banner { flex-direction: column; text-align: center; }
+    .gs-btn-moodle { width: 100%; justify-content: center; }
+}
+
+/* --------------------------------------------------------------------------
+   18. IMPRESIÓN / PDF
+   -------------------------------------------------------------------------- */
+@page {
+    size: A4;
+    margin: 1.5cm;
+}
+
+@media print {
+    .accessibility-bar,
+    .sol-lock-box,
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background-color: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .gs-container {
+        max-width: 100% !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    table, tbody, tr, td, th,
+    .gs-box, .gs-norma-box, .gs-material-grupo, .gs-material-card,
+    .gs-pictograma-card, .gs-dialogo, .comparative-table,
+    .gs-bloque-card, .flowchart, li, blockquote {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    thead { display: table-header-group !important; }
+
+    h1, h2, h3, .gs-section-title {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+    }
+
+    .mjx-chtml, .mjx-math, svg {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    body, p, td, th, li {
+        font-size: 14pt !important;
+        line-height: 1.6 !important;
+        color: #000000 !important;
+        font-family: 'Atkinson Hyperlegible', 'Inter', sans-serif !important;
+    }
+
+    .gs-title { font-size: 20pt !important; color: #000000 !important; }
+    .gs-subtitle { font-size: 16pt !important; color: #333333 !important; }
+    .gs-section-title { font-size: 18pt !important; color: #000000 !important; border-left: 4px solid #000000 !important; }
+    h3 { font-size: 15pt !important; color: #000000 !important; }
+
+    th, td {
+        border: 2px solid #000000 !important;
+        padding: 12px 14px !important;
+    }
+    th {
+        background-color: #f1f5f9 !important;
+        color: #000000 !important;
+    }
+
+    .gs-pictogramas-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    .gs-pictograma-img { width: 90px !important; height: 90px !important; }
+    .gs-material-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    .gs-material-img { height: 110px !important; }
+    .gs-hero, .gs-quote-box, .gs-pillar-card, .gs-course-card, .gs-footer-banner {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+    .gs-quote-box {
+        background: #f8fafc !important;
+        color: #000000 !important;
+        box-shadow: none !important;
+    }
+    .gs-quote-text, .gs-quote-author, .gs-quote-icon {
+        color: #000000 !important;
+    }
 }
