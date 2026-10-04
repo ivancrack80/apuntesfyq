@@ -1,1 +1,219 @@
-4
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Análisis Dimensional y Homogeneidad - 4º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <h1 class="gs-title">2. Análisis Dimensional y Homogeneidad</h1>
+        <div class="gs-subtitle">Bloque Analítico • Herramientas Operativas de la Física y Química</div>
+    </header>
+
+    <!-- APARTADO 2.1 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-ruler-combined"></i> 2.1. ¿Qué es una Dimensión Física?
+    </h2>
+    <p>
+        En física, las ecuaciones no son simples operaciones matemáticas con números puros; representan relaciones reales entre propiedades medibles de la naturaleza. La <strong>dimensión</strong> expresa la identidad cualitativa abstracta de una magnitud, de forma independiente a la unidad de medida concreta elegida (por ejemplo, ya midamos en metros, kilómetros o años luz, todos representan intrínsecamente la dimensión de Longitud).
+    </p>
+    <p>
+        Para indicar formalmente la dimensión de una magnitud, encerramos su símbolo algebraico dentro de unos corchetes <code>[ ]</code>. Tal y como estudiamos detalladamente en la <strong>tabla de magnitudes del Punto 1</strong>, toda la estructura de la Mecánica se fundamenta en combinar tres dimensiones cualitativas básicas:
+    </p>
+    <ul>
+        <li><strong>Masa:</strong> Se denota dimensionalmente como \([\text{M}]\)</li>
+        <li><strong>Longitud:</strong> Se denota dimensionalmente como \([\text{L}]\)</li>
+        <li><strong>Tiempo:</strong> Se denota dimensionalmente como \([\text{T}]\)</li>
+    </ul>
+    <p>
+        Cualquier otra magnitud derivada surgirá combinando estas tres mediante multiplicaciones o divisiones algebraicas, dando lugar a sus respectivas ecuaciones dimensionales (como la velocidad, \(\text{L}\cdot\text{T}^{-1}\), o la fuerza, \(\text{M}\cdot\text{L}\cdot\text{T}^{-2}\)).
+    </p>
+
+    <!-- APARTADO 2.2 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-scale-balanced"></i> 2.2. El Principio de Homogeneidad y el Álgebra Dimensional
+    </h2>
+    <p>
+        Este principio de coherencia (desarrollado por Joseph Fourier) dicta una regla lógica de sentido común físico: <strong>en la naturaleza solo podemos comparar, sumar o restar magnitudes que posean exactamente la misma dimensión estructural</strong>. No es físicamente posible sumar una longitud con un intervalo de tiempo ("5 metros más 2 segundos" carece por completo de significado conceptual).
+    </p>
+    <blockquote>
+        <strong>Principio de Homogeneidad:</strong> Si una ecuación física de la forma \(A = B + C - D\) es correcta y describe un fenómeno real, todos sus términos independientes deben poseer la misma dimensión exacta:
+        <div style="margin: 5px 0; font-weight: bold; text-align: center;">\([A] = [B] = [C] = [D]\)</div>
+    </blockquote>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-gears"></i> Reglas Operativas Avanzadas del Álgebra Dimensional</div>
+        <p style="margin: 0 0 12px 0;">
+            Para operar correctamente en los problemas de física, aplicamos este conjunto de leyes matemáticas específicas que sustituyen a la aritmética ordinaria:
+        </p>
+        <ul style="margin-top: 10px; margin-bottom: 0;">
+            <li style="margin-bottom: 12px;">
+                <strong>1. La "no-aritmética" de la suma y la resta:</strong> Las dimensiones idénticas no se acumulan cuantitativamente ni se cancelan entre sí al sumarse o restarse.
+                <br><span style="font-family: monospace; font-size: 0.9rem; background: #dcfce7; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-top: 4px;">Regla formal: \(\text{L} + \text{L} - \text{L} = \text{L}\) &nbsp;(Metros más metros siguen dando metros como dimensión resultante).</span>
+            </li>
+            <li style="margin-bottom: 12px;">
+                <strong>2. Multiplicación y división de dimensiones:</strong> Las dimensiones se multiplican o dividen aplicando las reglas del álgebra, debido a que el producto y el cociente sí alteran la dimensión final de la magnitud.
+                <br><span style="font-family: monospace; font-size: 0.9rem; background: #dcfce7; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-top: 4px;">Regla: \([A \cdot B] = [A] \cdot [B]\) &nbsp;|&nbsp; \([\frac{A}{B}] = \frac{[A]}{[B]} = [A] \cdot [B]^{-1}\).</span>
+            </li>
+            <li style="margin-bottom: 12px;">
+                <strong>3. Adimensionalidad de números puros:</strong> Los números reales (\(2\), \(\frac{3}{4}\)), coeficientes escalares y constantes matemáticas puras (\(\pi\), \(e\)) no tienen dimensiones ni alteran físicamente los términos en los que multiplican. Actúan como el elemento neutro.
+                <br><span style="font-family: monospace; font-size: 0.9rem; background: #dcfce7; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-top: 4px;">Regla formal: \([\text{número}] = 1\).</span>
+            </li>
+            <li style="margin-bottom: 12px;">
+                <strong>4. El Teorema de los Argumentos Trascendentes (Ángulos, Trigonometría y Logaritmos):</strong> Las funciones matemáticas no lineales no pueden procesar dimensiones en sus variables de entrada ni devolverlas en su salida.
+                <ul>
+                    <li style="margin-top: 4px;">Los <strong>ángulos</strong> son relaciones geométricas puras (longitud de arco partido por radio), por lo que <strong>carecen de dimensión física</strong>.</li>
+                    <li style="margin-top: 4px;">Cualquier expresión que se encuentre dentro de una razón trigonométrica (\(\operatorname{sen}, \cos, \tan\)) o de un operador logarítmico (\(\log, \ln\)) es obligatoriamente <strong>adimensional</strong>.</li>
+                </ul>
+                <span style="font-family: monospace; font-size: 0.9rem; background: #dcfce7; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-top: 4px;">Regla formal: \([\text{ángulo}] = 1 \implies [\operatorname{sen}(\alpha)] = 1 \implies [\ln(x)] = 1\).</span>
+            </li>
+            <li style="margin-bottom: 0;">
+                <strong>5. La regla estricta de los Exponentes:</strong> En cualquier operación de potenciación de la forma \(M^n\), la base \(M\) puede albergar dimensiones físicas complejas, pero el <strong>exponente \(n\)</strong> debe ser obligatoriamente un número puro. No tiene sentido físico concebir una magnitud elevada a "segundos" o a "kilogramos".
+                <br><span style="font-family: monospace; font-size: 0.9rem; background: #dcfce7; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-top: 4px;">Regla formal: En expresiones como \(e^{k \cdot t}\) o \(10^{x}\), se cumple axiomáticamente que \([k \cdot t] = 1\) y \([x] = 1\).</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- APARTADO 2.3 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-flask-vial"></i> 2.3. Aplicaciones del Análisis Dimensional
+    </h2>
+
+    <h3>A) Verificación y detección de errores en fórmulas</h3>
+    <p>Permite analizar la viabilidad física de una ecuación de forma instantánea comprobando la consistencia dimensional de ambos miembros.</p>
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo 1: Verificación de la Energía Cinética</div>
+        <p>Un estudiante escribe por descuido que la energía cinética vale \(E_k = m \cdot v\). Comprobemos si es dimensionalmente posible:</p>
+        <ul>
+            <li>Término izquierdo (Energía): \([E_k] = \text{M} \cdot \text{L}^2 \cdot \text{T}^{-2}\)</li>
+            <li>Término derecho: \([m \cdot v] = [m] \cdot [v] = \text{M} \cdot (\text{L} \cdot \text{T}^{-1}) = \text{M} \cdot \text{L} \cdot \text{T}^{-1}\)</li>
+        </ul>
+        <div class="gs-latex-container">$$\text{M} \cdot \text{L}^2 \cdot \text{T}^{-2} \neq \text{M} \cdot \text{L} \cdot \text{T}^{-1}$$</div>
+        <p style="margin-bottom: 0;"><strong>Conclusión:</strong> Al romperse el Principio de Homogeneidad, confirmamos que la ecuación es <strong>incorrecta</strong>, avisándonos de que falta elevar la velocidad al cuadrado.</p>
+    </div>
+
+    <h3>B) Determinar las dimensiones y unidades de constantes físicas</h3>
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo 2: Despejando la Constante Gravitatoria (G)</div>
+        <p>A partir de la ecuación \(F = G \cdot \frac{m_1 \cdot m_2}{r^2}\), despejamos analíticamente la constante \(G\):</p>
+        <div class="gs-latex-container">$$G = \frac{F \cdot r^2}{m_1 \cdot m_2} \implies [G] = \frac{[F] \cdot [r]^2}{[m_1] \cdot [m_2]} = \frac{(\text{M} \cdot \text{L} \cdot \text{T}^{-2}) \cdot \text{L}^2}{\text{M} \cdot \text{M}} = \text{M}^{-1} \cdot \text{L}^3 \cdot \text{T}^{-2}$$</div>
+        <p style="margin-bottom: 0;"><strong>Resultado:</strong> Sus unidades en el SI serán correspondientemente \(\text{kg}^{-1} \cdot \text{m}^3 \cdot \text{s}^{-2}\).</p>
+    </div>
+
+    <h3>C) Deducir leyes físicas mediante exponentes incógnita</h3>
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo 3: El enigma del periodo del péndulo</div>
+        <p>Planteamos la hipótesis de que el tiempo de oscilación de un péndulo (\(T\)) depende de la masa (\(m^x\)), longitud (\(l^y\)) y gravedad (\(g^z\)), multiplicados por un número adimensional \(k\):</p>
+        <div class="gs-latex-container">$$\text{M}^0 \cdot \text{L}^0 \cdot \text{T}^1 = (\text{M})^x \cdot (\text{L})^y \cdot (\text{L} \cdot \text{T}^{-2})^z \implies \text{M}^0 \cdot \text{L}^0 \cdot \text{T}^1 = \text{M}^x \cdot \text{L}^{y+z} \cdot \text{T}^{-2z}$$</div>
+        <p>Igualando exponentes obtenemos: \(x=0\), \(z=-\frac{1}{2}\), \(y=\frac{1}{2}\). Sustituyendo deducimos la ecuación final:</p>
+        <div class="gs-latex-container">$$T = k \cdot m^0 \cdot l^{1/2} \cdot g^{-1/2} \implies T = k \sqrt{\frac{l}{g}}$$</div>
+        <p style="color: #475569; margin-bottom: 0;">Como el exponente de la masa es cero, descubrimos experimentalmente que ¡el periodo de un péndulo no se ve afectado por lo pesado que sea el cuerpo!</p>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades de Aplicación Analítica</div>
+        <p>Resuelve de forma razonada en tu cuaderno los siguientes problemas planteados:</p>
+
+        <ol class="gs-actividades">
+            <li><strong>Comprobación elemental:</strong> Comprueba si la ecuación fundamental del movimiento rectilíneo uniformemente acelerado es homogénea:
+                <div class="gs-latex-container">$$x = x_0 + v_0 \cdot t + \frac{1}{2} \cdot a \cdot t^2$$</div>
+            </li>
+            <li><strong>Rozamiento en fluidos (Líquidos):</strong> Una esfera que cae en un líquido viscoso experimenta una fuerza dada por la ley de Stokes: \(F = k \cdot v\). Determina las dimensiones y la unidad SI de la constante \(k\).</li>
+            <li><strong>Aerodinámica (Gases):</strong> La resistencia del aire en alta competición se rige por: \(F = \frac{1}{2} \cdot \rho \cdot C_d \cdot A \cdot v^2\). Demuestra razonadamente que el coeficiente de arrastre \(C_d\) es una magnitud <strong>adimensional</strong> (dimensión igual a 1).</li>
+            <li><strong>Ecuaciones termofísicas analíticas:</strong> La ley de Fourier establece que: \(\frac{Q}{t} = K \cdot A \cdot \frac{\Delta T}{x}\). Sabiendo que \(\frac{Q}{t}\) es energía por unidad de tiempo y \(\Delta T\) es la magnitud Temperatura (dimensión \(\Theta\)), halla las dimensiones exactas de la conductividad térmica (\(K\)).</li>
+            <li><strong>Cálculo avanzado de exponentes:</strong> La velocidad de una onda sonora en el aire se modela según: \(v = k \cdot P^x \cdot d^y\), donde \(P\) es la presión y \(d\) es la densidad. Calcula los exponentes \(x\) e \(y\) mediante análisis dimensional.</li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="4eso_ud1_2">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.2rem; color: var(--gs-primary);">Solucionario Oficial Avanzado</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 20px;">
+            Este bloque contiene las respuestas a los problemas planteados paso a paso. Introduce el código de 6 dígitos.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="number" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Desbloquear
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 8px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+    <!-- PROFUNDIZACIÓN -->
+    <div class="gs-profundiza">
+        <div class="gs-profundiza-title">
+            <i class="fa-solid fa-flask"></i> Profundización: Números Adimensionales en Ingeniería
+        </div>
+        <p>
+            En el análisis dimensional existe un campo fascinante: los <strong>números adimensionales</strong> (magnitudes cuya ecuación dimensional es exactamente \(1\)). En ingeniería, estas relaciones matemáticas permiten estudiar fenómenos complejos (como el vuelo de aeronaves o el flujo de corrientes) sin depender de las escalas físicas del objeto real. Dos de los ejemplos más célebres son:
+        </p>
+
+        <div class="gs-ficha">
+            <div class="gs-ficha-texto">
+                <p style="margin: 0;">
+                    <strong>• El Número de Mach (\(M\)):</strong> Es la relación exacta entre la velocidad de un objeto (\(v\)) y la velocidad del sonido (\(c\)) en ese mismo medio: \(M = \frac{v}{c}\). Como dividimos dos velocidades, \([M] = \frac{\text{L}\cdot\text{T}^{-1}}{\text{L}\cdot\text{T}^{-1}} = 1\). Cuando un avión de combate vuela a <strong>Mach 1</strong>, su velocidad iguala la del sonido, comprimiendo el aire a su alrededor de tal forma que genera una onda de choque visual y un estruendo sónico masivo.
+                </p>
+            </div>
+            <div class="gs-ficha-imagen">
+                <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/images/supersonic-jets-break-sound-barrier.jpg" alt="Avión supersónico rompiendo la barrera del sonido">
+                <div class="gs-ficha-pie">
+                    Caza supersónico a Mach 1. Fuente: <a href="https://www.publicdomainpictures.net/" target="_blank">PublicDomainPictures</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="gs-ficha">
+            <div class="gs-ficha-texto">
+                <p style="margin: 0;">
+                    <strong>• El Número de Reynolds (\(Re\)):</strong> Utilizado en la mecánica de fluidos para predecir si el flujo de un líquido o gas dentro de una tubería o alrededor del ala de un avión será <em>laminar</em> (ordenado y suave) o <em>turbulento</em> (caótico). Se calcula relacionando las fuerzas de inercia y las fuerzas viscosas, resultando analíticamente en otra magnitud pura sin unidades.
+                </p>
+            </div>
+            <div class="gs-ficha-imagen">
+                <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/images/Flujolaminaryturbulento.png" alt="Esquema de flujo laminar y turbulento">
+                <div class="gs-ficha-pie">
+                    Regímenes de flujo. Atribución: <a href="https://commons.wikimedia.org/wiki/File:Flujolaminaryturbulento.png" target="_blank">Lucho w2ed</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank">CC BY-SA 3.0</a>)
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>2
