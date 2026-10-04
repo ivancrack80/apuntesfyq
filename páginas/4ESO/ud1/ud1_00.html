@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 1 - La Actividad Científica</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Unidad 1 • Bloque Analítico</div>
+        <h1 class="gs-title">La Actividad Científica y sus Herramientas Matemáticas</h1>
+        <div class="gs-subtitle">Análisis dimensional, iniciación al cálculo vectorial y a la trigonometría e interpretación de funciones aplicadas a la ciencia</div>
+    </header>
+
+    <!-- GANCHO COTIDIANO -->
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title">
+            <i class="fa-solid fa-gamepad"></i> ¿Cómo "piensa" el motor de un videojuego?
+        </div>
+        <p style="margin: 0;">
+            Cuando juegas a cualquier simulador de carreras o controlas el balanceo de un personaje por los rascacielos de una ciudad virtual, la consola no está haciendo magia: está resolviendo ecuaciones matemáticas en tiempo real. Para que un coche derrape de forma realista, el motor gráfico necesita calcular un <strong>vector fuerza</strong> con una dirección, sentido y módulo exactos. Si el personaje salta en diagonal, necesita usar la <strong>trigonometría</strong> para descomponer su velocidad en los ejes X e Y, y si los desarrolladores cometen un error y mezclan ecuaciones cuyas <strong>dimensiones</strong> no cuadran, el juego sufrirá un <em>glitch</em> y el coche atravesará el suelo flotando en el vacío.
+            <br><br>
+            En este tema vas a adquirir los superpoderes matemáticos que usan los ingenieros y científicos. Dejamos atrás la ciencia descriptiva de cursos anteriores para adentrarnos en las tripas del cálculo científico: la herramienta definitiva para modelar la realidad.
+        </p>
+    </div>
+
+    <!-- EXPLICACIÓN RELEVANTE -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-toolbox"></i> El arsenal matemático del científico
+    </h2>
+    <p>
+        Hacer ciencia en 4º de ESO requiere rigor. Ya no nos basta con saber que la gravedad "atrae" o que la velocidad es "rápida". Necesitamos predecir con exactitud milimétrica. Para ello, esta unidad se convertirá en tu caja de herramientas analítica: aprenderás a verificar si una ecuación física es matemáticamente posible antes de operar, a dominar las magnitudes espaciales que tienen dirección y sentido, y a interrogar a una gráfica para que te confiese la ley física oculta en sus datos.
+    </p>
+
+    <!-- RUTA DEL BLOQUE -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-route"></i> Ruta del Bloque Analítico: ¿Qué vamos a dominar?
+    </h2>
+
+    <ul class="gs-index-list">
+        <li class="gs-index-item">
+            <span class="gs-index-num">1</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Magnitudes, Unidades y Estructura Métrica</span>
+                <span class="gs-index-desc">Recordaremos el uso del Sistema Internacional (SI) trabajando de forma avanzada con múltiplos y submúltiplos y cambios de unidades. Aprenderemos a manejar con soltura las potencias de base 10 para expresar desde las escalas microscópicas del átomo hasta las distancias astronómicas del universo.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">2</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Análisis Dimensional y Homogeneidad</span>
+                <span class="gs-index-desc">Aprenderemos a buscar las dimensiones fundamentales de longitud <code>[L]</code>, masa <code>[M]</code> y tiempo <code>[T]</code> en cualquier fórmula. Utilizaremos el <em>Principio de Homogeneidad</em> para comprobar si una ecuación es correcta (¡una de las mejores herramientas para revisar tus propios exámenes!). Además, deduciremos fórmulas físicas reales mediante sistemas de ecuaciones potenciales, recordando propiedades algebraicas clave: si dos potencias tienen la misma base, sus exponentes deben ser iguales.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">3</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Fundamentos de Trigonometría Plana</span>
+                <span class="gs-index-desc">Estudiaremos el uso operativo del seno, coseno y tangente en triángulos rectángulos. Esta sección será tu herramienta indispensable para comprender y manejar con precisión las magnitudes vectoriales esenciales del curso, como la fuerza o el desplazamiento.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">4</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Álgebra Vectorial y Representación Espacial</span>
+                <span class="gs-index-desc">Aprenderemos a diferenciar una cantidad simple (escalar) de una magnitud espacial (vector) que posee módulo, dirección, sentido y punto de aplicación. Aprenderás a representar vectores tanto en coordenadas cartesianas como en polares e interpretarlos geométricamente. Finalmente, dominaremos la operativa matemática real: sumas, restas, vectores opuestos, el producto de un escalar por un vector y el potente producto escalar de dos vectores.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">5</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Modelización Gráfica y su Significado Físico</span>
+                <span class="gs-index-desc">Aprenderemos a trasladar los datos del laboratorio a funciones matemáticas reales (lineales, proporcionales, cuadráticas e inversas). Aprenderás las técnicas para calcular sus pendientes y constantes, pero lo más importante: descubrirás qué significan físicamente esos datos (por ejemplo, cómo la pendiente de una gráfica de posición frente a tiempo nos revela directamente la velocidad del objeto).</span>
+            </div>
+        </li>
+    </ul>
+
+    <!-- DEBATE -->
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title">
+            <i class="fa-solid fa-comments"></i> Desafío inicial: Preguntas para debatir en clase
+        </div>
+        <p>
+            Antes de empezar a rellenar la pizarra con vectores y sistemas de ecuaciones, piensen en estas dos situaciones durante un minuto. Las comentaremos brevemente en clase:
+        </p>
+        <ol>
+            <li><strong>El dilema del GPS:</strong> Si le dices a un amigo que estás exactamente a 5 kilómetros de su casa, ¿podrá encontrarte solo con ese dato? ¿Qué le falta a esa información para que sea útil en el espacio real? ¿Es la posición de un objeto un escalar o un vector?</li>
+            <li><strong>Sumas imposibles:</strong> Si viajas en coche a 80 km/h y subes la temperatura del aire acondicionado 4 ºC, ¿puedes sumar ambas cantidades para decir que el coche tiene "84 unidades de algo"? ¿Por qué las leyes del universo prohíben estrictamente mezclar dimensiones diferentes en una misma ecuación?</li>
+        </ol>
+    </div>
+
+</div>
+
+</body>
+</html>
