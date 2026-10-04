@@ -306,6 +306,29 @@
         }
     });
 
+    
+    // ======================================================================
+    // 8. HELPERS GLOBALES PARA APPLETS JSXGRAPH
+    // ======================================================================
+    window.GS = {
+        setPanel: function (id, valor) {
+            var el = document.getElementById(id);
+            if (el) el.textContent = valor;
+        },
+        num: function (v, dec) {
+            return v.toFixed(dec === undefined ? 2 : dec);
+        },
+        punto: function (x, y, dec) {
+            var d = dec === undefined ? 2 : dec;
+            return '(' + x.toFixed(d) + ', ' + y.toFixed(d) + ')';
+        },
+        vector: function (x, y, dec) {
+            var d = dec === undefined ? 2 : dec;
+            return x.toFixed(d) + 'i ' + (y >= 0 ? '+ ' : '- ') + Math.abs(y).toFixed(d) + 'j';
+        }
+    };
+
+
     // Iniciar carga de recursos externos
     loadAllResources();
 
