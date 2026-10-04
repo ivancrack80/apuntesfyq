@@ -78,7 +78,7 @@
             skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
         },
         startup: {
-            typeset: false // No renderiza automáticamente; esperamos a gs-ready
+            typeset: true // No renderiza automáticamente; esperamos a gs-ready
         }
     };
 
