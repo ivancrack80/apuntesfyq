@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Álgebra Vectorial y Representación Espacial - 4º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <header class="gs-header">
+        <h1 class="gs-title">4. Álgebra Vectorial y Representación Espacial</h1>
+        <div class="gs-subtitle">Bloque de Física y Matemáticas • Magnitudes, Coordenadas y Operaciones Vectoriales</div>
+    </header>
+
+    <p>
+        En la descripción del universo físico, no todas las variables pueden resumirse en una simple cifra numérica. Mientras que la temperatura o la masa quedan completamente definidas por un número, la velocidad, la fuerza o la aceleración exigen conocer hacia dónde se dirigen. Para modelar estas magnitudes orientadas recurrimos al <strong>Álgebra Vectorial</strong>.
+    </p>
+
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-arrows-to-dot"></i> 4.1. Magnitudes Escalares vs Vectoriales y Elementos de un Vector
+    </h2>
+    <p>
+        Diferenciamos dos tipos fundamentales de cantidades en física:
+    </p>
+    <ul>
+        <li><strong>Magnitudes Escalares:</strong> Se caracterizan completamente mediante un valor numérico real acompañado de su unidad correspondiente (ej. \(m = 75\text{ kg}\), \(T = 20^\circ\text{C}\), \(E = 150\text{ J}\)).</li>
+        <li><strong>Magnitudes Vectoriales:</strong> Requieren indicar módulo, dirección, sentido y punto de aplicación para quedar plenamente definidas (ej. \(\vec{F} = 50\text{ N}\) hacia el Norte, \(\vec{v} = 120\text{ km/h}\) en una autopista).</li>
+    </ul>
+
+    <p>Un vector es un segmento orientado en el espacio que posee cuatro características esenciales:</p>
+    <ol>
+        <li><strong>Punto de Aplicación (\(A\)):</strong> El origen exacto o punto de origen donde actúa la magnitud física.</li>
+        <li><strong>Dirección:</strong> La recta infinita (o familia de rectas paralelas) que contiene al vector.</li>
+        <li><strong>Sentido:</strong> La orientación sobre dicha recta, señalada por la punta de la flecha (distingue un extremo de otro).</li>
+        <li><strong>Módulo (\(|\vec{v}|\) o \(v\)):</strong> La longitud del segmento orientado, proporcional a la intensidad de la magnitud.</li>
+    </ol>
+
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper">
+            <div id="box_elem" class="jxgbox"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Anatomía de un Vector</h3>
+            <p>
+                <strong>Instrucciones:</strong> Arrastra el punto de aplicación \(A\) o el extremo \(B\) para observar cómo la recta soporte define la <em>dirección</em>, la flecha señala el <em>sentido</em> y la longitud determina el <em>módulo</em>.
+            </p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Origen A:</span>
+                    <span id="elem-A" class="gs-panel-datos__valor gs-panel-datos__valor--azul">(1.00, 1.00)</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Extremo B:</span>
+                    <span id="elem-B" class="gs-panel-datos__valor gs-panel-datos__valor--azul">(4.00, 3.00)</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Módulo |v|:</span>
+                    <span id="elem-mod" class="gs-panel-datos__valor gs-panel-datos__valor--verde">3.61 u</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Ángulo:</span>
+                    <span id="elem-ang" class="gs-panel-datos__valor gs-panel-datos__valor--ambar">33.69°</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-compass-drafting"></i> 4.2. Representación de Vectores: Cartesiana, Polar y Unitaria
+    </h2>
+    <p>
+        Para operar analíticamente con vectores en el plano \(2\text{D}\), disponemos de dos formas de representación totalmente equivalentes:
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-arrows-to-dot"></i> Formas de Representación Plana</div>
+        <ul>
+            <li>
+                <strong>Coordenadas Cartesianas:</strong> Expresan el vector mediante sus proyecciones sobre los ejes perpendiculares \(X\) e \(Y\):
+                $$\vec{v} = (v_x, v_y)$$
+            </li>
+            <li>
+                <strong>Coordenadas Polares:</strong> Expresan el vector mediante su módulo \(v = |\vec{v}|\) y su ángulo de inclinación \(\theta\) respecto al eje positivo \(X\):
+                $$\vec{v} = v_{\theta} \quad \text{o bien} \quad (r, \theta)$$
+            </li>
+        </ul>
+        <p style="margin-bottom:0;">
+            <strong>Fórmulas de Conversión:</strong><br>
+            De Polares a Cartesianas: \(v_x = v \cdot \cos\theta, \quad v_y = v \cdot \sin\theta\)<br>
+            De Cartesianas a Polares: \(v = \sqrt{v_x^2 + v_y^2}, \quad \theta = \arctan\left(\frac{v_y}{v_x}\right)\)
+        </p>
+    </div>
+
+    <h3>Vectores Unitarios y Notación Canónica</h3>
+    <p>
+        Un <strong>vector unitario</strong> es aquél cuyo módulo vale exactamente \(1\). En el plano cartesiano definimos los vectores unitarios canónicos \(\vec{i}\) (dirección \(X\) positiva) y \(\vec{j}\) (dirección \(Y\) positiva):
+    </p>
+    $$\vec{i} = (1, 0), \quad \vec{j} = (0, 1)$$
+    <p>
+        Cualquier vector del plano puede escribirse como una combinación lineal de estos vectores: \(\vec{v} = 8\vec{i} + 5\vec{j}\).
+    </p>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-triangle-exclamation"></i> Rigor de Notación Científica</div>
+        <p style="margin: 0;">
+            Es <strong>absolutamente obligatorio dibujar la flecha vectorial</strong> arriba del símbolo (escribir \(\vec{v}\), \(\vec{F}\) o \(\vec{r}\)). Escribir únicamente \(v\) o \(F\) representa exclusivamente el <em>módulo escalar</em> (un número positivo), lo cual constituye un error conceptual grave si se iguala a un par ordenado de componentes.
+        </p>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo Resuelto: Conversión entre Representaciones</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
+            <div style="flex: 1; min-width: 280px;">
+                <p>
+                    <strong>Planteamiento:</strong> Una fuerza de módulo \(|\vec{F}| = 10\text{ N}\) se aplica sobre una partícula con una inclinación de \(\theta = 120^\circ\). Expresa dicho vector en forma canónica (\(\vec{i}, \vec{j}\)) e ilústralo geométricamente.
+                </p>
+                <p><strong>Resolución paso a paso:</strong></p>
+                <ol style="margin-bottom: 0;">
+                    <li>
+                        <strong>Componente \(X\):</strong> \(F_x = F \cdot \cos(120^\circ) = 10 \cdot (-0.5) = -5\text{ N}\)
+                    </li>
+                    <li>
+                        <strong>Componente \(Y\):</strong> \(F_y = F \cdot \sin(120^\circ) = 10 \cdot (0.8660) = 8.66\text{ N}\)
+                    </li>
+                    <li>
+                        <strong>Expresión Vectorial Canónica:</strong>
+                        $$\vec{F} = -5\vec{i} + 8.66\vec{j}\text{ N}$$
+                    </li>
+                </ol>
+            </div>
+            <div class="gs-graph-wrapper" style="max-width: 260px;">
+                <div id="box_ex_conv" class="jxgbox"></div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-calculator"></i> 4.3. Operaciones Básicas de Álgebra Vectorial
+    </h2>
+    <p>
+        Las operaciones algebraicas entre vectores se realizan componente a componente en forma cartesiana, o mediante construcciones geométricas (método del paralelogramo o del extremo al origen).
+    </p>
+    <ul>
+        <li><strong>Suma de Vectores:</strong> \(\vec{a} + \vec{b} = (a_x + b_x)\vec{i} + (a_y + b_y)\vec{j}\)</li>
+        <li><strong>Vector Opuesto:</strong> \(-\vec{b} = (-b_x)\vec{i} + (-b_y)\vec{j}\) (mismo módulo y dirección, sentido contrario).</li>
+        <li><strong>Resta de Vectores:</strong> \(\vec{a} - \vec{b} = \vec{a} + (-\vec{b}) = (a_x - b_x)\vec{i} + (a_y - b_y)\vec{j}\)</li>
+        <li><strong>Producto por un Escalar (\(k \cdot \vec{a}\)):</strong> Multiplica la escala del módulo por el factor \(k\). Si \(k < 0\), invierte el sentido.</li>
+    </ul>
+
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper">
+            <div id="box_ops" class="jxgbox"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Calculadora Geométrica de Suma y Resta</h3>
+            <p>
+                <strong>Instrucciones:</strong> Arrastra las puntas de los vectores \(\vec{a}\) (azul) y \(\vec{b}\) (rojo). Observa cómo se genera el vector suma resultante \(\vec{a}+\vec{b}\) (verde) y el vector resta \(\vec{a}-\vec{b}\) (naranja).
+            </p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Vector a:</span>
+                    <span id="op-a" class="gs-panel-datos__valor gs-panel-datos__valor--azul">3.00i + 1.00j</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Vector b:</span>
+                    <span id="op-b" class="gs-panel-datos__valor gs-panel-datos__valor--rojo">1.00i + 3.00j</span>
+                </div>
+                <hr class="gs-panel-datos__separador">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Suma a+b:</span>
+                    <span id="op-sum" class="gs-panel-datos__valor gs-panel-datos__valor--verde">4.00i + 4.00j</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Resta a-b:</span>
+                    <span id="op-sub" class="gs-panel-datos__valor gs-panel-datos__valor--ambar">2.00i - 2.00j</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-circle-nodes"></i> 4.4. Producto Escalar de dos Vectores y su Significado Físico
+    </h2>
+    <p>
+        El <strong>producto escalar</strong> (o producto punto) de dos vectores \(\vec{a}\) y \(\vec{b}\) da como resultado un número real (un escalar). Se define de dos maneras equivalentes:
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-calculator"></i> Definición del Producto Escalar</div>
+        $$\vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cdot \cos(\theta)$$
+        $$\vec{a} \cdot \vec{b} = a_x \cdot b_x + a_y \cdot b_y$$
+    </div>
+
+    <h3>Significado Físico e Intuitivo: Grado de Solapamiento</h3>
+    <p>
+        Físicamente, el producto escalar mide <strong>cuánto se solapan o colaboran dos vectores en la misma dirección y sentido</strong>. Es equivalente a multiplicar el módulo de un vector por la proyección ortogonal del otro sobre él.
+    </p>
+    <ul>
+        <li>Si el ángulo es agudo (\(\theta < 90^\circ\)), \(\cos\theta > 0 \implies\) producto escalar <strong>positivo</strong> (colaboran). Ej. Un empuje a favor del movimiento realiza Trabajo positivo.</li>
+        <li>Si son perpendiculares (\(\theta = 90^\circ\)), \(\cos 90^\circ = 0 \implies\) producto escalar <strong>nulo</strong> (\(\vec{a} \cdot \vec{b} = 0\)). Ej. La fuerza normal no realiza trabajo.</li>
+        <li>Si el ángulo es obtuso (\(\theta > 90^\circ\)), \(\cos\theta < 0 \implies\) producto escalar <strong>negativo</strong> (se oponen). Ej. La fuerza de rozamiento realiza Trabajo negativo.</li>
+    </ul>
+
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper">
+            <div id="box_dot" class="jxgbox"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Visualizador del Solapamiento y Proyección</h3>
+            <p>
+                <strong>Instrucciones:</strong> Arrastra las flechas para modificar la orientación. Observa la proyección punteada de \(\vec{b}\) sobre \(\vec{a}\) y el valor del producto escalar.
+            </p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Ángulo (θ):</span>
+                    <span id="dot-angle" class="gs-panel-datos__valor gs-panel-datos__valor--azul">45.00°</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Proyección de b sobre a:</span>
+                    <span id="dot-proj" class="gs-panel-datos__valor gs-panel-datos__valor--ambar">2.12 u</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Producto Escalar:</span>
+                    <span id="dot-val" class="gs-panel-datos__valor gs-panel-datos__valor--verde">+8.49</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo Resuelto: Cálculo de Trabajo Físico (\(W = \vec{F} \cdot \vec{\Delta r}\))</div>
+        <p>
+            <strong>Planteamiento:</strong> Un cuerpo sufre un desplazamiento \(\vec{\Delta r} = 4\vec{i} + 1\vec{j}\text{ m}\) al aplicársele una fuerza constante \(\vec{F} = 3\vec{i} + 5\vec{j}\text{ N}\).
+        </p>
+        <p><strong>Resolución paso a paso:</strong></p>
+        <ol style="margin-bottom: 0;">
+            <li>
+                <strong>Cálculo analítico por componentes:</strong>
+                $$W = \vec{F} \cdot \vec{\Delta r} = (F_x \cdot \Delta x) + (F_y \cdot \Delta y) = (3 \cdot 4) + (5 \cdot 1) = 12 + 5 = 17\text{ Joules}$$
+            </li>
+            <li>
+                <strong>Determinación del ángulo entre la Fuerza y el Desplazamiento:</strong><br>
+                Módulo de \(\vec{F}\): \(|\vec{F}| = \sqrt{3^2 + 5^2} = \sqrt{34} \approx 5.83\text{ N}\)<br>
+                Módulo de \(\vec{\Delta r}\): \(|\vec{\Delta r}| = \sqrt{4^2 + 1^2} = \sqrt{17} \approx 4.12\text{ m}\)<br>
+                $$\cos(\theta) = \frac{\vec{F} \cdot \vec{\Delta r}}{|\vec{F}| \cdot |\vec{\Delta r}|} = \frac{17}{5.83 \cdot 4.12} = \frac{17}{24.02} \approx 0.7077 \implies \theta = \arccos(0.7077) \approx 44.95^\circ$$
+            </li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-nib"></i> Actividades de Aplicación Práctica</div>
+        <p>Resuelve de forma analítica los siguientes ejercicios de física en tu cuaderno:</p>
+
+        <ol class="gs-actividades">
+            <li>
+                <strong>Componentes y Formas Canónicas:</strong> Un dron vuela con una velocidad de \(15\text{ m/s}\) formando un ángulo de \(210^\circ\) respecto a la dirección Este (eje \(+X\)).
+                <ul>
+                    <li>Dibuja el vector velocidad e indica en qué cuadrante se halla.</li>
+                    <li>Expresa la velocidad en forma cartesiana y mediante vectores unitarios (\(\vec{v} = v_x\vec{i} + v_y\vec{j}\)).</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Suma de Fuerzas Resultantes (Composición):</strong> Sobre un punto material actúan dos fuerzas concurrentes: \(\vec{F}_1 = 6\vec{i} - 2\vec{j}\text{ N}\) y \(\vec{F}_2 = -2\vec{i} + 8\vec{j}\text{ N}\).
+                <ul>
+                    <li>Halla el vector fuerza resultante \(\vec{F}_R = \vec{F}_1 + \vec{F}_2\).</li>
+                    <li>Calcula el módulo \(|\vec{F}_R|\) de la fuerza total ejercida.</li>
+                    <li>Determina la dirección del vector resultante respecto al eje \(+X\).</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Trabajo y Ortogonalidad:</strong> Se aplican dos fuerzas sobre una viga. La fuerza \(\vec{A} = 4\vec{i} + k\vec{j}\text{ N}\) y la fuerza \(\vec{B} = 3\vec{i} - 2\vec{j}\text{ N}\).
+                <ul>
+                    <li>Calcula el valor de la constante \(k\) para que ambas fuerzas sean perpendiculares entre sí (\(\vec{A} \perp \vec{B}\)).</li>
+                    <li>Para dicho valor de \(k\), demuestra numéricamente que el producto escalar es cero.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="sol-lock-box" data-unit="4eso_ud1_4">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.2rem; color: var(--gs-primary);">Solucionario de Autoevaluación Protegido</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 20px;">
+            Introduce el código de 6 dígitos de tu aplicación Authenticator para desplegar la resolución oficial con esquemas gráficos.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="number" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Desbloquear
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 8px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener('gs-ready', function () {
+    // ================= APPLETS INTERACTIVOS =================
+    const bElem = JXG.JSXGraph.initBoard('box_elem', {boundingbox: [-1, 5, 5, -1], axis: true, showCopyright: false});
+    const pA = bElem.create('point', [1, 1], {name: 'P. Aplicación (A)', color: '#1e3a8a', size: 4});
+    const pB = bElem.create('point', [4, 3], {name: 'Extremo (B)', color: '#2563eb', size: 4});
+
+    bElem.create('line', [pA, pB], {strokeColor: '#cbd5e1', strokeWidth: 1.5, dash: 2});
+    bElem.create('arrow', [pA, pB], {strokeColor: '#16a34a', strokeWidth: 3.5});
+
+    function updateElem() {
+        let ax = pA.X(), ay = pA.Y();
+        let bx = pB.X(), by = pB.Y();
+        let vx = bx - ax, vy = by - ay;
+        let mod = Math.sqrt(vx*vx + vy*vy);
+        let angRad = Math.atan2(vy, vx);
+        if (angRad < 0) angRad += 2*Math.PI;
+        let angDeg = angRad * (180 / Math.PI);
+
+        GS.setPanel('elem-A', GS.punto(ax, ay));
+        GS.setPanel('elem-B', GS.punto(bx, by));
+        GS.setPanel('elem-mod', GS.num(mod, 2) + ' u');
+        GS.setPanel('elem-ang', GS.num(angDeg, 2) + '°');
+    }
+
+    pA.on('drag', updateElem);
+    pB.on('drag', updateElem);
+    bElem.on('update', updateElem);
+
+    const bExConv = JXG.JSXGraph.initBoard('box_ex_conv', {boundingbox: [-12, 12, 12, -12], axis: true, showCopyright: false, showNavigation: false});
+    const originConv = bExConv.create('point', [0, 0], {fixed: true, visible: false});
+    const pFuerza = bExConv.create('point', [-5, 8.66], {fixed: true, visible: false});
+    bExConv.create('arrow', [originConv, pFuerza], {strokeColor: '#1e3a8a', strokeWidth: 3, name: 'F = 10 N', withLabel: true, label: {position: 'top', offset: [-20, 10]}});
+    bExConv.create('segment', [originConv, [-5, 0]], {strokeColor: '#dc2626', strokeWidth: 2, strokeDash: 2, name: '-5i', withLabel: true});
+    bExConv.create('segment', [[-5, 0], pFuerza], {strokeColor: '#16a34a', strokeWidth: 2, strokeDash: 2, name: '+8.66j', withLabel: true});
+
+    const bOps = JXG.JSXGraph.initBoard('box_ops', {boundingbox: [-2, 6, 6, -2], axis: true, showCopyright: false});
+    const origOps = bOps.create('point', [0, 0], {fixed: true, visible: false});
+    const pVecA = bOps.create('point', [3, 1], {name: 'A(a_x,a_y)', color: '#1e3a8a', size: 4});
+    const pVecB = bOps.create('point', [1, 3], {name: 'B(b_x,b_y)', color: '#dc2626', size: 4});
+
+    bOps.create('arrow', [origOps, pVecA], {strokeColor: '#1e3a8a', strokeWidth: 3});
+    bOps.create('arrow', [origOps, pVecB], {strokeColor: '#dc2626', strokeWidth: 3});
+
+    const pSum = bOps.create('point', [function() { return pVecA.X() + pVecB.X(); }, function() { return pVecA.Y() + pVecB.Y(); }], {name: 'Suma', visible: false});
+    const pSub = bOps.create('point', [function() { return pVecA.X() - pVecB.X(); }, function() { return pVecA.Y() - pVecB.Y(); }], {name: 'Resta', visible: false});
+
+    bOps.create('arrow', [origOps, pSum], {strokeColor: '#16a34a', strokeWidth: 3.5});
+    bOps.create('arrow', [origOps, pSub], {strokeColor: '#b45309', strokeWidth: 2.5, strokeDash: 2});
+
+    bOps.create('segment', [pVecA, pSum], {strokeColor: '#dc2626', strokeWidth: 1, strokeDash: 2});
+    bOps.create('segment', [pVecB, pSum], {strokeColor: '#1e3a8a', strokeWidth: 1, strokeDash: 2});
+
+    function updateOps() {
+        let ax = pVecA.X(), ay = pVecA.Y();
+        let bx = pVecB.X(), by = pVecB.Y();
+
+        GS.setPanel('op-a', GS.vector(ax, ay));
+        GS.setPanel('op-b', GS.vector(bx, by));
+        GS.setPanel('op-sum', GS.vector(ax + bx, ay + by));
+        GS.setPanel('op-sub', GS.vector(ax - bx, ay - by));
+    }
+
+    pVecA.on('drag', updateOps);
+    pVecB.on('drag', updateOps);
+    bOps.on('update', updateOps);
+
+    const bDot = JXG.JSXGraph.initBoard('box_dot', {boundingbox: [-1, 5, 5, -1], axis: true, showCopyright: false});
+    const origDot = bDot.create('point', [0, 0], {fixed: true, visible: false});
+    const pDotA = bDot.create('point', [4, 0], {name: 'a', color: '#1e3a8a', size: 4});
+    const pDotB = bDot.create('point', [2.12, 2.12], {name: 'b', color: '#dc2626', size: 4});
+
+    bDot.create('arrow', [origDot, pDotA], {strokeColor: '#1e3a8a', strokeWidth: 3.5});
+    bDot.create('arrow', [origDot, pDotB], {strokeColor: '#dc2626', strokeWidth: 3.5});
+
+    const pProj = bDot.create('point', [function() {
+        let ax = pDotA.X(), ay = pDotA.Y();
+        let bx = pDotB.X(), by = pDotB.Y();
+        let modA2 = ax*ax + ay*ay;
+        if (modA2 === 0) return 0;
+        let dot = ax*bx + ay*by;
+        return (dot / modA2) * ax;
+    }, function() {
+        let ax = pDotA.X(), ay = pDotA.Y();
+        let bx = pDotB.X(), by = pDotB.Y();
+        let modA2 = ax*ax + ay*ay;
+        if (modA2 === 0) return 0;
+        let dot = ax*bx + ay*by;
+        return (dot / modA2) * ay;
+    }], {name: 'Proj', visible: false});
+
+    bDot.create('segment', [pDotB, pProj], {strokeColor: '#b45309', strokeWidth: 1.5, strokeDash: 2});
+    bDot.create('segment', [origDot, pProj], {strokeColor: '#b45309', strokeWidth: 3.5});
+
+    function updateDot() {
+        let ax = pDotA.X(), ay = pDotA.Y();
+        let bx = pDotB.X(), by = pDotB.Y();
+        let modA = Math.sqrt(ax*ax + ay*ay);
+        let modB = Math.sqrt(bx*bx + by*by);
+        let dot = ax*bx + ay*by;
+
+        let cosTheta = (modA * modB > 0) ? (dot / (modA * modB)) : 0;
+        cosTheta = Math.max(-1, Math.min(1, cosTheta));
+        let angDeg = Math.acos(cosTheta) * (180 / Math.PI);
+        let proj = (modA > 0) ? (dot / modA) : 0;
+
+        GS.setPanel('dot-angle', GS.num(angDeg, 2) + '°');
+        GS.setPanel('dot-proj', GS.num(proj, 2) + ' u');
+        GS.setPanel('dot-val', (dot >= 0 ? '+' : '') + GS.num(dot, 2));
+    }
+
+    pDotA.on('drag', updateDot);
+    pDotB.on('drag', updateDot);
+    bDot.on('update', updateDot);
+
+    updateElem();
+    updateOps();
+    updateDot();
+});
+
+// ================= BOARDS DEL SOLUCIONARIO =================
+let solutionBoardsInit = false;
+function initSolutionBoards() {
+    if (solutionBoardsInit) return;
+    solutionBoardsInit = true;
+
+    if(document.getElementById('box_sol_v1')) {
+        const bSolV1 = JXG.JSXGraph.initBoard('box_sol_v1', {boundingbox: [-16, 4, 4, -16], axis: true, showCopyright: false, showNavigation: false});
+        const oV1 = bSolV1.create('point', [0, 0], {fixed: true, visible: false});
+        const pV1 = bSolV1.create('point', [-12.99, -7.50], {fixed: true, visible: false});
+        bSolV1.create('arrow', [oV1, pV1], {strokeColor: '#1e3a8a', strokeWidth: 3, name: 'v = 15 m/s', withLabel: true});
+        bSolV1.create('segment', [oV1, [-12.99, 0]], {strokeColor: '#dc2626', strokeWidth: 1.5, strokeDash: 2});
+        bSolV1.create('segment', [[-12.99, 0], pV1], {strokeColor: '#16a34a', strokeWidth: 1.5, strokeDash: 2});
+    }
+
+    if(document.getElementById('box_sol_v2')) {
+        const bSolV2 = JXG.JSXGraph.initBoard('box_sol_v2', {boundingbox: [-3, 9, 9, -3], axis: true, showCopyright: false, showNavigation: false});
+        const oV2 = bSolV2.create('point', [0, 0], {fixed: true, visible: false});
+        const pF1 = bSolV2.create('point', [6, -2], {fixed: true, visible: false});
+        const pF2 = bSolV2.create('point', [-2, 8], {fixed: true, visible: false});
+        const pFR = bSolV2.create('point', [4, 6], {fixed: true, visible: false});
+
+        bSolV2.create('arrow', [oV2, pF1], {strokeColor: '#94a3b8', strokeWidth: 2, name: 'F1', withLabel: true});
+        bSolV2.create('arrow', [oV2, pF2], {strokeColor: '#94a3b8', strokeWidth: 2, name: 'F2', withLabel: true});
+        bSolV2.create('arrow', [oV2, pFR], {strokeColor: '#16a34a', strokeWidth: 3.5, name: 'FR = 4i+6j', withLabel: true});
+    }
+
+    if(document.getElementById('box_sol_v3')) {
+        const bSolV3 = JXG.JSXGraph.initBoard('box_sol_v3', {boundingbox: [-3, 8, 8, -3], axis: true, showCopyright: false, showNavigation: false});
+        const oV3 = bSolV3.create('point', [0, 0], {fixed: true, visible: false});
+        const pA_vec = bSolV3.create('point', [4, 6], {fixed: true, visible: false});
+        const pB_vec = bSolV3.create('point', [3, -2], {fixed: true, visible: false});
+
+        bSolV3.create('arrow', [oV3, pA_vec], {strokeColor: '#1e3a8a', strokeWidth: 3, name: 'A = 4i+6j', withLabel: true});
+        bSolV3.create('arrow', [oV3, pB_vec], {strokeColor: '#dc2626', strokeWidth: 3, name: 'B = 3i-2j', withLabel: true});
+        bSolV3.create('angle', [pA_vec, oV3, pB_vec], {radius: 1, name: '90°'});
+    }
+}
+</script>
+
+</body>
+</html>
