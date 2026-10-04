@@ -34,47 +34,26 @@
         En la descripción del universo físico, no todas las variables pueden resumirse en una simple cifra numérica. Mientras que la temperatura o la masa quedan completamente definidas por un número, la velocidad, la fuerza o la aceleración exigen conocer hacia dónde se dirigen. Para modelar estas magnitudes orientadas recurrimos al <strong>Álgebra Vectorial</strong>.
     </p>
 
-    <h2 class="gs-section-title">
-        <i class="fa-solid fa-arrows-to-dot"></i> 4.1. Magnitudes Escalares vs Vectoriales y Elementos de un Vector
-    </h2>
-    <h2 class="gs-section-title">
-    <i class="fa-solid fa-arrows-to-dot"></i> 4.1. Magnitudes Escalares vs Vectoriales y Elementos de un Vector
-</h2>
-<p>
-    En la descripción del universo físico no todas las variables se comportan igual. Algunas quedan completamente definidas con un número y su unidad; otras, en cambio, necesitan más información para que podamos interpretarlas correctamente.
+    <p>
+    Diferenciamos dos tipos fundamentales de cantidades en física:
 </p>
 
 <div class="gs-box gs-comprender">
-    <div class="gs-comprender-title"><i class="fa-solid fa-scale-balanced"></i> Magnitudes Escalares</div>
-    <p style="margin-bottom: 12px;">
-        Se caracterizan completamente mediante un valor numérico real acompañado de su unidad correspondiente. No tienen dirección ni sentido.
-    </p>
-    <p style="margin-bottom: 0;">
-        <strong>Ejemplos:</strong> \(m = 75\text{ kg}\) (masa), \(T = 20^\circ\text{C}\) (temperatura), \(E = 150\text{ J}\) (energía), \(t = 12\text{ s}\) (tiempo).
-    </p>
+    <div class="gs-comprender-title"><i class="fa-solid fa-scale-balanced"></i> Tipos de Magnitudes en Física</div>
+    <ul style="margin-bottom: 0;">
+        <li><strong>Magnitudes Escalares:</strong> Se caracterizan completamente mediante un valor numérico real acompañado de su unidad. <em>Ejemplos:</em> masa (\(m = 75\text{ kg}\)), temperatura (\(T = 20^\circ\text{C}\)), energía (\(E = 150\text{ J}\)).</li>
+        <li><strong>Magnitudes Vectoriales:</strong> Requieren indicar módulo, dirección, sentido y punto de aplicación para quedar plenamente definidas. <em>Ejemplos:</em> fuerza (\(\vec{F} = 50\text{ N}\) hacia el Norte), velocidad (\(\vec{v} = 120\text{ km/h}\) en una autopista).</li>
+    </ul>
 </div>
 
-<div class="gs-box gs-comprender">
-    <div class="gs-comprender-title"><i class="fa-solid fa-arrow-right"></i> Magnitudes Vectoriales</div>
-    <p style="margin-bottom: 12px;">
-        Necesitan indicar cuatro elementos para quedar plenamente definidas: <strong>módulo, dirección, sentido y punto de aplicación</strong>.
-    </p>
-    <p style="margin-bottom: 0;">
-        <strong>Ejemplos:</strong> \(\vec{F} = 50\text{ N}\) hacia el Norte, \(\vec{v} = 120\text{ km/h}\) en dirección Este, \(\vec{a} = 9.8\text{ m/s}^2\) hacia abajo.
-    </p>
-</div>
-
-<h3>Las cuatro partes de un vector</h3>
-<p>
-    Un vector es un segmento orientado en el espacio que posee cuatro características esenciales. Para definirlo completamente hay que indicarlas todas:
-</p>
+<p>Un vector es un segmento orientado en el espacio que posee cuatro características esenciales:</p>
 
 <div class="gs-box gs-comprender">
     <div class="gs-comprender-title"><i class="fa-solid fa-arrows-to-dot"></i> Elementos de un Vector</div>
     <ol style="margin-bottom: 0;">
         <li><strong>Punto de Aplicación (\(A\)):</strong> El origen exacto o punto del espacio donde actúa la magnitud física.</li>
         <li><strong>Dirección:</strong> La recta infinita (o familia de rectas paralelas) que contiene al vector.</li>
-        <li><strong>Sentido:</strong> La orientación sobre dicha recta, señalada por la punta de la flecha (distingue un extremo del otro).</li>
+        <li><strong>Sentido:</strong> La orientación sobre dicha recta, señalada por la punta de la flecha.</li>
         <li><strong>Módulo (\(|\vec{v}|\) o \(v\)):</strong> La longitud del segmento orientado, proporcional a la intensidad de la magnitud.</li>
     </ol>
 </div>
@@ -136,13 +115,19 @@
     </div>
 
     <h3>Vectores Unitarios y Notación Canónica</h3>
-    <p>
-        Un <strong>vector unitario</strong> es aquél cuyo módulo vale exactamente \(1\). En el plano cartesiano definimos los vectores unitarios canónicos \(\vec{i}\) (dirección \(X\) positiva) y \(\vec{j}\) (dirección \(Y\) positiva):
+
+<div class="gs-box gs-comprender">
+    <div class="gs-comprender-title"><i class="fa-solid fa-compass"></i> Los Vectores Unitarios Canónicos</div>
+    <p style="margin-bottom: 12px;">
+        Un <strong>vector unitario</strong> es aquél cuyo módulo vale exactamente \(1\). En el plano cartesiano definimos dos vectores unitarios especiales:
     </p>
-    $$\vec{i} = (1, 0), \quad \vec{j} = (0, 1)$$
-    <p>
-        Cualquier vector del plano puede escribirse como una combinación lineal de estos vectores: \(\vec{v} = 8\vec{i} + 5\vec{j}\).
+    <div class="gs-latex-container">
+        $$\vec{i} = (1, 0) \quad \text{(dirección } X \text{ positiva)}, \qquad \vec{j} = (0, 1) \quad \text{(dirección } Y \text{ positiva)}$$
+    </div>
+    <p style="margin-bottom: 0;">
+        Cualquier vector del plano puede escribirse como una combinación lineal de ellos: \(\vec{v} = 8\vec{i} + 5\vec{j}\).
     </p>
+</div>
 
     <div class="gs-box gs-lectura">
         <div class="gs-lectura-title"><i class="fa-solid fa-triangle-exclamation"></i> Rigor de Notación Científica</div>
@@ -182,14 +167,14 @@
         <i class="fa-solid fa-calculator"></i> 4.3. Operaciones Básicas de Álgebra Vectorial
     </h2>
     <p>
-        Las operaciones algebraicas entre vectores se realizan componente a componente en forma cartesiana, o mediante construcciones geométricas (método del paralelogramo o del extremo al origen).
-    </p>
-    <ul>
-        <li><strong>Suma de Vectores:</strong> \(\vec{a} + \vec{b} = (a_x + b_x)\vec{i} + (a_y + b_y)\vec{j}\)</li>
-        <li><strong>Vector Opuesto:</strong> \(-\vec{b} = (-b_x)\vec{i} + (-b_y)\vec{j}\) (mismo módulo y dirección, sentido contrario).</li>
-        <li><strong>Resta de Vectores:</strong> \(\vec{a} - \vec{b} = \vec{a} + (-\vec{b}) = (a_x - b_x)\vec{i} + (a_y - b_y)\vec{j}\)</li>
-        <li><strong>Producto por un Escalar (\(k \cdot \vec{a}\)):</strong> Multiplica la escala del módulo por el factor \(k\). Si \(k < 0\), invierte el sentido.</li>
-    </ul>
+    Las operaciones algebraicas entre vectores se realizan componente a componente en forma cartesiana, o mediante construcciones geométricas (método del paralelogramo o del extremo al origen).
+</p>
+<ul>
+    <li><strong>Suma de Vectores:</strong> \(\vec{a} + \vec{b} = (a_x + b_x)\vec{i} + (a_y + b_y)\vec{j}\)</li>
+    <li><strong>Vector Opuesto:</strong> \(-\vec{b} = (-b_x)\vec{i} + (-b_y)\vec{j}\) (mismo módulo y dirección, sentido contrario).</li>
+    <li><strong>Resta de Vectores:</strong> \(\vec{a} - \vec{b} = \vec{a} + (-\vec{b}) = (a_x - b_x)\vec{i} + (a_y - b_y)\vec{j}\)</li>
+    <li><strong>Producto por un Escalar (\(k \cdot \vec{a}\)):</strong> Multiplica la escala del módulo por el factor \(k\). Si \(k < 0\), invierte el sentido.</li>
+</ul>
 
     <div class="gs-visual-block">
         <div class="gs-graph-wrapper">
@@ -236,14 +221,18 @@
     </div>
 
     <h3>Significado Físico e Intuitivo: Grado de Solapamiento</h3>
-    <p>
-        Físicamente, el producto escalar mide <strong>cuánto se solapan o colaboran dos vectores en la misma dirección y sentido</strong>. Es equivalente a multiplicar el módulo de un vector por la proyección ortogonal del otro sobre él.
-    </p>
-    <ul>
-        <li>Si el ángulo es agudo (\(\theta < 90^\circ\)), \(\cos\theta > 0 \implies\) producto escalar <strong>positivo</strong> (colaboran). Ej. Un empuje a favor del movimiento realiza Trabajo positivo.</li>
-        <li>Si son perpendiculares (\(\theta = 90^\circ\)), \(\cos 90^\circ = 0 \implies\) producto escalar <strong>nulo</strong> (\(\vec{a} \cdot \vec{b} = 0\)). Ej. La fuerza normal no realiza trabajo.</li>
-        <li>Si el ángulo es obtuso (\(\theta > 90^\circ\)), \(\cos\theta < 0 \implies\) producto escalar <strong>negativo</strong> (se oponen). Ej. La fuerza de rozamiento realiza Trabajo negativo.</li>
+<p>
+    Físicamente, el producto escalar mide <strong>cuánto se solapan o colaboran dos vectores en la misma dirección y sentido</strong>. Es equivalente a multiplicar el módulo de un vector por la proyección ortogonal del otro sobre él.
+</p>
+
+<div class="gs-box gs-comprender">
+    <div class="gs-comprender-title"><i class="fa-solid fa-circle-nodes"></i> Los Tres Casos del Producto Escalar</div>
+    <ul style="margin-bottom: 0;">
+        <li><strong>Ángulo agudo</strong> (\(\theta < 90^\circ\)): \(\cos\theta > 0 \implies\) producto escalar <strong>positivo</strong> (los vectores colaboran). <em>Ejemplo:</em> un empuje a favor del movimiento realiza Trabajo positivo.</li>
+        <li><strong>Vectores perpendiculares</strong> (\(\theta = 90^\circ\)): \(\cos 90^\circ = 0 \implies\) producto escalar <strong>nulo</strong> (\(\vec{a} \cdot \vec{b} = 0\)). <em>Ejemplo:</em> la fuerza normal no realiza trabajo.</li>
+        <li><strong>Ángulo obtuso</strong> (\(\theta > 90^\circ\)): \(\cos\theta < 0 \implies\) producto escalar <strong>negativo</strong> (los vectores se oponen). <em>Ejemplo:</em> la fuerza de rozamiento realiza Trabajo negativo.</li>
     </ul>
+</div>
 
     <div class="gs-visual-block">
         <div class="gs-graph-wrapper">
