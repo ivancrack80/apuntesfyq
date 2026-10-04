@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Magnitudes, Unidades y Estructura Métrica - 4º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <h1 class="gs-title">1. Magnitudes, Unidades y Estructura Métrica</h1>
+        <div class="gs-subtitle">Bloque Analítico • Herramientas Operativas de la Física y Química</div>
+    </header>
+
+    <!-- APARTADO 1.1 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-ruler"></i> 1.1. Propiedades de la Materia: Magnitud y Unidad de Medida
+    </h2>
+    <p>
+        Para describir el universo de forma rigurosa, la ciencia necesita cuantificar las propiedades del entorno de manera objetiva, dejando atrás las apreciaciones subjetivas.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-graduation-cap"></i> Definiciones Fundamentales</div>
+        <p style="margin: 0;">
+            • <strong>Magnitud:</strong> Es cualquier propiedad física o cualidad de la materia, de un sistema o de un fenómeno natural que es susceptible de ser medida; es decir, que se puede cuantificar de forma numérica (ej. la masa, la velocidad, la temperatura).<br><br>
+            • <strong>Unidad de medida:</strong> Es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convenio o por ley. Al medir, comparamos la magnitud real con ese patrón para ver cuántas veces lo contiene.
+        </p>
+    </div>
+
+    <!-- APARTADO 1.2 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-globe"></i> 1.2. El Nuevo Sistema Internacional (SI)
+    </h2>
+    <p>
+        Históricamente se definía a las magnitudes fundamentales como aquellas que se elegían de forma independiente por convenio. Sin embargo, en la ciencia contemporánea esto ya no es estrictamente cierto: hoy en día, las magnitudes fundamentales <strong>se definen y relacionan directamente a partir de constantes universales de la naturaleza</strong> como la velocidad de la luz \( c \), la constante de Planck \( h \) o la carga del electrón \( e \).
+    </p>
+    <p>
+        Por ejemplo, el <strong>metro (m)</strong> ya no es una barra física guardada en Francia, sino una <em>definición operativa</em>: es la distancia exacta que recorre la luz en el vacío durante un intervalo de tiempo de \( \frac{1}{299\,792\,458} \) de segundo.
+    </p>
+
+    <h3>Las 7 Magnitudes Fundamentales del SI</h3>
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th>Magnitud Fundamental</th>
+                    <th>Unidad Oficial (SI)</th>
+                    <th>Símbolo</th>
+                    <th>Dimensión</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Longitud</td>
+                    <td>metro</td>
+                    <td>m</td>
+                    <td><code>[L]</code></td>
+                </tr>
+                <tr>
+                    <td>Masa</td>
+                    <td>kilogramo</td>
+                    <td>kg</td>
+                    <td><code>[M]</code></td>
+                </tr>
+                <tr>
+                    <td>Tiempo</td>
+                    <td>segundo</td>
+                    <td>s</td>
+                    <td><code>[T]</code></td>
+                </tr>
+                <tr>
+                    <td>Temperatura absoluta</td>
+                    <td>kelvin</td>
+                    <td>K</td>
+                    <td><code>[θ]</code></td>
+                </tr>
+                <tr>
+                    <td>Cantidad de sustancia</td>
+                    <td>mol</td>
+                    <td>mol</td>
+                    <td><code>[N]</code></td>
+                </tr>
+                <tr>
+                    <td>Intensidad de corriente eléctrica</td>
+                    <td>amperio</td>
+                    <td>A</td>
+                    <td><code>[I]</code></td>
+                </tr>
+                <tr>
+                    <td>Intensidad luminosa</td>
+                    <td>candela</td>
+                    <td>cd</td>
+                    <td><code>[J]</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-circle-info"></i> Nota sobre las dimensiones</div>
+        <p style="margin: 0;">
+            La columna de <strong>Dimensión</strong> indica la naturaleza física abstracta de la magnitud. No te preocupes ahora mismo por esos símbolos con corchetes; los analizaremos y operaremos a fondo en el siguiente punto del tema.
+        </p>
+    </div>
+
+    <h3>Magnitudes Derivadas del Curso</h3>
+    <p>Las <strong>magnitudes derivadas</strong> se forman combinando matemáticamente las magnitudes fundamentales anteriores:</p>
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th>Magnitud Derivada</th>
+                    <th>Unidad en el SI</th>
+                    <th>Símbolo de la Unidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Superficie (Área)</td>
+                    <td>metro cuadrado</td>
+                    <td>m²</td>
+                </tr>
+                <tr>
+                    <td>Volumen</td>
+                    <td>metro cúbico</td>
+                    <td>m³</td>
+                </tr>
+                <tr>
+                    <td>Densidad</td>
+                    <td>kilogramo por metro cúbico</td>
+                    <td>kg/m³</td>
+                </tr>
+                <tr>
+                    <td>Velocidad</td>
+                    <td>metro por segundo</td>
+                    <td>m/s</td>
+                </tr>
+                <tr>
+                    <td>Aceleración</td>
+                    <td>metro por segundo al cuadrado</td>
+                    <td>m/s²</td>
+                </tr>
+                <tr>
+                    <td>Fuerza</td>
+                    <td>newton</td>
+                    <td>N \( (\text{kg} \cdot \text{m/s}^2) \)</td>
+                </tr>
+                <tr>
+                    <td>Presión</td>
+                    <td>pascal</td>
+                    <td>Pa \( (\text{N/m}^2) \)</td>
+                </tr>
+                <tr>
+                    <td>Energía / Trabajo</td>
+                    <td>julio</td>
+                    <td>J \( (\text{N} \cdot \text{m}) \)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- APARTADO 1.3 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-layer-group"></i> 1.3. Estructura Métrica Avanzada: De Peta a Femto
+    </h2>
+    <p>
+        Para expresar medidas extremadamente grandes o subatómicas, añadimos prefijos a las unidades. Cada prefijo representa un factor exponencial exacto en base 10:
+    </p>
+
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th>Escala</th>
+                    <th>Prefijo</th>
+                    <th>Símbolo</th>
+                    <th>Factor Exponencial</th>
+                    <th>Equivalencia Operativa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="7" style="font-weight: 600; color: var(--gs-primary);">Múltiplos</td>
+                    <td>Peta</td>
+                    <td>P</td>
+                    <td>\( 10^{15} \)</td>
+                    <td>1 000 000 000 000 000</td>
+                </tr>
+                <tr>
+                    <td>Tera</td>
+                    <td>T</td>
+                    <td>\( 10^{12} \)</td>
+                    <td>1 000 000 000 000</td>
+                </tr>
+                <tr>
+                    <td>Giga</td>
+                    <td>G</td>
+                    <td>\( 10^{9} \)</td>
+                    <td>1 000 000 000</td>
+                </tr>
+                <tr>
+                    <td>Mega</td>
+                    <td>M</td>
+                    <td>\( 10^{6} \)</td>
+                    <td>1 000 000</td>
+                </tr>
+                <tr>
+                    <td>Kilo</td>
+                    <td>k</td>
+                    <td>\( 10^{3} \)</td>
+                    <td>1 000</td>
+                </tr>
+                <tr>
+                    <td>Hecto</td>
+                    <td>h</td>
+                    <td>\( 10^{2} \)</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Deca</td>
+                    <td>da</td>
+                    <td>\( 10^{1} \)</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td rowspan="7" style="font-weight: 600; color: var(--gs-accent);">Submúltiplos</td>
+                    <td>Deci</td>
+                    <td>d</td>
+                    <td>\( 10^{-1} \)</td>
+                    <td>0,1</td>
+                </tr>
+                <tr>
+                    <td>Centi</td>
+                    <td>c</td>
+                    <td>\( 10^{-2} \)</td>
+                    <td>0,01</td>
+                </tr>
+                <tr>
+                    <td>Mili</td>
+                    <td>m</td>
+                    <td>\( 10^{-3} \)</td>
+                    <td>0,001</td>
+                </tr>
+                <tr>
+                    <td>Micro</td>
+                    <td>µ</td>
+                    <td>\( 10^{-6} \)</td>
+                    <td>0,000 001</td>
+                </tr>
+                <tr>
+                    <td>Nano</td>
+                    <td>n</td>
+                    <td>\( 10^{-9} \)</td>
+                    <td>0,000 000 001</td>
+                </tr>
+                <tr>
+                    <td>Pico</td>
+                    <td>p</td>
+                    <td>\( 10^{-12} \)</td>
+                    <td>0,000 000 000 001</td>
+                </tr>
+                <tr>
+                    <td>Femto</td>
+                    <td>f</td>
+                    <td>\( 10^{-15} \)</td>
+                    <td>0,000 000 000 000 000 1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-droplet"></i> Recordatorio crítico: Relación de Volumen y Capacidad (Litros)</div>
+        <p style="margin: 0;">
+            En el laboratorio químico trabajarás constantemente alternando el metro cúbico (SI) con el Litro (unidad de capacidad). Memoriza este puente métrico exacto: <br>
+            • \( 1 \text{ m}^3 = 1000 \text{ L} \) (Un metro cúbico es un tanque de mil litros).<br>
+            • \( 1 \text{ dm}^3 = 1 \text{ L} \) (Un decímetro cúbico es exactamente un litro).<br>
+            • \( 1 \text{ cm}^3 = 1 \text{ mL} \) (Un centímetro cúbico es idéntico a un mililitro).
+        </p>
+    </div>
+
+    <!-- APARTADO 1.4 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-arrows-rotate"></i> 1.4. Cambios de Unidades: Factores de Conversión
+    </h2>
+    <p>
+        Para cambiar de unidad operamos multiplicando la medida original por fracciones unitarias. Observa la siguiente conversión paso a paso; fíjate en cómo las unidades repetidas en el numerador y el denominador se simplifican de forma limpia mediante el tachado:
+    </p>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo Guiado: Conversión de densidad</div>
+        <p>
+            Transformamos una densidad de \( 4,8 \text{ g/cm}^3 \) a las unidades oficiales del SI:
+        </p>
+
+        <div class="gs-latex-container">
+            $$ 4,8 \, \frac{\cancel{\text{g}}}{\cancel{\text{cm}^3}} \cdot \frac{1 \text{ kg}}{10^3 \cancel{\text{g}}} \cdot \frac{10^6 \cancel{\text{cm}^3}}{1 \text{ m}^3} = 4,8 \cdot 10^3 \, \frac{\text{kg}}{\text{m}^3} = 4800 \, \frac{\text{kg}}{\text{m}^3} $$
+        </div>
+
+        <p style="margin: 0; font-size: 0.92rem; color: #475569;">
+            <em>Análisis visual:</em> El símbolo \( \text{g} \) del numerador inicial se simplifica con los \( \text{g} \) del denominador de la primera fracción. Del mismo modo, los \( \text{cm}^3 \) del denominador inicial se eliminan con los del numerador de la segunda fracción. Operando las potencias de base 10 (\( 10^6 / 10^3 = 10^3 \)), obtenemos el resultado final.
+        </p>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Aplicar: Actividades para realizar en clase</div>
+        <p>Saca tu cuaderno y resuelve las siguientes actividades utilizando factores de conversión estructurados en fracción vertical:</p>
+
+        <ol class="gs-actividades">
+            <li><strong>Mundo atómico:</strong> El radio de interacción de un núcleo atómico es de aproximadamente \( 45 \text{ fm} \) (femtómetros). Expresa esta distancia en metros utilizando potencias de base 10.</li>
+            <li><strong>Velocidad lineal:</strong> Un proyectil viaja a una velocidad constante de \( 900 \text{ m/s} \). Transforma este valor a \( \text{km/h} \) utilizando factores de conversión encadenados.</li>
+            <li><strong>Capacidad y volumen:</strong> Un reactor químico contiene un volumen de disolución de \( 2500 \text{ L} \). Determina a cuántos metros cúbicos (\( \text{m}^3 \)) equivale y expresa el mismo resultado en centímetros cúbicos (\( \text{cm}^3 \)).</li>
+            <li><strong>Operación de densidad compuesta:</strong> Una sustancia gaseosa presenta una concentración en laboratorio de \( 0,012 \text{ mg/µL} \) (miligramos por microlitro). Realiza la conversión completa para averiguar su equivalencia exacta en \( \text{kg/m}^3 \) dentro del Sistema Internacional.</li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="4eso_ud1_1">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.2rem; color: var(--gs-primary);">Solucionario Oficial Avanzado</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 20px;">
+            Este bloque contiene las respuestas analíticas y los sistemas desarrollados paso a paso para la autoevaluación del docente o la revisión guiada en el aula. Por favor, introduce el código de 6 dígitos de tu aplicación Authenticator.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="number" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Desbloquear
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 8px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
