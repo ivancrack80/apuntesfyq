@@ -1231,6 +1231,127 @@ body.dyslexia-mode .gs-index-item {
     text-decoration: none;
 }
 
+
+/* --------------------------------------------------------------------------
+   APPLETS JSXGRAPH — Layout y paneles
+   -------------------------------------------------------------------------- */
+.gs-visual-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin: 25px 0;
+    background: var(--gs-bg);
+    padding: 20px;
+    border-radius: var(--gs-radius-lg);
+    border: 1px solid var(--gs-border);
+    align-items: center;
+}
+.gs-graph-wrapper {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+}
+.gs-graph-wrapper .jxgbox {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+.gs-graph-wrapper--wide {
+    max-width: 460px;
+}
+.gs-graph-wrapper--wide .jxgbox {
+    aspect-ratio: 4 / 3;
+}
+.gs-graph-explanation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.gs-graph-explanation h3 {
+    margin-top: 0;
+}
+
+/* Panel de datos monospace */
+.gs-panel-datos {
+    background: #ffffff;
+    padding: 14px 16px;
+    border-radius: var(--gs-radius);
+    border: 1px solid #cbd5e1;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+.gs-panel-datos__fila {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.gs-panel-datos__label {
+    color: var(--gs-text-muted);
+}
+.gs-panel-datos__valor {
+    font-weight: 700;
+    color: var(--gs-primary);
+}
+.gs-panel-datos__valor--verde { color: var(--gs-green); }
+.gs-panel-datos__valor--rojo  { color: var(--gs-red); }
+.gs-panel-datos__valor--ambar { color: #b45309; }
+.gs-panel-datos__valor--azul  { color: var(--gs-primary-light); }
+.gs-panel-datos__separador {
+    border: 0;
+    border-top: 1px solid var(--gs-border);
+    margin: 6px 0;
+}
+
+/* Botones de selección (para applets con modos) */
+.gs-selector-btns {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+.gs-selector-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--gs-text);
+    transition: all 0.2s;
+}
+.gs-selector-btn:hover {
+    border-color: var(--gs-primary);
+}
+.gs-selector-btn.active {
+    background: var(--gs-primary);
+    color: white;
+    border-color: var(--gs-primary);
+}
+
+/* Tablas de datos experimentales */
+.gs-tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 0.95rem;
+    max-width: 600px;
+}
+.gs-tabla-datos th,
+.gs-tabla-datos td {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    text-align: center;
+}
+.gs-tabla-datos th {
+    background-color: var(--gs-border-soft);
+    color: var(--gs-text-strong);
+    font-weight: 600;
+}
+.gs-tabla-datos tr:nth-child(even) {
+    background-color: var(--gs-bg);
+}
+
 /* --------------------------------------------------------------------------
    17. RESPONSIVE (móviles)
    -------------------------------------------------------------------------- */
