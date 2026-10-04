@@ -1102,6 +1102,63 @@ code {
     white-space: nowrap;
 }
 
+
+/* --------------------------------------------------------------------------
+   ÍNDICE NUMERADO
+   -------------------------------------------------------------------------- */
+.gs-index-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+.gs-index-item {
+    display: flex;
+    gap: 20px;
+    background: var(--gs-bg);
+    border: 1px solid var(--gs-border);
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 15px;
+    transition: transform 0.2s;
+}
+.gs-index-item:hover {
+    transform: translateX(5px);
+    background: var(--gs-border-soft);
+}
+.gs-index-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gs-primary);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.gs-index-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.gs-index-name {
+    font-weight: 700;
+    color: var(--gs-primary);
+    font-size: 1.05rem;
+}
+.gs-index-desc {
+    font-size: 0.95rem;
+    color: #475569;
+    text-align: justify;
+}
+
+body.dyslexia-mode .gs-index-item {
+    border-left: 4px solid var(--gs-primary);
+    padding-left: 15px;
+}
+
 /* --------------------------------------------------------------------------
    17. RESPONSIVE (móviles)
    -------------------------------------------------------------------------- */
