@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades Finales UD1: Repaso General - 4º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <h1 class="gs-title">Actividades Finales UD1: Repaso General</h1>
+        <div class="gs-subtitle">Bloque Analítico y Herramientas Operativas de la Física y Química</div>
+    </header>
+
+    <p>
+        A continuación, se presentan un conjunto de <strong>10 actividades de repaso</strong> diseñadas para consolidar los conocimientos adquiridos en la Unidad Didáctica 1. Es fundamental que intentes resolverlas de forma autónoma antes de consultar el solucionario oficial.
+    </p>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-brain"></i> Actividades de Repaso General</div>
+        <p>Resuelve de forma razonada en tu cuaderno los siguientes problemas planteados, prestando especial atención a las unidades, el análisis dimensional y la representación gráfica cuando sea necesario:</p>
+
+        <ol class="gs-actividades">
+            <li>
+                <strong>Conversión de Volumen y Densidad:</strong> Una muestra de aceite tiene un volumen de \(500\text{ mL}\) y una densidad de \(0.92\text{ g/cm}^3\). Expresa el volumen en \(\text{m}^3\) y la densidad en \(\text{kg/m}^3\). Luego, calcula la masa de la muestra en \(\text{kg}\).
+            </li>
+            <li>
+                <strong>Homogeneidad de Ecuaciones:</strong> La ecuación de Bernoulli para fluidos incompresibles se puede expresar como \(P + \frac{1}{2}\rho v^2 + \rho gh = \text{constante}\). Demuestra dimensionalmente que todos los términos de esta ecuación son homogéneos y representan una presión.
+            </li>
+            <li>
+                <strong>Dimensiones de Constantes Físicas:</strong> La ley de gravitación universal de Newton es \(F = G \frac{m_1 m_2}{r^2}\). Si la fuerza \(F\) tiene dimensiones \([M][L][T]^{-2}\), la masa \(m\) tiene \([M]\) y la distancia \(r\) tiene \([L]\), ¿cuáles son las dimensiones y unidades SI de la constante de gravitación universal \(G\)?
+            </li>
+            <li>
+                <strong>Carga suspendida (Trigonometría aplicada):</strong> Una grúa sostiene una carga mediante un cable que forma un ángulo de \(20^\circ\) con la vertical debido a la acción del viento. Si la tensión que soporta el cable es de \(500\text{ N}\), calcula la magnitud de las componentes horizontal (\(T_x\)) y vertical (\(T_y\)) de dicha tensión.
+            </li>
+            <li>
+                <strong>Movimiento Circular (Trigonometría):</strong> Un punto material se mueve en una trayectoria circular de radio \(R = 5\text{ m}\). En un instante dado, su posición forma un ángulo de \(225^\circ\) con el eje \(X\) positivo. Calcula las coordenadas cartesianas \((x, y)\) de la posición del punto. ¿En qué cuadrante se encuentra?
+            </li>
+            <li>
+                <strong>Fuerza Resultante y Dirección (Vectores):</strong> Dos fuerzas actúan sobre un objeto: \(\vec{F}_1 = (10\text{ N}, 30^\circ)\) y \(\vec{F}_2 = (15\text{ N}, 150^\circ)\). Ambas fuerzas están dadas en coordenadas polares. Calcula el vector fuerza resultante \(\vec{F}_R = \vec{F}_1 + \vec{F}_2\) en forma canónica (\(\vec{i}, \vec{j}\)), su módulo y su dirección. Observa la representación gráfica adjunta para visualizar la suma vectorial.
+                <div class="gs-graph-wrapper gs-graph-wrapper--wide" style="margin-top: 15px;">
+                    <div id="jxgbox_act6" class="jxgbox"></div>
+                </div>
+            </li>
+            <li>
+                <strong>Velocidad Relativa (Vectores):</strong> Un barco navega hacia el Este a \(20\text{ km/h}\). Una corriente oceánica se dirige hacia el Noroeste (\(\theta = 135^\circ\)) a \(5\text{ km/h}\). Determina la velocidad real del barco (módulo y dirección).
+            </li>
+            <li>
+                <strong>Energía y Ángulo de Colaboración (Producto Escalar):</strong> Un bloque es arrastrado \(10\text{ m}\) por una fuerza de \(50\text{ N}\). Si la fuerza de arrastre es \(\vec{F} = 40\vec{i} + 30\vec{j}\text{ N}\) y el desplazamiento es \(\vec{\Delta r} = 10\vec{i} + 0\vec{j}\text{ m}\). Calcula el trabajo realizado (\(W = \vec{F} \cdot \vec{\Delta r}\)) y el ángulo entre la fuerza y el desplazamiento.
+            </li>
+            <li>
+                <strong>Medición de la Longitud de una Mesa (Teoría de Errores):</strong> Se mide la longitud de una mesa con una cinta métrica cuya resolución es de \(1\text{ mm}\). Se realizan tres mediciones: \(1.851\text{ m}\), \(1.853\text{ m}\) y \(1.849\text{ m}\).
+                <ul>
+                    <li>Calcula el valor medio estimado de la longitud \(\bar{L}\).</li>
+                    <li>Determina la incertidumbre absoluta total \(\Delta L\) y expresa la medida formal de la longitud de la mesa.</li>
+                    <li>Calcula el error relativo porcentual \(E_r\%\).</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Ley de Hooke y Constante Elástica (Análisis Gráfico y Errores):</strong> Se realiza un experimento para determinar la constante elástica \(k\) de un muelle, aplicando diferentes fuerzas \(F\) y midiendo su alargamiento \(\Delta x\). Se obtienen los siguientes datos:
+                <table class="gs-tabla-datos" style="max-width: 800px; margin: 15px auto;">
+                    <tbody>
+                        <tr>
+                            <th>Fuerza \(F\) (N)</th>
+                            <td>1.0</td><td>2.0</td><td>3.0</td><td>4.0</td><td>5.0</td>
+                        </tr>
+                        <tr>
+                            <th>Alargamiento \(\Delta x\) (cm)</th>
+                            <td>0.5</td><td>1.1</td><td>1.4</td><td>2.0</td><td>2.6</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul>
+                    <li>Representa gráficamente \(F\) frente a \(\Delta x\) (con \(\Delta x\) en el eje X y \(F\) en el eje Y) y traza la línea de mejor ajuste. Convierte los alargamientos a metros para el cálculo.</li>
+                    <li>Calcula la pendiente de la gráfica, que representa la constante elástica \(k\). Expresa \(k\) en unidades SI.</li>
+                    <li>Si se esperaba un valor de \(k = 200\text{ N/m}\), calcula el error relativo porcentual de tu valor experimental.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="4eso_ud1_actfin">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-shield-halved" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.2rem; color: var(--gs-primary);">Soluciones de las Actividades Finales</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 20px;">
+            Introduce el código de 6 dígitos de tu aplicación Authenticator para desplegar el solucionario técnico completo de las Actividades Finales.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="number" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Desbloquear Soluciones
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 8px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener('gs-ready', function () {
+    // ============ APPLETS DE LA PÁGINA ============
+
+    // Actividad 6: Suma de Vectores
+    if (document.getElementById('jxgbox_act6')) {
+        const bAct6 = JXG.JSXGraph.initBoard('jxgbox_act6', {
+            boundingbox: [-20, 20, 20, -20], axis: true, showCopyright: false, showNavigation: false
+        });
+        const act6_O = bAct6.create('point', [0, 0], {fixed: true, visible: false});
+        const act6_F1_end = bAct6.create('point', [8.66, 5.00], {name: 'F1', color: '#1e3a8a', size: 3});
+        const act6_F2_end = bAct6.create('point', [-12.99, 7.50], {name: 'F2', color: '#dc2626', size: 3});
+
+        bAct6.create('arrow', [act6_O, act6_F1_end], {strokeColor: '#1e3a8a', strokeWidth: 2, name: 'F₁ (10N, 30°)', withLabel: true, label: {position: 'top', offset: [5, 5]}});
+        bAct6.create('arrow', [act6_O, act6_F2_end], {strokeColor: '#dc2626', strokeWidth: 2, name: 'F₂ (15N, 150°)', withLabel: true, label: {position: 'top', offset: [-15, 5]}});
+
+        const act6_FR_end = bAct6.create('point', [
+            function(){ return act6_F1_end.X() + act6_F2_end.X(); },
+            function(){ return act6_F1_end.Y() + act6_F2_end.Y(); }
+        ], {name: 'FR', color: '#16a34a', size: 4});
+        bAct6.create('arrow', [act6_O, act6_FR_end], {strokeColor: '#16a34a', strokeWidth: 3.5});
+        bAct6.create('segment', [act6_F1_end, act6_FR_end], {strokeColor: '#dc2626', strokeWidth: 1, dash: 2});
+        bAct6.create('segment', [act6_F2_end, act6_FR_end], {strokeColor: '#1e3a8a', strokeWidth: 1, dash: 2});
+    }
+});
+
+// ============ BOARDS DEL SOLUCIONARIO ============
+let solutionBoardsInitialized = false;
+function initSolutionBoards() {
+    if (solutionBoardsInitialized) return;
+
+    const containerSol6 = document.getElementById('jxgbox_sol_act6');
+    const containerSol10 = document.getElementById('jxgbox_sol_act10');
+
+    if (containerSol6) {
+        const bSolAct6 = JXG.JSXGraph.initBoard('jxgbox_sol_act6', {
+            boundingbox: [-20, 20, 20, -20], axis: true, showCopyright: false, showNavigation: false
+        });
+        const s6_O = bSolAct6.create('point', [0, 0], {fixed: true, visible: false});
+        const s6_F1 = bSolAct6.create('point', [8.66, 5.00], {fixed: true, visible: false});
+        const s6_F2 = bSolAct6.create('point', [-12.99, 7.50], {fixed: true, visible: false});
+        const s6_FR = bSolAct6.create('point', [-4.33, 12.50], {fixed: true, visible: false});
+
+        bSolAct6.create('arrow', [s6_O, s6_F1], {strokeColor: '#1e3a8a', strokeWidth: 2, name: 'F₁', withLabel: true, label: {position: 'top', offset: [5, 5]}});
+        bSolAct6.create('arrow', [s6_O, s6_F2], {strokeColor: '#dc2626', strokeWidth: 2, name: 'F₂', withLabel: true, label: {position: 'top', offset: [-15, 5]}});
+        bSolAct6.create('arrow', [s6_O, s6_FR], {strokeColor: '#16a34a', strokeWidth: 3.5, name: 'F_R', withLabel: true, label: {position: 'top', offset: [-5, 10]}});
+
+        bSolAct6.create('segment', [s6_F1, s6_FR], {strokeColor: '#dc2626', strokeWidth: 1, dash: 2});
+        bSolAct6.create('segment', [s6_F2, s6_FR], {strokeColor: '#1e3a8a', strokeWidth: 1, dash: 2});
+    }
+
+    if (containerSol10) {
+        const bSolAct10 = JXG.JSXGraph.initBoard('jxgbox_sol_act10', {
+            boundingbox: [-0.005, 6, 0.035, -1], axis: true, showCopyright: false, showNavigation: false
+        });
+        const data = [[0.005, 1.0], [0.011, 2.0], [0.014, 3.0], [0.020, 4.0], [0.026, 5.0]];
+        const points = data.map(pt => bSolAct10.create('point', pt, {color: '#dc2626', size: 3, name: '', draggable: true}));
+
+        bSolAct10.create('line', [points[0], points[points.length - 1]], {strokeColor: '#16a34a', strokeWidth: 2});
+
+        bSolAct10.create('text', [0.015, -0.7, 'Δx (m)'], {fontSize: 12, anchorX: 'middle', color: '#334155'});
+        bSolAct10.create('text', [-0.003, 2.5, 'F (N)'], {fontSize: 12, rotate: 90, anchorY: 'middle', color: '#334155'});
+    }
+
+    solutionBoardsInitialized = true;
+}
+</script>
+
+</body>
+</html>
