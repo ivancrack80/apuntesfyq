@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión de Rescate con Drones - Situación de Aprendizaje 4º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <h1 class="gs-title">Misión de Rescate con Drones</h1>
+        <div class="gs-subtitle">Situación de Aprendizaje Integrada: Física, Telemática y Análisis Numérico (4º ESO)</div>
+    </header>
+
+    <!-- CONTEXTO -->
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-circle-info"></i> Contexto de la Operación de Emergencia</div>
+        <p>
+            Un temporal imprevisto ha dejado atrapado a un grupo de montañeros en una abrupta cornisa de los Picos de Europa. Debido a la nula visibilidad y al riesgo de aludes, los equipos de emergencia terrestres no pueden aproximarse. Para localizarlos y evaluar el terreno, el cuerpo de salvamento despliega un <strong>dron de exploración avanzada</strong> provisto de sensores de telemetría Lidar, barómetros digitales de alta sensibilidad y sistemas de posicionamiento vectorial. Como analista técnico del centro de control, tu labor consiste en interpretar, validar y depurar los datos físicos que envía el dron para garantizar el éxito de la operación.
+        </p>
+    </div>
+
+    <!-- SECCIÓN 1 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-compass-drafting"></i> 1. Telemetría Gráfica y Posicionamiento
+    </h2>
+    <p>
+        El radar de la estación base monitoriza de forma continua el vector posición y el avance de la aeronave no tripulada. El siguiente plano cartesiano interactivo simula la pantalla de control, donde la estación se sitúa en el origen \((0, 0)\) y los ejes cartesianos representan distancias en metros.
+    </p>
+
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper gs-graph-wrapper--wide">
+            <div id="box_mountain" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Navegación Vectorial</h3>
+            <p>
+                El gráfico interactivo representa el espacio aéreo bidimensional de la misión. El relieve del terreno es fijo. Puedes observar la trayectoria que enlaza la base con el punto de emisión de socorro detectado en la montaña.
+            </p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Eje X:</span>
+                    <span class="gs-panel-datos__valor">Distancia horizontal (m)</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Eje Y:</span>
+                    <span class="gs-panel-datos__valor">Altitud del relieve (m)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Cuaderno Técnico de Operaciones (Actividades)</div>
+        <p>
+            Resuelve de manera analítica y justificada cada uno de los siguientes bloques de problemas en tu cuaderno de laboratorio, detallando las herramientas físicas aplicadas:
+        </p>
+
+        <ol class="gs-actividades">
+            <li>
+                <strong>Cinemática y Unidades del Sistema Internacional:</strong> El dron se desplaza hacia las coordenadas de la señal a una velocidad constante de \(72\text{ km/h}\). Su celda de combustible interna contiene un volumen de \(2.5\text{ L}\) de hidrógeno líquido.
+                <br>• Transforma la velocidad lineal a unidades fundamentales del S.I. (\(\text{m/s}\)) aplicando fracciones de conversión encadenadas.
+                <br>• Convierte el volumen del combustible a metros cúbicos (\(\text{m}^3\)) y exprésalo utilizando notación científica estándar.
+            </li>
+            <li>
+                <strong>Validación de Modelos Alares (Análisis Dimensional):</strong> El departamento de ingeniería aerodinámica propone tres ecuaciones alternativas para predecir la fuerza de sustentación \(F\) (medida en Newtons, \(\text{N}\)) generada por el perfil de las alas del dron, en función de la densidad del aire \(\rho\) (\(\text{kg/m}^3\)), la velocidad de avance \(v\) (\(\text{m/s}\)) y el área de la superficie alar \(A\) (\(\text{m}^2\)). Las expresiones son:
+                <div style="margin: 10px 0; text-align: center; font-weight: 600;">
+                    a) \(F = k \cdot \rho \cdot v \cdot A\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    b) \(F = k \cdot \rho \cdot v^2 \cdot A\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    c) \(F = k \cdot \frac{\rho \cdot v}{A}\)
+                </div>
+                Sabiendo que \(k\) es una constante numérica adimensional, realiza el análisis dimensional de <strong>cada una de las tres fórmulas por separado</strong> (analizando de manera independiente el primer y segundo miembro de la igualdad) para descartar los dos modelos erróneos y verificar cuál es el único físicamente coherente.
+            </li>
+            <li>
+                <strong>Triangulación del Objetivo (Trigonometría):</strong> La estación base de salvamento localiza el punto de emisión de la baliza de socorro del grupo de montañeros a una distancia directa en línea de visión (módulo del vector) de \(r = 1500\text{ m}\) bajo un ángulo de elevación de \(\theta = 37^\circ\) respecto a la horizontal.
+                <br>• Determina razonadamente mediante razones trigonométricas la componente horizontal (\(x\)) y la altura vertical (\(y\)) a la que se halla el refugio improvisado.
+                <br>• Expresa el vector posición cartesiano \(\vec{r}\) del objetivo en función de los vectores unitarios \(\vec{i}\) y \(\vec{j}\).
+            </li>
+            <li>
+                <strong>Dinámica de Navegación Atmosférica (Vectores):</strong> Los motores del dron imprimen un vector velocidad propia respecto al aire de \(\vec{v}_d = (15\vec{i} + 20\vec{j})\text{ m/s}\). No obstante, en la zona del valle sopla un viento racheado de dirección oblicua caracterizado por el vector velocidad \(\vec{v}_v = (-5\vec{i} + 5\vec{j})\text{ m/s}\).
+                <br>• Calcula analíticamente el vector velocidad resultante real de la aeronave respecto al suelo (\(\vec{v}_r\)).
+                <br>• Determina el módulo de dicha velocidad efectiva (\(|\vec{v}_r|\)) que registra el radar de control.
+                <br>• Calcula el <strong>ángulo de deriva (\(\alpha\))</strong> que forma este vector de movimiento final con el eje horizontal positivo para verificar el desvío del rumbo.
+            </li>
+            <li>
+                <strong>Calibración del Altímetro Barométrico (Funciones Matemáticas):</strong> Al iniciar el ascenso por la ladera, el ordenador de a bordo del dron registra pares de valores experimentales correspondientes a la presión atmosférica exterior \(P\) (\(\text{kPa}\)) según la altitud alcanzada \(h\) (\(\text{m}\)):
+                <table class="gs-tabla-datos" style="max-width: 500px; margin: 15px auto;">
+                    <thead>
+                        <tr>
+                            <th>Altitud \(h\) (m)</th>
+                            <th>200</th>
+                            <th>400</th>
+                            <th>600</th>
+                            <th>800</th>
+                            <th>1000</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Presión \(P\) (kPa)</strong></td>
+                            <td>92.6</td>
+                            <td>90.2</td>
+                            <td>87.8</td>
+                            <td>85.4</td>
+                            <td>83.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                • Demuestra que existe una dependencia lineal entre ambas magnitudes físicas calculando la tasa de variación o pendiente matemática \(m = \frac{\Delta P}{\Delta h}\) en unidades del S.I. (\(\text{Pa/m}\)).
+                <br>• Halla analíticamente la presión barométrica en el origen (\(P_0\) para \(h = 0\text{ m}\)), la cual difiere del estándar debido a la presencia de un frente meteorológico de bajas presiones (borrasca extrema). Explica el significado físico de este parámetro en el contexto de la misión.
+            </li>
+            <li>
+                <strong>Filtrado Teórico de Errores e Incertidumbre Láser:</strong> Para efectuar la descarga vertical de provisiones sobre la repisa rocosa, el dron se sitúa en vuelo estacionario. Su sensor láser Lidar realiza una serie de seis telemetrías consecutivas de la distancia vertical al suelo: \(12.4\text{ m}\), \(12.6\text{ m}\), \(12.3\text{ m}\), \(14.9\text{ m}\), \(12.5\text{ m}\) y \(12.2\text{ m}\). El sensor posee una resolución nominal (error instrumental) de \(E_{\text{inst}} = 0.1\text{ m}\).
+                <br>• Analiza críticamente el lote de datos. Identifica justificadamente si existe alguna medida anómala ocasionada por causas externas (como una racha súbita de viento que haya desplazado momentáneamente la aeronave) que deba ser descartada del estudio físico previo.
+                <br>• Tras depurar la muestra, evalúa el error relativo porcentual (\(E_r\%\)) y determina la incertidumbre real combinada de la medida aplicando el criterio del máximo entre la resolución de la herramienta (\(E_{\text{inst}}\)) y el error cuadrático medio (\(\sigma\)). Con todo ello, <strong>determina la expresión final acotada de la medida de la altura e indica razonadamente si es una buena medida</strong> tomando como base el criterio de calidad escolar (\(E_r < 5\%\)).
+            </li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="4eso_ud1_sda">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-shield-halved" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.2rem; color: var(--gs-primary);">Panel de Verificación Científica (Solucionario)</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 20px;">
+            Introduce el código de 6 dígitos de tu aplicación Authenticator para desplegar las resoluciones matemáticas vectoriales y el gráfico analítico de presiones.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="number" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Desbloquear Soluciones
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 8px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener('gs-ready', function () {
+    // ============ APPLET DE LA PÁGINA: MONTAÑA ============
+    if (document.getElementById('box_mountain')) {
+        const bMountain = JXG.JSXGraph.initBoard('box_mountain', {
+            boundingbox: [-200, 1600, 1800, -300],
+            axis: true,
+            showCopyright: false,
+            showNavigation: true
+        });
+
+        bMountain.create('polygon', [
+            [-200, -300], [0, 0], [400, 500], [1000, 1400], [1197.95, 902.72], [1600, 0], [1800, -300]
+        ], {
+            fillColor: '#cbd5e1',
+            fillOpacity: 0.35,
+            fixed: true,
+            lines: { strokeColor: '#64748b', strokeWidth: 2, fixed: true }
+        });
+
+        const pBase = bMountain.create('point', [0, 0], { name: 'Estación Base (0,0)', color: '#1e3a8a', size: 4, fixed: true });
+        const pClimber = bMountain.create('point', [1197.95, 902.72], { name: 'Baliza Objetivo', color: '#dc2626', size: 5, fixed: true });
+
+        bMountain.create('segment', [pBase, pClimber], { strokeColor: '#1e3a8a', strokeWidth: 3, fixed: true });
+
+        const pX = bMountain.create('point', [1197.95, 0], { visible: false, fixed: true });
+        bMountain.create('segment', [pClimber, pX], { strokeColor: '#94a3b8', dash: 2, strokeWidth: 1.5, fixed: true });
+        bMountain.create('segment', [pBase, pX], { strokeColor: '#94a3b8', dash: 2, strokeWidth: 1.5, fixed: true });
+
+        bMountain.create('text', [150, 250, 'r = 1500 m (θ = 37°)'], { color: '#1e3a8a', fontSize: 12, fontStyle: 'bold', fixed: false });
+    }
+});
+
+// ============ BOARDS DEL SOLUCIONARIO ============
+let altimetroBoardInit = false;
+function initSolutionBoards() {
+    if (altimetroBoardInit) return;
+
+    if (document.getElementById('box_sol_altimetro')) {
+        altimetroBoardInit = true;
+
+        const bAlt = JXG.JSXGraph.initBoard('box_sol_altimetro', {
+            boundingbox: [-100, 98, 1100, 80],
+            axis: true,
+            showCopyright: false,
+            showNavigation: false
+        });
+
+        const puntosDatos = [[200, 92.6], [400, 90.2], [600, 87.8], [800, 85.4], [1000, 83.0]];
+        puntosDatos.forEach(pt => bAlt.create('point', pt, { color: '#dc2626', size: 4, name: '', fixed: true }));
+
+        bAlt.create('functiongraph', [function(h){ return 95.0 - 0.012*h; }, 200, 1000], { strokeColor: '#16a34a', strokeWidth: 2.5, fixed: true });
+        bAlt.create('functiongraph', [function(h){ return 95.0 - 0.012*h; }, 0, 200], { strokeColor: '#dc2626', strokeWidth: 2, dash: 2, fixed: true });
+
+        bAlt.create('point', [0, 95.0], {
+            name: 'P₀ = 95.0 kPa (Borrasca)', color: '#dc2626', size: 5, fixed: true,
+            label: { offset: [15, 10], color: '#b91c1c', fontSize: 11, fontStyle: 'bold' }
+        });
+    }
+}
+</script>
+
+</body>
+</html>
