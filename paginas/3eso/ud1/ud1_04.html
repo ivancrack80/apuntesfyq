@@ -448,6 +448,66 @@
 </div>
 
 <script>
+
+    // ============ GRÁFICAS DE LOS EJEMPLOS RESUELTOS ============
+
+    // Ejemplo 1: Directamente proporcional — s = 80t
+    if (document.getElementById('box_ej1')) {
+        const bEj1 = JXG.JSXGraph.initBoard('box_ej1', {
+            boundingbox: [-0.5, 380, 4.5, -20], axis: true, showCopyright: false, showNavigation: false
+        });
+        const datosEj1 = [[1, 80], [2, 160], [3, 240], [4, 320]];
+        datosEj1.forEach(pt => bEj1.create('point', pt, {name: '', color: '#dc2626', size: 3, fixed: true}));
+        bEj1.create('functiongraph', [function(t){ return 80 * t; }, 0, 4.5], {
+            strokeColor: '#16a34a', strokeWidth: 2.5
+        });
+        bEj1.create('text', [2.5, 100, 's = 80·t'], {
+            fontSize: 13, color: '#166534', fixed: true
+        });
+    }
+
+    // Ejemplo 2: Lineal — T = 5t + 20
+    if (document.getElementById('box_ej2')) {
+        const bEj2 = JXG.JSXGraph.initBoard('box_ej2', {
+            boundingbox: [-0.5, 60, 6.5, -5], axis: true, showCopyright: false, showNavigation: false
+        });
+        const datosEj2 = [[0, 20], [2, 30], [4, 40], [6, 50]];
+        datosEj2.forEach(pt => bEj2.create('point', pt, {name: '', color: '#dc2626', size: 3, fixed: true}));
+        bEj2.create('functiongraph', [function(t){ return 5 * t + 20; }, -0.5, 6.5], {
+            strokeColor: '#16a34a', strokeWidth: 2.5
+        });
+        bEj2.create('point', [0, 20], {
+            name: 'n = 20', color: '#b45309', size: 4, fixed: true,
+            label: { offset: [10, 5], fontSize: 11, color: '#b45309' }
+        });
+        bEj2.create('text', [3, 55, 'T = 5·t + 20'], {
+            fontSize: 13, color: '#166534', fixed: true
+        });
+    }
+
+    // Ejemplo 3: Inversamente proporcional — P·V = 20
+    if (document.getElementById('box_ej3')) {
+        const bEj3 = JXG.JSXGraph.initBoard('box_ej3', {
+            boundingbox: [-0.5, 25, 6, -2], axis: true, showCopyright: false, showNavigation: false
+        });
+        const datosEj3 = [[1, 20], [2, 10], [4, 5], [5, 4]];
+        datosEj3.forEach(pt => bEj3.create('point', pt, {name: '', color: '#dc2626', size: 3, fixed: true}));
+        bEj3.create('functiongraph', [function(P){ return 20 / P; }, 0.5, 6], {
+            strokeColor: '#16a34a', strokeWidth: 2.5
+        });
+        // Rectángulo del área constante para P = 2
+        const pX = bEj3.create('point', [2, 0], {visible: false});
+        const pY = bEj3.create('point', [0, 10], {visible: false});
+        const pPunto = bEj3.create('point', [2, 10], {visible: false});
+        bEj3.create('polygon', [[0, 0], pX, pPunto, pY], {
+            fillColor: '#38bdf8', fillOpacity: 0.2,
+            borders: {strokeColor: '#0284c7', strokeWidth: 1.5, dash: 2}
+        });
+        bEj3.create('text', [1, 12, 'k = P·V = 20'], {
+            fontSize: 12, color: '#0369a1', fixed: true
+        });
+    }
+    
 document.addEventListener('gs-ready', function () {
     let bGraf = null;
 
