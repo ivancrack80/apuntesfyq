@@ -39,10 +39,13 @@
     </h2>
 
     <h3>A. Características del Instrumento de Medida</h3>
-    <p>
-        Para valorar el alcance de una medición, es imprescindible caracterizar las propiedades del instrumento empleado:
-    </p>
-    <ul>
+<p>
+    Para valorar el alcance de una medición, es imprescindible caracterizar las propiedades del instrumento empleado:
+</p>
+
+<div class="gs-box gs-comprender">
+    <div class="gs-comprender-title"><i class="fa-solid fa-ruler-combined"></i> Propiedades Metrológicas de un Instrumento</div>
+    <ul style="margin-bottom: 0;">
         <li>
             <strong>Sensibilidad o Resolución (\(E_{\text{inst}}\)):</strong> Es la menor variación de la magnitud que el aparato puede apreciar (por ejemplo, \(0.01\text{ s}\) en un cronómetro digital o \(1\text{ mm}\) en una regla graduada). Constituye la incertidumbre mínima del instrumento.
         </li>
@@ -50,6 +53,7 @@
             <strong>Precisión:</strong> Indica el grado de concordancia o cercanía entre varias mediciones de la misma magnitud realizadas bajo idénticas condiciones. Un aparato es muy preciso si su dispersión estadística es pequeña.
         </li>
     </ul>
+</div>
 
     <h3>B. Error Absoluto y Error Relativo</h3>
 
@@ -85,21 +89,24 @@
     <h3>C. Determinación de la Incertidumbre según el Número de Medidas</h3>
 
     <p>
-        El cálculo de la incertidumbre absoluta \(\Delta x\) varía en función del número de observaciones realizadas en el laboratorio:
-    </p>
+    El cálculo de la incertidumbre absoluta \(\Delta x\) varía en función del número de observaciones realizadas en el laboratorio:
+</p>
 
-    <ul>
+<div class="gs-box gs-comprender">
+    <div class="gs-comprender-title"><i class="fa-solid fa-list-ol"></i> Cálculo de la Incertidumbre según el número de medidas</div>
+    <ul style="margin-bottom: 0;">
         <li>
-            <strong>Caso 1: Medida única (\(n = 1\)):</strong> Cuando por condiciones experimentales solo se efectúa una única lectura \(x_1\), no es posible realizar un tratamiento estadístico de la dispersión. La incertidumbre absoluta coincide directamente con la sensibilidad o resolución del instrumento:
+            <strong>Caso 1: Medida única (\(n = 1\)).</strong> Cuando por condiciones experimentales solo se efectúa una lectura \(x_1\), no es posible hacer un tratamiento estadístico. La incertidumbre absoluta coincide con la sensibilidad o resolución del instrumento:
             $$\Delta x = E_{\text{inst}} \implies x = x_1 \pm E_{\text{inst}}$$
         </li>
         <li>
-            <strong>Caso 2: Serie de medidas (\(n > 1\)):</strong> Al realizar \(n\) mediciones independientes, se calcula el <strong>Error Cuadrático Medio de la Media (\(E_{\text{disp}}\) o \(ECM\)</strong> para medir la dispersión estadística:
+            <strong>Caso 2: Serie de medidas (\(n > 1\)).</strong> Al realizar \(n\) mediciones independientes, se calcula el <strong>Error Cuadrático Medio de la Media (\(E_{\text{disp}}\) o \(ECM\))</strong> para medir la dispersión estadística:
             $$E_{\text{disp}} = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n(n-1)}}$$
             La incertidumbre absoluta total se toma como el mayor valor entre la dispersión estadística y la resolución del instrumento:
             $$\Delta x = \max\left(E_{\text{inst}}, \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n(n-1)}}\right)$$
         </li>
     </ul>
+</div>
 
     <div class="gs-box gs-lectura">
         <div class="gs-lectura-title"><i class="fa-solid fa-triangle-exclamation"></i> Cifras Significativas y Reglas de Redondeo</div>
