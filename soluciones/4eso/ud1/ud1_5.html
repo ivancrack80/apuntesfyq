@@ -1,130 +1,126 @@
-      <h3 style="color: #16a34a; font-size: 1.3rem; margin-top: 0;"><i class="fa-solid fa-square-check"></i> Solucionario Oficial Detallado</h3>
-      <p>A continuación se presenta la resolución completa de las actividades mediante las tablas estadísticas y las representaciones gráficas:</p>
-      
-      <!-- SOLUCIÓN ACTIVIDAD 1 -->
-      <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-        <strong>Solución Actividad 1: Masa del Recipiente y Purga del Valor Atípico</strong>
-        
-        <p style="margin-top:10px;"><strong>Fase 1: Análisis del conjunto inicial ($N=5$ mediciones)</strong><br>
-        Resolución de la balanza: $E_{\text{inst}} = 0.01\text{ g}$.<br>
-        Media inicial no redondeada: $\bar{m} = \frac{10.12 + 10.15 + 13.85 + 10.10 + 10.13}{5} = \frac{54.35}{5} = 10.87\text{ g}$.</p>
+<h3 style="color: var(--gs-green); margin-top: 0;"><i class="fa-solid fa-square-check"></i> Solucionario Oficial Detallado</h3>
+<p>A continuación se presenta la resolución completa de las actividades mediante las tablas estadísticas y las representaciones gráficas:</p>
 
-        <table class="gs-table">
-          <thead>
+<!-- SOLUCIÓN ACTIVIDAD 1 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-filter"></i> Solución Actividad 1: Masa del Recipiente y Purga del Valor Atípico</div>
+
+    <p><strong>Fase 1: Análisis del conjunto inicial (\(N=5\) mediciones)</strong></p>
+    <p>Resolución de la balanza: \(E_{\text{inst}} = 0.01\text{ g}\).</p>
+    <p>Media inicial no redondeada: \(\bar{m} = \frac{10.12 + 10.15 + 13.85 + 10.10 + 10.13}{5} = \frac{54.35}{5} = 10.87\text{ g}\).</p>
+
+    <table class="gs-tabla-datos">
+        <thead>
             <tr>
-              <th>$i$</th>
-              <th>$m_i$ ($\text{g}$)</th>
-              <th>$E_{a,i} = |m_i - \bar{m}|$ ($\text{g}$)</th>
-              <th>$(m_i - \bar{m})^2$ ($\text{g}^2$)</th>
+                <th>\(i\)</th>
+                <th>\(m_i\) (g)</th>
+                <th>\(E_{a,i} = |m_i - \bar{m}|\) (g)</th>
+                <th>\((m_i - \bar{m})^2\) (g²)</th>
             </tr>
-          </thead>
-          <tbody>
+        </thead>
+        <tbody>
             <tr><td>1</td><td>10.12</td><td>0.75</td><td>0.562500</td></tr>
             <tr><td>2</td><td>10.15</td><td>0.72</td><td>0.518400</td></tr>
             <tr style="background-color: #fee2e2;"><td>3</td><td>13.85</td><td><strong>2.98 (Valor atípico)</strong></td><td>8.880400</td></tr>
             <tr><td>4</td><td>10.10</td><td>0.77</td><td>0.592900</td></tr>
             <tr><td>5</td><td>10.13</td><td>0.74</td><td>0.547600</td></tr>
-            <tr><td><strong>$\sum$</strong></td><td>54.35</td><td>---</td><td><strong>11.101800</strong></td></tr>
-          </tbody>
-        </table>
+            <tr><td><strong>\(\sum\)</strong></td><td>54.35</td><td>---</td><td><strong>11.101800</strong></td></tr>
+        </tbody>
+    </table>
 
-        <p>
-          ECM Inicial no redondeado: $E_{\text{disp}} = \sqrt{\frac{11.101800}{5 \times 4}} = \sqrt{0.555090} \approx 0.745043\text{ g}$.<br>
-          Error Relativo Inicial: $E_r = \frac{0.745043}{10.87} \times 100\% = 6.854\% \ge 5\% \implies$ <strong>INACEPTABLE (Supera el 5%).</strong><br>
-          <em>Purga del atípico:</em> Se descarta la tercera medición ($13.85\text{ g}$) por presentar el mayor error absoluto individual ($E_{a,3} = 2.98\text{ g}$).
-        </p>
+    <p>ECM Inicial no redondeado: \(E_{\text{disp}} = \sqrt{\frac{11.101800}{5 \times 4}} = \sqrt{0.555090} \approx 0.745043\text{ g}\).</p>
+    <p>Error Relativo Inicial: \(E_r = \frac{0.745043}{10.87} \times 100\% = 6.854\% \ge 5\% \implies\) <strong>INACEPTABLE (Supera el 5%).</strong></p>
+    <p><em>Purga del atípico:</em> Se descarta la tercera medición (\(13.85\text{ g}\)) por presentar el mayor error absoluto individual (\(E_{a,3} = 2.98\text{ g}\)).</p>
 
-        <p><strong>Fase 2: Tabla depurada con $N=4$ mediciones</strong><br>
-        Nueva media no redondeada: $\bar{m} = \frac{10.12 + 10.15 + 10.10 + 10.13}{4} = \frac{40.50}{4} = 10.125\text{ g}$.</p>
+    <p><strong>Fase 2: Tabla depurada con \(N=4\) mediciones</strong></p>
+    <p>Nueva media no redondeada: \(\bar{m} = \frac{10.12 + 10.15 + 10.10 + 10.13}{4} = \frac{40.50}{4} = 10.125\text{ g}\).</p>
 
-        <table class="gs-table">
-          <thead>
+    <table class="gs-tabla-datos">
+        <thead>
             <tr>
-              <th>$i$</th>
-              <th>$m_i$ ($\text{g}$)</th>
-              <th>$(m_i - \bar{m})^2$ ($\text{g}^2$)</th>
+                <th>\(i\)</th>
+                <th>\(m_i\) (g)</th>
+                <th>\((m_i - \bar{m})^2\) (g²)</th>
             </tr>
-          </thead>
-          <tbody>
+        </thead>
+        <tbody>
             <tr><td>1</td><td>10.12</td><td>0.000025</td></tr>
             <tr><td>2</td><td>10.15</td><td>0.000625</td></tr>
             <tr><td>4</td><td>10.10</td><td>0.000625</td></tr>
             <tr><td>5</td><td>10.13</td><td>0.000025</td></tr>
-            <tr><td><strong>$\sum$</strong></td><td>40.50</td><td><strong>0.001300</strong></td></tr>
-          </tbody>
-        </table>
+            <tr><td><strong>\(\sum\)</strong></td><td>40.50</td><td><strong>0.001300</strong></td></tr>
+        </tbody>
+    </table>
 
-        <p>
-          Nuevo ECM no redondeado: $E_{\text{disp}} = \sqrt{\frac{0.001300}{4 \times 3}} = \sqrt{0.00010833} \approx 0.010408\text{ g}$.<br>
-          Incertidumbre Provisoria: $\Delta m = \max(0.01, 0.010408) = 0.010408\text{ g}$.<br>
-          Error Relativo Final: $E_r = \frac{0.010408}{10.125} \times 100\% = 0.103\% < 5\% \implies$ <strong>ACEPTABLE.</strong><br>
-          Redondeo final: Incertidumbre a 1 cifra significativa ($\Delta m = 0.01\text{ g}$) y valor medio redondeado a centésimas ($\bar{m} = 10.13\text{ g}$).<br>
-          <strong>Resultado Oficial:</strong> $m = (10.13 \pm 0.01)\text{ g}$.
-        </p>
-      </div>
+    <p>Nuevo ECM no redondeado: \(E_{\text{disp}} = \sqrt{\frac{0.001300}{4 \times 3}} = \sqrt{0.00010833} \approx 0.010408\text{ g}\).</p>
+    <p>Incertidumbre Provisoria: \(\Delta m = \max(0.01, 0.010408) = 0.010408\text{ g}\).</p>
+    <p>Error Relativo Final: \(E_r = \frac{0.010408}{10.125} \times 100\% = 0.103\% < 5\% \implies\) <strong>ACEPTABLE.</strong></p>
+    <p>Redondeo final: Incertidumbre a 1 cifra significativa (\(\Delta m = 0.01\text{ g}\)) y valor medio redondeado a centésimas (\(\bar{m} = 10.13\text{ g}\)).</p>
+    <p><strong>Resultado Oficial:</strong> \(m = (10.13 \pm 0.01)\text{ g}\).</p>
+</div>
 
-      <!-- SOLUCIÓN ACTIVIDAD 2 -->
-      <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-        <strong>Solución Actividad 2: Ley de Boyle-Mariotte (Relación Inversa)</strong>
-        
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 10px;">
-          <div style="flex: 1; min-width: 280px;">
+<!-- SOLUCIÓN ACTIVIDAD 2 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-chart-line"></i> Solución Actividad 2: Ley de Boyle-Mariotte (Relación Inversa)</div>
+
+    <div class="gs-ficha">
+        <div class="gs-ficha__texto">
             <p><strong>Tabla de Procesamiento de Productos:</strong></p>
-            <table class="gs-table">
-              <thead>
-                <tr>
-                  <th>Volumen $V$ ($\text{L}$)</th>
-                  <th>Presión $P$ ($\text{atm}$)</th>
-                  <th>Producto $k = P \cdot V$ ($\text{atm}\cdot\text{L}$)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>1.0</td><td>20.0</td><td>20.0</td></tr>
-                <tr><td>2.0</td><td>10.0</td><td>20.0</td></tr>
-                <tr><td>4.0</td><td>5.0</td><td>20.0</td></tr>
-                <tr><td>5.0</td><td>4.0</td><td>20.0</td></tr>
-                <tr><td>10.0</td><td>2.0</td><td>20.0</td></tr>
-              </tbody>
+            <table class="gs-tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Volumen \(V\) (L)</th>
+                        <th>Presión \(P\) (atm)</th>
+                        <th>Producto \(k = P \cdot V\) (atm·L)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1.0</td><td>20.0</td><td>20.0</td></tr>
+                    <tr><td>2.0</td><td>10.0</td><td>20.0</td></tr>
+                    <tr><td>4.0</td><td>5.0</td><td>20.0</td></tr>
+                    <tr><td>5.0</td><td>4.0</td><td>20.0</td></tr>
+                    <tr><td>10.0</td><td>2.0</td><td>20.0</td></tr>
+                </tbody>
             </table>
 
             <ol style="margin-bottom: 0;">
-              <li><strong>Constante de Producto:</strong> El producto $P \cdot V = 20.0\text{ atm}\cdot\text{L}$ resulta estrictamente constante.</li>
-              <li><strong>Tipo de Relación:</strong> Corresponde a una <strong>relación inversamente proporcional</strong> ($P = \frac{20}{V}$), cuya gráfica es una <strong>hipérbola decreciente</strong>.</li>
-              <li><strong>Sentido Físico de $k$:</strong> Representa el producto $n \cdot R \cdot T$ de la ecuación de gases ideales.</li>
+                <li><strong>Constante de Producto:</strong> El producto \(P \cdot V = 20.0\text{ atm}\cdot\text{L}\) resulta estrictamente constante.</li>
+                <li><strong>Tipo de Relación:</strong> Corresponde a una <strong>relación inversamente proporcional</strong> (\(P = \frac{20}{V}\)), cuya gráfica es una <strong>hipérbola decreciente</strong>.</li>
+                <li><strong>Sentido Físico de \(k\):</strong> Representa el producto \(n \cdot R \cdot T\) de la ecuación de gases ideales.</li>
             </ol>
-          </div>
-
-          <div style="width: 280px; margin: 0 auto;">
-            <div id="box_sol_boyle" class="jxgbox" style="width:100%; aspect-ratio: 4/3; border-radius: 8px; border: 1px solid #cbd5e1;"></div>
-          </div>
         </div>
-      </div>
 
-      <!-- SOLUCIÓN ACTIVIDAD 3 -->
-      <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-        <strong>Solución Actividad 3: Presión Hidrostática, Interpolación y Extrapolación de $P_0$</strong>
-        
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-top: 15px;">
-          <div style="flex: 1; min-width: 290px;">
-            <p><strong>1. Cálculo de la Pendiente ($k$):</strong><br>
-            Interpolando los puntos medidos en el intervalo $[2, 10]\text{ m}$:
-            $$k = \frac{\Delta P}{\Delta h} = \frac{140.5 - 120.9}{4.0 - 2.0} = \frac{19.6\text{ kPa}}{2.0\text{ m}} = 9.80\text{ kPa/m} = 9800\text{ Pa/m}$$</p>
+        <div class="gs-ficha__grafico gs-ficha__grafico--estrecho" style="width: 280px;">
+            <div id="box_sol_boyle" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+        </div>
+    </div>
+</div>
 
-            <p><strong>2. Obtención de la Densidad ($d$):</strong><br>
-            Como la pendiente equivale a $k = \rho \cdot g$:
-            $$\rho = \frac{9800\text{ Pa/m}}{9.8\text{ m/s}^2} = 1000\text{ kg/m}^3 \implies \text{Agua pura}$$</p>
+<!-- SOLUCIÓN ACTIVIDAD 3 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-chart-area"></i> Solución Actividad 3: Presión Hidrostática, Interpolación y Extrapolación de \(P_0\)</div>
 
-            <p><strong>3. Extrapolación de la Ordenada en el Origen ($P_0$):</strong><br>
-            Extendiendo la recta (vía discontinuidad) hasta $h = 0\text{ m}$:
+    <div class="gs-ficha">
+        <div class="gs-ficha__texto">
+            <p><strong>1. Cálculo de la Pendiente (\(k\)):</strong></p>
+            <p>Interpolando los puntos medidos en el intervalo \([2, 10]\text{ m}\):</p>
+            $$k = \frac{\Delta P}{\Delta h} = \frac{140.5 - 120.9}{4.0 - 2.0} = \frac{19.6\text{ kPa}}{2.0\text{ m}} = 9.80\text{ kPa/m} = 9800\text{ Pa/m}$$
+
+            <p><strong>2. Obtención de la Densidad (\(\rho\)):</strong></p>
+            <p>Como la pendiente equivale a \(k = \rho \cdot g\):</p>
+            $$\rho = \frac{9800\text{ Pa/m}}{9.8\text{ m/s}^2} = 1000\text{ kg/m}^3 \implies \text{Agua pura}$$
+
+            <p><strong>3. Extrapolación de la Ordenada en el Origen (\(P_0\)):</strong></p>
+            <p>Extendiendo la recta (vía discontinuidad) hasta \(h = 0\text{ m}\):</p>
             $$P_0 = P - k \cdot h = 120.9 - 9.80 \cdot (2.0) = 101.3\text{ kPa}$$
-            Representa la <strong>Presión Atmosférica Estándar</strong> en la superficie.</p>
-          </div>
-
-          <div style="width: 320px; margin: 0 auto;">
-            <div id="box_sol_hidro" class="jxgbox" style="width:100%; aspect-ratio: 4/3; border-radius: 8px; border: 1px solid #cbd5e1;"></div>
-            <div style="text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 5px;">
-              Gráfica del Problema: Tramo medido (verde) y Extrapolación a $P_0$ (rojo discontinuo).
-            </div>
-          </div>
+            <p>Representa la <strong>Presión Atmosférica Estándar</strong> en la superficie.</p>
         </div>
-      </div>
+
+        <div class="gs-ficha__grafico" style="width: 320px;">
+            <div id="box_sol_hidro" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+            <div class="gs-ficha__pie">
+                Gráfica del problema: tramo medido (verde) y extrapolación a \(P_0\) (rojo discontinuo).
+            </div>
+        </div>
+    </div>
+</div>
