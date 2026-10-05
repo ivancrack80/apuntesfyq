@@ -1,67 +1,67 @@
-      <h3 style="color: #16a34a; font-size: 1.3rem; margin-top: 0;"><i class="fa-solid fa-square-check"></i> Solucionario Detallado (Desarrollo Oficial)</h3>
-      <p>Comprueba los pasos algebraicos y la representación esquemática de los ejercicios de física:</p>
-      
-      <!-- SOLUCIÓN 1 -->
-      <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-        <strong>Solución 1: Descomposición de una Fuerza</strong>
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 10px;">
-          <div style="flex: 1; min-width: 280px;">
-            <ol style="margin-top: 0; margin-bottom: 0;">
-              <li><strong>Componente Horizontal ($F_x$):</strong>
-                $$\cos(35^\circ) = \frac{F_x}{F} \implies F_x = 250 \cdot \cos(35^\circ) \approx 204.79\text{ N}$$
-              </li>
-              <li><strong>Componente Vertical ($F_y$):</strong>
-                $$\sin(35^\circ) = \frac{F_y}{F} \implies F_y = 250 \cdot \sin(35^\circ) \approx 143.39\text{ N}$$
-              </li>
-              <li><strong>Comprobación por Pitágoras:</strong>
-                $$\sqrt{F_x^2 + F_y^2} = \sqrt{204.79^2 + 143.39^2} \approx 250\text{ N}$$
-              </li>
-            </ol>
-          </div>
-          <div style="width: 260px; margin: 0 auto;">
-            <div id="box_sol1" class="jxgbox" style="width:100%; aspect-ratio: 4/3; border-radius: 8px; border: 1px solid #cbd5e1;"></div>
-          </div>
-        </div>
-      </div>
+<h3 style="color: var(--gs-green); margin-top: 0;"><i class="fa-solid fa-square-check"></i> Solucionario Detallado (Desarrollo Oficial)</h3>
+<p>Comprueba los pasos algebraicos y la representación esquemática de los ejercicios de física:</p>
 
-      <!-- SOLUCIÓN 2 -->
-      <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-        <strong>Solución 2: Proyección de Velocidad en Proyectil</strong>
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 10px;">
-          <div style="flex: 1; min-width: 280px;">
-            <ol style="margin-top: 0; margin-bottom: 0;">
-              <li><strong>Velocidad Total $v_0$ (Hipotenusa):</strong>
-                $$\sin(40^\circ) = \frac{v_y}{v_0} \implies v_0 = \frac{25}{\sin(40^\circ)} \approx 38.89\text{ m/s}$$
-              </li>
-              <li><strong>Velocidad Horizontal $v_x$ (Cateto Adyacente):</strong>
-                $$\tan(40^\circ) = \frac{v_y}{v_x} \implies v_x = \frac{25}{\tan(40^\circ)} \approx 29.79\text{ m/s}$$
-              </li>
+<!-- SOLUCIÓN 1 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-vector-square"></i> Solución 1: Descomposición de una Fuerza</div>
+    <div class="gs-ficha">
+        <div class="gs-ficha__texto">
+            <ol style="margin-bottom: 0;">
+                <li><strong>Componente Horizontal (\(F_x\)):</strong>
+                    $$\cos(35^\circ) = \frac{F_x}{F} \implies F_x = 250 \cdot \cos(35^\circ) \approx 204.79\text{ N}$$
+                </li>
+                <li><strong>Componente Vertical (\(F_y\)):</strong>
+                    $$\sin(35^\circ) = \frac{F_y}{F} \implies F_y = 250 \cdot \sin(35^\circ) \approx 143.39\text{ N}$$
+                </li>
+                <li><strong>Comprobación por Pitágoras:</strong>
+                    $$\sqrt{F_x^2 + F_y^2} = \sqrt{204.79^2 + 143.39^2} \approx 250\text{ N}$$
+                </li>
             </ol>
-          </div>
-          <div style="width: 260px; margin: 0 auto;">
-            <div id="box_sol2" class="jxgbox" style="width:100%; aspect-ratio: 4/3; border-radius: 8px; border: 1px solid #cbd5e1;"></div>
-          </div>
         </div>
-      </div>
+        <div class="gs-ficha__grafico gs-ficha__grafico--estrecho">
+            <div id="box_sol1" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+        </div>
+    </div>
+</div>
 
-      <!-- SOLUCIÓN 3 -->
-      <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-        <strong>Solución 3: Análisis Vectorial en el II Cuadrante</strong>
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 10px;">
-          <div style="flex: 1; min-width: 280px;">
-            <ol style="margin-top: 0; margin-bottom: 0;">
-              <li><strong>Cálculo del Coseno:</strong>
-                $$\sin^2(\alpha) + \cos^2(\alpha) = 1 \implies \cos(\alpha) = -\sqrt{1 - 0.8^2} = -0.6$$
-                <em>(Signo negativo debido al II Cuadrante).</em>
-              </li>
-              <li><strong>Cálculo de la Tangente e Interpretación:</strong>
-                $$\tan(\alpha) = \frac{0.8}{-0.6} \approx -1.3333$$
-                Indica una fuerza opuesta al avance positivo (fuerza de retención).
-              </li>
+<!-- SOLUCIÓN 2 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-arrow-trend-up"></i> Solución 2: Proyección de Velocidad en Proyectil</div>
+    <div class="gs-ficha">
+        <div class="gs-ficha__texto">
+            <ol style="margin-bottom: 0;">
+                <li><strong>Velocidad Total \(v_0\) (Hipotenusa):</strong>
+                    $$\sin(40^\circ) = \frac{v_y}{v_0} \implies v_0 = \frac{25}{\sin(40^\circ)} \approx 38.89\text{ m/s}$$
+                </li>
+                <li><strong>Velocidad Horizontal \(v_x\) (Cateto Adyacente):</strong>
+                    $$\tan(40^\circ) = \frac{v_y}{v_x} \implies v_x = \frac{25}{\tan(40^\circ)} \approx 29.79\text{ m/s}$$
+                </li>
             </ol>
-          </div>
-          <div style="width: 260px; margin: 0 auto;">
-            <div id="box_sol3" class="jxgbox" style="width:100%; aspect-ratio: 4/3; border-radius: 8px; border: 1px solid #cbd5e1;"></div>
-          </div>
         </div>
-      </div>
+        <div class="gs-ficha__grafico gs-ficha__grafico--estrecho">
+            <div id="box_sol2" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- SOLUCIÓN 3 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-compass"></i> Solución 3: Análisis Vectorial en el II Cuadrante</div>
+    <div class="gs-ficha">
+        <div class="gs-ficha__texto">
+            <ol style="margin-bottom: 0;">
+                <li><strong>Cálculo del Coseno:</strong>
+                    $$\sin^2(\alpha) + \cos^2(\alpha) = 1 \implies \cos(\alpha) = -\sqrt{1 - 0.8^2} = -0.6$$
+                    <em>(Signo negativo debido al II Cuadrante).</em>
+                </li>
+                <li><strong>Cálculo de la Tangente e Interpretación:</strong>
+                    $$\tan(\alpha) = \frac{0.8}{-0.6} \approx -1.3333$$
+                    Indica una fuerza opuesta al avance positivo (fuerza de retención).
+                </li>
+            </ol>
+        </div>
+        <div class="gs-ficha__grafico gs-ficha__grafico--estrecho">
+            <div id="box_sol3" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+        </div>
+    </div>
+</div>
