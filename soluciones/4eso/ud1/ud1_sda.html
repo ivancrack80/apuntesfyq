@@ -1,104 +1,105 @@
-      <h2 style="color: #16a34a; margin-top: 0;"><i class="fa-solid fa-graduation-cap"></i> Solucionario Técnico Detallado</h2>
-      
-      <!-- SOLUCIÓN 1 -->
-      <div class="gs-box gs-comprender">
-        <div class="gs-comprender-title"><i class="fa-solid fa-check"></i> Resolución Actividad 1: Factores de Conversión</div>
-        <p><strong>Por qué se hace:</strong> En física, para operar magnitudes de forma consistente, es mandatorio transformar las variables a las unidades unificadas del Sistema Internacional (MKS: metro, kilogramo, segundo).</p>
-        <p><strong>1. Conversión de la velocidad lineal ($v$):</strong> Se multiplican los datos originales por las fracciones equivalentes unitarias de espacio y tiempo de modo que las dimensiones no deseadas se simplifiquen algebraicamente:</p>
-        $$\text{v} = 72\text{ }\frac{\text{km}}{\text{h}} \cdot \left(\frac{1000\text{ m}}{1\text{ km}}\right) \cdot \left(\frac{1\text{ h}}{3600\text{ s}}\right) = \frac{72 \cdot 1000}{3600}\text{ m/s} = 20\text{ m/s}$$
-        <p><strong>2. Conversión de volumen ($V$):</strong> Recordando que un litro equivale a un decímetro cúbico ($1\text{ L} = 1\text{ dm}^3$) y que la conversión cúbica requiere elevar las dimensiones de base al cubo ($1\text{ m}^3 = 10^3\text{ dm}^3 = 1000\text{ L}$):</p>
-        $$\text{V} = 2.5\text{ L} = 2.5\text{ dm}^3 \cdot \left(\frac{1\text{ m}}{10\text{ dm}}\right)^3 = 2.5\text{ dm}^3 \cdot \left(\frac{1\text{ m}^3}{1000\text{ dm}^3}\right) = 0.0025\text{ m}^3 = 2.5 \times 10^{-3}\text{ m}^3$$
-      </div>
+<h3 style="color: var(--gs-green); margin-top: 0;"><i class="fa-solid fa-graduation-cap"></i> Solucionario Técnico Detallado</h3>
 
-      <!-- SOLUCIÓN 2 -->
-      <div class="gs-box gs-comprender">
-        <div class="gs-comprender-title"><i class="fa-solid fa-check"></i> Resolución Actividad 2: Análisis Dimensional de Modelos</div>
-        <p><strong>Por qué se hace:</strong> El principio de homogeneidad de Fourier dicta que los términos de ambos miembros de una ecuación física legítima deben compartir idéntica combinación dimensional elemental: Masa ($M$), Longitud ($L$) y Tiempo ($T$). Sabemos que la fuerza posee dimensiones de $[F] = M \cdot L \cdot T^{-2}$ (ya que $1\text{ N} = 1\text{ kg}\cdot\text{m/s}^2$). Evaluamos miembro a miembro las alternativas:</p>
-        
-        <p><strong>Descarte de la opción a) $F = k \cdot \rho \cdot v \cdot A$:</strong></p>
-        <p>$$\text{Primer miembro: } [F] = M \cdot L \cdot T^{-2}$$</p>
-        <p>$$\text{Segundo miembro: } [\rho \cdot v \cdot A] = (M \cdot L^{-3}) \cdot (L \cdot T^{-1}) \cdot L^2 = M \cdot L^{-3+1+2} \cdot T^{-1} = M \cdot L^{0} \cdot T^{-1} = M \cdot T^{-1}$$</p>
-        <p>$$\text{Comparación: } M \cdot L \cdot T^{-2} \neq M \cdot T^{-1} \implies \mathbf{Incoherente.}$$</p>
+<!-- SOLUCIÓN 1 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-check"></i> Resolución Actividad 1: Factores de Conversión</div>
+    <p><strong>Por qué se hace:</strong> En física, para operar magnitudes de forma consistente, es mandatorio transformar las variables a las unidades unificadas del Sistema Internacional (MKS: metro, kilogramo, segundo).</p>
+    <p><strong>1. Conversión de la velocidad lineal (\(v\)):</strong> Se multiplican los datos originales por las fracciones equivalentes unitarias de espacio y tiempo de modo que las dimensiones no deseadas se simplifiquen algebraicamente:</p>
+    $$\text{v} = 72\text{ }\frac{\text{km}}{\text{h}} \cdot \left(\frac{1000\text{ m}}{1\text{ km}}\right) \cdot \left(\frac{1\text{ h}}{3600\text{ s}}\right) = \frac{72 \cdot 1000}{3600}\text{ m/s} = 20\text{ m/s}$$
+    <p><strong>2. Conversión de volumen (\(V\)):</strong> Recordando que un litro equivale a un decímetro cúbico (\(1\text{ L} = 1\text{ dm}^3\)) y que la conversión cúbica requiere elevar las dimensiones de base al cubo (\(1\text{ m}^3 = 10^3\text{ dm}^3 = 1000\text{ L}\)):</p>
+    $$\text{V} = 2.5\text{ L} = 2.5\text{ dm}^3 \cdot \left(\frac{1\text{ m}}{10\text{ dm}}\right)^3 = 2.5\text{ dm}^3 \cdot \left(\frac{1\text{ m}^3}{1000\text{ dm}^3}\right) = 0.0025\text{ m}^3 = 2.5 \times 10^{-3}\text{ m}^3$$
+</div>
 
-        <p><strong>Validación de la opción b) $F = k \cdot \rho \cdot v^2 \cdot A$:</strong></p>
-        <p>$$\text{Primer miembro: } [F] = M \cdot L \cdot T^{-2}$$</p>
-        <p>$$\text{Segundo miembro: }$$ </p>
-        <p>$$[\rho \cdot v^2 \cdot A] = (M \cdot L^{-3}) \cdot (L \cdot T^{-1})^2 \cdot L^2 = (M \cdot L^{-3})\cdot (L^2 \cdot T^{-2}) \cdot L^2 = M \cdot L^{-3+2+2} \cdot T^{-2} = M \cdot L \cdot T^{-2}$$</p>
-        <p>$$\text{Comparación: } M \cdot L \cdot T^{-2} = M \cdot L \cdot T^{-2} \implies \mathbf{Físicamente\text{ }Válida.}$$</p>
+<!-- SOLUCIÓN 2 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-check"></i> Resolución Actividad 2: Análisis Dimensional de Modelos</div>
+    <p><strong>Por qué se hace:</strong> El principio de homogeneidad de Fourier dicta que los términos de ambos miembros de una ecuación física legítima deben compartir idéntica combinación dimensional elemental: Masa (\(M\)), Longitud (\(L\)) y Tiempo (\(T\)). Sabemos que la fuerza posee dimensiones de \([F] = M \cdot L \cdot T^{-2}\) (ya que \(1\text{ N} = 1\text{ kg}\cdot\text{m/s}^2\)). Evaluamos miembro a miembro las alternativas:</p>
 
-        <p><strong>Descarte de la opción c) $F = k \cdot \frac{\rho \cdot v}{A}$ :</strong></p>
-        <p>$$\text{Primer miembro: } [F] = M \cdot L \cdot T^{-2}$$</p>
-        <p>$$\text{Segundo miembro: } \left[\frac{\rho \cdot v}{A}\right] = \frac{(M \cdot L^{-3}) \cdot (L \cdot T^{-1})}{L^2} = \frac{M \cdot L^{-2} \cdot T^{-1}}{L^2} = M \cdot L^{-4} \cdot T^{-1}$$</p>
-        <p>$$\text{Comparación: } M \cdot L \cdot T^{-2} \neq M \cdot L^{-4} \cdot T^{-1} \implies \mathbf{Incoherente.}$$</p>
-      </div>
+    <p><strong>Descarte de la opción a) \(F = k \cdot \rho \cdot v \cdot A\):</strong></p>
+    <p>$$\text{Primer miembro: } [F] = M \cdot L \cdot T^{-2}$$</p>
+    <p>$$\text{Segundo miembro: } [\rho \cdot v \cdot A] = (M \cdot L^{-3}) \cdot (L \cdot T^{-1}) \cdot L^2 = M \cdot L^{-3+1+2} \cdot T^{-1} = M \cdot L^{0} \cdot T^{-1} = M \cdot T^{-1}$$</p>
+    <p>$$\text{Comparación: } M \cdot L \cdot T^{-2} \neq M \cdot T^{-1} \implies \textbf{Incoherente.}$$</p>
 
-      <!-- SOLUCIÓN 3 -->
-      <div class="gs-box gs-comprender">
-        <div class="gs-comprender-title"><i class="fa-solid fa-check"></i> Resolución Actividad 3: Triangulación Trigonométrica</div>
-        <p><strong>Por qué se hace:</strong> Un vector en coordenadas polares $(r, \theta)$ se proyecta sobre unos ejes ortogonales empleando las funciones trigonométricas fundamentales del seno y el coseno sobre el triángulo rectángulo imaginario formado por la visual de vuelo.</p>
-        <p>• <strong>Proyección horizontal ($x$):</strong> Relacionada con el cateto contiguo al ángulo agudo del radar:</p>
-        $$x = r \cdot \cos(\theta) = 1500\text{ m} \cdot \cos(37^\circ) = 1500 \cdot 0.7986 \approx 1197.95\text{ m}$$
-        <p>• <strong>Proyección vertical u ordenada ($y$):</strong> Relacionada con el cateto opuesto (altitud sobre la base):</p>
-        $$y = r \cdot \sin(\theta) = 1500\text{ m} \cdot \sin(37^\circ) = 1500 \cdot 0.6018 \approx 902.72\text{ m}$$
-        <p>• <strong>Expresión vectorial cartesiana:</strong> Combinando las proyecciones ordenadas con los vectores directores de la base euclídea:</p>
-        $$\vec{r} = (1197.95\vec{i} + 902.72\vec{j})\text{ m}$$
-      </div>
+    <p><strong>Validación de la opción b) \(F = k \cdot \rho \cdot v^2 \cdot A\):</strong></p>
+    <p>$$\text{Primer miembro: } [F] = M \cdot L \cdot T^{-2}$$</p>
+    <p>$$\text{Segundo miembro: }$$</p>
+    <p>$$[\rho \cdot v^2 \cdot A] = (M \cdot L^{-3}) \cdot (L \cdot T^{-1})^2 \cdot L^2 = (M \cdot L^{-3})\cdot (L^2 \cdot T^{-2}) \cdot L^2 = M \cdot L^{-3+2+2} \cdot T^{-2} = M \cdot L \cdot T^{-2}$$</p>
+    <p>$$\text{Comparación: } M \cdot L \cdot T^{-2} = M \cdot L \cdot T^{-2} \implies \textbf{Físicamente válida.}$$</p>
 
-      <!-- SOLUCIÓN 4 -->
-      <div class="gs-box gs-comprender">
-        <div class="gs-comprender-title"><i class="fa-solid fa-check"></i> Resolución Actividad 4: Superposición del Viento y Ángulo de Deriva</div>
-        <p><strong>Por qué se hace:</strong> El movimiento del dron está sometido al principio de superposición de movimientos de Galileo; el vector velocidad resultante respecto a tierra es la suma aditiva directa de las componentes vectoriales independientes del propulsor y del medio fluido.</p>
-        <p>• <strong>Vector velocidad resultante $\vec{v}_r$:</strong></p>
-        <p> Se agrupan términos semejantes sobre las componentes cartesianas independientes:</p>
-        $$\vec{v}_r = \vec{v}_d + \vec{v}_v = (15\vec{i} + 20\vec{j}) + (-5\vec{i} + 5\vec{j}) = (15 - 5)\vec{i} + (20 + 5)\vec{j} = (10\vec{i} + 25\vec{j})\text{ m/s}$$
-        <p>• <strong>Módulo de la velocidad final efectiva ($|\vec{v}_r|$):</strong> Aplicando la métrica euclídea del teorema de Pitágoras:</p>
-        $$|\vec{v}_r| = \sqrt{(v_{rx})^2 + (v_{ry})^2} = \sqrt{10^2 + 25^2} = \sqrt{100 + 625} = \sqrt{725} \approx 26.93\text{ m/s}$$
-        <p>• <strong>Ángulo de deriva con la horizontal ($\alpha$):</strong> Se extrae aplicando la función trigonométrica inversa de la tangente sobre el cociente de las componentes espaciales:</p>
-        $$\tan(\alpha) = \frac{v_{ry}}{v_{rx}} = \frac{25}{10} = 2.5 \implies \alpha = \arctan(2.5) \approx 68.20^\circ$$
-        <p>El vector velocidad real del dron forma un ángulo de $68.20^\circ$ respecto a la horizontal debido al empuje racheado lateral ascendente del viento.</p>
-      </div>
+    <p><strong>Descarte de la opción c) \(F = k \cdot \frac{\rho \cdot v}{A}\):</strong></p>
+    <p>$$\text{Primer miembro: } [F] = M \cdot L \cdot T^{-2}$$</p>
+    <p>$$\text{Segundo miembro: } \left[\frac{\rho \cdot v}{A}\right] = \frac{(M \cdot L^{-3}) \cdot (L \cdot T^{-1})}{L^2} = \frac{M \cdot L^{-2} \cdot T^{-1}}{L^2} = M \cdot L^{-4} \cdot T^{-1}$$</p>
+    <p>$$\text{Comparación: } M \cdot L \cdot T^{-2} \neq M \cdot L^{-4} \cdot T^{-1} \implies \textbf{Incoherente.}$$</p>
+</div>
 
-      <!-- SOLUCIÓN 5 -->
-      <div class="gs-box gs-comprender">
-        <div class="gs-comprender-title"><i class="fa-solid fa-check"></i> Resolución Actividad 5: Calibración Barométrica (Borrasca Severa)</div>
-        <p><strong>Por qué se hace:</strong> Si la tasa de descenso de la presión por unidad de altitud es constante, la relación se modeliza matemáticamente mediante una función polinómica de primer grado (recta de ajuste) cuya ecuación es $P(h) = m \cdot h + P_0$.</p>
-        
-        <div class="visual-block">
-          <div class="graph-explanation">
-            <p>• <strong>Cálculo de la pendiente de la recta ($m$):</strong> Tomamos dos puntos cualesquiera del registro empírico, por ejemplo $A(200, 92.6)$ y $B(400, 90.2)$:</p>
+<!-- SOLUCIÓN 3 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-check"></i> Resolución Actividad 3: Triangulación Trigonométrica</div>
+    <p><strong>Por qué se hace:</strong> Un vector en coordenadas polares \((r, \theta)\) se proyecta sobre unos ejes ortogonales empleando las funciones trigonométricas fundamentales del seno y el coseno sobre el triángulo rectángulo imaginario formado por la visual de vuelo.</p>
+    <p>• <strong>Proyección horizontal (\(x\)):</strong> Relacionada con el cateto contiguo al ángulo agudo del radar:</p>
+    $$x = r \cdot \cos(\theta) = 1500\text{ m} \cdot \cos(37^\circ) = 1500 \cdot 0.7986 \approx 1197.95\text{ m}$$
+    <p>• <strong>Proyección vertical u ordenada (\(y\)):</strong> Relacionada con el cateto opuesto (altitud sobre la base):</p>
+    $$y = r \cdot \sin(\theta) = 1500\text{ m} \cdot \sin(37^\circ) = 1500 \cdot 0.6018 \approx 902.72\text{ m}$$
+    <p>• <strong>Expresión vectorial cartesiana:</strong> Combinando las proyecciones ordenadas con los vectores directores de la base euclídea:</p>
+    $$\vec{r} = (1197.95\vec{i} + 902.72\vec{j})\text{ m}$$
+</div>
+
+<!-- SOLUCIÓN 4 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-check"></i> Resolución Actividad 4: Superposición del Viento y Ángulo de Deriva</div>
+    <p><strong>Por qué se hace:</strong> El movimiento del dron está sometido al principio de superposición de movimientos de Galileo; el vector velocidad resultante respecto a tierra es la suma aditiva directa de las componentes vectoriales independientes del propulsor y del medio fluido.</p>
+    <p>• <strong>Vector velocidad resultante \(\vec{v}_r\):</strong></p>
+    <p>Se agrupan términos semejantes sobre las componentes cartesianas independientes:</p>
+    $$\vec{v}_r = \vec{v}_d + \vec{v}_v = (15\vec{i} + 20\vec{j}) + (-5\vec{i} + 5\vec{j}) = (15 - 5)\vec{i} + (20 + 5)\vec{j} = (10\vec{i} + 25\vec{j})\text{ m/s}$$
+    <p>• <strong>Módulo de la velocidad final efectiva (\(|\vec{v}_r|\)):</strong> Aplicando la métrica euclídea del teorema de Pitágoras:</p>
+    $$|\vec{v}_r| = \sqrt{(v_{rx})^2 + (v_{ry})^2} = \sqrt{10^2 + 25^2} = \sqrt{100 + 625} = \sqrt{725} \approx 26.93\text{ m/s}$$
+    <p>• <strong>Ángulo de deriva con la horizontal (\(\alpha\)):</strong> Se extrae aplicando la función trigonométrica inversa de la tangente sobre el cociente de las componentes espaciales:</p>
+    $$\tan(\alpha) = \frac{v_{ry}}{v_{rx}} = \frac{25}{10} = 2.5 \implies \alpha = \arctan(2.5) \approx 68.20^\circ$$
+    <p>El vector velocidad real del dron forma un ángulo de \(68.20^\circ\) respecto a la horizontal debido al empuje racheado lateral ascendente del viento.</p>
+</div>
+
+<!-- SOLUCIÓN 5 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-check"></i> Resolución Actividad 5: Calibración Barométrica (Borrasca Severa)</div>
+    <p><strong>Por qué se hace:</strong> Si la tasa de descenso de la presión por unidad de altitud es constante, la relación se modeliza matemáticamente mediante una función polinómica de primer grado (recta de ajuste) cuya ecuación es \(P(h) = m \cdot h + P_0\).</p>
+
+    <div class="gs-ficha">
+        <div class="gs-ficha__texto">
+            <p>• <strong>Cálculo de la pendiente de la recta (\(m\)):</strong> Tomamos dos puntos cualesquiera del registro empírico, por ejemplo \(A(200, 92.6)\) y \(B(400, 90.2)\):</p>
             $$m = \frac{P_2 - P_1}{h_2 - h_1} = \frac{90.2 - 92.6}{400 - 200} = \frac{-2.4\text{ kPa}}{200\text{ m}} = -0.012\text{ kPa/m}$$
-            <p>Multiplicando por el factor de escala para expresarlo en unidades fundamentales del S.I. ($\text{Pa/m}$):</p>
+            <p>Multiplicando por el factor de escala para expresarlo en unidades fundamentales del S.I. (Pa/m):</p>
             $$m = -0.012\text{ }\frac{\cancel{\text{kPa}}}{\text{m}} \cdot \left(\frac{1000\text{ Pa}}{1\text{ }\cancel{\text{kPa}}}\right) = -12\text{ Pa/m}$$
-            <p>• <strong>Determinación del término independiente ($P_0$):</strong> Imponemos la condición en la ecuación lineal despejando el valor inicial:</p>
+            <p>• <strong>Determinación del término independiente (\(P_0\)):</strong> Imponemos la condición en la ecuación lineal despejando el valor inicial:</p>
             $$P(h) = m \cdot h + P_0 \implies 92.6 = (-0.012) \cdot 200 + P_0$$
             $$92.6 = -2.4 + P_0 \implies P_0 = 92.6 + 2.4 = 95.0\text{ kPa}$$
-          </div>
-          <div class="jxgbox-wrapper">
-            <div id="box_sol_altimetro" class="jxgbox"></div>
-          </div>
         </div>
-        <p><strong>Significado físico de los parámetros obtenidos:</strong> La pendiente constante de $-12\text{ Pa/m}$ demuestra matemáticamente que la presión decrece de forma homogénea a razón de $12\text{ Pascales}$ por cada metro de altitud que gana la aeronave. Por otro lado, la presión al nivel del suelo de la misión es de apenas $P_0 = 95.0\text{ kPa}$ (muy inferior al valor estándar normalizado de $101.3\text{ kPa}$). Esto confirma analíticamente las severas condiciones de baja presión asociadas al violento frente de tormenta que mantiene en peligro a los montañeros.</p>
-      </div>
+        <div class="gs-ficha__grafico">
+            <div id="box_sol_altimetro" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+        </div>
+    </div>
 
-      <!-- SOLUCIÓN 6 -->
-      <div class="gs-box gs-comprender">
-        <div class="gs-comprender-title"><i class="fa-solid fa-check"></i> Resolución Actividad 6: Depuración de Muestras e Incertidumbre Métrica por Máximos</div>
-        <p><strong>Por qué se hace:</strong> En la experimentación en entornos reales, pueden aparecer errores accidentales o espurios debido a alteraciones drásticas puntuales del entorno. Analizar y depurar la muestra es el paso obligatorio antes de realizar cálculos estadísticos con sentido físico.</p>
-        
-        <p>• <strong>1. Detección y justificación del valor anómalo:</strong> Observando la serie de datos ($12.4\text{ m}$, $12.6\text{ m}$, $12.3\text{ m}$, $14.9\text{ m}$, $12.5\text{ m}$, $12.2\text{ m}$), apreciamos que la cuarta telemetría ($14.9\text{ m}$) se desvía drásticamente del entorno de los $12.4\text{ m}$. Físicamente, <strong>esta medida es anómala e incorrecta</strong>; se justifica porque una racha súbita de viento vertical ha movido e inclinado el dron, desestabilizando temporalmente el sensor láser. <strong>Se procede a su descarte inmediato</strong> para no desvirtuar el análisis, quedándonos con $n = 5$ datos válidos.</p>
-        
-        <p>• <strong>2. Procesamiento estadístico de la muestra depurada:</strong></p>
-        $$\text{Valor medio representativo: } \bar{x} = \frac{12.4 + 12.6 + 12.3 + 12.5 + 12.2}{5} = \frac{62.0}{5} = 12.40\text{ m}$$
-        $$\text{Error absoluto de dispersión medio: } E_a = \frac{0.0 + 0.2 + 0.1 + 0.1 + 0.2}{5} = 0.12\text{ m}$$
-        $$\text{Error relativo de la calidad: } E_r = \left(\frac{E_a}{\bar{x}}\right) \cdot 100 = \left(\frac{0.12}{12.40}\right) \cdot 100 \approx 0.97\%$$
+    <p><strong>Significado físico de los parámetros obtenidos:</strong> La pendiente constante de \(-12\text{ Pa/m}\) demuestra matemáticamente que la presión decrece de forma homogénea a razón de 12 Pascales por cada metro de altitud que gana la aeronave. Por otro lado, la presión al nivel del suelo de la misión es de apenas \(P_0 = 95.0\text{ kPa}\) (muy inferior al valor estándar normalizado de \(101.3\text{ kPa}\)). Esto confirma analíticamente las severas condiciones de baja presión asociadas al violento frente de tormenta que mantiene en peligro a los montañeros.</p>
+</div>
 
-        <p>• <strong>3. Evaluación de la dispersión cuadrática estadística ($\sigma$):</strong></p>
-        $$\sigma = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n}} = \sqrt{\frac{0.0^2 + 0.2^2 + (-0.1)^2 + 0.1^2 + (-0.2)^2}{5}} = \sqrt{\frac{0.10}{5}} = \sqrt{0.02} \approx 0.141\text{ m}$$
+<!-- SOLUCIÓN 6 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-check"></i> Resolución Actividad 6: Depuración de Muestras e Incertidumbre Métrica por Máximos</div>
+    <p><strong>Por qué se hace:</strong> En la experimentación en entornos reales, pueden aparecer errores accidentales o espurios debido a alteraciones drásticas puntuales del entorno. Analizar y depurar la muestra es el paso obligatorio antes de realizar cálculos estadísticos con sentido físico.</p>
 
-        <p>• <strong>4. Determinación de la Incertidumbre Combinada definitiva ($\Delta x$):</strong> Aplicando el protocolo de control de calidad metrológico, se escoge el valor máximo entre la resolución propia del instrumento óptico ($E_{\text{inst}} = 0.1\text{ m}$) y la imprecisión de dispersión estadística cuadrática ($\sigma \approx 0.14\text{ m}$):</p>
-        $$\Delta x = \max(E_{\text{inst}}, \sigma) = \max(0.1\text{ m},\text{ } 0.14\text{ m}) = 0.14\text{ m}$$
-        
-        <p>• <strong>5. Expresión de la medida y conclusión de idoneidad:</strong> Ajustando las cifras significativas decimales de forma unificada, obtenemos la expresión analítica acotada:</p>
-        $$\text{Resultado Final Experimental} = (12.40 \pm 0.14)\text{ m}$$
-        <p><strong>Evaluación de calidad:</strong> Puesto que el error relativo porcentual resultante es sumamente bajo ($E_r = 0.97\%$), quedando muy por debajo del umbral límite escolar del $5\%$, concluimos de manera formal que **se trata de una excelente y muy buena medida**, garantizando la total precisión requerida para lanzar los suministros de rescate con seguridad.</p>
-      </div>
+    <p>• <strong>1. Detección y justificación del valor anómalo:</strong> Observando la serie de datos (\(12.4\text{ m}\), \(12.6\text{ m}\), \(12.3\text{ m}\), \(14.9\text{ m}\), \(12.5\text{ m}\), \(12.2\text{ m}\)), apreciamos que la cuarta telemetría (\(14.9\text{ m}\)) se desvía drásticamente del entorno de los \(12.4\text{ m}\). Físicamente, <strong>esta medida es anómala e incorrecta</strong>; se justifica porque una racha súbita de viento vertical ha movido e inclinado el dron, desestabilizando temporalmente el sensor láser. <strong>Se procede a su descarte inmediato</strong> para no desvirtuar el análisis, quedándonos con \(n = 5\) datos válidos.</p>
+
+    <p>• <strong>2. Procesamiento estadístico de la muestra depurada:</strong></p>
+    $$\text{Valor medio representativo: } \bar{x} = \frac{12.4 + 12.6 + 12.3 + 12.5 + 12.2}{5} = \frac{62.0}{5} = 12.40\text{ m}$$
+    $$\text{Error absoluto de dispersión medio: } E_a = \frac{0.0 + 0.2 + 0.1 + 0.1 + 0.2}{5} = 0.12\text{ m}$$
+    $$\text{Error relativo de la calidad: } E_r = \left(\frac{E_a}{\bar{x}}\right) \cdot 100 = \left(\frac{0.12}{12.40}\right) \cdot 100 \approx 0.97\%$$
+
+    <p>• <strong>3. Evaluación de la dispersión cuadrática estadística (\(\sigma\)):</strong></p>
+    $$\sigma = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n}} = \sqrt{\frac{0.0^2 + 0.2^2 + (-0.1)^2 + 0.1^2 + (-0.2)^2}{5}} = \sqrt{\frac{0.10}{5}} = \sqrt{0.02} \approx 0.141\text{ m}$$
+
+    <p>• <strong>4. Determinación de la Incertidumbre Combinada definitiva (\(\Delta x\)):</strong> Aplicando el protocolo de control de calidad metrológico, se escoge el valor máximo entre la resolución propia del instrumento óptico (\(E_{\text{inst}} = 0.1\text{ m}\)) y la imprecisión de dispersión estadística cuadrática (\(\sigma \approx 0.14\text{ m}\)):</p>
+    $$\Delta x = \max(E_{\text{inst}}, \sigma) = \max(0.1\text{ m},\text{ } 0.14\text{ m}) = 0.14\text{ m}$$
+
+    <p>• <strong>5. Expresión de la medida y conclusión de idoneidad:</strong> Ajustando las cifras significativas decimales de forma unificada, obtenemos la expresión analítica acotada:</p>
+    $$\text{Resultado Final Experimental} = (12.40 \pm 0.14)\text{ m}$$
+    <p><strong>Evaluación de calidad:</strong> Puesto que el error relativo porcentual resultante es sumamente bajo (\(E_r = 0.97\%\)), quedando muy por debajo del umbral límite escolar del \(5\%\), concluimos de manera formal que <strong>se trata de una excelente y muy buena medida</strong>, garantizando la total precisión requerida para lanzar los suministros de rescate con seguridad.</p>
+</div>
