@@ -1,233 +1,219 @@
-      <h2 style="color: #16a34a; margin-top: 0;"><i class="fa-solid fa-graduation-cap"></i> Solucionario Técnico Detallado - Actividades Finales</h2>
-      
-      <!-- SOLUCIÓN 1 -->
-        <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-            <strong>Solución 1: Conversión de Volumen y Densidad</strong>
-            <ol style="margin-top: 0; margin-bottom: 0;">
-                <li>
-                    <strong>Volumen a \( \text{m}^3 \):</strong>
-                    $$500 \text{ mL} \cdot \frac{1 \text{ L}}{1000 \text{ mL}} \cdot \frac{1 \text{ m}^3}{1000 \text{ L}} = 0.0005 \text{ m}^3 = 5 \cdot 10^{-4} \text{ m}^3$$
-                </li>
-                <li>
-                    <strong>Densidad a \( \text{kg/m}^3 \):</strong>
-                    $$0.92 \frac{\text{g}}{\text{cm}^3} \cdot \frac{1 \text{ kg}}{1000 \text{ g}} \cdot \frac{(100 \text{ cm})^3}{(1 \text{ m})^3} = 0.92 \cdot \frac{1}{1000} \cdot 100^3 \frac{\text{kg}}{\text{m}^3} = 920 \frac{\text{kg}}{\text{m}^3}$$
-                </li>
-                <li>
-                    <strong>Masa de la muestra:</strong>
-                    $$m = \rho \cdot V = 920 \frac{\text{kg}}{\text{m}^3} \cdot 5 \cdot 10^{-4} \text{ m}^3 = 0.46 \text{ kg}$$
-                </li>
-            </ol>
-        </div>
+<h3 style="color: var(--gs-green); margin-top: 0;"><i class="fa-solid fa-graduation-cap"></i> Solucionario Técnico Detallado — Actividades Finales</h3>
 
-        <!-- SOLUCIÓN 2 -->
-        <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-            <strong>Solución 2: Homogeneidad de la Ecuación de Bernoulli</strong>
-            <p style="margin-top:10px;">La ecuación de Bernoulli es $P + \frac{1}{2}\rho v^2 + \rho gh = \text{constante}$. Debemos comprobar que cada término tiene dimensiones de presión.</p>
-            <ol style="margin-top: 0; margin-bottom: 0;">
-                <li>
-                    <strong>Término 1: Presión (P)</strong>
-                    $$[P] = \frac{[F]}{[A]} = \frac{\text{M} \cdot \text{L} \cdot \text{T}^{-2}}{\text{L}^2} = \text{M} \cdot \text{L}^{-1} \cdot \text{T}^{-2}$$
-                </li>
-                <li>
-                    <strong>Término 2: Energía cinética por unidad de volumen (\( \frac{1}{2}\rho v^2 \))</strong>
-                    $$[\frac{1}{2}\rho v^2] = 1 \cdot [\rho] \cdot [v]^2 = (\text{M} \cdot \text{L}^{-3}) \cdot (\text{L} \cdot \text{T}^{-1})^2 = \text{M} \cdot \text{L}^{-3} \cdot \text{L}^2 \cdot \text{T}^{-2} = \text{M} \cdot \text{L}^{-1} \cdot \text{T}^{-2}$$
-                </li>
-                <li>
-                    <strong>Término 3: Energía potencial por unidad de volumen (\( \rho gh \))</strong>
-                    $$[\rho gh] = [\rho] \cdot [g] \cdot [h] = (\text{M} \cdot \text{L}^{-3}) \cdot (\text{L} \cdot \text{T}^{-2}) \cdot \text{L} = \text{M} \cdot \text{L}^{-1} \cdot \text{T}^{-2}$$
-                </li>
-            </ol>
-            <p style="margin-top: 10px;">Todos los términos tienen las mismas dimensiones de presión (\( \text{M} \cdot \text{L}^{-1} \cdot \text{T}^{-2} \)), por lo tanto, la ecuación es <strong>dimensionalmente homogénea</strong>.</p>
-        </div>
+<!-- SOLUCIÓN 1 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-flask"></i> Solución 1: Conversión de Volumen y Densidad</div>
+    <ol style="margin-bottom: 0;">
+        <li>
+            <strong>Volumen a m³:</strong>
+            $$500 \text{ mL} \cdot \frac{1 \text{ L}}{1000 \text{ mL}} \cdot \frac{1 \text{ m}^3}{1000 \text{ L}} = 0.0005 \text{ m}^3 = 5 \cdot 10^{-4} \text{ m}^3$$
+        </li>
+        <li>
+            <strong>Densidad a kg/m³:</strong>
+            $$0.92 \frac{\text{g}}{\text{cm}^3} \cdot \frac{1 \text{ kg}}{1000 \text{ g}} \cdot \frac{(100 \text{ cm})^3}{(1 \text{ m})^3} = 0.92 \cdot \frac{1}{1000} \cdot 100^3 \frac{\text{kg}}{\text{m}^3} = 920 \frac{\text{kg}}{\text{m}^3}$$
+        </li>
+        <li>
+            <strong>Masa de la muestra:</strong>
+            $$m = \rho \cdot V = 920 \frac{\text{kg}}{\text{m}^3} \cdot 5 \cdot 10^{-4} \text{ m}^3 = 0.46 \text{ kg}$$
+        </li>
+    </ol>
+</div>
 
-        <!-- SOLUCIÓN 3 -->
-        <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-            <strong>Solución 3: Dimensiones de la Constante de Gravitación Universal (G)</strong>
-            <p>De la ley de gravitación $F = G \frac{m_1 m_2}{r^2}$, despejamos $G$:</p>
-            $$G = \frac{F \cdot r^2}{m_1 m_2}$$
-            <p>Sustituimos las dimensiones:</p>
-            $$[G] = \frac{[F] \cdot [r]^2}{[m_1] \cdot [m_2]} = \frac{(\text{M} \cdot \text{L} \cdot \text{T}^{-2}) \cdot \text{L}^2}{\text{M} \cdot \text{M}} = \text{M}^{-1} \cdot \text{L}^3 \cdot \text{T}^{-2}$$
-            <p>Las unidades SI de $G$ son <strong>\( \text{kg}^{-1} \cdot \text{m}^3 \cdot \text{s}^{-2} \)</strong> o \( \text{N} \cdot \text{m}^2 \cdot \text{kg}^{-2} \).</p>
-        </div>
+<!-- SOLUCIÓN 2 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-scale-balanced"></i> Solución 2: Homogeneidad de la Ecuación de Bernoulli</div>
+    <p>La ecuación de Bernoulli es \(P + \frac{1}{2}\rho v^2 + \rho gh = \text{constante}\). Debemos comprobar que cada término tiene dimensiones de presión.</p>
+    <ol style="margin-bottom: 0;">
+        <li>
+            <strong>Término 1: Presión (P)</strong>
+            $$[P] = \frac{[F]}{[A]} = \frac{\text{M} \cdot \text{L} \cdot \text{T}^{-2}}{\text{L}^2} = \text{M} \cdot \text{L}^{-1} \cdot \text{T}^{-2}$$
+        </li>
+        <li>
+            <strong>Término 2: Energía cinética por unidad de volumen (\(\frac{1}{2}\rho v^2\))</strong>
+            $$[\frac{1}{2}\rho v^2] = 1 \cdot [\rho] \cdot [v]^2 = (\text{M} \cdot \text{L}^{-3}) \cdot (\text{L} \cdot \text{T}^{-1})^2 = \text{M} \cdot \text{L}^{-3} \cdot \text{L}^2 \cdot \text{T}^{-2} = \text{M} \cdot \text{L}^{-1} \cdot \text{T}^{-2}$$
+        </li>
+        <li>
+            <strong>Término 3: Energía potencial por unidad de volumen (\(\rho gh\))</strong>
+            $$[\rho gh] = [\rho] \cdot [g] \cdot [h] = (\text{M} \cdot \text{L}^{-3}) \cdot (\text{L} \cdot \text{T}^{-2}) \cdot \text{L} = \text{M} \cdot \text{L}^{-1} \cdot \text{T}^{-2}$$
+        </li>
+    </ol>
+    <p style="margin-top: 10px; margin-bottom: 0;">Todos los términos tienen las mismas dimensiones de presión (\(\text{M} \cdot \text{L}^{-1} \cdot \text{T}^{-2}\)), por lo tanto, la ecuación es <strong>dimensionalmente homogénea</strong>.</p>
+</div>
 
-        <!-- SOLUCIÓN 4 -->
-        <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-            <strong>Solución 4: Descomposición de la Tensión de un Cable</strong>
-            <div style="margin-top: 10px; margin-bottom: 30px;">
-                <p>Tensión total $T = 500\text{ N}$. Ángulo con la vertical $\alpha = 20^\circ$.</p>
-                <p>Las componentes se calculan usando trigonometría básica en el triángulo formado:</p>
-                <ul>
-                    <li><strong>Componente horizontal ($T_x$):</strong> Es el cateto opuesto al ángulo $\alpha$.
-                        $$T_x = T \cdot \sin(20^\circ) = 500 \cdot 0.3420 \approx 171.01\text{ N}$$
-                    </li>
-                    <li><strong>Componente vertical ($T_y$):</strong> Es el cateto adyacente al ángulo $\alpha$.
-                        $$T_y = T \cdot \cos(20^\circ) = 500 \cdot 0.9397 \approx 469.85\text{ N}$$
-                    </li>
-                </ul>
-                <p>La componente horizontal, responsable del desvío, es de <strong>$171.01\text{ N}$</strong> y la componente vertical es de <strong>$469.85\text{ N}$</strong>.</p>
-            </div>
-        </div>
+<!-- SOLUCIÓN 3 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-globe"></i> Solución 3: Dimensiones de la Constante de Gravitación Universal</div>
+    <p>De la ley de gravitación \(F = G \frac{m_1 m_2}{r^2}\), despejamos \(G\):</p>
+    $$G = \frac{F \cdot r^2}{m_1 m_2}$$
+    <p>Sustituimos las dimensiones:</p>
+    $$[G] = \frac{[F] \cdot [r]^2}{[m_1] \cdot [m_2]} = \frac{(\text{M} \cdot \text{L} \cdot \text{T}^{-2}) \cdot \text{L}^2}{\text{M} \cdot \text{M}} = \text{M}^{-1} \cdot \text{L}^3 \cdot \text{T}^{-2}$$
+    <p style="margin-bottom: 0;">Las unidades SI de \(G\) son <strong>\(\text{kg}^{-1} \cdot \text{m}^3 \cdot \text{s}^{-2}\)</strong> o \(\text{N} \cdot \text{m}^2 \cdot \text{kg}^{-2}\).</p>
+</div>
 
-        <!-- SOLUCIÓN 5 -->
-        <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-            <strong>Solución 5: Movimiento Circular (Coordenadas Cartesianas)</strong>
-            <p>Radio $R = 5\text{ m}$, ángulo $\theta = 225^\circ$.</p>
-            <p><strong>Cálculo de coordenadas:</strong></p>
+<!-- SOLUCIÓN 4 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-link"></i> Solución 4: Descomposición de la Tensión de un Cable</div>
+    <p>Tensión total \(T = 500\text{ N}\). Ángulo con la vertical \(\alpha = 20^\circ\). Las componentes se calculan usando trigonometría básica en el triángulo formado:</p>
+    <ul>
+        <li><strong>Componente horizontal (\(T_x\)):</strong> Es el cateto opuesto al ángulo \(\alpha\).
+            $$T_x = T \cdot \sin(20^\circ) = 500 \cdot 0.3420 \approx 171.01\text{ N}$$
+        </li>
+        <li><strong>Componente vertical (\(T_y\)):</strong> Es el cateto adyacente al ángulo \(\alpha\).
+            $$T_y = T \cdot \cos(20^\circ) = 500 \cdot 0.9397 \approx 469.85\text{ N}$$
+        </li>
+    </ul>
+    <p style="margin-bottom: 0;">La componente horizontal, responsable del desvío, es de <strong>171.01 N</strong> y la componente vertical es de <strong>469.85 N</strong>.</p>
+</div>
+
+<!-- SOLUCIÓN 5 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-circle-dot"></i> Solución 5: Movimiento Circular (Coordenadas Cartesianas)</div>
+    <p>Radio \(R = 5\text{ m}\), ángulo \(\theta = 225^\circ\). Cálculo de coordenadas:</p>
+    <ul>
+        <li>\(x = R \cos(\theta) = 5 \cos(225^\circ) = 5 \cdot (-\frac{\sqrt{2}}{2}) \approx -3.54\text{ m}\)</li>
+        <li>\(y = R \sin(\theta) = 5 \sin(225^\circ) = 5 \cdot (-\frac{\sqrt{2}}{2}) \approx -3.54\text{ m}\)</li>
+    </ul>
+    <p style="margin-bottom: 0;">Las coordenadas cartesianas son <strong>(-3.54 m, -3.54 m)</strong>. El punto se encuentra en el <strong>III Cuadrante</strong>.</p>
+</div>
+
+<!-- SOLUCIÓN 6 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-arrow-trend-up"></i> Solución 6: Fuerza Resultante y Dirección (Suma Vectorial)</div>
+    <p>Primero, convertimos las fuerzas a coordenadas cartesianas:</p>
+    <ul>
+        <li>
+            <strong>\(\vec{F}_1\):</strong> \(F_{1x} = 10 \cos(30^\circ) = 8.66\text{ N}\), \(F_{1y} = 10 \sin(30^\circ) = 5.00\text{ N}\)
+            $$\vec{F}_1 = 8.66\vec{i} + 5.00\vec{j}\text{ N}$$
+        </li>
+        <li>
+            <strong>\(\vec{F}_2\):</strong> \(F_{2x} = 15 \cos(150^\circ) = 15 \cdot (-0.8660) = -12.99\text{ N}\), \(F_{2y} = 15 \sin(150^\circ) = 15 \cdot 0.5 = 7.50\text{ N}\)
+            $$\vec{F}_2 = -12.99\vec{i} + 7.50\vec{j}\text{ N}$$
+        </li>
+    </ul>
+    <p><strong>Vector Resultante \(\vec{F_R}\):</strong></p>
+    $$\vec{F_R} = (8.66 - 12.99)\vec{i} + (5.00 + 7.50)\vec{j} = -4.33\vec{i} + 12.50\vec{j}\text{ N}$$
+    <p><strong>Módulo de \(\vec{F_R}\):</strong></p>
+    $$|\vec{F_R}| = \sqrt{(-4.33)^2 + (12.50)^2} \approx 13.23\text{ N}$$
+    <p><strong>Dirección de \(\vec{F_R}\):</strong></p>
+    $$\theta = \arctan\left(\frac{12.50}{-4.33}\right) \approx 109.12^\circ$$
+    <div class="gs-graph-wrapper gs-graph-wrapper--wide" style="max-width: 320px; margin-top: 20px;">
+        <div id="jxgbox_sol_act6" class="jxgbox"></div>
+    </div>
+</div>
+
+<!-- SOLUCIÓN 7 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-ship"></i> Solución 7: Velocidad Relativa del Barco</div>
+    <p>Primero convertimos las velocidades a coordenadas cartesianas:</p>
+    <ul>
+        <li>
+            <strong>Velocidad del barco (\(\vec{v_B}\)):</strong> Hacia el Este es \(0^\circ\).
+            $$v_{Bx} = 20 \cos(0^\circ) = 20\text{ km/h}, \quad v_{By} = 20 \sin(0^\circ) = 0\text{ km/h}$$
+            $$\vec{v_B} = 20\vec{i} + 0\vec{j}\text{ km/h}$$
+        </li>
+        <li>
+            <strong>Velocidad de la corriente (\(\vec{v_C}\)):</strong> Noroeste es \(135^\circ\).
+            $$v_{Cx} = 5 \cos(135^\circ) = 5 \cdot (-0.7071) = -3.54\text{ km/h}$$
+            $$v_{Cy} = 5 \sin(135^\circ) = 5 \cdot (0.7071) = 3.54\text{ km/h}$$
+            $$\vec{v_C} = -3.54\vec{i} + 3.54\vec{j}\text{ km/h}$$
+        </li>
+    </ul>
+    <p><strong>Velocidad real del barco (\(\vec{v_R} = \vec{v_B} + \vec{v_C}\)):</strong></p>
+    $$\vec{v_R} = (20 - 3.54)\vec{i} + (0 + 3.54)\vec{j} = 16.46\vec{i} + 3.54\vec{j}\text{ km/h}$$
+    <p><strong>Módulo:</strong></p>
+    $$|\vec{v_R}| = \sqrt{(16.46)^2 + (3.54)^2} = \sqrt{270.92 + 12.53} = \sqrt{283.45} \approx 16.84\text{ km/h}$$
+    <p><strong>Dirección:</strong></p>
+    $$\theta = \arctan\left(\frac{3.54}{16.46}\right) \approx \arctan(0.2151) \approx 12.14^\circ$$
+    <p style="margin-bottom: 0;">La velocidad real del barco es de <strong>16.84 km/h</strong> con una dirección de <strong>12.14°</strong> respecto al Este.</p>
+</div>
+
+<!-- SOLUCIÓN 8 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-person-walking"></i> Solución 8: Energía y Ángulo de Colaboración (Producto Escalar)</div>
+    <p>Fuerza \(\vec{F} = 40\vec{i} + 30\vec{j}\text{ N}\) y desplazamiento \(\vec{\Delta r} = 10\vec{i} + 0\vec{j}\text{ m}\).</p>
+    <ol style="margin-bottom: 0;">
+        <li>
+            <strong>Trabajo realizado (Producto escalar):</strong>
+            $$W = \vec{F} \cdot \vec{\Delta r} = (F_x \cdot \Delta x) + (F_y \cdot \Delta y) = (40 \cdot 10) + (30 \cdot 0) = 400 + 0 = 400\text{ J}$$
+        </li>
+        <li>
+            <strong>Ángulo entre la fuerza y el desplazamiento:</strong>
             <ul>
-                <li>$x = R \cos(\theta) = 5 \cos(225^\circ) = 5 \cdot (-\frac{\sqrt{2}}{2}) \approx -3.54\text{ m}$</li>
-                <li>$y = R \sin(\theta) = 5 \sin(225^\circ) = 5 \cdot (-\frac{\sqrt{2}}{2}) \approx -3.54\text{ m}$</li>
+                <li>Módulo de \(\vec{F}\): \(|\vec{F}| = \sqrt{40^2 + 30^2} = \sqrt{1600 + 900} = \sqrt{2500} = 50\text{ N}\)</li>
+                <li>Módulo de \(\vec{\Delta r}\): \(|\vec{\Delta r}| = \sqrt{10^2 + 0^2} = \sqrt{100} = 10\text{ m}\)</li>
             </ul>
-            <p>Las coordenadas cartesianas son <strong>$(-3.54\text{ m}, -3.54\text{ m})$</strong>. El punto se encuentra en el <strong>III Cuadrante</strong>.</p>
-        </div>
+            $$\cos(\theta) = \frac{\vec{F} \cdot \vec{\Delta r}}{|\vec{F}| \cdot |\vec{\Delta r}|} = \frac{400}{50 \cdot 10} = \frac{400}{500} = 0.8$$
+            $$\theta = \arccos(0.8) \approx 36.87^\circ$$
+        </li>
+    </ol>
+    <p style="margin-top: 10px; margin-bottom: 0;">El trabajo realizado es de <strong>400 J</strong> y el ángulo entre la fuerza y el desplazamiento es aproximadamente <strong>36.87°</strong>.</p>
+</div>
 
-        <!-- SOLUCIÓN 6 -->
-        <div class="gs-box gs-comprender">
-            <div class="gs-comprender-title"><i class="fa-solid fa-check"></i> Resolución Actividad 6: Fuerza Resultante y Dirección (Suma Vectorial)</div>
-            <div style="margin-top: 10px;">
-                <div style="width: 100%; margin-bottom: 20px;">
-                    <p>Primero, convertimos las fuerzas a coordenadas cartesianas:</p>
-                    <ul>
-                        <li>
-                            <strong>\( \vec{F_1} \):</strong> $F_{1x} = 10 \cos(30^\circ) = 8.66\text{ N}$, $F_{1y} = 10 \sin(30^\circ) = 5.00\text{ N}$
-                            $$\vec{F_1} = 8.66\vec{i} + 5.00\vec{j}\text{ N}$$
-                        </li>
-                        <li>
-                            <strong>\( \vec{F_2} \):</strong> $F_{2x} = 15 \cos(150^\circ) = 15 \cdot (-0.8660) = -12.99\text{ N}$, $F_{2y} = 15 \sin(150^\circ) = 15 \cdot 0.5 = 7.50\text{ N}$
-                            $$\vec{F_2} = -12.99\vec{i} + 7.50\vec{j}\text{ N}$$
-                        </li>
-                    </ul>
-                    <p><strong>Vector Resultante \( \vec{F_R} \):</strong></p>
-                    $$\vec{F_R} = (8.66 - 12.99)\vec{i} + (5.00 + 7.50)\vec{j} = -4.33\vec{i} + 12.50\vec{j}\text{ N}$$
-                    <p><strong>Módulo de \( \vec{F_R} \):</strong></p>
-                    $$|\vec{F_R}| = \sqrt{(-4.33)^2 + (12.50)^2} \approx 13.23\text{ N}$$
-                    <p><strong>Dirección de \( \vec{F_R} \):</strong></p>
-                    $$\theta = \arctan\left(\frac{12.50}{-4.33}\right) \approx 109.12^\circ$$
-                </div>
-                <div style="width: 280px; margin: 0 auto; margin-bottom: 50px;">
-                    <div id="jxgbox_sol_act6" class="jxgbox" style="width:100%; aspect-ratio: 1/1; border-radius: 8px; border: 1px solid #cbd5e1;"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SOLUCIÓN 7 -->
-        <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-            <strong>Solución 7: Velocidad Relativa del Barco</strong>
-            <p>Primero convertimos las velocidades a coordenadas cartesianas:</p>
+<!-- SOLUCIÓN 9 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-ruler"></i> Solución 9: Medición de la Longitud de una Mesa</div>
+    <p>Resolución de la cinta métrica: \(E_{\text{inst}} = 1\text{ mm} = 0.001\text{ m}\). Mediciones: \(x_1 = 1.851\text{ m}\), \(x_2 = 1.853\text{ m}\), \(x_3 = 1.849\text{ m}\).</p>
+    <ol style="margin-bottom: 0;">
+        <li>
+            <strong>Valor medio estimado (\(\bar{L}\)):</strong>
+            $$\bar{L} = \frac{1.851 + 1.853 + 1.849}{3} = \frac{5.553}{3} = 1.851\text{ m}$$
+        </li>
+        <li>
+            <strong>Incertidumbre absoluta total (\(\Delta L\)):</strong>
+            <p>Desviaciones cuadráticas:</p>
             <ul>
-                <li>
-                    <strong>Velocidad del barco (\( \vec{v_B} \)):</strong> Hacia el Este es \( 0^\circ \).
-                    $$v_{Bx} = 20 \cos(0^\circ) = 20\text{ km/h}, \quad v_{By} = 20 \sin(0^\circ) = 0\text{ km/h}$$
-                    $$\vec{v_B} = 20\vec{i} + 0\vec{j}\text{ km/h}$$
-                </li>
-                <li>
-                    <strong>Velocidad de la corriente (\( \vec{v_C} \)):</strong> Noroeste es \( 135^\circ \).
-                    $$v_{Cx} = 5 \cos(135^\circ) = 5 \cdot (-0.7071) = -3.54\text{ km/h}$$
-                    $$v_{Cy} = 5 \sin(135^\circ) = 5 \cdot (0.7071) = 3.54\text{ km/h}$$
-                    $$\vec{v_C} = -3.54\vec{i} + 3.54\vec{j}\text{ km/h}$$
-                </li>
+                <li>\((1.851 - 1.851)^2 = 0\)</li>
+                <li>\((1.853 - 1.851)^2 = (0.002)^2 = 0.000004\)</li>
+                <li>\((1.849 - 1.851)^2 = (-0.002)^2 = 0.000004\)</li>
             </ul>
-            <p><strong>Velocidad real del barco (\( \vec{v_R} = \vec{v_B} + \vec{v_C} \)):</strong></p>
-            $$\vec{v_R} = (20 - 3.54)\vec{i} + (0 + 3.54)\vec{j} = 16.46\vec{i} + 3.54\vec{j}\text{ km/h}$$
-            <p><strong>Módulo de la velocidad real:</strong></p>
-            $$|\vec{v_R}| = \sqrt{(16.46)^2 + (3.54)^2} = \sqrt{270.92 + 12.53} = \sqrt{283.45} \approx 16.84\text{ km/h}$$
-            <p><strong>Dirección de la velocidad real:</strong></p>
-            $$\theta = \arctan\left(\frac{3.54}{16.46}\right) \approx \arctan(0.2151) \approx 12.14^\circ$$
-            <p>La velocidad real del barco es de <strong>$16.84\text{ km/h}$ con una dirección de $12.14^\circ$</strong> respecto al Este.</p>
-        </div>
+            <p>Suma de desviaciones cuadráticas: \(0.000008\). ECM:</p>
+            $$E_{\text{disp}} = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n(n-1)}} = \sqrt{\frac{0.000008}{3 \cdot 2}} = \sqrt{0.000001333} \approx 0.001155\text{ m}$$
+            <p>Incertidumbre total: \(\Delta L = \max(0.001, 0.001155) = 0.001155\text{ m}\). Redondeando a 1 cifra: \(\Delta L = 0.001\text{ m}\).</p>
+            <p>Expresión formal: <strong>\(L = (1.851 \pm 0.001)\text{ m}\)</strong>.</p>
+        </li>
+        <li>
+            <strong>Error relativo porcentual (\(E_r\%\)):</strong>
+            $$E_r = \frac{\Delta L}{\bar{L}} \times 100\% = \frac{0.001155}{1.851} \times 100\% \approx 0.0624\%$$
+            <p style="margin-bottom: 0;">El error relativo es <strong>0.0624%</strong>, lo cual es muy aceptable (menor al 5%).</p>
+        </li>
+    </ol>
+</div>
 
-        <!-- SOLUCIÓN 8 -->
-        <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-            <strong>Solución 8: Energía y Ángulo de Colaboración (Producto Escalar)</strong>
-            <p>Fuerza \( \vec{F} = 40\vec{i} + 30\vec{j}\text{ N} \)</p>
-            <p>Desplazamiento \( \vec{\Delta r} = 10\vec{i} + 0\vec{j}\text{ m} \)</p>
-            <ol style="margin-top: 0; margin-bottom: 0;">
-                <li>
-                    <strong>Trabajo realizado (Producto escalar):</strong>
-                    $$W = \vec{F} \cdot \vec{\Delta r} = (F_x \cdot \Delta x) + (F_y \cdot \Delta y) = (40 \cdot 10) + (30 \cdot 0) = 400 + 0 = 400\text{ J}$$
-                </li>
-                <li>
-                    <strong>Ángulo entre la fuerza y el desplazamiento:</strong>
-                    <ul>
-                        <li>Módulo de \( \vec{F} \): $|\vec{F}| = \sqrt{40^2 + 30^2} = \sqrt{1600 + 900} = \sqrt{2500} = 50\text{ N}$</li>
-                        <li>Módulo de \( \vec{\Delta r} \): $|\vec{\Delta r}| = \sqrt{10^2 + 0^2} = \sqrt{100} = 10\text{ m}$</li>
-                    </ul>
-                    $$\cos(\theta) = \frac{\vec{F} \cdot \vec{\Delta r}}{|\vec{F}| \cdot |\vec{\Delta r}|} = \frac{400}{50 \cdot 10} = \frac{400}{500} = 0.8$$
-                    $$\theta = \arccos(0.8) \approx 36.87^\circ$$
-                </li>
-            </ol>
-            <p>El trabajo realizado es de <strong>$400\text{ J}$</strong> y el ángulo entre la fuerza y el desplazamiento es aproximadamente <strong>$36.87^\circ$</strong>.</p>
-        </div>
+<!-- SOLUCIÓN 10 -->
+<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-chart-line"></i> Solución 10: Ley de Hooke y Constante Elástica</div>
 
-        <!-- SOLUCIÓN 9 -->
-        <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-            <strong>Solución 9: Medición de la Longitud de una Mesa (Teoría de Errores)</strong>
-            <p>Resolución de la cinta métrica: $E_{\text{inst}} = 1\text{ mm} = 0.001\text{ m}$.</p>
-            <p>Mediciones: $x_1 = 1.851\text{ m}$, $x_2 = 1.853\text{ m}$, $x_3 = 1.849\text{ m}$.</p>
-            <ol style="margin-top: 0; margin-bottom: 0;">
-                <li>
-                    <strong>Valor medio estimado (\( \bar{L} \)):</strong>
-                    $$\bar{L} = \frac{1.851 + 1.853 + 1.849}{3} = \frac{5.553}{3} = 1.851\text{ m}$$
-                </li>
-                <li>
-                    <strong>Incertidumbre absoluta total (\( \Delta L \)):</strong>
-                    <p>Cálculo de las desviaciones cuadráticas:</p>
-                    <ul>
-                        <li>$(1.851 - 1.851)^2 = 0$</li>
-                        <li>$(1.853 - 1.851)^2 = (0.002)^2 = 0.000004$</li>
-                        <li>$(1.849 - 1.851)^2 = (-0.002)^2 = 0.000004$</li>
-                    </ul>
-                    <p>Suma de desviaciones cuadráticas: $0.000008$.</p>
-                    <p>Error de dispersión (ECM):</p>
-                    $$E_{\text{disp}} = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n(n-1)}} = \sqrt{\frac{0.000008}{3(3-1)}} = \sqrt{\frac{0.000008}{6}} = \sqrt{0.000001333} \approx 0.001155\text{ m}$$
-                    <p>Incertidumbre absoluta total: $\Delta L = \max(E_{\text{inst}}, E_{\text{disp}}) = \max(0.001, 0.001155) = 0.001155\text{ m}$.</p>
-                    <p>Redondeando a una cifra significativa: $\Delta L = 0.001\text{ m}$.</p>
-                    <p>Ajustando la media al mismo orden de magnitud: $\bar{L} = 1.851\text{ m}$ (ya está en el orden correcto).</p>
-                    <p>Expresión formal: <strong>$L = (1.851 \pm 0.001)\text{ m}$</strong>.</p>
-                </li>
-                <li>
-                    <strong>Error relativo porcentual (\( E_r\% \)):</strong>
-                    $$E_r = \frac{\Delta L}{\bar{L}} \times 100\% = \frac{0.001155}{1.851} \times 100\% \approx 0.0624\%$$
-                    <p>El error relativo es <strong>$0.0624\%$</strong>, lo cual es muy aceptable (menor al 5%).</p>
-                </li>
-            </ol>
-        </div>
+    <p><strong>Tabla de datos convertidos:</strong></p>
+    <table class="gs-tabla-datos" style="width: 100%; margin-bottom: 20px;">
+        <tbody>
+            <tr>
+                <th>Alargamiento \(\Delta x\) (m)</th>
+                <td>0.005</td><td>0.011</td><td>0.014</td><td>0.020</td><td>0.026</td>
+            </tr>
+            <tr>
+                <th>Fuerza \(F\) (N)</th>
+                <td>1.0</td><td>2.0</td><td>3.0</td><td>4.0</td><td>5.0</td>
+            </tr>
+        </tbody>
+    </table>
 
-        <!-- SOLUCIÓN 10 -->
-        <div class="gs-box gs-ejemplo" style="border-left-color: #16a34a;">
-            <strong>Solución 10: Ley de Hooke y Constante Elástica (Análisis Gráfico y Errores)</strong>
-            <div style="margin-top: 15px;">
-                <p><strong>Tabla de datos convertidos:</strong></p>
-                <table class="gs-table" style="width: 100%; margin-bottom: 20px;">
-                    <tbody>
-                        <tr>
-                            <th>Alargamiento $\Delta x$ (m)</th>
-                            <td>0.005</td><td>0.011</td><td>0.014</td><td>0.020</td><td>0.026</td>
-                        </tr>
-                        <tr>
-                            <th>Fuerza $F$ (N)</th>
-                            <td>1.0</td><td>2.0</td><td>3.0</td><td>4.0</td><td>5.0</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div style="width: 100%; margin: 20px auto;">
-                    <div id="jxgbox_sol_act10" class="jxgbox" style="width:100%; aspect-ratio: 2/1;"></div>
-                </div>
+    <div class="gs-graph-wrapper gs-graph-wrapper--wide" style="margin: 20px auto;">
+        <div id="jxgbox_sol_act10" class="jxgbox" style="aspect-ratio: 2/1;"></div>
+    </div>
 
-                <ol style="margin-top: 15px; margin-bottom: 0;">
-                    <li>
-                        <strong>Representación gráfica y línea de mejor ajuste:</strong> Se observa una relación lineal (Ley de Hooke: $F = k \cdot \Delta x$).
-                    </li>
-                    <li>
-                        <strong>Cálculo de la pendiente (Constante elástica \( k \)):</strong> Tomando los puntos $(0.005\text{ m}, 1.0\text{ N})$ y $(0.026\text{ m}, 5.0\text{ N})$ de la línea de mejor ajuste (o aproximando): 
-                        $$k = \frac{\Delta F}{\Delta (\Delta x)} = \frac{5.0\text{ N} - 1.0\text{ N}}{0.026\text{ m} - 0.005\text{ m}} = \frac{4.0\text{ N}}{0.021\text{ m}} \approx 190.48\text{ N/m}$$
-                        La constante elástica experimental es <strong>$k \approx 190.48\text{ N/m}$</strong>.
-                    </li>
-                    <li>
-                        <strong>Error relativo porcentual:</strong>
-                        $$E_r = \frac{|k_{\text{experimental}} - k_{\text{esperado}}|}{k_{\text{esperado}}} \times 100\% = \frac{|190.48 - 200|}{200} \times 100\% = \frac{9.52}{200} \times 100\% \approx 4.76\%$$
-                        El error relativo es <strong>$4.76\%$</strong>, lo que indica una buena precisión experimental.
-                    </li>
-                </ol>
-            </div>
-        </div>
+    <ol style="margin-top: 15px; margin-bottom: 0;">
+        <li>
+            <strong>Representación gráfica y línea de mejor ajuste:</strong> Se observa una relación lineal (Ley de Hooke: \(F = k \cdot \Delta x\)).
+        </li>
+        <li>
+            <strong>Cálculo de la pendiente (Constante elástica \(k\)):</strong> Tomando los puntos \((0.005\text{ m}, 1.0\text{ N})\) y \((0.026\text{ m}, 5.0\text{ N})\) de la línea de mejor ajuste:
+            $$k = \frac{\Delta F}{\Delta (\Delta x)} = \frac{5.0 - 1.0}{0.026 - 0.005} = \frac{4.0}{0.021} \approx 190.48\text{ N/m}$$
+            La constante elástica experimental es \(k \approx 190.48\text{ N/m}\).
+        </li>
+        <li>
+            <strong>Error relativo porcentual:</strong>
+            $$E_r = \frac{|k_{\text{exp}} - k_{\text{esperado}}|}{k_{\text{esperado}}} \times 100\% = \frac{|190.48 - 200|}{200} \times 100\% \approx 4.76\%$$
+            <p style="margin-bottom: 0;">El error relativo es <strong>4.76%</strong>, lo que indica una buena precisión experimental.</p>
+        </li>
+    </ol>
+</div>
