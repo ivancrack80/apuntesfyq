@@ -359,6 +359,14 @@ strong { color: var(--gs-text-strong); }
     overflow-x: auto;
 }
 
+/* Fórmulas MathJax alineadas a la izquierda dentro de cajas pedagógicas */
+.gs-box .MathJax_Display,
+.gs-box .mjx-chtml,
+.gs-box .MathJax {
+    text-align: left !important;
+    margin: 4px 0 !important;
+}
+
 /* --------------------------------------------------------------------------
    7. CAJAS DE NORMAS POR CATEGORÍA
    -------------------------------------------------------------------------- */
