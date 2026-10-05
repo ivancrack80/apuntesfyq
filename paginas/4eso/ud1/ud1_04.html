@@ -367,11 +367,30 @@ document.addEventListener('gs-ready', function () {
     bElem.on('update', updateElem);
 
     const bExConv = JXG.JSXGraph.initBoard('box_ex_conv', {boundingbox: [-12, 12, 12, -12], axis: true, showCopyright: false, showNavigation: false});
-    const originConv = bExConv.create('point', [0, 0], {fixed: true, visible: false});
-    const pFuerza = bExConv.create('point', [-5, 8.66], {fixed: true, visible: false});
-    bExConv.create('arrow', [originConv, pFuerza], {strokeColor: '#1e3a8a', strokeWidth: 3, name: 'F = 10 N', withLabel: true, label: {position: 'top', offset: [-20, 10]}});
-    bExConv.create('segment', [originConv, [-5, 0]], {strokeColor: '#dc2626', strokeWidth: 2, strokeDash: 2, name: '-5i', withLabel: true});
-    bExConv.create('segment', [[-5, 0], pFuerza], {strokeColor: '#16a34a', strokeWidth: 2, strokeDash: 2, name: '+8.66j', withLabel: true});
+const originConv = bExConv.create('point', [0, 0], {fixed: true, visible: false});
+const pFuerza = bExConv.create('point', [-5, 8.66], {fixed: true, visible: false});
+const pFuerzaX = bExConv.create('point', [-5, 0], {fixed: true, visible: false});
+
+// Vector F con su etiqueta desplazada hacia arriba-izquierda (fuera del segmento vertical)
+bExConv.create('arrow', [originConv, pFuerza], {
+    strokeColor: '#1e3a8a', strokeWidth: 3,
+    name: 'F = 10 N', withLabel: true,
+    label: {position: 'top', offset: [-85, -5]}
+});
+
+// Componente horizontal (rojo) con etiqueta a la izquierda
+bExConv.create('segment', [originConv, pFuerzaX], {
+    strokeColor: '#dc2626', strokeWidth: 2, strokeDash: 2,
+    name: '-5i', withLabel: true,
+    label: {position: 'bot', offset: [-30, -12]}
+});
+
+// Componente vertical (verde) con etiqueta a la derecha del segmento
+bExConv.create('segment', [pFuerzaX, pFuerza], {
+    strokeColor: '#16a34a', strokeWidth: 2, strokeDash: 2,
+    name: '+8.66j', withLabel: true,
+    label: {position: 'right', offset: [10, -10]}
+});
 
     const bOps = JXG.JSXGraph.initBoard('box_ops', {boundingbox: [-2, 6, 6, -2], axis: true, showCopyright: false});
     const origOps = bOps.create('point', [0, 0], {fixed: true, visible: false});
