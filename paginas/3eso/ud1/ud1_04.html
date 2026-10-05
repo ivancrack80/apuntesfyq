@@ -77,6 +77,146 @@
         </ul>
     </div>
 
+<div class="gs-box gs-ejemplo">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo 1: Relación directamente proporcional</div>
+    <p>
+        <strong>Planteamiento:</strong> Un coche circula a velocidad constante. Medimos la distancia recorrida en varios tiempos y obtenemos:
+    </p>
+    <table class="gs-tabla-datos" style="max-width: 520px;">
+        <thead>
+            <tr>
+                <th>Tiempo \(t\) (h)</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Distancia \(s\) (km)</strong></td>
+                <td>80</td>
+                <td>160</td>
+                <td>240</td>
+                <td>320</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="margin-top: 15px;"><strong>Resolución paso a paso:</strong></p>
+    <ol style="margin-bottom: 0;">
+        <li>
+            <strong>Identificamos la forma de la gráfica.</strong> Al representar los puntos \((t, s)\), vemos que quedan alineados y que la recta <strong>pasa por el origen</strong>. Es una relación directamente proporcional: \(s = k \cdot t\).
+        </li>
+        <li>
+            <strong>Calculamos la constante.</strong> Elegimos cualquier punto de la tabla y dividimos \(y\) entre \(x\):
+            $$k = \frac{s}{t} = \frac{80}{1} = 80 \quad \text{(km/h)}$$
+        </li>
+        <li>
+            <strong>Comprobamos con otro punto.</strong>
+            $$\frac{160}{2} = 80, \quad \frac{240}{3} = 80, \quad \frac{320}{4} = 80$$
+            La constante se mantiene. ✅
+        </li>
+        <li>
+            <strong>Escribimos la ecuación.</strong>
+            $$s = 80 \cdot t$$
+            El valor de \(k\) representa la velocidad del coche: <strong>80 km/h</strong>.
+        </li>
+    </ol>
+</div>
+
+<div class="gs-box gs-ejemplo">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo 2: Relación lineal</div>
+    <p>
+        <strong>Planteamiento:</strong> Calentamos un recipiente con agua y medimos su temperatura cada cierto tiempo:
+    </p>
+    <table class="gs-tabla-datos" style="max-width: 520px;">
+        <thead>
+            <tr>
+                <th>Tiempo \(t\) (min)</th>
+                <th>0</th>
+                <th>2</th>
+                <th>4</th>
+                <th>6</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Temperatura \(T\) (°C)</strong></td>
+                <td>20</td>
+                <td>30</td>
+                <td>40</td>
+                <td>50</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="margin-top: 15px;"><strong>Resolución paso a paso:</strong></p>
+    <ol style="margin-bottom: 0;">
+        <li>
+            <strong>Identificamos la forma de la gráfica.</strong> Los puntos están alineados, pero la recta <strong>NO pasa por el origen</strong>: corta al eje \(Y\) en \(T = 20\). Es una relación lineal: \(T = m \cdot t + n\).
+        </li>
+        <li>
+            <strong>Calculamos la pendiente \(m\).</strong> Elegimos dos puntos cualesquiera, por ejemplo \((2, 30)\) y \((6, 50)\):
+            $$m = \frac{T_2 - T_1}{t_2 - t_1} = \frac{50 - 30}{6 - 2} = \frac{20}{4} = 5 \quad \text{(°C/min)}$$
+        </li>
+        <li>
+            <strong>Calculamos la ordenada en el origen \(n\).</strong> Usamos cualquier punto, por ejemplo \((2, 30)\):
+            $$n = T - m \cdot t = 30 - 5 \cdot 2 = 30 - 10 = 20 \quad \text{(°C)}$$
+        </li>
+        <li>
+            <strong>Escribimos la ecuación.</strong>
+            $$T = 5 \cdot t + 20$$
+            El valor \(n = 20\) representa la <strong>temperatura inicial</strong> del agua (a \(t = 0\) min). El valor \(m = 5\) indica que la temperatura sube <strong>5 °C por minuto</strong>.
+        </li>
+    </ol>
+</div>
+
+<div class="gs-box gs-ejemplo">
+    <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo 3: Relación inversamente proporcional</div>
+    <p>
+        <strong>Planteamiento:</strong> Encerramos un gas en un recipiente y variamos la presión a temperatura constante, midiendo el volumen:
+    </p>
+    <table class="gs-tabla-datos" style="max-width: 520px;">
+        <thead>
+            <tr>
+                <th>Presión \(P\) (atm)</th>
+                <th>1</th>
+                <th>2</th>
+                <th>4</th>
+                <th>5</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Volumen \(V\) (L)</strong></td>
+                <td>20</td>
+                <td>10</td>
+                <td>5</td>
+                <td>4</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="margin-top: 15px;"><strong>Resolución paso a paso:</strong></p>
+    <ol style="margin-bottom: 0;">
+        <li>
+            <strong>Identificamos la forma de la gráfica.</strong> Al representar los puntos, NO están en línea recta: forman una <strong>hipérbola decreciente</strong>. Es una relación inversamente proporcional: \(V = k / P\).
+        </li>
+        <li>
+            <strong>Comprobamos multiplicando los pares de datos.</strong> Si es inversamente proporcional, el producto \(P \cdot V\) debe ser constante:
+            $$1 \cdot 20 = 20, \quad 2 \cdot 10 = 20, \quad 4 \cdot 5 = 20, \quad 5 \cdot 4 = 20$$
+            La constante se mantiene. ✅
+        </li>
+        <li>
+            <strong>Identificamos la constante.</strong>
+            $$k = P \cdot V = 20 \quad \text{(atm·L)}$$
+        </li>
+        <li>
+            <strong>Escribimos la ecuación.</strong> Despejando el volumen:
+            $$V = \frac{20}{P}$$
+            Esta es la <strong>Ley de Boyle</strong>: a temperatura constante, el producto de la presión por el volumen de un gas es siempre el mismo valor.
+        </li>
+    </ol>
+</div>
+
     <!-- APPLET INTERACTIVO -->
     <div class="gs-visual-block">
         <div class="gs-graph-wrapper gs-graph-wrapper--wide">
