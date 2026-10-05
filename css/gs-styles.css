@@ -1187,48 +1187,67 @@ body.dyslexia-mode .gs-index-item {
 }
 .gs-profundiza p:last-child { margin-bottom: 0; }
 
-/* Ficha interna: texto + imagen */
+/* --------------------------------------------------------------------------
+   FICHA: texto + imagen/gráfico al lado
+   Uso genérico (bloques con layout horizontal)
+   -------------------------------------------------------------------------- */
 .gs-ficha {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px dashed var(--gs-purple-border);
 }
-.gs-ficha:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-.gs-ficha-texto {
+.gs-ficha__texto {
     flex: 1;
     min-width: 280px;
-    color: #4c1d95;
 }
-.gs-ficha-imagen {
+.gs-ficha__texto p:first-child { margin-top: 0; }
+.gs-ficha__texto p:last-child { margin-bottom: 0; }
+
+.gs-ficha__grafico {
+    width: 340px;
+    flex-shrink: 0;
+    margin: 0 auto;
+}
+.gs-ficha__grafico--estrecho { width: 260px; }
+.gs-ficha__grafico--ancho { width: 460px; }
+
+.gs-ficha__imagen {
     width: 240px;
-    min-width: 240px;
+    flex-shrink: 0;
     margin: 0 auto;
     text-align: center;
 }
-.gs-ficha-imagen img {
+.gs-ficha__imagen img {
     width: 100%;
     height: auto;
     border-radius: 6px;
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
-.gs-ficha-pie {
+
+.gs-ficha__pie {
     font-size: 0.75rem;
-    color: var(--gs-purple-text);
+    color: var(--gs-text-muted);
     margin-top: 5px;
     font-style: italic;
     line-height: 1.2;
+    text-align: center;
 }
-.gs-ficha-pie a {
-    color: var(--gs-purple);
+.gs-ficha__pie a {
+    color: var(--gs-accent);
     text-decoration: none;
+}
+
+/* Modificador: cuando hay varias fichas hermanas seguidas */
+.gs-ficha--separada {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px dashed var(--gs-border);
+}
+.gs-ficha--separada:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 
@@ -1366,6 +1385,16 @@ body.dyslexia-mode .gs-index-item {
     .gs-hero-title { font-size: 2.3rem; }
     .gs-footer-banner { flex-direction: column; text-align: center; }
     .gs-btn-moodle { width: 100%; justify-content: center; }
+   .gs-ficha {
+        flex-direction: column;
+    }
+    .gs-ficha__grafico,
+    .gs-ficha__grafico--estrecho,
+    .gs-ficha__grafico--ancho,
+    .gs-ficha__imagen {
+        width: 100%;
+        max-width: 100% !important;
+    }
 }
 
 /* --------------------------------------------------------------------------
