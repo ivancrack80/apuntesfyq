@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Análisis de Datos y Representación Gráfica - 3º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <h1 class="gs-title">4. Análisis de Datos y Representación Gráfica</h1>
+        <div class="gs-subtitle">Bloque Analítico • De los datos experimentales a las leyes matemáticas</div>
+    </header>
+
+    <p>
+        En el laboratorio, la mayoría de los descubrimientos comienzan con una tabla de datos. Medimos, anotamos números y, cuando los observamos con calma, empezamos a ver patrones. Pero las tablas son difíciles de interpretar a simple vista. Para descubrir la relación que existe entre dos magnitudes, las <strong>representamos gráficamente</strong>. La forma de la gráfica es como una huella dactilar: nos dice qué tipo de relación matemática hay detrás.
+    </p>
+
+    <!-- APARTADO 4.1 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-chart-line"></i> 4.1. La Gráfica como Herramienta Científica
+    </h2>
+    <p>
+        Cuando representamos dos magnitudes en unos ejes de coordenadas, colocamos en el eje horizontal la variable que <strong>nosotros controlamos</strong> (variable independiente, normalmente la \(X\)) y en el eje vertical la variable que <strong>medimos</strong> (variable dependiente, normalmente la \(Y\)).
+    </p>
+    <p>
+        Según cómo se relacionen las dos magnitudes, la gráfica adopta una forma u otra. En este curso nos centraremos en tres tipos fundamentales de relación:
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-chart-simple"></i> Las Tres Relaciones Básicas</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Relación directamente proporcional:</strong> \(y = k \cdot x\). Al duplicar \(x\), se duplica \(y\). La gráfica es una <strong>recta que pasa por el origen</strong>.</li>
+            <li><strong>Relación lineal:</strong> \(y = m \cdot x + n\). Es como la anterior, pero la recta <strong>no pasa por el origen</strong>, sino que corta al eje \(Y\) en el valor \(n\).</li>
+            <li><strong>Relación inversamente proporcional:</strong> \(y = \dfrac{k}{x}\). Al duplicar \(x\), se reduce \(y\) a la mitad. La gráfica es una <strong>hipérbola</strong>.</li>
+        </ul>
+    </div>
+
+    <!-- APARTADO 4.2 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-calculator"></i> 4.2. Cómo obtener la ecuación a partir de la gráfica
+    </h2>
+    <p>
+        La gráfica no solo nos ayuda a visualizar los datos, también nos permite obtener la <strong>fórmula matemática</strong> que relaciona las dos magnitudes (la "ley" del fenómeno). Para ello, identificamos la forma de la gráfica y aplicamos las fórmulas correspondientes:
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-percent"></i> Cálculo de la Constante de Proporcionalidad</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Directamente proporcional:</strong> Elegimos cualquier punto de la recta (que no sea el origen) y calculamos:
+                $$k = \frac{y}{x}$$
+                Ese valor es constante para toda la recta.</li>
+            <li><strong>Lineal:</strong> Necesitamos dos puntos de la recta \((x_1, y_1)\) y \((x_2, y_2)\). Calculamos la pendiente \(m\) y la ordenada en el origen \(n\):
+                $$m = \frac{y_2 - y_1}{x_2 - x_1} \qquad n = y_1 - m \cdot x_1$$</li>
+            <li><strong>Inversamente proporcional:</strong> Multiplicamos cualquier par de valores de la tabla. El producto debe ser constante:
+                $$k = x \cdot y$$</li>
+        </ul>
+    </div>
+
+    <!-- APPLET INTERACTIVO -->
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper gs-graph-wrapper--wide">
+            <div id="box_graf" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Visualizador de las Tres Relaciones</h3>
+            <p>
+                <strong>Instrucciones:</strong> Pulsa los botones para cambiar entre los tres tipos de relación. Observa cómo cambia la forma de la gráfica y qué pasa con los valores de la tabla asociada.
+            </p>
+
+            <div class="gs-selector-btns">
+                <button class="gs-selector-btn active" onclick="switchRelacion('proporcional')">Directa (y = k·x)</button>
+                <button class="gs-selector-btn" onclick="switchRelacion('lineal')">Lineal (y = m·x + n)</button>
+                <button class="gs-selector-btn" onclick="switchRelacion('inversa')">Inversa (y = k/x)</button>
+            </div>
+
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Modelo activo:</span>
+                    <span id="rel-tipo" class="gs-panel-datos__valor">Directamente proporcional</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Ecuación:</span>
+                    <span id="rel-ecuacion" class="gs-panel-datos__valor gs-panel-datos__valor--verde">y = 3·x</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Constante:</span>
+                    <span id="rel-constante" class="gs-panel-datos__valor gs-panel-datos__valor--ambar">k = 3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- APARTADO 4.3 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-flask-vial"></i> 4.3. Aplicaciones a Fenómenos Físicos Reales
+    </h2>
+    <p>
+        Las tres relaciones que hemos visto aparecen continuamente en la ciencia. Estos son algunos ejemplos que estudiaremos:
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-atom"></i> Ejemplos en Física y Química</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Directamente proporcional (\(y = k \cdot x\)):</strong> La masa de un líquido y su volumen (\(m = \rho \cdot V\)). La distancia recorrida por un coche y el tiempo, a velocidad constante (\(s = v \cdot t\)). La fuerza aplicada sobre un muelle y su alargamiento (\(F = k \cdot \Delta x\), Ley de Hooke).</li>
+            <li><strong>Lineal (\(y = m \cdot x + n\)):</strong> La posición de un objeto que se mueve con velocidad constante y que ya había recorrido una distancia inicial (\(s = s_0 + v \cdot t\)). La temperatura de un líquido que se calienta partiendo de una temperatura inicial (\(T = T_0 + a \cdot t\)).</li>
+            <li><strong>Inversamente proporcional (\(y = k / x\)):</strong> La presión y el volumen de un gas a temperatura constante (\(P \cdot V = k\), Ley de Boyle). La intensidad de la luz y el cuadrado de la distancia. El tiempo de llenado de un depósito y el caudal del grifo.</li>
+        </ul>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-nib"></i> Actividades para el Alumnado</div>
+        <p>En cada actividad encontrarás una tabla de datos. Tu tarea es <strong>dibujar la gráfica</strong> en tu cuaderno, <strong>identificar el tipo de relación</strong> y <strong>obtener la ecuación matemática</strong> que relaciona las dos magnitudes.</p>
+
+        <ol class="gs-actividades">
+            <li>
+                <strong>Muelle elástico (Ley de Hooke).</strong> Colgamos pesas de un muelle y medimos cuánto se estira:
+                <table class="gs-tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>Masa \(m\) (g)</th>
+                            <th>50</th>
+                            <th>100</th>
+                            <th>150</th>
+                            <th>200</th>
+                            <th>250</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Alargamiento \(\Delta x\) (cm)</strong></td>
+                            <td>2.0</td>
+                            <td>4.0</td>
+                            <td>6.0</td>
+                            <td>8.0</td>
+                            <td>10.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 10px;">a) Representa gráficamente \(m\) (eje X) frente a \(\Delta x\) (eje Y). ¿Por dónde pasa la recta?<br>
+                b) ¿Qué tipo de relación hay entre ambas magnitudes?<br>
+                c) Calcula la constante de proporcionalidad y escribe la ecuación.<br>
+                d) ¿Cuánto se alargará el muelle si colgamos una masa de 350 g?</p>
+            </li>
+
+            <li>
+                <strong>Calentamiento de agua.</strong> Calentamos un recipiente con agua y medimos la temperatura cada minuto:
+                <table class="gs-tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>Tiempo \(t\) (min)</th>
+                            <th>0</th>
+                            <th>2</th>
+                            <th>4</th>
+                            <th>6</th>
+                            <th>8</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Temperatura \(T\) (°C)</strong></td>
+                            <td>20</td>
+                            <td>35</td>
+                            <td>50</td>
+                            <td>65</td>
+                            <td>80</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 10px;">a) Representa gráficamente \(t\) frente a \(T\). ¿Pasa la recta por el origen?<br>
+                b) ¿Qué tipo de relación hay entre ambas magnitudes? Justifica tu respuesta.<br>
+                c) Calcula la pendiente \(m\) y la ordenada en el origen \(n\), y escribe la ecuación.<br>
+                d) ¿Qué representa físicamente el valor de \(n\)?</p>
+            </li>
+
+            <li>
+                <strong>Ley de Boyle (gas encerrado).</strong> En un recipiente cerrado a temperatura constante, variamos la presión y medimos el volumen del gas:
+                <table class="gs-tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>Presión \(P\) (atm)</th>
+                            <th>1.0</th>
+                            <th>2.0</th>
+                            <th>4.0</th>
+                            <th>5.0</th>
+                            <th>10.0</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Volumen \(V\) (L)</strong></td>
+                            <td>20.0</td>
+                            <td>10.0</td>
+                            <td>5.0</td>
+                            <td>4.0</td>
+                            <td>2.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 10px;">a) Representa gráficamente \(P\) frente a \(V\). ¿Qué forma tiene la gráfica?<br>
+                b) ¿Qué tipo de relación hay entre ambas magnitudes?<br>
+                c) Calcula el producto \(P \cdot V\) para cada par de datos. ¿Qué observas?<br>
+                d) Escribe la ecuación que relaciona \(P\) y \(V\). ¿Qué ley física representa?</p>
+            </li>
+
+            <li>
+                <strong>Consumo de combustible.</strong> Un coche circula por una autopista y anotamos la distancia recorrida en distintos tiempos:
+                <table class="gs-tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>Tiempo \(t\) (h)</th>
+                            <th>0.5</th>
+                            <th>1.0</th>
+                            <th>1.5</th>
+                            <th>2.0</th>
+                            <th>2.5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Distancia \(s\) (km)</strong></td>
+                            <td>45</td>
+                            <td>90</td>
+                            <td>135</td>
+                            <td>180</td>
+                            <td>225</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 10px;">a) Representa gráficamente \(t\) frente a \(s\).<br>
+                b) ¿Qué tipo de relación hay?<br>
+                c) Calcula la constante de proporcionalidad. ¿Qué representa físicamente ese valor?<br>
+                d) Escribe la ecuación del movimiento y calcula cuánto recorrerá en 4 horas.</p>
+            </li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="3eso_ud1_4">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.2rem; color: var(--gs-primary);">Solucionario de Autoevaluación Protegido</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 20px;">
+            Introduce el código de 6 dígitos de tu aplicación Authenticator para desplegar las soluciones detalladas paso a paso.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="number" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Desbloquear
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 8px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener('gs-ready', function () {
+    let bGraf = null;
+
+    window.switchRelacion = function(tipo) {
+        const btns = document.querySelectorAll('.gs-selector-btn');
+        btns.forEach(btn => btn.classList.remove('active'));
+
+        if (bGraf) {
+            JXG.JSXGraph.freeBoard(bGraf);
+        }
+
+        if (tipo === 'proporcional') {
+            btns[0].classList.add('active');
+            bGraf = JXG.JSXGraph.initBoard('box_graf', {
+                boundingbox: [-1, 35, 11, -5], axis: true, showCopyright: false, showNavigation: false
+            });
+
+            // Datos: y = 3x
+            const pts = [[1,3], [2,6], [3,9], [4,12], [5,15], [6,18], [7,21], [8,24], [9,27], [10,30]];
+            pts.forEach(pt => bGraf.create('point', pt, {color: '#dc2626', size: 3, name: '', fixed: true}));
+
+            bGraf.create('functiongraph', [function(x){ return 3 * x; }, 0, 11], {
+                strokeColor: '#16a34a', strokeWidth: 2.5
+            });
+
+            GS.setPanel('rel-tipo', 'Directamente proporcional');
+            GS.setPanel('rel-ecuacion', 'y = 3·x');
+            GS.setPanel('rel-constante', 'k = 3');
+
+        } else if (tipo === 'lineal') {
+            btns[1].classList.add('active');
+            bGraf = JXG.JSXGraph.initBoard('box_graf', {
+                boundingbox: [-1, 35, 11, -5], axis: true, showCopyright: false, showNavigation: false
+            });
+
+            // Datos: y = 2x + 5
+            const pts = [[1,7], [2,9], [3,11], [4,13], [5,15], [6,17], [7,19], [8,21], [9,23], [10,25]];
+            pts.forEach(pt => bGraf.create('point', pt, {color: '#dc2626', size: 3, name: '', fixed: true}));
+
+            bGraf.create('functiongraph', [function(x){ return 2 * x + 5; }, -1, 11], {
+                strokeColor: '#16a34a', strokeWidth: 2.5
+            });
+
+            // Marcamos la ordenada en el origen
+            bGraf.create('point', [0, 5], {
+                name: 'n = 5', color: '#b45309', size: 4, fixed: true,
+                label: { offset: [10, 5], fontSize: 11, color: '#b45309' }
+            });
+
+            GS.setPanel('rel-tipo', 'Lineal');
+            GS.setPanel('rel-ecuacion', 'y = 2·x + 5');
+            GS.setPanel('rel-constante', 'm = 2   |   n = 5');
+
+        } else if (tipo === 'inversa') {
+            btns[2].classList.add('active');
+            bGraf = JXG.JSXGraph.initBoard('box_graf', {
+                boundingbox: [-1, 25, 11, -2], axis: true, showCopyright: false, showNavigation: false
+            });
+
+            // Datos: y = 20/x
+            const pts = [[1,20], [2,10], [4,5], [5,4], [10,2]];
+            pts.forEach(pt => bGraf.create('point', pt, {color: '#dc2626', size: 3, name: '', fixed: true}));
+
+            bGraf.create('functiongraph', [function(x){ return 20 / x; }, 0.5, 11], {
+                strokeColor: '#16a34a', strokeWidth: 2.5
+            });
+
+            GS.setPanel('rel-tipo', 'Inversamente proporcional');
+            GS.setPanel('rel-ecuacion', 'y = 20 / x');
+            GS.setPanel('rel-constante', 'k = 20');
+        }
+    };
+
+    if (document.getElementById('box_graf')) {
+        window.switchRelacion('proporcional');
+    }
+});
+</script>
+
+</body>
+</html>
