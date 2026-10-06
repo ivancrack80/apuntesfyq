@@ -20,19 +20,22 @@
         { nombre: 'Cantidad de sustancia',   unidad: 'mol',    tipo: 'Fundamental' },
         { nombre: 'Intensidad de corriente', unidad: 'A',      tipo: 'Fundamental' },
         { nombre: 'Intensidad luminosa',     unidad: 'cd',     tipo: 'Fundamental' },
-        { nombre: 'Superficie (Área)',       unidad: 'm²',     tipo: 'Derivada' },
+        { nombre: 'Superficie',       unidad: 'm²',     tipo: 'Derivada' },
         { nombre: 'Volumen',                 unidad: 'm³',     tipo: 'Derivada' },
         { nombre: 'Densidad',                unidad: 'kg/m³',  tipo: 'Derivada' },
         { nombre: 'Velocidad',               unidad: 'm/s',    tipo: 'Derivada' },
         { nombre: 'Aceleración',             unidad: 'm/s²',   tipo: 'Derivada' },
         { nombre: 'Fuerza',                  unidad: 'N',      tipo: 'Derivada' },
         { nombre: 'Presión',                 unidad: 'Pa',     tipo: 'Derivada' },
-        { nombre: 'Energía / Trabajo',       unidad: 'J',      tipo: 'Derivada' },
+        { nombre: 'Energía',       unidad: 'J',      tipo: 'Derivada' },
         { nombre: 'Potencia',                unidad: 'W',      tipo: 'Derivada' }
     ];
 
     var PREFIJOS_TABLA = [
-        { prefijo: 'Giga',  simbolo: 'G',  factor: 9   },
+        { prefijo: 'Peta',  simbolo: 'P',  factor: 15   },
+{ prefijo: 'Tera',  simbolo: 'T',  factor: 12   },
+
+{ prefijo: 'Giga',  simbolo: 'G',  factor: 9   },
         { prefijo: 'Mega',  simbolo: 'M',  factor: 6   },
         { prefijo: 'kilo',  simbolo: 'k',  factor: 3   },
         { prefijo: 'hecto', simbolo: 'h',  factor: 2   },
@@ -41,7 +44,9 @@
         { prefijo: 'centi', simbolo: 'c',  factor: -2  },
         { prefijo: 'mili',  simbolo: 'm',  factor: -3  },
         { prefijo: 'micro', simbolo: 'µ',  factor: -6  },
-        { prefijo: 'nano',  simbolo: 'n',  factor: -9  }
+        { prefijo: 'nano',  simbolo: 'n',  factor: -9  },
+{ prefijo: 'Pico',  simbolo: 'p',  factor: -12   },
+{ prefijo: 'Femto',  simbolo: 'f',  factor: -15   }
     ];
 
     // Prefijos restringidos (superficie y volumen)
@@ -135,7 +140,7 @@
     }
 
     function prefijoAleatorio() {
-        return GS.aleatorio.elemento(PREFIJOS_EXTENDIDOS);
+        return GS.aleatorio.elemento(PREFIJOS_RESTRINGIDOS);
     }
 
     function prefijoAleatorioDe(magnitud) {
@@ -263,8 +268,8 @@
         // 2 cambios entre prefijos (longitud, masa, superficie, volumen)
         for (var i = 0; i < 2; i++) {
             var magnitud = GS.aleatorio.elemento(MAGNITUDES_SIMPLES.filter(function (m) {
-                return m.nombre !== 'capacidad';
-            }));
+    return m.nombre !== 'capacidad' && m.nombre !== 'superficie' && m.nombre !== 'volumen';
+}));
             var origen = prefijoAleatorioDe(magnitud);
             var destino = prefijoAleatorioDe(magnitud);
             while (destino.simbolo === origen.simbolo) {
