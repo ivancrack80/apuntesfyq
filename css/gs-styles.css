@@ -1384,8 +1384,8 @@ body.dyslexia-mode .gs-index-item {
    -------------------------------------------------------------------------- */
 @media (max-width: 640px) {
     .gs-container { padding: 18px 12px; }
-    .flow-branches, .sub-branches { flex-direction: column; width: 100%; }
-    .flow-step, .flow-decision { width: 100%; }
+    .gs-flow-branches, .gs-sub-branches { flex-direction: column; width: 100%; }
+    .gs-flow-step, .gs-flow-decision { width: 100%; }
     .gs-pictogramas-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .gs-pictograma-img { width: 80px; height: 80px; }
     .gs-material-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -1439,7 +1439,7 @@ body.dyslexia-mode .gs-index-item {
     table, tbody, tr, td, th,
     .gs-box, .gs-norma-box, .gs-material-grupo, .gs-material-card,
     .gs-pictograma-card, .gs-dialogo, .comparative-table,
-    .gs-bloque-card, .flowchart, li, blockquote {
+    .gs-bloque-card, .gs-flowchart, li, blockquote {
         page-break-inside: avoid !important;
         break-inside: avoid !important;
     }
