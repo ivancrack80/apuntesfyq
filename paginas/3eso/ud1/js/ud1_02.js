@@ -564,4 +564,106 @@
         html += '<div class="gs-latex-container" style="margin: 8px 0; padding: 10px;">';
         html += '\\(' + factorTexto + '\\)';
         html += '</div>';
-        html += '<small style="color:#64748b;">' + e.tipo.explicacion.charAt(0).to
+        html += '<small style="color:#64748b;">' + e.tipo.explicacion.charAt(0).toUpperCase() + e.tipo.explicacion.slice(1) + '.</small>';
+
+        return html;
+    }
+
+    // ======================================================================
+    // 7. VERIFICAR PIN
+    // ======================================================================
+
+    async function verificarPin() {
+        var pinInput = document.getElementById('solPinInput');
+        var errorMsg = document.getElementById('solErrorMsg');
+        var btn = document.getElementById('btnUnlockSol');
+        var contentDiv = document.getElementById('protectedSolutions');
+        var lockIcon = document.getElementById('lockIcon');
+
+        if (!pinInput) return;
+        var pin = pinInput.value.trim();
+
+        if (!pin || pin.length !== 6) {
+            if (errorMsg) {
+                errorMsg.innerText = 'Escribe el código completo de 6 dígitos.';
+                errorMsg.style.color = '#dc2626';
+                errorMsg.style.display = 'block';
+            }
+            return;
+        }
+
+        if (errorMsg) {
+            errorMsg.innerText = 'Verificando código...';
+            errorMsg.style.color = '#1e3a8a';
+            errorMsg.style.display = 'block';
+        }
+        if (btn) btn.disabled = true;
+
+        var ok = await GS.verifyPinOnly(pin);
+
+        if (ok) {
+            if (errorMsg) errorMsg.style.display = 'none';
+            contentDiv.innerHTML = generarHTMLSoluciones();
+            contentDiv.style.display = 'block';
+            if (lockIcon) lockIcon.className = 'fa-solid fa-user-check';
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise([contentDiv]);
+            }
+
+            contentDiv.scrollIntoView({ behavior: 'smooth' });
+            var authContainer = document.getElementById('solAuthContainer');
+            if (authContainer) authContainer.style.display = 'none';
+        } else {
+            if (errorMsg) {
+                errorMsg.innerText = 'Código incorrecto. Inténtalo de nuevo.';
+                errorMsg.style.color = '#dc2626';
+                errorMsg.style.display = 'block';
+            }
+            if (btn) btn.disabled = false;
+        }
+    }
+    window.verificarPin = verificarPin;
+
+    // ======================================================================
+    // 8. GENERAR TODO
+    // ======================================================================
+
+    function generarTodo() {
+        estado.tablaMagnitudes = generarTablaMagnitudes();
+        estado.tablaPrefijos = generarTablaPrefijos();
+        estado.notacionCientifica = generarNotacionCientifica();
+        estado.cambiosSimples = generarCambiosSimples();
+        estado.cambiosCompuestos = generarCambiosCompuestos();
+
+        renderTablaMagnitudes();
+        renderTablaPrefijos();
+        renderNotacionCientifica();
+        renderCambiosSimples();
+        renderCambiosCompuestos();
+    }
+
+    window.generarNuevasActividades = function() {
+        var contentDiv = document.getElementById('protectedSolutions');
+        var authContainer = document.getElementById('solAuthContainer');
+        var lockIcon = document.getElementById('lockIcon');
+        if (contentDiv) {
+            contentDiv.style.display = 'none';
+            contentDiv.innerHTML = '';
+        }
+        if (authContainer) authContainer.style.display = 'flex';
+        if (lockIcon) lockIcon.className = 'fa-solid fa-user-lock';
+
+        generarTodo();
+
+        var actDiv = document.getElementById('act-tabla-magnitudes');
+        if (actDiv) actDiv.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    document.addEventListener('gs-ready', generarTodo);
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(generarTodo, 100);
+    }
+
+})();
