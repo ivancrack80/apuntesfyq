@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. La Actividad Científica y el Método Científico - 3º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <h1 class="gs-title">1. La Actividad Científica y el Método Científico</h1>
+        <div class="gs-subtitle">¿Cómo trabajan los científicos?</div>
+    </header>
+
+    <!-- SECCIÓN 1.1 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-brain"></i> 1.1. El Conocimiento Científico frente a las Pseudociencias
+    </h2>
+    <p>
+        El ser humano siempre ha buscado explicaciones para comprender el mundo que le rodea. Sin embargo, no todas las formas de conocimiento son iguales. El conocimiento científico es un tipo de saber racional, sistemático, empírico y crítico que se obtiene mediante la aplicación rigurosa de una metodología de investigación.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-star"></i> Características Fundamentales del Conocimiento Científico</div>
+        <p>El saber científico es una forma de entender el mundo que cumple con las siguientes características fundamentales:</p>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Objetivo:</strong> Intenta describir los hechos tal y como son en la naturaleza, al margen de deseos, opiniones o prejuicios personales.</li>
+            <li><strong>Es comprobable (empírico):</strong> Se basa en experimentos y mediciones que cualquiera puede repetir para verificar si una idea es cierta.</li>
+            <li><strong>Admite errores y evoluciona:</strong> No es una verdad fija para siempre. Si aparece un nuevo experimento que demuestra que una idea estaba equivocada, la ciencia la corrige y mejora.</li>
+            <li><strong>Es falsable:</strong> Sus afirmaciones se diseñan para poder ser puestas a prueba mediante experimentos reales.</li>
+        </ul>
+    </div>
+
+    <p>
+        Lo contrario del conocimiento científico son las <strong>pseudociencias</strong> (palabra que significa <em>"falsas ciencias"</em>). Una pseudociencia es una creencia o práctica que se presenta ante la gente con apariencia de ciencia, pero que en realidad <strong>falla en algunas de las características anteriores</strong>.
+    </p>
+
+    <div class="gs-pseudo">
+        <div class="gs-pseudo-title"><i class="fa-solid fa-triangle-exclamation"></i> ¿En qué fallan las Pseudociencias?</div>
+        <ul>
+            <li><strong>No se pueden comprobar:</strong> Rechazan hacer ensayos en laboratorios independientes o con controles a ciegas.</li>
+            <li><strong>Sustituyen los datos por testimonios:</strong> Usan frases del tipo <em>"a mi prima le funcionó"</em>, <em>"a mí me sienta bien"</em> o <em>"lo recomienda un famoso"</em> en lugar de pruebas numéricas.</li>
+            <li><strong>Nunca corrigen sus errores:</strong> Llevan repitiendo las mismas explicaciones durante siglos sin cambiar nada, ignorando los avances de la ciencia real.</li>
+            <li><strong>Usan un lenguaje engañoso:</strong> Utilizan términos técnicos complicados o inventados (como <em>"sanación bioenergética"</em>, <em>"limpieza cuántica"</em> o <em>"memoria del agua"</em>) para impresionar y confundir.</li>
+        </ul>
+
+        <strong style="display: block; margin-top: 15px; margin-bottom: 8px;">Ejemplos habituales de Pseudociencias:</strong>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Astrología:</strong> Afirma que la posición de los planetas y las estrellas el día que naciste determina tu carácter y tu futuro. Ningún estudio estadístico o científico ha encontrado relación alguna entre las estrellas y nuestra personalidad.</li>
+            <li><strong>Homeopatía:</strong> Vende preparados que consisten en diluir una sustancia en agua tantas veces que al final no queda ni una sola molécula del producto original. Afirma que el agua "recuerda" la medicina, algo demostrado falso por la química.</li>
+            <li><strong>Iriología y Biomagnetismo:</strong> Pretenden diagnosticar o curar enfermedades graves solo mirando las manchas del ojo o pegando imanes en el cuerpo, sin ninguna base biológica real.</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-magnifying-glass-dollar"></i> Caso Práctico de Análisis: El "Dr." Martínez y el Agua Cuántica</div>
+        <p>
+            Lee este anuncio extraído de una revista comercial para aprender a identificar las trampas de las pseudociencias:
+        </p>
+        <blockquote style="margin: 0; padding: 12px 18px; background: rgba(255, 255, 255, 0.85); border-left: 4px solid #ca8a04; border-radius: 4px; font-size: 0.95rem;">
+            «El célebre y premiado <strong>Dr. Alberto Martínez</strong>, gran especialista en medicina alternativa, presenta su invento revolucionario: la <em>"Solución de Agua de Resonancia Bio-Cuántica"</em>.
+            <br><br>
+            Según explica el Dr. Martínez: <em>"Las moléculas del agua común están desordenadas. Al pasar el agua por mi generador magnético cuántico, los átomos adoptan una estructura cristalina capaz de eliminar las toxinas del cuerpo y curar el estrés de forma inmediata. Decenas de clientes en mi consulta privada aseguran sentirse llenos de energía tras beber un vaso diario. Las grandes empresas farmacéuticas tradicionales no quieren que este producto se venda porque perderían dinero"</em>.
+            <br><br>
+            A pesar de que los análisis hechos por los laboratorios de la universidad demuestran que el agua del doctor es idéntica al agua normal del grifo, el Dr. Martínez se defiende diciendo que la ciencia oficial "carece del nivel de espiritualidad necesario para medir la energía cuántica celular".»
+        </blockquote>
+    </div>
+
+    <!-- SECCIÓN 1.2 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-diagram-project"></i> 1.2. El Método Científico: Las 5 Fases
+    </h2>
+    <p>
+        Para investigar los fenómenos de la naturaleza de forma objetiva y no dejarse engañar por falsas ideas, la comunidad científica trabaja siguiendo <strong>5 fases ordenadas</strong> que componen el <strong>método científico</strong>:
+    </p>
+
+    <div class="gs-flowchart">
+        <div class="gs-flow-step">
+            1ª FASE: OBSERVACIÓN
+            <small>Examinar con atención un fenómeno natural usando los sentidos o instrumentos y plantearse una pregunta clara.</small>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+
+        <div class="gs-flow-step">
+            2ª FASE: FORMULACIÓN DE HIPÓTESIS
+            <small>Inventar una posible explicación o respuesta provisional a la pregunta. Debe ser comprobable con experimentos.</small>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+
+        <div class="gs-flow-step">
+            3ª FASE: EXPERIMENTACIÓN
+            <small>Diseñar y realizar ensayos controlados en el laboratorio o en la naturaleza cambiando y midiendo variables.</small>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+
+        <div class="gs-flow-step">
+            4ª FASE: ANÁLISIS DE DATOS
+            <small>Estudiar las mediciones obtenidas durante la experiencia para descubrir relaciones numéricas.</small>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrows-split"></i></div>
+        <div class="gs-sub-branches">
+            <div class="gs-sub-box"><i class="fa-solid fa-table"></i> Tablas de datos</div>
+            <div class="gs-sub-box"><i class="fa-solid fa-chart-line"></i> Gráficas representativas</div>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+
+        <div class="gs-flow-decision">
+            ¿Los experimentos confirman la hipótesis inicial?
+        </div>
+
+        <div class="gs-flow-branches">
+            <div class="gs-flow-branch gs-flow-branch--no">
+                <strong><i class="fa-solid fa-circle-xmark"></i> NO SE CONFIRMA</strong><br>
+                La hipótesis era incorrecta. Se rechaza, se piensa una nueva idea y se regresa a la <strong>2ª FASE (Hipótesis)</strong>.
+            </div>
+            <div class="gs-flow-branch">
+                <strong><i class="fa-solid fa-circle-check"></i> SÍ SE CONFIRMA</strong><br>
+                Se pasa a la <strong>5ª FASE: COMUNICACIÓN DE RESULTADOS</strong>.
+            </div>
+        </div>
+
+        <div class="gs-flow-arrow" style="align-self: flex-end; margin-right: 18%;"><i class="fa-solid fa-arrow-down"></i></div>
+
+        <div class="gs-flow-step" style="border-color: var(--gs-green); background: var(--gs-green-bg); color: var(--gs-green-text);">
+            5ª FASE: COMUNICACIÓN DE RESULTADOS
+            <small>Se redactan informes o artículos en revistas científicas para compartir los descubrimientos con el mundo.</small>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrows-split"></i></div>
+        <div class="gs-sub-branches">
+            <div class="gs-sub-box" style="background: var(--gs-green-bg); border-color: #86efac; color: var(--gs-green-text);">
+                <i class="fa-solid fa-square-root-variable"></i> Leyes Científicas
+            </div>
+            <div class="gs-sub-box" style="background: var(--gs-green-bg); border-color: #86efac; color: var(--gs-green-text);">
+                <i class="fa-solid fa-lightbulb"></i> Teorías Científicas
+            </div>
+        </div>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-vial-virus"></i> Ejemplo Histórico Real: El Descubrimiento de la Penicilina (Alexander Fleming, 1928)</div>
+        <p>
+            Para comprender cómo funcionan estas fases en la vida real, analicemos el famoso descubrimiento que revolucionó la medicina moderna:
+        </p>
+        <ul style="margin-bottom: 0;">
+            <li><strong>1ª Fase - Observación:</strong> Al regresar de sus vacaciones, Fleming notó que una de sus placas de Petri con bacterias se había contaminado por un hongo verde. Alrededor del hongo las bacterias habían muerto.</li>
+            <li><strong>2ª Fase - Formulación de Hipótesis:</strong> Fleming planteó: <em>"El hongo Penicillium produce una sustancia capaz de matar bacterias"</em>.</li>
+            <li><strong>3ª Fase - Experimentación:</strong> Cultivó el hongo, filtró el líquido y lo probó contra bacterias patógenas en tubos de ensayo.</li>
+            <li><strong>4ª Fase - Análisis de Datos:</strong> Comprobó y registró que el extracto seguía destruyendo bacterias aun bastante diluido.</li>
+            <li><strong>5ª Fase - Comunicación de Resultados:</strong> Publicó sus hallazgos en 1929 en una revista científica.</li>
+        </ul>
+    </div>
+
+    <!-- SECCIÓN 1.3 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-book-open"></i> 1.3. Leyes y Teorías Científicas
+    </h2>
+    <p>
+        Cuando las hipótesis se confirman mediante repetidos experimentos, la comunicación de resultados permite estructurar el conocimiento en <strong>Leyes</strong> y <strong>Teorías</strong>:
+    </p>
+
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th>Concepto</th>
+                    <th>¿A qué pregunta responde?</th>
+                    <th>Definición sencilla</th>
+                    <th>Ejemplo real de Física y Química</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Ley Científica</strong></td>
+                    <td><strong>¿QUÉ ocurre?</strong></td>
+                    <td>Una regla general o fórmula matemática que describe cómo se comporta la naturaleza de manera constante.</td>
+                    <td><strong>Ley de Boyle:</strong> \(P_1 \cdot V_1 = P_2 \cdot V_2\)<br>(Describe matemáticamente que al apretar un gas, su volumen disminuye).</td>
+                </tr>
+                <tr>
+                    <td><strong>Teoría Científica</strong></td>
+                    <td><strong>¿POR QUÉ ocurre?</strong></td>
+                    <td>Una explicación amplia y detallada de las causas internas e invisibles que provocan ese fenómeno.</td>
+                    <td><strong>Teoría Cinética:</strong> Explica que el gas se reduce porque está formado por partículas diminutas que se juntan al apretar el recipiente.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECCIÓN 1.4 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-pen-to-square"></i> 1.4. Actividades Prácticas
+    </h2>
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-clipboard-check"></i> Pon a prueba tus conocimientos</div>
+        <ol class="gs-actividades">
+            <li>
+                <strong>Ciencia frente a Pseudociencia:</strong> Imagina que una amiga te intenta convencer de comprar una pulsera magnética diciendo: <em>"Cura el dolor de espalda porque equilibra tus energías según la física cuántica, y a mi tío le funcionó en dos días"</em>.
+                <br>Indica dos razones del apartado 1.1 para explicarle por qué esa afirmación es un ejemplo claro de <strong>pseudociencia</strong>.
+            </li>
+            <li>
+                <strong>Las 5 Fases del Método Científico:</strong> Un grupo de alumnos quiere averiguar si la sal hace que el agua hierva a mayor temperatura. Calientan tres recipientes con distintas cantidades de sal y anotan el tiempo y la temperatura exactos en los que empieza a hervir.
+                <br>a) ¿En qué fase del método científico están cuando toman las medidas de temperatura?
+                <br>b) ¿Qué dos herramientas del análisis de datos (4ª fase) deben elaborar para organizar y mostrar sus resultados?
+            </li>
+            <li>
+                <strong>Leyes y Teorías:</strong> Clasifica los siguientes enunciados en <em>Ley científica</em> o <em>Teoría científica</em>:
+                <br>a) "La fuerza de atracción entre dos cuerpos es igual a \(F = G \cdot \frac{m_1 \cdot m_2}{r^2}\)".
+                <br>b) "La materia está formada por átomos constituidos por un núcleo de protones y neutrones, y una corteza de electrones".
+            </li>
+            <li>
+                <strong>Detector de engaños (Análisis del caso práctico):</strong> Revisa la lectura del "Dr." Martínez en el apartado 1.1 y encuentra <strong>tres trampas o falsedades</strong> típicas de las pseudociencias que utiliza el anuncio para intentar engañar al comprador.
+            </li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="3eso_ud1_1">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--gs-primary);">Solucionario Oficial para el Alumnado</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos facilitado por tu docente para comprobar las soluciones paso a paso.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="number" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
