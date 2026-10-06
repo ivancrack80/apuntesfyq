@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 1 - La Actividad Científica (3º ESO)</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química • 3.º ESO • Unidad 1</div>
+        <h1 class="gs-title">La Actividad Científica</h1>
+        <div class="gs-subtitle">El método científico, el arte de la medida, la seguridad en el laboratorio y la representación de datos</div>
+    </header>
+
+    <!-- GANCHO HISTÓRICO -->
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-landmark"></i> Historia de la Ciencia: El desastre de los 125 millones de dólares</div>
+        <p style="margin: 0;">
+            En septiembre de 1999, la nave espacial <strong>Mars Climate Orbiter</strong> de la NASA llegó a Marte tras un viaje de casi diez meses. Su misión era estudiar el clima del planeta rojo, pero en lugar de entrar en órbita, la sonda se aproximó demasiado a la atmósfera y se destruyó por completo. La investigación posterior reveló una causa insólita: mientras el equipo de ingenieros de la empresa constructora calculaba los datos de empuje en <strong>libras-fuerza</strong> (sistema anglosajón), el equipo de navegación de la NASA asumía que los datos recibidos estaban expresados en <strong>newtons</strong> (Sistema Internacional).
+            <br><br>
+            Este trágico y costoso error histórico nos enseña una lección fundamental: la ciencia necesita un lenguaje universal de medida riguroso y compartido por toda la comunidad internacional para que sus investigaciones y desarrollos tecnológicos funcionen con éxito.
+        </p>
+    </div>
+
+    <!-- EXPLICACIÓN RELEVANTE -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-microscope"></i> ¿Cómo trabaja la ciencia?
+    </h2>
+    <p>
+        La ciencia no consiste en memorizar un conjunto de datos estáticos, sino en utilizar una forma estructurada y rigurosa de formular preguntas y obtener respuestas sobre el universo. A lo largo de esta unidad aprenderás a analizar los fenómenos de tu entorno mediante el <strong>Método Científico</strong>, a expresar tus mediciones con precisión utilizando las unidades oficiales, a trabajar con seguridad en el laboratorio y a interpretar la información mediante tablas y gráficas.
+    </p>
+
+    <!-- RUTA DE LA UNIDAD -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-route"></i> Ruta de la Unidad: ¿Qué vamos a dominar?
+    </h2>
+
+    <ul class="gs-index-list">
+        <li class="gs-index-item">
+            <span class="gs-index-num">1</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">El Conocimiento y el Método Científico</span>
+                <span class="gs-index-desc">Estudiaremos las etapas sistemáticas de una investigación científica: desde la observación minuciosa y el planteamiento de hipótesis, hasta la experimentación en el laboratorio, el análisis de datos y la formulación final de leyes y teorías.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">2</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">La Medida y el Sistema Internacional</span>
+                <span class="gs-index-desc">Aprenderemos qué es una magnitud física diferenciando entre fundamentales y derivadas. Dominaremos el uso de múltiplos, submúltiplos, la notación científica y el uso operativo de los factores de conversión para transformar unidades simples y compuestas.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">3</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Seguridad y Material de Laboratorio</span>
+                <span class="gs-index-desc">Conoceremos las normas básicas de trabajo en el laboratorio químico, aprenderemos a interpretar los pictogramas de peligrosidad presentes en los reactivos y reconoceremos los materiales de medida y experimentación más habituales.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">4</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">El Lenguaje de la Ciencia: Datos y Gráficas</span>
+                <span class="gs-index-desc">Aprenderemos a organizar los datos experimentales en tablas y a representarlos en ejes cartesianos para identificar dependencias matemáticas básicas: relaciones lineales, directamente proporcionales y cuadráticas.</span>
+            </div>
+        </li>
+    </ul>
+
+    <!-- DEBATE INICIAL -->
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-comments"></i> Cuestiones para la reflexión inicial</div>
+        <p>
+            Antes de comenzar con los contenidos teóricos, reflexiona brevemente sobre estas dos situaciones:
+        </p>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Medición frente a percepción:</strong> Si dos personas entran a una misma aula y una afirma que <em>«hace mucho frío»</em> mientras que la otra asegura que <em>«la temperatura es agradable»</em>, ¿por qué la ciencia exige medir la temperatura con un termómetro e indicar su valor numérico exacto en lugar de guiarse por impresiones?</li>
+            <li><strong>El valor de una hipótesis no cumplida:</strong> Cuando un grupo de científicos realiza un experimento y sus resultados demuestran que la hipótesis inicial era totalmente falsa, ¿consideras que han fracasado o que han logrado un avance real en el conocimiento?</li>
+        </ol>
+    </div>
+
+</div>
+
+</body>
+</html>
