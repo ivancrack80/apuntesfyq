@@ -689,16 +689,16 @@ li { margin-bottom: 8px; text-align: justify; }
 .gs-actividades li { margin-bottom: 20px; text-align: justify; }
 
 /* --------------------------------------------------------------------------
-   12. FLOWCHART (del método científico)
+   12. FLOWCHART (esquema de procesos)
    -------------------------------------------------------------------------- */
-.flowchart {
+.gs-flowchart {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin: 30px 0;
     align-items: center;
 }
-.flow-step {
+.gs-flow-step {
     background: #ffffff;
     border: 2px solid var(--gs-primary-light);
     border-radius: 8px;
@@ -710,19 +710,19 @@ li { margin-bottom: 8px; text-align: justify; }
     font-weight: 700;
     color: var(--gs-primary);
 }
-.flow-step small {
+.gs-flow-step small {
     display: block;
     font-weight: 400;
     color: #475569;
     font-size: 0.9rem;
     margin-top: 3px;
 }
-.flow-arrow {
+.gs-flow-arrow {
     color: var(--gs-primary-light);
     font-size: 1.3rem;
     margin: -4px 0;
 }
-.sub-branches {
+.gs-sub-branches {
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -731,7 +731,7 @@ li { margin-bottom: 8px; text-align: justify; }
     margin-top: -4px;
     margin-bottom: 4px;
 }
-.sub-box {
+.gs-sub-box {
     flex: 1;
     background: var(--gs-primary-bg);
     border: 1px solid #93c5fd;
@@ -742,8 +742,8 @@ li { margin-bottom: 8px; text-align: justify; }
     color: #1e40af;
     font-weight: 600;
 }
-.sub-box i { margin-right: 5px; color: var(--gs-primary-light); }
-.flow-decision {
+.gs-sub-box i { margin-right: 5px; color: var(--gs-primary-light); }
+.gs-flow-decision {
     background: #fef3c7;
     border: 2px solid #d97706;
     color: #78350f;
@@ -754,7 +754,7 @@ li { margin-bottom: 8px; text-align: justify; }
     max-width: 580px;
     font-weight: 700;
 }
-.flow-branches {
+.gs-flow-branches {
     display: flex;
     justify-content: space-between;
     width: 95%;
@@ -762,7 +762,7 @@ li { margin-bottom: 8px; text-align: justify; }
     gap: 15px;
     margin-top: 2px;
 }
-.flow-branch {
+.gs-flow-branch {
     flex: 1;
     background: var(--gs-green-bg);
     border: 2px solid var(--gs-green);
@@ -772,7 +772,7 @@ li { margin-bottom: 8px; text-align: justify; }
     font-size: 0.88rem;
     color: var(--gs-green-text);
 }
-.flow-branch.no {
+.gs-flow-branch--no {
     background: var(--gs-red-bg);
     border-color: var(--gs-red);
     color: #7f1d1d;
