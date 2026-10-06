@@ -37,7 +37,6 @@
         { prefijo: 'kilo',  simbolo: 'k',  factor: 3   },
         { prefijo: 'hecto', simbolo: 'h',  factor: 2   },
         { prefijo: 'deca',  simbolo: 'da', factor: 1   },
-        { prefijo: '',      simbolo: '',   factor: 0   },
         { prefijo: 'deci',  simbolo: 'd',  factor: -1  },
         { prefijo: 'centi', simbolo: 'c',  factor: -2  },
         { prefijo: 'mili',  simbolo: 'm',  factor: -3  },
@@ -53,13 +52,57 @@
         { nombre: 'volumen',    unidadBase: 'm³', esCuadratica: false, esCubica: true  }
     ];
 
+    // Cambios compuestos permitidos (solo unidades que aparecen en las tablas anteriores)
     var TIPOS_COMPUESTOS = [
-        { nombre: 'velocidad', desde: 'km/h',  hasta: 'm/s',   factor: 1 / 3.6,   explicacion: 'dividimos entre 3,6' },
-        { nombre: 'densidad',  desde: 'g/cm³', hasta: 'kg/m³', factor: 1000,      explicacion: 'multiplicamos por 1000' },
-        { nombre: 'presión',   desde: 'atm',   hasta: 'Pa',    factor: 101325,    explicacion: 'multiplicamos por 101 325' },
-        { nombre: 'presión',   desde: 'mmHg',  hasta: 'Pa',    factor: 133.322,   explicacion: 'multiplicamos por 133,322' },
-        { nombre: 'energía',   desde: 'kWh',   hasta: 'J',     factor: 3600000,   explicacion: 'multiplicamos por 3 600 000' },
-        { nombre: 'potencia',  desde: 'CV',    hasta: 'W',     factor: 735.49875, explicacion: 'multiplicamos por 735,5' }
+        {
+            nombre: 'velocidad',
+            desde: 'm/s', hasta: 'km/h',
+            factor: 3.6,
+            tipoFactor: 'simple',
+            explicacion: 'multiplicamos por 3,6'
+        },
+        {
+            nombre: 'velocidad',
+            desde: 'km/h', hasta: 'm/s',
+            factor: 1 / 3.6,
+            tipoFactor: 'simple',
+            explicacion: 'dividimos entre 3,6'
+        },
+        {
+            nombre: 'caudal',
+            desde: 'kg/h', hasta: 'g/s',
+            factor: 1000 / 3600,
+            tipoFactor: 'tiempo_masa',
+            explicacion: 'pasamos de horas a segundos y de kilogramos a gramos'
+        },
+        {
+            nombre: 'caudal',
+            desde: 'g/s', hasta: 'kg/h',
+            factor: 3600 / 1000,
+            tipoFactor: 'tiempo_masa',
+            explicacion: 'pasamos de segundos a horas y de gramos a kilogramos'
+        },
+        {
+            nombre: 'densidad',
+            desde: 'g/cm³', hasta: 'kg/m³',
+            factor: 1000,
+            tipoFactor: 'densidad',
+            explicacion: 'multiplicamos por 1000'
+        },
+        {
+            nombre: 'densidad',
+            desde: 'kg/m³', hasta: 'g/cm³',
+            factor: 1 / 1000,
+            tipoFactor: 'densidad',
+            explicacion: 'dividimos entre 1000'
+        },
+        {
+            nombre: 'presión superficial',
+            desde: 'kJ/m²', hasta: 'J/cm²',
+            factor: 0.1,
+            tipoFactor: 'superficie',
+            explicacion: 'pasamos de kilojulios a julios y de metros cuadrados a centímetros cuadrados'
+        }
     ];
 
     // ======================================================================
@@ -77,13 +120,34 @@
     // 3. UTILIDADES
     // ======================================================================
 
+    // Formatea un número con coma decimal, SIN separador de miles (para LaTeX)
     function num(valor, decimales) {
         var d = decimales === undefined ? 2 : decimales;
         return valor.toFixed(d).replace('.', ',');
     }
 
-    function numGrande(n) {
-        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    // Formatea un número entero con separador de miles mediante espacios finos de LaTeX
+    // Ejemplo: 5688788556 -> "5\,688\,788\,556"
+    function numGrandeLatex(n) {
+        var str = Math.abs(Math.round(n)).toString();
+        var partes = [];
+        while (str.length > 3) {
+            partes.unshift(str.slice(-3));
+            str = str.slice(0, -3);
+        }
+        partes.unshift(str);
+        var resultado = partes.join('\\,');
+        return (n < 0 ? '-' : '') + resultado;
+    }
+
+    // Devuelve una cadena LaTeX lista para meter entre \( ... \)
+    function latexNumero(valor, decimales) {
+        return num(valor, decimales);
+    }
+
+    // Devuelve un coeficiente en notación científica listo para LaTeX
+    function latexNotacionCientifica(coef, exp) {
+        return num(coef, 2) + ' \\cdot 10^{' + exp + '}';
     }
 
     // ======================================================================
@@ -94,12 +158,14 @@
         var seleccion = GS.aleatorio.variosDistintos(MAGNITUDES, 10);
         var filas = [];
         seleccion.forEach(function (m) {
+            // Decidimos si damos la magnitud o la unidad
+            // Si damos magnitud -> unidad vacía y viceversa
+            var darMagnitud = GS.aleatorio.booleano();
             filas.push({
                 magnitud: m.nombre,
-                simbolo: m.simbolo,
                 unidad: m.unidad,
                 tipo: m.tipo,
-                ocultar: GS.aleatorio.entero(0, 3)
+                dato: darMagnitud ? 'magnitud' : 'unidad'
             });
         });
         return filas;
@@ -109,11 +175,13 @@
         var seleccion = GS.aleatorio.variosDistintos(PREFIJOS, 10);
         var filas = [];
         seleccion.forEach(function (p) {
+            // Elegimos qué dato dar: prefijo, símbolo o factor
+            var cual = GS.aleatorio.entero(0, 2);
             filas.push({
                 prefijo: p.prefijo,
                 simbolo: p.simbolo,
                 factor: p.factor,
-                ocultar: GS.aleatorio.entero(0, 2)
+                dato: cual // 0 = prefijo, 1 = símbolo, 2 = factor
             });
         });
         return filas;
@@ -148,13 +216,15 @@
             });
         }
 
-        // Mezclamos el orden
+        // Mezclamos
         return GS.aleatorio.barajar(ejercicios);
     }
 
     function generarCambiosSimples() {
         var ejercicios = [];
-        for (var i = 0; i < 6; i++) {
+
+        // 6 ejercicios normales entre prefijos (m, g, L, m², m³)
+        for (var i = 0; i < 4; i++) {
             var magnitud = GS.aleatorio.elemento(MAGNITUDES_SIMPLES);
             var origen = GS.aleatorio.elemento(PREFIJOS);
             var destino = GS.aleatorio.elemento(PREFIJOS);
@@ -162,13 +232,27 @@
                 destino = GS.aleatorio.elemento(PREFIJOS);
             }
             ejercicios.push({
+                tipo: 'prefijo',
                 magnitud: magnitud,
                 origen: origen,
                 destino: destino,
                 valor: GS.aleatorio.decimal(0.5, 999, 2)
             });
         }
-        return ejercicios;
+
+        // 2 ejercicios específicos de L <-> m³ (usando el puente 1 dm³ = 1 L)
+        // 1 L -> m³
+        ejercicios.push({
+            tipo: 'litros_a_m3',
+            valor: GS.aleatorio.decimal(0.5, 999, 2)
+        });
+        // m³ -> L
+        ejercicios.push({
+            tipo: 'm3_a_litros',
+            valor: GS.aleatorio.decimal(0.001, 5, 3)
+        });
+
+        return GS.aleatorio.barajar(ejercicios);
     }
 
     function generarCambiosCompuestos() {
@@ -192,16 +276,32 @@
     function renderTablaMagnitudes() {
         var cont = document.getElementById('act-tabla-magnitudes');
         if (!cont) return;
+
         var html = '<table class="gs-tabla-datos" style="max-width:100%;">';
-        html += '<thead><tr><th>Magnitud</th><th>Símbolo</th><th>Unidad (SI)</th><th>Tipo</th></tr></thead><tbody>';
+        html += '<thead><tr>';
+        html += '<th>Magnitud</th>';
+        html += '<th>Símbolo de unidad</th>';
+        html += '<th>Fundamental o Derivada</th>';
+        html += '</tr></thead><tbody>';
+
         estado.tablaMagnitudes.forEach(function (f) {
+            var colMagnitud = '', colUnidad = '';
+
+            if (f.dato === 'magnitud') {
+                colMagnitud = f.magnitud;
+                colUnidad = ''; // vacío
+            } else {
+                colMagnitud = ''; // vacío
+                colUnidad = f.unidad;
+            }
+
             html += '<tr>';
-            html += '<td>' + (f.ocultar === 0 ? '<em>¿?</em>' : f.magnitud) + '</td>';
-            html += '<td>' + (f.ocultar === 1 ? '<em>¿?</em>' : f.simbolo) + '</td>';
-            html += '<td>' + (f.ocultar === 2 ? '<em>¿?</em>' : f.unidad) + '</td>';
-            html += '<td>' + (f.ocultar === 3 ? '<em>¿?</em>' : f.tipo) + '</td>';
+            html += '<td>' + colMagnitud + '</td>';
+            html += '<td>' + colUnidad + '</td>';
+            html += '<td></td>'; // siempre vacío
             html += '</tr>';
         });
+
         html += '</tbody></table>';
         cont.innerHTML = html;
     }
@@ -209,15 +309,32 @@
     function renderTablaPrefijos() {
         var cont = document.getElementById('act-tabla-prefijos');
         if (!cont) return;
+
         var html = '<table class="gs-tabla-datos" style="max-width:100%;">';
-        html += '<thead><tr><th>Prefijo</th><th>Símbolo</th><th>Factor (potencia de 10)</th></tr></thead><tbody>';
+        html += '<thead><tr>';
+        html += '<th>Prefijo</th>';
+        html += '<th>Símbolo</th>';
+        html += '<th>Factor (potencia de 10)</th>';
+        html += '</tr></thead><tbody>';
+
         estado.tablaPrefijos.forEach(function (f) {
+            var cP = '', cS = '', cF = '';
+
+            if (f.dato === 0) {
+                cP = f.prefijo;
+            } else if (f.dato === 1) {
+                cS = f.simbolo;
+            } else {
+                cF = '\\(10^{' + f.factor + '}\\)';
+            }
+
             html += '<tr>';
-            html += '<td>' + (f.ocultar === 0 ? '<em>¿?</em>' : f.prefijo) + '</td>';
-            html += '<td>' + (f.ocultar === 1 ? '<em>¿?</em>' : f.simbolo) + '</td>';
-            html += '<td>' + (f.ocultar === 2 ? '<em>¿?</em>' : '10<sup>' + f.factor + '</sup>') + '</td>';
+            html += '<td>' + cP + '</td>';
+            html += '<td>' + cS + '</td>';
+            html += '<td>' + cF + '</td>';
             html += '</tr>';
         });
+
         html += '</tbody></table>';
         cont.innerHTML = html;
     }
@@ -225,58 +342,81 @@
     function renderNotacionCientifica() {
         var cont = document.getElementById('act-notacion-cientifica');
         if (!cont) return;
-        var html = '<ol>';
+
+        var html = '<table class="gs-tabla-datos" style="max-width:100%;">';
+        html += '<thead><tr>';
+        html += '<th>Notación científica</th>';
+        html += '<th>Forma decimal</th>';
+        html += '</tr></thead><tbody>';
+
         estado.notacionCientifica.forEach(function (e) {
+            var colCientifica = '', colDecimal = '';
+
             if (e.tipo === 'decimal_a_cientifica') {
-                html += '<li>Escribe en notación científica: <strong>' + numGrande(e.valorDecimal) + '</strong></li>';
+                colCientifica = ''; // vacío
+                colDecimal = '\\(' + numGrandeLatex(e.valorDecimal) + '\\)';
             } else {
-                html += '<li>Escribe en forma decimal: <strong>' + num(e.coeficiente, 2) + ' · 10<sup>' + e.exponente + '</sup></strong></li>';
+                colCientifica = '\\(' + latexNotacionCientifica(e.coeficiente, e.exponente) + '\\)';
+                colDecimal = ''; // vacío
             }
+
+            html += '<tr>';
+            html += '<td>' + colCientifica + '</td>';
+            html += '<td>' + colDecimal + '</td>';
+            html += '</tr>';
         });
-        html += '</ol>';
+
+        html += '</tbody></table>';
         cont.innerHTML = html;
+
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            window.MathJax.typesetPromise([cont]);
+        }
     }
 
     function renderCambiosSimples() {
         var cont = document.getElementById('act-cambios-simples');
         if (!cont) return;
+
         var html = '<ol>';
         estado.cambiosSimples.forEach(function (e) {
-            var uO = e.origen.simbolo + e.magnitud.unidadBase;
-            var uD = e.destino.simbolo + e.magnitud.unidadBase;
-            html += '<li>Expresa <strong>' + num(e.valor, 2) + ' ' + uO + '</strong> en <strong>' + uD + '</strong>.</li>';
+            if (e.tipo === 'prefijo') {
+                var uO = e.origen.simbolo + e.magnitud.unidadBase;
+                var uD = e.destino.simbolo + e.magnitud.unidadBase;
+                html += '<li>Expresa \\(' + num(e.valor, 2) + '\\, \\text{' + uO + '}\\) en \\(\\text{' + uD + '}\\).</li>';
+            } else if (e.tipo === 'litros_a_m3') {
+                html += '<li>Expresa \\(' + num(e.valor, 2) + '\\, \\text{L}\\) en \\(\\text{m}^3\\).</li>';
+            } else if (e.tipo === 'm3_a_litros') {
+                html += '<li>Expresa \\(' + num(e.valor, 3) + '\\, \\text{m}^3\\) en \\(\\text{L}\\).</li>';
+            }
         });
         html += '</ol>';
         cont.innerHTML = html;
+
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            window.MathJax.typesetPromise([cont]);
+        }
     }
 
     function renderCambiosCompuestos() {
         var cont = document.getElementById('act-cambios-compuestos');
         if (!cont) return;
+
         var html = '<ol>';
         estado.cambiosCompuestos.forEach(function (e) {
-            html += '<li>Transforma <strong>' + num(e.valor, 2) + ' ' + e.tipo.desde + '</strong> a <strong>' + e.tipo.hasta + '</strong>.</li>';
+            html += '<li>Transforma \\(' + num(e.valor, 2) + '\\, \\text{' + e.tipo.desde + '}\\) a \\(\\text{' + e.tipo.hasta + '}\\).</li>';
         });
         html += '</ol>';
         cont.innerHTML = html;
+
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            window.MathJax.typesetPromise([cont]);
+        }
     }
 
     // ======================================================================
     // 6. SOLUCIONARIO
     // ======================================================================
-
-    function calcularCambioSimple(e) {
-        var fO = Math.pow(10, e.origen.factor);
-        var fD = Math.pow(10, e.destino.factor);
-        if (e.magnitud.esCuadratica) {
-            fO = Math.pow(fO, 2);
-            fD = Math.pow(fD, 2);
-        } else if (e.magnitud.esCubica) {
-            fO = Math.pow(fO, 3);
-            fD = Math.pow(fD, 3);
-        }
-        return e.valor * fO / fD;
-    }
 
     function generarHTMLSoluciones() {
         var html = '';
@@ -284,162 +424,144 @@
         // Tabla 1
         html += '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
         html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-table"></i> Tabla 1: Magnitudes y Unidades</div>';
-        html += '<table class="gs-tabla-datos" style="max-width:100%;"><thead><tr><th>Magnitud</th><th>Símbolo</th><th>Unidad</th><th>Tipo</th></tr></thead><tbody>';
+        html += '<table class="gs-tabla-datos" style="max-width:100%;">';
+        html += '<thead><tr><th>Magnitud</th><th>Símbolo</th><th>Unidad (SI)</th><th>Tipo</th></tr></thead><tbody>';
         estado.tablaMagnitudes.forEach(function (f) {
-            html += '<tr><td>' + f.magnitud + '</td><td>' + f.simbolo + '</td><td>' + f.unidad + '</td><td>' + f.tipo + '</td></tr>';
+            html += '<tr><td>' + f.magnitud + '</td><td>' + f.unidad + '</td><td>' + f.unidad + '</td><td>' + f.tipo + '</td></tr>';
         });
         html += '</tbody></table></div>';
 
         // Tabla 2
         html += '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
         html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-layer-group"></i> Tabla 2: Prefijos SI</div>';
-        html += '<table class="gs-tabla-datos" style="max-width:100%;"><thead><tr><th>Prefijo</th><th>Símbolo</th><th>Factor</th></tr></thead><tbody>';
+        html += '<table class="gs-tabla-datos" style="max-width:100%;">';
+        html += '<thead><tr><th>Prefijo</th><th>Símbolo</th><th>Factor</th></tr></thead><tbody>';
         estado.tablaPrefijos.forEach(function (f) {
-            html += '<tr><td>' + f.prefijo + '</td><td>' + f.simbolo + '</td><td>10<sup>' + f.factor + '</sup></td></tr>';
+            html += '<tr><td>' + f.prefijo + '</td><td>' + f.simbolo + '</td><td>\\(10^{' + f.factor + '}\\)</td></tr>';
         });
         html += '</tbody></table></div>';
 
         // Notación científica
         html += '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
-        html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-calculator"></i> Bloque 3: Notación Científica</div><ol>';
+        html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-calculator"></i> Bloque 3: Notación Científica</div>';
+        html += '<table class="gs-tabla-datos" style="max-width:100%;">';
+        html += '<thead><tr><th>Notación científica</th><th>Forma decimal</th></tr></thead><tbody>';
         estado.notacionCientifica.forEach(function (e) {
-            if (e.tipo === 'decimal_a_cientifica') {
-                html += '<li>' + numGrande(e.valorDecimal) + ' = <strong>' + num(e.coeficiente, 2) + ' · 10<sup>' + e.exponente + '</sup></strong></li>';
-            } else {
-                html += '<li>' + num(e.coeficiente, 2) + ' · 10<sup>' + e.exponente + '</sup> = <strong>' + numGrande(e.valorDecimal) + '</strong></li>';
-            }
+            var colC = '\\(' + latexNotacionCientifica(e.coeficiente, e.exponente) + '\\)';
+            var colD = '\\(' + numGrandeLatex(e.valorDecimal) + '\\)';
+            html += '<tr><td>' + colC + '</td><td>' + colD + '</td></tr>';
         });
-        html += '</ol></div>';
+        html += '</tbody></table></div>';
 
         // Cambios simples
         html += '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
-        html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-arrows-rotate"></i> Bloque 4: Cambios Simples</div><ol>';
+        html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-arrows-rotate"></i> Bloque 4: Cambios Simples de Unidades</div>';
+        html += '<ol>';
         estado.cambiosSimples.forEach(function (e) {
-            var uO = e.origen.simbolo + e.magnitud.unidadBase;
-            var uD = e.destino.simbolo + e.magnitud.unidadBase;
-            var resultado = calcularCambioSimple(e);
-            var factor = calcularFactorTexto(e);
-            html += '<li>' + num(e.valor, 2) + ' ' + uO + ' = <strong>' + num(resultado, 6) + ' ' + uD + '</strong><br><small style="color:#64748b;">' + factor + '</small></li>';
+            html += '<li>' + generarSolucionCambioSimple(e) + '</li>';
         });
         html += '</ol></div>';
 
         // Cambios compuestos
         html += '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
-        html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-flask"></i> Bloque 5: Cambios Compuestos</div><ol>';
+        html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-flask"></i> Bloque 5: Cambios Compuestos de Unidades</div>';
+        html += '<ol>';
         estado.cambiosCompuestos.forEach(function (e) {
-            html += '<li>' + num(e.valor, 2) + ' ' + e.tipo.desde + ' = <strong>' + num(e.resultado, 4) + ' ' + e.tipo.hasta + '</strong><br><small style="color:#64748b;">' + e.tipo.explicacion + '</small></li>';
+            html += '<li>' + generarSolucionCambioCompuesto(e) + '</li>';
         });
         html += '</ol></div>';
 
         return html;
     }
 
-    function calcularFactorTexto(e) {
-        var factor = Math.pow(10, e.origen.factor - e.destino.factor);
-        if (e.magnitud.esCuadratica) factor = Math.pow(factor, 2);
-        if (e.magnitud.esCubica) factor = Math.pow(factor, 3);
-        if (factor === 1) return 'no hay cambio de factor';
-        if (factor > 1) return 'multiplicamos por ' + numGrande(factor);
-        return 'dividimos entre ' + numGrande(1 / factor);
-    }
-
-    // ======================================================================
-    // 7. VERIFICAR PIN
-    // ======================================================================
-
-    async function verificarPin() {
-        var pinInput = document.getElementById('solPinInput');
-        var errorMsg = document.getElementById('solErrorMsg');
-        var btn = document.getElementById('btnUnlockSol');
-        var contentDiv = document.getElementById('protectedSolutions');
-        var lockIcon = document.getElementById('lockIcon');
-
-        if (!pinInput) return;
-        var pin = pinInput.value.trim();
-
-        if (!pin || pin.length !== 6) {
-            if (errorMsg) {
-                errorMsg.innerText = 'Escribe el código completo de 6 dígitos.';
-                errorMsg.style.color = '#dc2626';
-                errorMsg.style.display = 'block';
-            }
-            return;
+    // --- Solución detallada de un cambio simple ---
+    function generarSolucionCambioSimple(e) {
+        if (e.tipo === 'litros_a_m3') {
+            var resultado = e.valor / 1000;
+            var html = '\\(' + num(e.valor, 2) + '\\, \\text{L} = ' + num(resultado, 6) + '\\, \\text{m}^3\\)<br>';
+            html += '<div class="gs-latex-container" style="margin: 8px 0; padding: 10px;">';
+            html += '\\(' + num(e.valor, 2) + '\\, \\text{L} \\cdot \\dfrac{1\\, \\text{m}^3}{1000\\, \\text{L}} = ' + num(resultado, 6) + '\\, \\text{m}^3\\)';
+            html += '</div>';
+            html += '<small style="color:#64748b;">1 m³ = 1000 L. La unidad destino es más grande, por eso el número disminuye.</small>';
+            return html;
         }
 
-        if (errorMsg) {
-            errorMsg.innerText = 'Verificando código...';
-            errorMsg.style.color = '#1e3a8a';
-            errorMsg.style.display = 'block';
+        if (e.tipo === 'm3_a_litros') {
+            var resultado2 = e.valor * 1000;
+            var html2 = '\\(' + num(e.valor, 3) + '\\, \\text{m}^3 = ' + numGrandeLatex(resultado2) + '\\, \\text{L}\\)<br>';
+            html2 += '<div class="gs-latex-container" style="margin: 8px 0; padding: 10px;">';
+            html2 += '\\(' + num(e.valor, 3) + '\\, \\text{m}^3 \\cdot \\dfrac{1000\\, \\text{L}}{1\\, \\text{m}^3} = ' + numGrandeLatex(resultado2) + '\\, \\text{L}\\)';
+            html2 += '</div>';
+            html2 += '<small style="color:#64748b;">1 m³ = 1000 L. La unidad destino es más pequeña, por eso el número aumenta.</small>';
+            return html2;
         }
-        if (btn) btn.disabled = true;
 
-        var ok = await GS.verifyPinOnly(pin);
+        // Caso normal entre prefijos
+        var uO = e.origen.simbolo + e.magnitud.unidadBase;
+        var uD = e.destino.simbolo + e.magnitud.unidadBase;
 
-        if (ok) {
-            if (errorMsg) errorMsg.style.display = 'none';
-            contentDiv.innerHTML = generarHTMLSoluciones();
-            contentDiv.style.display = 'block';
-            if (lockIcon) lockIcon.className = 'fa-solid fa-user-check';
+        var factorOrigen = Math.pow(10, e.origen.factor);
+        var factorDestino = Math.pow(10, e.destino.factor);
 
-            if (window.MathJax && window.MathJax.typesetPromise) {
-                window.MathJax.typesetPromise([contentDiv]);
-            }
+        var exponenteTexto = '';
+        if (e.magnitud.esCuadratica) {
+            factorOrigen = Math.pow(factorOrigen, 2);
+            factorDestino = Math.pow(factorDestino, 2);
+            exponenteTexto = '²';
+        } else if (e.magnitud.esCubica) {
+            factorOrigen = Math.pow(factorOrigen, 3);
+            factorDestino = Math.pow(factorDestino, 3);
+            exponenteTexto = '³';
+        }
 
-            contentDiv.scrollIntoView({ behavior: 'smooth' });
-            var authContainer = document.getElementById('solAuthContainer');
-            if (authContainer) authContainer.style.display = 'none';
+        var resultado3 = e.valor * factorOrigen / factorDestino;
+
+        var expO = e.origen.factor * (e.magnitud.esCuadratica ? 2 : (e.magnitud.esCubica ? 3 : 1));
+        var expD = e.destino.factor * (e.magnitud.esCuadratica ? 2 : (e.magnitud.esCubica ? 3 : 1));
+
+        var html3 = '\\(' + num(e.valor, 2) + '\\, \\text{' + uO + '} = ' + num(resultado3, 6) + '\\, \\text{' + uD + '}\\)<br>';
+
+        html3 += '<div class="gs-latex-container" style="margin: 8px 0; padding: 10px;">';
+        html3 += '\\(' + num(e.valor, 2) + '\\, \\text{' + uO + '} \\cdot \\dfrac{10^{' + expD + '}\\, \\text{' + uD + '}}{10^{' + expO + '}\\, \\text{' + uO + '}} = ' + num(resultado3, 6) + '\\, \\text{' + uD + '}\\)';
+        html3 += '</div>';
+
+        var factorNeto = expO - expD;
+        if (factorNeto > 0) {
+            html3 += '<small style="color:#64748b;">Multiplicamos por 10<sup>' + factorNeto + '</sup>: la unidad destino es más pequeña, así que el número aumenta.</small>';
+        } else if (factorNeto < 0) {
+            html3 += '<small style="color:#64748b;">Dividimos entre 10<sup>' + Math.abs(factorNeto) + '</sup>: la unidad destino es más grande, así que el número disminuye.</small>';
         } else {
-            if (errorMsg) {
-                errorMsg.innerText = 'Código incorrecto. Inténtalo de nuevo.';
-                errorMsg.style.color = '#dc2626';
-                errorMsg.style.display = 'block';
-            }
-            if (btn) btn.disabled = false;
+            html3 += '<small style="color:#64748b;">No hay cambio de factor.</small>';
         }
-    }
-    window.verificarPin = verificarPin;
 
-    // ======================================================================
-    // 8. GENERAR TODO
-    // ======================================================================
-
-    function generarTodo() {
-        estado.tablaMagnitudes = generarTablaMagnitudes();
-        estado.tablaPrefijos = generarTablaPrefijos();
-        estado.notacionCientifica = generarNotacionCientifica();
-        estado.cambiosSimples = generarCambiosSimples();
-        estado.cambiosCompuestos = generarCambiosCompuestos();
-
-        renderTablaMagnitudes();
-        renderTablaPrefijos();
-        renderNotacionCientifica();
-        renderCambiosSimples();
-        renderCambiosCompuestos();
+        return html3;
     }
 
-    window.generarNuevasActividades = function() {
-        // Si ya se había desbloqueado el solucionario, lo ocultamos
-        var contentDiv = document.getElementById('protectedSolutions');
-        var authContainer = document.getElementById('solAuthContainer');
-        var lockIcon = document.getElementById('lockIcon');
-        if (contentDiv) {
-            contentDiv.style.display = 'none';
-            contentDiv.innerHTML = '';
+    // --- Solución detallada de un cambio compuesto ---
+    function generarSolucionCambioCompuesto(e) {
+        var html = '\\(' + num(e.valor, 2) + '\\, \\text{' + e.tipo.desde + '} = ' + num(e.resultado, 4) + '\\, \\text{' + e.tipo.hasta + '}\\)<br>';
+
+        var factorTexto = '';
+
+        if (e.tipo.nombre === 'velocidad' && e.tipo.desde === 'km/h') {
+            factorTexto = num(e.valor, 2) + '\\, \\dfrac{\\text{km}}{\\text{h}} \\cdot \\dfrac{10^3\\, \\text{m}}{1\\, \\text{km}} \\cdot \\dfrac{1\\, \\text{h}}{3600\\, \\text{s}} = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{m}}{\\text{s}}';
+        } else if (e.tipo.nombre === 'velocidad' && e.tipo.desde === 'm/s') {
+            factorTexto = num(e.valor, 2) + '\\, \\dfrac{\\text{m}}{\\text{s}} \\cdot \\dfrac{1\\, \\text{km}}{10^3\\, \\text{m}} \\cdot \\dfrac{3600\\, \\text{s}}{1\\, \\text{h}} = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{km}}{\\text{h}}';
+        } else if (e.tipo.nombre === 'densidad' && e.tipo.desde === 'g/cm³') {
+            factorTexto = num(e.valor, 2) + '\\, \\dfrac{\\text{g}}{\\text{cm}^3} \\cdot \\dfrac{1\\, \\text{kg}}{10^3\\, \\text{g}} \\cdot \\dfrac{10^6\\, \\text{cm}^3}{1\\, \\text{m}^3} = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{kg}}{\\text{m}^3}';
+        } else if (e.tipo.nombre === 'densidad' && e.tipo.desde === 'kg/m³') {
+            factorTexto = num(e.valor, 2) + '\\, \\dfrac{\\text{kg}}{\\text{m}^3} \\cdot \\dfrac{10^3\\, \\text{g}}{1\\, \\text{kg}} \\cdot \\dfrac{1\\, \\text{m}^3}{10^6\\, \\text{cm}^3} = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{g}}{\\text{cm}^3}';
+        } else if (e.tipo.nombre === 'caudal' && e.tipo.desde === 'kg/h') {
+            factorTexto = num(e.valor, 2) + '\\, \\dfrac{\\text{kg}}{\\text{h}} \\cdot \\dfrac{10^3\\, \\text{g}}{1\\, \\text{kg}} \\cdot \\dfrac{1\\, \\text{h}}{3600\\, \\text{s}} = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{g}}{\\text{s}}';
+        } else if (e.tipo.nombre === 'caudal' && e.tipo.desde === 'g/s') {
+            factorTexto = num(e.valor, 2) + '\\, \\dfrac{\\text{g}}{\\text{s}} \\cdot \\dfrac{1\\, \\text{kg}}{10^3\\, \\text{g}} \\cdot \\dfrac{3600\\, \\text{s}}{1\\, \\text{h}} = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{kg}}{\\text{h}}';
+        } else if (e.tipo.nombre === 'presión superficial') {
+            factorTexto = num(e.valor, 2) + '\\, \\dfrac{\\text{kJ}}{\\text{m}^2} \\cdot \\dfrac{10^3\\, \\text{J}}{1\\, \\text{kJ}} \\cdot \\dfrac{1\\, \\text{m}^2}{10^4\\, \\text{cm}^2} = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{J}}{\\text{cm}^2}';
+        } else {
+            factorTexto = num(e.valor, 2) + '\\, \\text{' + e.tipo.desde + '} \\cdot ' + num(e.tipo.factor, 5) + ' = ' + num(e.resultado, 4) + '\\, \\text{' + e.tipo.hasta + '}';
         }
-        if (authContainer) authContainer.style.display = 'flex';
-        if (lockIcon) lockIcon.className = 'fa-solid fa-user-lock';
 
-        generarTodo();
-
-        // Scroll suave al inicio del bloque de actividades
-        var actDiv = document.getElementById('act-tabla-magnitudes');
-        if (actDiv) actDiv.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    document.addEventListener('gs-ready', generarTodo);
-
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        setTimeout(generarTodo, 100);
-    }
-
-})();
+        html += '<div class="gs-latex-container" style="margin: 8px 0; padding: 10px;">';
+        html += '\\(' + factorTexto + '\\)';
+        html += '</div>';
+        html += '<small style="color:#64748b;">' + e.tipo.explicacion.charAt(0).to
