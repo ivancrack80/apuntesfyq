@@ -44,8 +44,8 @@
         { prefijo: 'nano',  simbolo: 'n',  factor: -9  }
     ];
 
-    // Prefijos restringidos para actividades (k, h, da, sin prefijo, d, c, m)
-    var PREFIJOS_ACTIVIDAD = [
+    // Prefijos restringidos (superficie y volumen)
+    var PREFIJOS_RESTRINGIDOS = [
         { prefijo: 'kilo',  simbolo: 'k',  factor: 3  },
         { prefijo: 'hecto', simbolo: 'h',  factor: 2  },
         { prefijo: 'deca',  simbolo: 'da', factor: 1  },
@@ -53,6 +53,25 @@
         { prefijo: 'deci',  simbolo: 'd',  factor: -1 },
         { prefijo: 'centi', simbolo: 'c',  factor: -2 },
         { prefijo: 'mili',  simbolo: 'm',  factor: -3 }
+    ];
+
+    // Prefijos extendidos (longitud, masa y capacidad)
+    var PREFIJOS_EXTENDIDOS = [
+        { prefijo: 'peta',  simbolo: 'P',  factor: 15  },
+        { prefijo: 'tera',  simbolo: 'T',  factor: 12  },
+        { prefijo: 'giga',  simbolo: 'G',  factor: 9   },
+        { prefijo: 'mega',  simbolo: 'M',  factor: 6   },
+        { prefijo: 'kilo',  simbolo: 'k',  factor: 3   },
+        { prefijo: 'hecto', simbolo: 'h',  factor: 2   },
+        { prefijo: 'deca',  simbolo: 'da', factor: 1   },
+        { prefijo: '',      simbolo: '',   factor: 0   },
+        { prefijo: 'deci',  simbolo: 'd',  factor: -1  },
+        { prefijo: 'centi', simbolo: 'c',  factor: -2  },
+        { prefijo: 'mili',  simbolo: 'm',  factor: -3  },
+        { prefijo: 'micro', simbolo: 'µ',  factor: -6  },
+        { prefijo: 'nano',  simbolo: 'n',  factor: -9  },
+        { prefijo: 'pico',  simbolo: 'p',  factor: -12 },
+        { prefijo: 'femto', simbolo: 'f',  factor: -15 }
     ];
 
     var MAGNITUDES_SIMPLES = [
@@ -89,7 +108,6 @@
         return valor.toFixed(d).replace('.', ',');
     }
 
-    // Formatea un entero con separador de millares mediante \, de LaTeX
     function numGrandeLatex(n) {
         if (Math.abs(n) > 1e15 || (n !== 0 && Math.abs(n) < 1e-15)) {
             return n.toExponential(2).replace('.', ',');
@@ -108,15 +126,27 @@
         return num(coef, 2) + ' \\cdot 10^{' + exp + '}';
     }
 
-    function prefijoAleatorio() {
-        return GS.aleatorio.elemento(PREFIJOS_ACTIVIDAD);
+    function prefijosParaMagnitud(magnitud) {
+        if (magnitud.exponente === 1) {
+            return PREFIJOS_EXTENDIDOS;
+        } else {
+            return PREFIJOS_RESTRINGIDOS;
+        }
     }
 
-    // Calcula la representación decimal de un número en notación científica
+    function prefijoAleatorio() {
+        return GS.aleatorio.elemento(PREFIJOS_EXTENDIDOS);
+    }
+
+    function prefijoAleatorioDe(magnitud) {
+        var array = prefijosParaMagnitud(magnitud);
+        return GS.aleatorio.elemento(array);
+    }
+
+    // Representación decimal (LaTeX) de un número en notación científica
     function calcularDecimalDesdeCientifica(coef, exp) {
-        var coefStr = coef.toFixed(2).replace('.', ''); // "567" para 5,67
+        var coefStr = coef.toFixed(2).replace('.', '');
         if (exp >= 0) {
-            // Número grande: "567" + ceros
             var digitos = coefStr;
             var ceros = exp - (digitos.length - 1);
             if (ceros >= 0) {
@@ -124,7 +154,6 @@
             }
             return digitos;
         } else {
-            // Número pequeño: "0,000..." + coefStr
             var numCeros = Math.abs(exp) - 1;
             return '0{,}' + '0'.repeat(numCeros) + coefStr;
         }
@@ -159,56 +188,75 @@
         });
     }
 
+    // --- Notación científica ---
     function generarNotacionCientifica() {
         var ejercicios = [];
 
         // 5 decimal -> científica
         for (var i = 0; i < 5; i++) {
-            var entero = GS.aleatorio.entero(100, 9999);
-            var strNum = entero.toString();
-            var coefStr = strNum.charAt(0) + ',' + strNum.slice(1);
-            var coef = parseFloat(coefStr.replace(',', '.'));
-            var ordenMagnitud = Math.floor(Math.log10(entero));
-            var numCeros = GS.aleatorio.entero(1, 15);
-            var exponente = -(numCeros + ordenMagnitud);
+            var esGrande = GS.aleatorio.booleano();
 
-            ejercicios.push({
-                tipo: 'decimal_a_cientifica',
-                coeficiente: coef,
-                exponente: exponente,
-                decimalStr: '0,' + '0'.repeat(numCeros) + strNum
-            });
+            if (esGrande) {
+                // Número grande
+                var numBase = GS.aleatorio.entero(1, 9999);
+                var exponente = GS.aleatorio.entero(1, 15);
+                var strBase = numBase.toString();
+                var coef = parseFloat(strBase.charAt(0) + '.' + strBase.slice(1));
+                var ordenBase = strBase.length - 1;
+                var exponenteCientifico = exponente + ordenBase;
+
+                ejercicios.push({
+                    tipo: 'decimal_a_cientifica',
+                    coeficiente: coef,
+                    exponente: exponenteCientifico,
+                    decimalStr: strBase + '0'.repeat(exponente)
+                });
+            } else {
+                // Número pequeño
+                var numBase2 = GS.aleatorio.entero(1, 9999);
+                var ceros = GS.aleatorio.entero(1, 15);
+                var strBase2 = numBase2.toString();
+                var coef2 = parseFloat(strBase2.charAt(0) + '.' + strBase2.slice(1));
+                var ordenBase2 = strBase2.length - 1;
+                var exponenteCientifico2 = -(ceros + ordenBase2);
+
+                ejercicios.push({
+                    tipo: 'decimal_a_cientifica',
+                    coeficiente: coef2,
+                    exponente: exponenteCientifico2,
+                    decimalStr: '0,' + '0'.repeat(ceros) + strBase2
+                });
+            }
         }
 
-        // 5 científica -> decimal (positivo o negativo)
+        // 5 científica -> decimal
         for (var j = 0; j < 5; j++) {
-            var entero2 = GS.aleatorio.entero(100, 9999);
-            var strNum2 = entero2.toString();
-            var coefStr2 = strNum2.charAt(0) + ',' + strNum2.slice(1);
-            var coef2 = parseFloat(coefStr2.replace(',', '.'));
-            var ordenMagnitud2 = Math.floor(Math.log10(entero2));
+            var numBase3 = GS.aleatorio.entero(1, 9999);
+            var strBase3 = numBase3.toString();
+            var coef3 = parseFloat(strBase3.charAt(0) + '.' + strBase3.slice(1));
+            var ordenBase3 = strBase3.length - 1;
 
-            var esGrande = GS.aleatorio.booleano();
-            var exponente2;
-            if (esGrande) {
-                // Exponencial positivo: entre 1 y 15
-                exponente2 = GS.aleatorio.entero(1, 15);
+            var esGrande2 = GS.aleatorio.booleano();
+            var exponente3;
+
+            if (esGrande2) {
+                exponente3 = GS.aleatorio.entero(1, 15);
             } else {
-                // Exponencial negativo
-                var numCeros2 = GS.aleatorio.entero(1, 15);
-                exponente2 = -(numCeros2 + ordenMagnitud2);
+                var ceros3 = GS.aleatorio.entero(1, 15);
+                exponente3 = -(ceros3 + ordenBase3);
             }
 
             ejercicios.push({
                 tipo: 'cientifica_a_decimal',
-                coeficiente: coef2,
-                exponente: exponente2
+                coeficiente: coef3,
+                exponente: exponente3
             });
         }
 
         return GS.aleatorio.barajar(ejercicios);
     }
 
+    // --- Cambios simples ---
     function generarCambiosSimples() {
         var ejercicios = [];
 
@@ -217,36 +265,41 @@
             var magnitud = GS.aleatorio.elemento(MAGNITUDES_SIMPLES.filter(function (m) {
                 return m.nombre !== 'capacidad';
             }));
-            var origen = prefijoAleatorio();
-            var destino = prefijoAleatorio();
+            var origen = prefijoAleatorioDe(magnitud);
+            var destino = prefijoAleatorioDe(magnitud);
             while (destino.simbolo === origen.simbolo) {
-                destino = prefijoAleatorio();
+                destino = prefijoAleatorioDe(magnitud);
+            }
+            // Valores: enteros o con pocos decimales (estilo 0,005)
+            var valor;
+            if (GS.aleatorio.booleano()) {
+                valor = GS.aleatorio.entero(1, 9999);
+            } else {
+                valor = parseFloat(GS.aleatorio.decimal(0.001, 0.999, 3));
             }
             ejercicios.push({
                 tipo: 'prefijo',
                 magnitud: magnitud,
                 origen: origen,
                 destino: destino,
-                valor: GS.aleatorio.decimal(0.5, 999, 2)
+                valor: valor
             });
         }
 
         // 2 cambios L <-> m³
         ejercicios.push({
             tipo: 'litros_a_m3',
-            valor: GS.aleatorio.decimal(0.5, 999, 2)
+            valor: GS.aleatorio.entero(1, 9999)
         });
         ejercicios.push({
             tipo: 'm3_a_litros',
-            valor: GS.aleatorio.decimal(0.001, 5, 3)
+            valor: parseFloat(GS.aleatorio.decimal(0.001, 0.999, 3))
         });
 
         return GS.aleatorio.barajar(ejercicios);
     }
 
-    // =============================================================
-    // CAMBIOS COMPUESTOS
-    // =============================================================
+    // --- CAMBIOS COMPUESTOS ---
 
     // A) Área másica: [p]g/[p']m² ↔ [p]g/[p']m²
     function generarCambioAreaMasica() {
@@ -262,13 +315,10 @@
         }
 
         var valor = GS.aleatorio.decimal(0.5, 999, 2);
-
         var uOrigen = pMasaOrigen.simbolo + 'g/' + pSupOrigen.simbolo + 'm²';
         var uDestino = pMasaDestino.simbolo + 'g/' + pSupDestino.simbolo + 'm²';
 
-        // Factor masa (exponente): origen - destino
         var expMasa = pMasaOrigen.factor - pMasaDestino.factor;
-        // Factor superficie: como es m², se multiplica por 2
         var expSuperficie = 2 * (pSupOrigen.factor - pSupDestino.factor);
 
         var factorTotal = Math.pow(10, expMasa + expSuperficie);
@@ -302,8 +352,6 @@
         var uDestino = pDestino.simbolo + 'g/' + tDestino.simbolo;
 
         var expMasa = pOrigen.factor - pDestino.factor;
-        // Si el tiempo del origen es mayor (por ejemplo, h), el valor se divide por el factor de segundos
-        // 1 g/h = 1 g / 3600 s = (1/3600) g/s
         var expTiempo = Math.log10(tOrigen.segundos) - Math.log10(tDestino.segundos);
 
         var factorTotal = Math.pow(10, expMasa) * Math.pow(10, expTiempo);
@@ -333,7 +381,6 @@
         if (origenL) {
             uOrigen = pOrigenMasa.simbolo + 'g/L';
             uDestino = pDestinoMasa.simbolo + 'g/m³';
-            // 1 L = 10⁻³ m³ → 1 g/L = 10³ g/m³
             expVolumen = 3;
         } else {
             uOrigen = pOrigenMasa.simbolo + 'g/m³';
@@ -402,7 +449,6 @@
         var uDestino = pDestinoMasa.simbolo + 'g/' + pVolDestino.simbolo + 'm³';
 
         var expMasa = pOrigenMasa.factor - pDestinoMasa.factor;
-        // Volumen: exponente cúbico → multiplicamos por 3
         var expVolumen = 3 * (pVolOrigen.factor - pVolDestino.factor);
 
         var factorTotal = Math.pow(10, expMasa + expVolumen);
@@ -435,8 +481,6 @@
         var uOrigen = pOrigen.simbolo + 'L/' + tOrigen.simbolo;
         var uDestino = pDestino.simbolo + 'm³/' + tDestino.simbolo;
 
-        // 1 L = 10⁻³ m³. Si el prefijo es c, 1 cL = 10⁻² L = 10⁻⁵ m³.
-        // Factor volumen: 10⁻³ · 10^(3·factorOrigen) / 10^(3·factorDestino)
         var expVolumen = -3 + 3 * pOrigen.factor - 3 * pDestino.factor;
         var expTiempo = Math.log10(tOrigen.segundos) - Math.log10(tDestino.segundos);
         var factorTotal = Math.pow(10, expVolumen + expTiempo);
@@ -463,7 +507,6 @@
         var ejercicios = [];
         var usados = [];
         for (var i = 0; i < 4; i++) {
-            // Evitamos repetir el mismo generador
             var indice;
             var intentos = 0;
             do {
@@ -518,7 +561,7 @@
         estado.notacionCientifica.forEach(function (e) {
             var colC = '', colD = '';
             if (e.tipo === 'decimal_a_cientifica') {
-                colD = '\\(' + e.decimalStr.replace(',', '{,}') + '\\)';
+                colD = '\\(' + e.decimalStr.replace(/,/g, '{,}') + '\\)';
             } else {
                 colC = '\\(' + latexNotacionCientifica(e.coeficiente, e.exponente) + '\\)';
             }
@@ -533,14 +576,15 @@
         if (!cont) return;
         var html = '<ol>';
         estado.cambiosSimples.forEach(function (e) {
+            var valorStr = Number.isInteger(e.valor) ? e.valor.toString() : num(e.valor, 3);
             if (e.tipo === 'prefijo') {
                 var uO = e.origen.simbolo + e.magnitud.unidadBase;
                 var uD = e.destino.simbolo + e.magnitud.unidadBase;
-                html += '<li>Expresa \\(' + num(e.valor, 2) + '\\, \\text{' + uO + '}\\) en \\(\\text{' + uD + '}\\).</li>';
+                html += '<li>Expresa \\(' + valorStr + '\\, \\text{' + uO + '}\\) en \\(\\text{' + uD + '}\\).</li>';
             } else if (e.tipo === 'litros_a_m3') {
-                html += '<li>Expresa \\(' + num(e.valor, 2) + '\\, \\text{L}\\) en \\(\\text{m}^3\\).</li>';
+                html += '<li>Expresa \\(' + valorStr + '\\, \\text{L}\\) en \\(\\text{m}^3\\).</li>';
             } else {
-                html += '<li>Expresa \\(' + num(e.valor, 3) + '\\, \\text{m}^3\\) en \\(\\text{L}\\).</li>';
+                html += '<li>Expresa \\(' + valorStr + '\\, \\text{m}^3\\) en \\(\\text{L}\\).</li>';
             }
         });
         html += '</ol>';
@@ -563,34 +607,40 @@
     // ======================================================================
 
     function solucionCambioSimple(e) {
+        var valorStr;
+
         if (e.tipo === 'litros_a_m3') {
+            valorStr = Number.isInteger(e.valor) ? e.valor.toString() : num(e.valor, 3);
             var r = e.valor / 1000;
-            var s = '\\(' + num(e.valor, 2) + '\\, \\text{L} = ' + num(r, 6) + '\\, \\text{m}^3\\)<br>';
+            var s = '\\(' + valorStr + '\\, \\text{L} = ' + num(r, 6) + '\\, \\text{m}^3\\)<br>';
             s += '<div class="gs-latex-container" style="margin:8px 0; padding:10px;">';
-            s += '\\(' + num(e.valor, 2) + '\\, \\text{L} \\cdot \\dfrac{1\\, \\text{m}^3}{1000\\, \\text{L}} = ' + num(r, 6) + '\\, \\text{m}^3\\)';
+            s += '\\(' + valorStr + '\\, \\text{L} \\cdot \\dfrac{1\\, \\text{m}^3}{1000\\, \\text{L}} = ' + num(r, 6) + '\\, \\text{m}^3\\)';
             s += '</div>';
             s += '<small style="color:#64748b;">1 m³ = 1000 L. La unidad destino es más grande, así que el número disminuye.</small>';
             return s;
         }
+
         if (e.tipo === 'm3_a_litros') {
+            valorStr = Number.isInteger(e.valor) ? e.valor.toString() : num(e.valor, 3);
             var r2 = e.valor * 1000;
-            var s2 = '\\(' + num(e.valor, 3) + '\\, \\text{m}^3 = ' + numGrandeLatex(r2) + '\\, \\text{L}\\)<br>';
+            var s2 = '\\(' + valorStr + '\\, \\text{m}^3 = ' + numGrandeLatex(r2) + '\\, \\text{L}\\)<br>';
             s2 += '<div class="gs-latex-container" style="margin:8px 0; padding:10px;">';
-            s2 += '\\(' + num(e.valor, 3) + '\\, \\text{m}^3 \\cdot \\dfrac{1000\\, \\text{L}}{1\\, \\text{m}^3} = ' + numGrandeLatex(r2) + '\\, \\text{L}\\)';
+            s2 += '\\(' + valorStr + '\\, \\text{m}^3 \\cdot \\dfrac{1000\\, \\text{L}}{1\\, \\text{m}^3} = ' + numGrandeLatex(r2) + '\\, \\text{L}\\)';
             s2 += '</div>';
             s2 += '<small style="color:#64748b;">1 m³ = 1000 L. La unidad destino es más pequeña, así que el número aumenta.</small>';
             return s2;
         }
 
+        valorStr = Number.isInteger(e.valor) ? e.valor.toString() : num(e.valor, 3);
         var uO = e.origen.simbolo + e.magnitud.unidadBase;
         var uD = e.destino.simbolo + e.magnitud.unidadBase;
         var expO = e.origen.factor * e.magnitud.exponente;
         var expD = e.destino.factor * e.magnitud.exponente;
         var resultado = e.valor * Math.pow(10, expO) / Math.pow(10, expD);
 
-        var s3 = '\\(' + num(e.valor, 2) + '\\, \\text{' + uO + '} = ' + num(resultado, 6) + '\\, \\text{' + uD + '}\\)<br>';
+        var s3 = '\\(' + valorStr + '\\, \\text{' + uO + '} = ' + num(resultado, 6) + '\\, \\text{' + uD + '}\\)<br>';
         s3 += '<div class="gs-latex-container" style="margin:8px 0; padding:10px;">';
-        s3 += '\\(' + num(e.valor, 2) + '\\, \\text{' + uO + '} \\cdot \\dfrac{10^{' + expD + '}\\, \\text{' + uD + '}}{10^{' + expO + '}\\, \\text{' + uO + '}} = ' + num(resultado, 6) + '\\, \\text{' + uD + '}\\)';
+        s3 += '\\(' + valorStr + '\\, \\text{' + uO + '} \\cdot \\dfrac{10^{' + expD + '}\\, \\text{' + uD + '}}{10^{' + expO + '}\\, \\text{' + uO + '}} = ' + num(resultado, 6) + '\\, \\text{' + uD + '}\\)';
         s3 += '</div>';
 
         var expNeto = expO - expD;
@@ -657,7 +707,7 @@
             var colC = '\\(' + latexNotacionCientifica(e.coeficiente, e.exponente) + '\\)';
             var colD;
             if (e.tipo === 'decimal_a_cientifica') {
-                colD = '\\(' + e.decimalStr.replace(',', '{,}') + '\\)';
+                colD = '\\(' + e.decimalStr.replace(/,/g, '{,}') + '\\)';
             } else {
                 colD = '\\(' + calcularDecimalDesdeCientifica(e.coeficiente, e.exponente) + '\\)';
             }
