@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Magnitudes, Unidades y el Sistema Internacional - 3º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+    <script src="js/ud1_02.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <h1 class="gs-title">2. Magnitudes y unidades. El Sistema Internacional.</h1>
+        <div class="gs-subtitle">Las reglas del juego para medirlo todo</div>
+    </header>
+
+    <!-- SECCIÓN 2.1 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-scale-balanced"></i> 2.1. Propiedades de la Materia: Magnitud y Unidad
+    </h2>
+    <p>
+        Para describir el universo de forma rigurosa, la ciencia necesita cuantificar las propiedades del entorno de manera objetiva, dejando atrás las apreciaciones subjetivas.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-graduation-cap"></i> Definiciones Fundamentales</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Magnitud:</strong> Es cualquier propiedad física o cualidad de la materia, de un sistema o de un fenómeno natural que es susceptible de ser medida; es decir, que se puede cuantificar de forma numérica (ej. la masa, la velocidad, la temperatura).</li>
+            <li><strong>Unidad de medida:</strong> Es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convenio. Al medir, comparamos la magnitud real con ese patrón para ver cuántas veces lo contiene.</li>
+        </ul>
+    </div>
+
+    <!-- SECCIÓN 2.2 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-globe"></i> 2.2. El Sistema Internacional (SI)
+    </h2>
+    <p>
+        El Sistema Internacional es el sistema de unidades de medida que se utiliza en España y en casi todo el mundo. Clasifica las magnitudes en dos grupos: <strong>magnitudes fundamentales o básicas</strong> y <strong>magnitudes derivadas</strong>.
+    </p>
+
+    <h3>Las 7 Magnitudes Fundamentales del SI</h3>
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th>Magnitud Fundamental</th>
+                    <th>Unidad (SI)</th>
+                    <th>Símbolo de la unidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Longitud (\(l\))</td><td>metro</td><td>m</td></tr>
+                <tr><td>Masa (\(m\))</td><td>kilogramo</td><td>kg</td></tr>
+                <tr><td>Tiempo (\(t\))</td><td>segundo</td><td>s</td></tr>
+                <tr><td>Temperatura absoluta (\(T\))</td><td>kelvin</td><td>K</td></tr>
+                <tr><td>Cantidad de sustancia (\(n\))</td><td>mol</td><td>mol</td></tr>
+                <tr><td>Intensidad de corriente eléctrica (\(I\))</td><td>amperio</td><td>A</td></tr>
+                <tr><td>Intensidad luminosa (\(I_v\))</td><td>candela</td><td>cd</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Magnitudes Derivadas</h3>
+    <p>Las <strong>magnitudes derivadas</strong> se forman combinando matemáticamente las magnitudes fundamentales anteriores:</p>
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th>Magnitud Derivada</th>
+                    <th>Unidad en el SI</th>
+                    <th>Símbolo de la Unidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Superficie (Área)</td><td>metro cuadrado</td><td>m²</td></tr>
+                <tr><td>Volumen</td><td>metro cúbico</td><td>m³</td></tr>
+                <tr><td>Densidad</td><td>kilogramo por metro cúbico</td><td>kg/m³</td></tr>
+                <tr><td>Velocidad</td><td>metro por segundo</td><td>m/s</td></tr>
+                <tr><td>Aceleración</td><td>metro por segundo al cuadrado</td><td>m/s²</td></tr>
+                <tr><td>Fuerza</td><td>newton</td><td>N</td></tr>
+                <tr><td>Presión</td><td>pascal</td><td>Pa</td></tr>
+                <tr><td>Energía</td><td>julio</td><td>J</td></tr>
+                <tr><td>Potencia</td><td>vatio</td><td>W</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECCIÓN 2.3 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-layer-group"></i> 2.3. Múltiplos y Submúltiplos
+    </h2>
+    <p>
+        Para expresar medidas extremadamente grandes o subatómicas, añadimos prefijos a las unidades. Cada prefijo representa un factor exponencial exacto en base 10:
+    </p>
+
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th>Escala</th>
+                    <th>Prefijo</th>
+                    <th>Símbolo</th>
+                    <th>Factor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td rowspan="7" style="font-weight:600; color:var(--gs-primary);">Múltiplos</td><td>Peta</td><td>P</td><td>10<sup>15</sup></td></tr>
+                <tr><td>Tera</td><td>T</td><td>10<sup>12</sup></td></tr>
+                <tr><td>Giga</td><td>G</td><td>10<sup>9</sup></td></tr>
+                <tr><td>Mega</td><td>M</td><td>10<sup>6</sup></td></tr>
+                <tr><td>kilo</td><td>k</td><td>10<sup>3</sup></td></tr>
+                <tr><td>hecto</td><td>h</td><td>10<sup>2</sup></td></tr>
+                <tr><td>deca</td><td>da</td><td>10<sup>1</sup></td></tr>
+                <tr><td rowspan="7" style="font-weight:600; color:var(--gs-accent);">Submúltiplos</td><td>deci</td><td>d</td><td>10<sup>-1</sup></td></tr>
+                <tr><td>centi</td><td>c</td><td>10<sup>-2</sup></td></tr>
+                <tr><td>mili</td><td>m</td><td>10<sup>-3</sup></td></tr>
+                <tr><td>micro</td><td>µ</td><td>10<sup>-6</sup></td></tr>
+                <tr><td>nano</td><td>n</td><td>10<sup>-9</sup></td></tr>
+                <tr><td>pico</td><td>p</td><td>10<sup>-12</sup></td></tr>
+                <tr><td>femto</td><td>f</td><td>10<sup>-15</sup></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECCIÓN 2.4 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-calculator"></i> 2.4. Notación Científica
+    </h2>
+    <p>
+        En el trabajo científico se manejan de forma habitual magnitudes con valores enormemente grandes (como la velocidad de la luz: \(300\,000\,000 \text{ m/s}\)) o extremadamente pequeños (como el radio de un átomo: \(0,000\,000\,000\,1 \text{ m}\)). Escribir y operar con tantos ceros resulta incómodo y propicia cometer errores. Para simplificarlo, empleamos la <strong>notación científica</strong>.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-atom"></i> Estructura de la Notación Científica</div>
+        <p>
+            Un número escrito en notación científica consta de un número decimal multiplicado por una potencia de base 10:
+        </p>
+        <div class="gs-latex-container" style="text-align:center;">
+            $$ a \cdot 10^n $$
+        </div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Coeficiente (\(a\)):</strong> Es un número cuyo valor absoluto está comprendido entre 1 y 10 (\(1 \le |a| < 10\)). Debe tener un único dígito distinto de cero a la izquierda de la coma decimal.</li>
+            <li><strong>Exponente (\(n\)):</strong> Es un número entero (positivo o negativo) que indica el número de posiciones que se desplaza la coma:
+                <ul>
+                    <li>Si el número original es <strong>mayor que 10</strong>, el exponente es <strong>positivo</strong> (\(n > 0\)).</li>
+                    <li>Si el número original es <strong>menor que 1</strong>, el exponente es <strong>negativo</strong> (\(n < 0\)).</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo Guiado: Conversión a Notación Científica</div>
+        <p><strong>1. Caso de números grandes:</strong> Masa de la Tierra \(\approx 5\,970\,000\,000\,000\,000\,000\,000\,000 \text{ kg}\)</p>
+        <div class="gs-latex-container">$$ 5\,970\,000\,000\,000\,000\,000\,000\,000 \text{ kg} = 5,97 \cdot 10^{24} \text{ kg} $$</div>
+        <p><strong>2. Caso de números pequeños:</strong> Diámetro del virus de la gripe \(\approx 0,000\,000\,12 \text{ m}\)</p>
+        <div class="gs-latex-container">$$ 0,000\,000\,12 \text{ m} = 1,2 \cdot 10^{-7} \text{ m} $$</div>
+    </div>
+
+    <!-- SECCIÓN 2.5 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-arrows-rotate"></i> 2.5. Cambios de Unidades
+    </h2>
+    <p>
+        Cambiar de unidad es una operación esencial en ciencia. Multiplicamos la medida original por <strong>fracciones unitarias</strong> (llamadas factores de conversión) que expresan la equivalencia entre unidades distintas de la misma magnitud. La clave está en organizar los factores de forma que las unidades no deseadas se simplifiquen.
+    </p>
+
+    <h3>2.5.1. Cambios simples de unidades</h3>
+    <p>
+        Un cambio simple implica <strong>un único factor de conversión</strong>. Suele usarse para magnitudes básicas: longitud, masa, capacidad, superficie o volumen.
+    </p>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo: cambio simple</div>
+        <p>Expresar \(3,5 \text{ km}\) en metros:</p>
+        <div class="gs-latex-container">$$ 3,5 \text{ km} \cdot \frac{10^3 \text{ m}}{1 \text{ km}} = 3\,500 \text{ m} $$</div>
+        <p style="margin-bottom:0;">Basta multiplicar por el factor de conversión. La unidad "km" del numerador se cancela con la del origen.</p>
+    </div>
+
+    <h3>2.5.2. Cambios compuestos de unidades</h3>
+    <p>
+        Un cambio compuesto implica <strong>varios factores de conversión encadenados</strong>. Se usa cuando hay varias unidades afectadas (por ejemplo, en densidad \(\text{g/cm}^3\), en velocidad \(\text{km/h}\) o en presión \(\text{atm}\)).
+    </p>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo: cambio compuesto</div>
+        <p>Transformar una densidad de \(4,8 \text{ g/cm}^3\) al SI:</p>
+        <div class="gs-latex-container">$$ 4,8 \, \frac{\cancel{\text{g}}}{\cancel{\text{cm}^3}} \cdot \frac{1 \text{ kg}}{10^3 \cancel{\text{g}}} \cdot \frac{10^6 \cancel{\text{cm}^3}}{1 \text{ m}^3} = 4,8 \cdot 10^3 \, \frac{\text{kg}}{\text{m}^3} = 4\,800 \, \frac{\text{kg}}{\text{m}^3} $$</div>
+        <p style="margin-bottom:0;">Se usan varios factores encadenados: uno para la unidad del numerador y otro para la del denominador.</p>
+    </div>
+
+    <!-- RECORDATORIO CRÍTICO: al final de 2.5 -->
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-droplet"></i> Recordatorio crítico: relación entre volumen y capacidad</div>
+        <p>
+            En el laboratorio químico trabajarás constantemente alternando el metro cúbico (SI) con el litro (unidad de capacidad). Memoriza este puente métrico exacto:
+        </p>
+        <ul style="margin-bottom: 0;">
+            <li>\(1 \text{ m}^3 = 1000 \text{ L}\) (un metro cúbico es un tanque de mil litros).</li>
+            <li>\(1 \text{ dm}^3 = 1 \text{ L}\) (un decímetro cúbico es exactamente un litro).</li>
+            <li>\(1 \text{ cm}^3 = 1 \text{ mL}\) (un centímetro cúbico es idéntico a un mililitro).</li>
+        </ul>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-pen-to-square"></i> Actividades
+    </h2>
+    <p>
+        Estas actividades se generan de nuevo cada vez que recargas la página. Resuélvelas en tu cuaderno. También puedes imprimir el PDF con el botón de la barra superior si necesitas trabajar en papel.
+    </p>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-clipboard-check"></i> 5 bloques de práctica</div>
+
+        <h3>Bloque 1. Tabla de magnitudes y unidades</h3>
+        <p>Completa las celdas que faltan (marcadas con <em>¿?</em>).</p>
+        <div id="act-tabla-magnitudes"></div>
+
+        <h3 style="margin-top:25px;">Bloque 2. Tabla de prefijos SI</h3>
+        <p>Completa las celdas que faltan.</p>
+        <div id="act-tabla-prefijos"></div>
+
+        <h3 style="margin-top:25px;">Bloque 3. Notación científica</h3>
+        <p>Escribe cada número en el formato que se pide.</p>
+        <div id="act-notacion-cientifica"></div>
+
+        <h3 style="margin-top:25px;">Bloque 4. Cambios simples de unidades</h3>
+        <p>Expresa cada medida en la unidad indicada.</p>
+        <div id="act-cambios-simples"></div>
+
+        <h3 style="margin-top:25px;">Bloque 5. Cambios compuestos de unidades</h3>
+        <p>Transforma cada medida a la unidad indicada.</p>
+        <div id="act-cambios-compuestos"></div>
+
+        <div style="text-align:center; margin-top:25px;">
+            <button id="btn-generar" class="gs-selector-btn" onclick="window.generarNuevasActividades && window.generarNuevasActividades()">
+                <i class="fa-solid fa-rotate"></i> Generar nuevas actividades
+            </button>
+        </div>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="3eso_ud1_2">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--gs-primary);">Solucionario Oficial para el Alumnado</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos facilitado por tu docente para comprobar las soluciones de las actividades actuales.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="number" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="window.verificarPin && window.verificarPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
