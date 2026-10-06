@@ -147,37 +147,64 @@
     }
 
     // --- BLOQUE 3: Notación científica ---
-    function generarNotacionCientifica() {
-        var ejercicios = [];
+    
+        function generarNotacionCientifica() {
+    var ejercicios = [];
 
-        // 5 decimal -> científica
-        for (var i = 0; i < 5; i++) {
-            var exp = GS.aleatorio.entero(1, 15) * GS.aleatorio.signo();
-            var coef = GS.aleatorio.decimal(1, 9.99, 2);
-            var valor = coef * Math.pow(10, exp);
-            ejercicios.push({
-                tipo: 'decimal_a_cientifica',
-                valorDecimal: valor,
-                coeficiente: coef,
-                exponente: exp
-            });
-        }
+    // 5 decimal -> científica
+    for (var i = 0; i < 5; i++) {
+        // Generamos un número entero entre 100 y 9999 (nunca un solo dígito)
+        var entero = GS.aleatorio.entero(100, 9999);
+        var strNum = entero.toString();
+        // Coeficiente: primer dígito y luego la coma. Ej: "567" -> 5,67
+        var coefStr = strNum.charAt(0) + ',' + strNum.slice(1);
+        var coef = parseFloat(coefStr.replace(',', '.'));
+        // Orden de magnitud del entero original
+        var ordenMagnitud = Math.floor(Math.log10(entero));
+        // Número de ceros tras la coma (exponente negativo)
+        var numCeros = GS.aleatorio.entero(1, 15);
+        var exponente = -(numCeros + ordenMagnitud);
 
-        // 5 científica -> decimal
-        for (var j = 0; j < 5; j++) {
-            var e2 = GS.aleatorio.entero(1, 15) * GS.aleatorio.signo();
-            var c2 = GS.aleatorio.decimal(1, 9.99, 2);
-            var v2 = c2 * Math.pow(10, e2);
-            ejercicios.push({
-                tipo: 'cientifica_a_decimal',
-                coeficiente: c2,
-                exponente: e2,
-                valorDecimal: v2
-            });
-        }
-
-        return GS.aleatorio.barajar(ejercicios);
+        ejercicios.push({
+            tipo: 'decimal_a_cientifica',
+            coeficiente: coef,
+            exponente: exponente,
+            // Representación decimal para mostrar: 0,00000567
+            decimalStr: '0,' + '0'.repeat(numCeros) + strNum
+        });
     }
+
+    // 5 científica -> decimal
+    for (var j = 0; j < 5; j++) {
+        var entero2 = GS.aleatorio.entero(100, 9999);
+        var strNum2 = entero2.toString();
+        var coefStr2 = strNum2.charAt(0) + ',' + strNum2.slice(1);
+        var coef2 = parseFloat(coefStr2.replace(',', '.'));
+        var ordenMagnitud2 = Math.floor(Math.log10(entero2));
+        var numCeros2 = GS.aleatorio.entero(1, 15);
+        // Podemos dar la científica con exponente negativo o positivo
+        var signo = GS.aleatorio.signo();
+        var exponente2;
+        if (signo < 0) {
+            exponente2 = -(numCeros2 + ordenMagnitud2);
+        } else {
+            // Positivo: el número se hace grande, añadimos ceros a la derecha
+            exponente2 = numCeros2 + (strNum2.length - 1 - ordenMagnitud2) + ordenMagnitud2;
+            // Simplificamos: exponente positivo entre 1 y 15
+            exponente2 = GS.aleatorio.entero(1, 15);
+        }
+
+        ejercicios.push({
+            tipo: 'cientifica_a_decimal',
+            coeficiente: coef2,
+            exponente: exponente2
+        });
+    }
+
+    return GS.aleatorio.barajar(ejercicios);
+}
+
+        
 
     // --- BLOQUE 4: Cambios simples ---
     function generarCambiosSimples() {
@@ -487,33 +514,33 @@
     }
 
     function renderNotacionCientifica() {
-        var cont = document.getElementById('act-notacion-cientifica');
-        if (!cont) return;
+    var cont = document.getElementById('act-notacion-cientifica');
+    if (!cont) return;
 
-        var html = '<table class="gs-tabla-datos" style="max-width:100%;">';
-        html += '<thead><tr>';
-        html += '<th>Notación científica</th>';
-        html += '<th>Forma decimal</th>';
-        html += '</tr></thead><tbody>';
+    var html = '<table class="gs-tabla-datos" style="max-width:100%;">';
+    html += '<thead><tr>';
+    html += '<th>Notación científica</th>';
+    html += '<th>Forma decimal</th>';
+    html += '</tr></thead><tbody>';
 
-        estado.notacionCientifica.forEach(function (e) {
-            var colC = '', colD = '';
+    estado.notacionCientifica.forEach(function (e) {
+        var colC = '', colD = '';
 
-            if (e.tipo === 'decimal_a_cientifica') {
-                colD = '\\(' + numGrandeLatex(e.valorDecimal) + '\\)';
-            } else {
-                colC = '\\(' + latexNotacionCientifica(e.coeficiente, e.exponente) + '\\)';
-            }
+        if (e.tipo === 'decimal_a_cientifica') {
+            colD = '\\(' + e.decimalStr.replace(',', '{,}') + '\\)';
+        } else {
+            colC = '\\(' + latexNotacionCientifica(e.coeficiente, e.exponente) + '\\)';
+        }
 
-            html += '<tr>';
-            html += '<td>' + colC + '</td>';
-            html += '<td>' + colD + '</td>';
-            html += '</tr>';
-        });
+        html += '<tr>';
+        html += '<td>' + colC + '</td>';
+        html += '<td>' + colD + '</td>';
+        html += '</tr>';
+    });
 
-        html += '</tbody></table>';
-        cont.innerHTML = html;
-    }
+    html += '</tbody></table>';
+    cont.innerHTML = html;
+}
 
     function renderCambiosSimples() {
         var cont = document.getElementById('act-cambios-simples');
@@ -575,16 +602,24 @@
         html += '</tbody></table></div>';
 
         // Notación científica
-        html += '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
-        html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-calculator"></i> Bloque 3: Notación Científica</div>';
-        html += '<table class="gs-tabla-datos" style="max-width:100%;">';
-        html += '<thead><tr><th>Notación científica</th><th>Forma decimal</th></tr></thead><tbody>';
-        estado.notacionCientifica.forEach(function (e) {
-            var colC = '\\(' + latexNotacionCientifica(e.coeficiente, e.exponente) + '\\)';
-            var colD = '\\(' + numGrandeLatex(e.valorDecimal) + '\\)';
-            html += '<tr><td>' + colC + '</td><td>' + colD + '</td></tr>';
-        });
-        html += '</tbody></table></div>';
+html += '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
+html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-calculator"></i> Bloque 3: Notación Científica</div>';
+html += '<table class="gs-tabla-datos" style="max-width:100%;">';
+html += '<thead><tr><th>Notación científica</th><th>Forma decimal</th></tr></thead><tbody>';
+estado.notacionCientifica.forEach(function (e) {
+    var colC, colD;
+    if (e.tipo === 'decimal_a_cientifica') {
+        colD = '\\(' + e.decimalStr.replace(',', '{,}') + '\\)';
+        colC = '\\(' + latexNotacionCientifica(e.coeficiente, e.exponente) + '\\)';
+    } else {
+        colC = '\\(' + latexNotacionCientifica(e.coeficiente, e.exponente) + '\\)';
+        // Reconstruimos el decimal a partir del coeficiente y exponente
+        var decimalSol = calcularDecimalDesdeCientifica(e.coeficiente, e.exponente);
+        colD = '\\(' + decimalSol + '\\)';
+    }
+    html += '<tr><td>' + colC + '</td><td>' + colD + '</td></tr>';
+});
+html += '</tbody></table></div>';
 
         // Cambios simples
         html += '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
