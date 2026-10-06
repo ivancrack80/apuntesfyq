@@ -308,25 +308,149 @@
 
     
     // ======================================================================
-    // 8. HELPERS GLOBALES PARA APPLETS JSXGRAPH
-    // ======================================================================
-    window.GS = {
-        setPanel: function (id, valor) {
-            var el = document.getElementById(id);
-            if (el) el.textContent = valor;
+// 8. HELPERS GLOBALES
+// ======================================================================
+window.GS = {
+
+    // ------------------------------------------------------------------
+    // 8.1. Helpers de formateo (para applets JSXGraph)
+    // ------------------------------------------------------------------
+    setPanel: function (id, valor) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = valor;
+    },
+    num: function (v, dec) {
+        return v.toFixed(dec === undefined ? 2 : dec);
+    },
+    punto: function (x, y, dec) {
+        var d = dec === undefined ? 2 : dec;
+        return '(' + x.toFixed(d) + ', ' + y.toFixed(d) + ')';
+    },
+    vector: function (x, y, dec) {
+        var d = dec === undefined ? 2 : dec;
+        return x.toFixed(d) + 'i ' + (y >= 0 ? '+ ' : '- ') + Math.abs(y).toFixed(d) + 'j';
+    },
+
+    // ------------------------------------------------------------------
+    // 8.2. Aleatoriedad (para generación de actividades)
+    // ------------------------------------------------------------------
+    aleatorio: {
+
+        // Entero aleatorio entre min y max (ambos incluidos)
+        entero: function (min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         },
-        num: function (v, dec) {
-            return v.toFixed(dec === undefined ? 2 : dec);
+
+        // Decimal aleatorio con N decimales
+        decimal: function (min, max, decimales) {
+            var d = decimales === undefined ? 2 : decimales;
+            var valor = Math.random() * (max - min) + min;
+            return parseFloat(valor.toFixed(d));
         },
-        punto: function (x, y, dec) {
-            var d = dec === undefined ? 2 : dec;
-            return '(' + x.toFixed(d) + ', ' + y.toFixed(d) + ')';
+
+        // Elemento aleatorio de un array
+        elemento: function (array) {
+            return array[Math.floor(Math.random() * array.length)];
         },
-        vector: function (x, y, dec) {
-            var d = dec === undefined ? 2 : dec;
-            return x.toFixed(d) + 'i ' + (y >= 0 ? '+ ' : '- ') + Math.abs(y).toFixed(d) + 'j';
+
+        // n elementos distintos aleatorios de un array
+        variosDistintos: function (array, n) {
+            var copia = array.slice();
+            var resultado = [];
+            for (var i = 0; i < n && copia.length > 0; i++) {
+                var idx = Math.floor(Math.random() * copia.length);
+                resultado.push(copia[idx]);
+                copia.splice(idx, 1);
+            }
+            return resultado;
+        },
+
+        // Booleano 50/50
+        booleano: function () {
+            return Math.random() < 0.5;
+        },
+
+        // Signo aleatorio: +1 o -1
+        signo: function () {
+            return Math.random() < 0.5 ? 1 : -1;
+        },
+
+        // Potencia de 10 aleatoria entre min y max (ambos incluidos)
+        potencia10: function (min, max) {
+            return this.entero(min, max);
+        },
+
+        // Barajar array (Fisher-Yates)
+        barajar: function (array) {
+            var copia = array.slice();
+            for (var i = copia.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = copia[i];
+                copia[i] = copia[j];
+                copia[j] = temp;
+            }
+            return copia;
         }
-    };
+    },
+
+    // ------------------------------------------------------------------
+    // 8.3. Verificación de PIN sin pedir HTML (para actividades dinámicas)
+    // ------------------------------------------------------------------
+    verifyPinOnly: async function (pin) {
+        try {
+            var response = await fetch(
+                GS_CONFIG.gasUrl + '?pin=' + encodeURIComponent(pin) + '&verify_only=true',
+                { mode: 'cors' }
+            );
+            var data = await response.json();
+            return data.success === true;
+        } catch (err) {
+            console.error('[GS] Error verificando PIN:', err);
+            return false;
+        }
+    },
+
+    // ------------------------------------------------------------------
+    // 8.4. Constantes útiles (prefijos SI)
+    // ------------------------------------------------------------------
+    prefijosSI: [
+        { prefijo: 'Peta',  simbolo: 'P',  factor: 15  },
+        { prefijo: 'Tera',  simbolo: 'T',  factor: 12  },
+        { prefijo: 'Giga',  simbolo: 'G',  factor: 9   },
+        { prefijo: 'Mega',  simbolo: 'M',  factor: 6   },
+        { prefijo: 'kilo',  simbolo: 'k',  factor: 3   },
+        { prefijo: 'hecto', simbolo: 'h',  factor: 2   },
+        { prefijo: 'deca',  simbolo: 'da', factor: 1   },
+        { prefijo: '',      simbolo: '',   factor: 0   },
+        { prefijo: 'deci',  simbolo: 'd',  factor: -1  },
+        { prefijo: 'centi', simbolo: 'c',  factor: -2  },
+        { prefijo: 'mili',  simbolo: 'm',  factor: -3  },
+        { prefijo: 'micro', simbolo: 'µ',  factor: -6  },
+        { prefijo: 'nano',  simbolo: 'n',  factor: -9  },
+        { prefijo: 'pico',  simbolo: 'p',  factor: -12 },
+        { prefijo: 'femto', simbolo: 'f',  factor: -15 }
+    ],
+
+    // ------------------------------------------------------------------
+    // 8.5. Utilidades varias
+    // ------------------------------------------------------------------
+
+    // Formatea un número en notación científica (devuelve string tipo "3,45·10^8")
+    aNotacionCientifica: function (valor, decimales) {
+        if (valor === 0) return '0';
+        var d = decimales === undefined ? 2 : decimales;
+        var exponente = Math.floor(Math.log10(Math.abs(valor)));
+        var coeficiente = valor / Math.pow(10, exponente);
+        var coefStr = coeficiente.toFixed(d).replace('.', ',');
+        return coefStr + '·10^' + exponente;
+    },
+
+    // Redondea a N cifras decimales devolviendo un número
+    redondear: function (valor, decimales) {
+        var d = decimales === undefined ? 2 : decimales;
+        return parseFloat(valor.toFixed(d));
+    }
+};
 
 
     // Iniciar carga de recursos externos
