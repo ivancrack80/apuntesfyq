@@ -628,11 +628,16 @@
             return coefStr + ' \\cdot 10^{' + exp + '}';
         }
 
-        // 2. NOTACIÓN DECIMAL
-        var str = valor.toString();
+         // 2. NOTACIÓN DECIMAL
+        // Redondeamos a un máximo de 10 decimales para eliminar ruido del float
+        var redondeado = Math.round(valor * 1e10) / 1e10;
+        var str = redondeado.toString();
+
+        // Si tiene decimales, quitamos ceros sobrantes al final
         if (str.indexOf('.') !== -1) {
             str = str.replace(/0+$/, '').replace(/\.$/, '');
         }
+
         return str.replace('.', ',');
     }
 
