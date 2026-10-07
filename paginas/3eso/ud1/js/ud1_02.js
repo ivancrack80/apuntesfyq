@@ -602,36 +602,45 @@
     // ======================================================================
 
     function formatearResultado(valor) {
-    if (valor === 0) return '0';
+        if (valor === 0) return '0';
 
-    var abs = Math.abs(valor);
+        var abs = Math.abs(valor);
 
-    // 1. NOTACIÓN CIENTÍFICA EN LATEX (Para valores extremos)
-    if (abs >= 1e12 || abs < 1e-4) {
-        // .toExponential() calcula el exponente y coeficiente exactos sin perder decimales
-        var partes = valor.toExponential().split('e');
-        var coefStr = partes[0]; // Ej: "1.254" o "5"
-        var exp = parseInt(partes[1], 10);
+        // 1. NOTACIÓN CIENTÍFICA (para valores extremos)
+        if (abs >= 1e12 || abs < 1e-4) {
+            var exp = Math.floor(Math.log10(abs));
+            var coef = valor / Math.pow(10, exp);
 
-        // Convertimos el punto decimal a coma para el formato LaTeX / Español
-        coefStr = coefStr.replace('.', ',');
+            // Redondeamos a 4 cifras significativas para eliminar el ruido del float
+            coef = Math.round(coef * 10000) / 10000;
 
-        return coefStr + ' \\cdot 10^{' + exp + '}';
+            // Si al redondear llegamos a 10, ajustamos el exponente
+            if (Math.abs(coef) >= 10) {
+                coef = coef / 10;
+                exp = exp + 1;
+            }
+
+            // Convertimos a string con hasta 4 decimales
+            var coefStr = coef.toFixed(4);
+            // Quitamos ceros sobrantes
+            coefStr = coefStr.replace(/\.?0+$/, '');
+            if (coefStr === '' || coefStr === '-') coefStr = '0';
+            // Coma decimal
+            coefStr = coefStr.replace('.', ',');
+
+            return coefStr + ' \\cdot 10^{' + exp + '}';
+        }
+
+        // 2. NOTACIÓN DECIMAL
+        var str = valor.toString();
+
+        // Si tiene decimales, quitamos ceros sobrantes al final
+        if (str.indexOf('.') !== -1) {
+            str = str.replace(/0+$/, '').replace(/\.$/, '');
+        }
+
+        return str.replace('.', ',');
     }
-
-    // 2. NOTACIÓN DECIMAL (Para números intermedios)
-    // Convertimos a texto manteniendo todos los decimales reales que JavaScript tenga en memoria
-    var str = valor.toString();
-
-    // Si el número tiene decimales (contiene un punto), procesamos los ceros sobrantes
-    if (str.indexOf('.') !== -1) {
-        // Quitamos los ceros arrastrados por errores de coma flotante al final, pero mantenemos los reales
-        str = str.replace(/0+$/, '').replace(/\.$/, '');
-    }
-
-    // Convertimos el punto a coma decimal
-    return str.replace('.', ',');
-}
 
     // ======================================================================
     // 7. SOLUCIONARIO
@@ -712,21 +721,31 @@
         }
     }
 
-    // Fracción unitaria para el tiempo (multiplicación o división simple)
+    // Fracción unitaria para el tiempo.
+    // Regla: la unidad del origen va al lado OPUESTO en el factor.
+    // El tiempo origen está en el DENOMINADOR del original → el factor lleva el tiempo origen arriba.
+    // Factor = (tOrigen arriba) / (tDestino abajo).
     function construirFraccionTiempo(factorTiempo, tOrigen, tDestino) {
-        if (factorTiempo === 1) {
-            return '';
-        }
-        if (factorTiempo >= 1) {
-            return '\\dfrac{' + factorTiempo + '\\, \\text{' + tDestino + '}}{1\\, \\text{' + tOrigen + '}}';
+        if (factorTiempo === 1) return '';
+
+        // factorTiempo = segOrigen / segDestino
+        // Queremos cancelar [tOrigen] arriba del factor y dejar [tDestino] abajo.
+        // La fracción debe ser = 1.
+        // 1 [tOrigen] = factorTiempo [tDestino]
+        // Por tanto la fracción unitaria es:
+        //     (1/factorTiempo) [tOrigen] / 1 [tDestino]   ... si factorTiempo < 1
+        //     1 [tOrigen] / factorTiempo [tDestino]       ... si factorTiempo > 1
+        if (factorTiempo < 1) {
+            // Ejemplo: min → h. factorTiempo = 1/60. Fracción: 60 min / 1 h.
+            return '\\dfrac{' + (1 / factorTiempo) + '\\, \\text{' + tOrigen + '}}{1\\, \\text{' + tDestino + '}}';
         } else {
-            return '\\dfrac{1\\, \\text{' + tDestino + '}}{' + (1 / factorTiempo) + '\\, \\text{' + tOrigen + '}}';
+            // Ejemplo: h → min. factorTiempo = 60. Fracción: 1 h / 60 min.
+            return '\\dfrac{1\\, \\text{' + tOrigen + '}}{' + factorTiempo + '\\, \\text{' + tDestino + '}}';
         }
     }
 
-    // Unidad en LaTeX con prefijo + base. Se devuelve ya lista para \dfrac.
+    // Unidad en LaTeX con prefijo + base
     function latexUnidad(prefijo, base) {
-        // Si la base tiene exponente, ya lo lleva incorporado en el string
         return '\\text{' + prefijo + base + '}';
     }
 
@@ -746,7 +765,7 @@
             var fMasa = construirFraccion(e.factorMasa, uMasaD, uMasaO);
             var fSup = construirFraccion(e.factorSuperficie, uSupD, uSupO);
 
-            s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + latexUnidad(e.pOrigenMasa.simbolo, 'g') + '}{' + uSupO + '}';
+            s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + uMasaO + '}{' + uSupO + '}';
             s += ' \\cdot ' + fMasa + ' \\cdot ' + fSup;
             s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{' + uMasaD + '}{' + uSupD + '}\\)';
 
@@ -774,12 +793,14 @@
 
             if (e.origenL) {
                 // g/L → g/m³
+                // L está abajo en el origen → su factor pone L arriba: 10³ L / 1 m³
                 s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + uMO2 + '}{\\text{L}}';
                 s += ' \\cdot ' + fMasa3;
                 s += ' \\cdot \\dfrac{10^{3}\\, \\text{L}}{1\\, \\text{m}^3}';
                 s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{' + uMD2 + '}{\\text{m}^3}\\)';
             } else {
                 // g/m³ → g/L
+                // m³ está abajo en el origen → su factor pone m³ arriba: 1 m³ / 10³ L
                 s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + uMO2 + '}{\\text{m}^3}';
                 s += ' \\cdot ' + fMasa3;
                 s += ' \\cdot \\dfrac{1\\, \\text{m}^3}{10^{3}\\, \\text{L}}';
