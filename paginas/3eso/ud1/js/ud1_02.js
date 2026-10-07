@@ -640,62 +640,166 @@
             resultadoStr = num(resultado, 6);
         }
 
-        var s3 = '\\(' + valorStr + '\\, \\text{' + uO + '} = ' + resultadoStr + '\\, \\text{' + uD + '}\\)<br>';
+                var s3 = '\\(' + valorStr + '\\, \\text{' + uO + '} = ' + resultadoStr + '\\, \\text{' + uD + '}\\)<br>';
         s3 += '<div class="gs-latex-container" style="margin:8px 0; padding:10px;">';
-        s3 += '\\(' + valorStr + '\\, \\text{' + uO + '} \\cdot \\dfrac{10^{' + expO + '}\\, \\text{' + uD + '}}{10^{' + expD + '}\\, \\text{' + uO + '}} = ' + resultadoStr + '\\, \\text{' + uD + '}\\)';
+
+        // Construimos el factor: 1 va con la unidad de menor exponente
+        var expNeto = expO - expD;
+        var factorFraccion;
+        if (expNeto > 0) {
+            // Origen mayor que destino → 10^expNeto destino / 1 origen
+            factorFraccion = '\\dfrac{10^{' + expNeto + '}\\, \\text{' + uD + '}}{1\\, \\text{' + uO + '}}';
+        } else if (expNeto < 0) {
+            // Origen menor que destino → 1 destino / 10^(-expNeto) origen
+            factorFraccion = '\\dfrac{1\\, \\text{' + uD + '}}{10^{' + (-expNeto) + '}\\, \\text{' + uO + '}}';
+        } else {
+            factorFraccion = '\\dfrac{1\\, \\text{' + uD + '}}{1\\, \\text{' + uO + '}}';
+        }
+
+        s3 += '\\(' + valorStr + '\\, \\text{' + uO + '} \\cdot ' + factorFraccion + ' = ' + resultadoStr + '\\, \\text{' + uD + '}\\)';
         s3 += '</div>';
 
-        var expNeto = expO - expD;
         if (expNeto > 0) {
             s3 += '<small style="color:#64748b;">Multiplicamos por 10<sup>' + expNeto + '</sup>: la unidad destino es más pequeña.</small>';
         } else if (expNeto < 0) {
-            s3 += '<small style="color:#64748b;">Dividimos entre 10<sup>' + Math.abs(expNeto) + '</sup>: la unidad destino es más grande.</small>';
+            s3 += '<small style="color:#64748b;">Dividimos entre 10<sup>' + (-expNeto) + '</sup>: la unidad destino es más grande.</small>';
         } else {
             s3 += '<small style="color:#64748b;">No hay cambio de factor.</small>';
         }
         return s3;
+
+        // Función auxiliar: devuelve la fracción unitaria correcta
+    // factorOrigen y factorDestino son los exponentes (ya multiplicados por el grado correspondiente)
+    function construirFraccion(exponenteNeto, uMayor, uMenor) {
+        if (exponenteNeto > 0) {
+            return '\\dfrac{10^{' + exponenteNeto + '}\\, \\text{' + uMenor + '}}{1\\, \\text{' + uMayor + '}}';
+        } else if (exponenteNeto < 0) {
+            return '\\dfrac{1\\, \\text{' + uMayor + '}}{10^{' + (-exponenteNeto) + '}\\, \\text{' + uMenor + '}}';
+        } else {
+            return '\\dfrac{1\\, \\text{' + uMayor + '}}{1\\, \\text{' + uMenor + '}}';
+        }
+    }
+
+    // Función auxiliar: formatea un resultado con decimales fijos y sin ceros a la derecha
+    function formatearResultado(valor) {
+        if (Math.abs(valor) >= 1e15 || (valor !== 0 && Math.abs(valor) < 1e-6)) {
+            // Números muy grandes o muy pequeños → notación científica
+            return valor.toExponential(2).replace('.', ',');
+        }
+        // Redondeamos a 3 decimales y quitamos ceros a la derecha
+        var str = valor.toFixed(3);
+        str = str.replace(/\.?0+$/, '');
+        return str.replace('.', ',');
     }
 
     function solucionCambioCompuesto(e) {
-        var s = '\\(' + num(e.valor, 2) + '\\, \\text{' + e.origen + '} = ' + num(e.resultado, 4) + '\\, \\text{' + e.destino + '}\\)<br>';
+        var s = '\\(' + num(e.valor, 2) + '\\, \\text{' + e.origen + '} = ' + formatearResultado(e.resultado) + '\\, \\text{' + e.destino + '}\\)<br>';
         s += '<div class="gs-latex-container" style="margin:8px 0; padding:10px;">';
 
+        // A) Área másica
         if (e.tipo === 'area_masica') {
+            var uMasaO = e.pOrigenMasa.simbolo + 'g';
+            var uMasaD = e.pDestinoMasa.simbolo + 'g';
+            var uSupO = e.pOrigenSup.simbolo + 'm^2';
+            var uSupD = e.pDestinoSup.simbolo + 'm^2';
+
+            var fMasa = construirFraccion(e.factorMasa, uMasaD, uMasaO);
+            // Para superficie, e.factorSuperficie ya lleva el factor 2. El signo lo determina.
+            var fSup = construirFraccion(e.factorSuperficie, uSupD, uSupO);
+
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigenMasa.simbolo + 'g}}{\\text{' + e.pOrigenSup.simbolo + 'm}^2}';
-            s += ' \\cdot \\dfrac{10^{' + e.factorMasa + '}\\, \\text{' + e.pDestinoMasa.simbolo + 'g}}{10^{0}\\, \\text{' + e.pOrigenMasa.simbolo + 'g}}';
-            s += ' \\cdot \\dfrac{10^{' + e.factorSuperficie + '}\\, \\text{' + e.pDestinoSup.simbolo + 'm}^2}{10^{0}\\, \\text{' + e.pOrigenSup.simbolo + 'm}^2}';
-            s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestinoMasa.simbolo + 'g}}{\\text{' + e.pDestinoSup.simbolo + 'm}^2}\\)';
+            s += ' \\cdot ' + fMasa + ' \\cdot ' + fSup;
+            s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{\\text{' + e.pDestinoMasa.simbolo + 'g}}{\\text{' + e.pDestinoSup.simbolo + 'm}^2}\\)';
+
+        // B) Caudal másico
         } else if (e.tipo === 'caudal_masico') {
-            var ft = e.factorTiempo >= 1 ? '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}' : '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
+            var uMO = e.pOrigen.simbolo + 'g';
+            var uMD = e.pDestino.simbolo + 'g';
+            var fMasa2 = construirFraccion(e.factorMasa, uMD, uMO);
+
+            // Tiempo: factorTiempo puede ser 60, 1/60, 3600, etc.
+            var ft;
+            if (e.factorTiempo >= 1) {
+                ft = '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}';
+            } else {
+                ft = '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
+            }
+
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigen.simbolo + 'g}}{\\text{' + e.tOrigen.simbolo + '}}';
-            s += ' \\cdot \\dfrac{10^{' + e.factorMasa + '}\\, \\text{' + e.pDestino.simbolo + 'g}}{10^{0}\\, \\text{' + e.pOrigen.simbolo + 'g}}';
-            s += ' \\cdot ' + ft;
-            s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestino.simbolo + 'g}}{\\text{' + e.tDestino.simbolo + '}}\\)';
+            s += ' \\cdot ' + fMasa2 + ' \\cdot ' + ft;
+            s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{\\text{' + e.pDestino.simbolo + 'g}}{\\text{' + e.tDestino.simbolo + '}}\\)';
+
+        // C) Densidad con L
         } else if (e.tipo === 'densidad_L') {
-            var uO = e.origenL ? 'L' : 'm^3';
-            var uD = e.origenL ? 'm^3' : 'L';
-            var fv = e.origenL ? '\\dfrac{10^{3}\\, \\text{m}^3}{10^{0}\\, \\text{L}}' : '\\dfrac{10^{0}\\, \\text{L}}{10^{3}\\, \\text{m}^3}';
-            s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigenMasa.simbolo + 'g}}{\\text{' + uO + '}}';
-            s += ' \\cdot \\dfrac{10^{' + e.factorMasa + '}\\, \\text{' + e.pDestinoMasa.simbolo + 'g}}{10^{0}\\, \\text{' + e.pOrigenMasa.simbolo + 'g}}';
-            s += ' \\cdot ' + fv;
-            s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestinoMasa.simbolo + 'g}}{\\text{' + uD + '}}\\)';
+            var uMO2 = e.pOrigenMasa.simbolo + 'g';
+            var uMD2 = e.pDestinoMasa.simbolo + 'g';
+            var fMasa3 = construirFraccion(e.factorMasa, uMD2, uMO2);
+
+            var uVO, uVD;
+            if (e.origenL) {
+                uVO = 'L'; uVD = 'm^3';
+                // 1 L = 10^-3 m³, o mejor: 10^3 L = 1 m³
+                s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigenMasa.simbolo + 'g}}{\\text{L}}';
+                s += ' \\cdot ' + fMasa3;
+                s += ' \\cdot \\dfrac{10^{3}\\, \\text{L}}{1\\, \\text{m}^3}';
+                s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{\\text{' + e.pDestinoMasa.simbolo + 'g}}{\\text{m}^3}\\)';
+            } else {
+                uVO = 'm^3'; uVD = 'L';
+                s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigenMasa.simbolo + 'g}}{\\text{m}^3}';
+                s += ' \\cdot ' + fMasa3;
+                s += ' \\cdot \\dfrac{1\\, \\text{m}^3}{10^{3}\\, \\text{L}}';
+                s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{\\text{' + e.pDestinoMasa.simbolo + 'g}}{\\text{L}}\\)';
+            }
+
+        // D) Velocidad
         } else if (e.tipo === 'velocidad') {
-            var ft2 = e.factorTiempo >= 1 ? '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}' : '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
+            var uLO = e.pOrigen.simbolo + 'm';
+            var uLD = e.pDestino.simbolo + 'm';
+            var fLong = construirFraccion(e.factorLongitud, uLD, uLO);
+
+            var ft2;
+            if (e.factorTiempo >= 1) {
+                ft2 = '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}';
+            } else {
+                ft2 = '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
+            }
+
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigen.simbolo + 'm}}{\\text{' + e.tOrigen.simbolo + '}}';
-            s += ' \\cdot \\dfrac{10^{' + e.factorLongitud + '}\\, \\text{' + e.pDestino.simbolo + 'm}}{10^{0}\\, \\text{' + e.pOrigen.simbolo + 'm}}';
-            s += ' \\cdot ' + ft2;
-            s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestino.simbolo + 'm}}{\\text{' + e.tDestino.simbolo + '}}\\)';
+            s += ' \\cdot ' + fLong + ' \\cdot ' + ft2;
+            s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{\\text{' + e.pDestino.simbolo + 'm}}{\\text{' + e.tDestino.simbolo + '}}\\)';
+
+        // E) Masa por volumen
         } else if (e.tipo === 'masa_por_volumen') {
+            var uMO3 = e.pOrigenMasa.simbolo + 'g';
+            var uMD3 = e.pDestinoMasa.simbolo + 'g';
+            var fMasa4 = construirFraccion(e.factorMasa, uMD3, uMO3);
+
+            var uVO2 = e.pOrigenVol.simbolo + 'm^3';
+            var uVD2 = e.pDestinoVol.simbolo + 'm^3';
+            var fVol = construirFraccion(e.factorVolumen, uVD2, uVO2);
+
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigenMasa.simbolo + 'g}}{\\text{' + e.pOrigenVol.simbolo + 'm}^3}';
-            s += ' \\cdot \\dfrac{10^{' + e.factorMasa + '}\\, \\text{' + e.pDestinoMasa.simbolo + 'g}}{10^{0}\\, \\text{' + e.pOrigenMasa.simbolo + 'g}}';
-            s += ' \\cdot \\dfrac{10^{' + e.factorVolumen + '}\\, \\text{' + e.pDestinoVol.simbolo + 'm}^3}{10^{0}\\, \\text{' + e.pOrigenVol.simbolo + 'm}^3}';
-            s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestinoMasa.simbolo + 'g}}{\\text{' + e.pDestinoVol.simbolo + 'm}^3}\\)';
+            s += ' \\cdot ' + fMasa4 + ' \\cdot ' + fVol;
+            s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{\\text{' + e.pDestinoMasa.simbolo + 'g}}{\\text{' + e.pDestinoVol.simbolo + 'm}^3}\\)';
+
+        // F) Caudal volumétrico
         } else if (e.tipo === 'caudal_volumetrico') {
-            var ft3 = e.factorTiempo >= 1 ? '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}' : '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
+            var uLO2 = e.pOrigen.simbolo + 'L';
+            var uLD2 = e.pDestino.simbolo + 'm^3';
+            // 1 [p]L = 10^(factorPrefijo) L = 10^(factorPrefijo - 3) m³
+            // Exponente total del volumen: factorOrigen - 3 (respecto a la base), luego restamos el factor destino.
+            var fVol2 = construirFraccion(e.factorVolumen, uLD2, uLO2);
+
+            var ft3;
+            if (e.factorTiempo >= 1) {
+                ft3 = '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}';
+            } else {
+                ft3 = '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
+            }
+
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigen.simbolo + 'L}}{\\text{' + e.tOrigen.simbolo + '}}';
-            s += ' \\cdot \\dfrac{10^{' + e.factorVolumen + '}\\, \\text{' + e.pDestino.simbolo + 'm}^3}{10^{0}\\, \\text{' + e.pOrigen.simbolo + 'L}}';
-            s += ' \\cdot ' + ft3;
-            s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestino.simbolo + 'm}^3}{\\text{' + e.tDestino.simbolo + '}}\\)';
+            s += ' \\cdot ' + fVol2 + ' \\cdot ' + ft3;
+            s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{\\text{' + e.pDestino.simbolo + 'm}^3}{\\text{' + e.tDestino.simbolo + '}}\\)';
         }
 
         s += '</div>';
