@@ -20,22 +20,21 @@
         { nombre: 'Cantidad de sustancia',   unidad: 'mol',    tipo: 'Fundamental' },
         { nombre: 'Intensidad de corriente', unidad: 'A',      tipo: 'Fundamental' },
         { nombre: 'Intensidad luminosa',     unidad: 'cd',     tipo: 'Fundamental' },
-        { nombre: 'Superficie',       unidad: 'm²',     tipo: 'Derivada' },
+        { nombre: 'Superficie (Área)',       unidad: 'm²',     tipo: 'Derivada' },
         { nombre: 'Volumen',                 unidad: 'm³',     tipo: 'Derivada' },
         { nombre: 'Densidad',                unidad: 'kg/m³',  tipo: 'Derivada' },
         { nombre: 'Velocidad',               unidad: 'm/s',    tipo: 'Derivada' },
         { nombre: 'Aceleración',             unidad: 'm/s²',   tipo: 'Derivada' },
         { nombre: 'Fuerza',                  unidad: 'N',      tipo: 'Derivada' },
         { nombre: 'Presión',                 unidad: 'Pa',     tipo: 'Derivada' },
-        { nombre: 'Energía',       unidad: 'J',      tipo: 'Derivada' },
+        { nombre: 'Energía / Trabajo',       unidad: 'J',      tipo: 'Derivada' },
         { nombre: 'Potencia',                unidad: 'W',      tipo: 'Derivada' }
     ];
 
     var PREFIJOS_TABLA = [
-        { prefijo: 'Peta',  simbolo: 'P',  factor: 15   },
-{ prefijo: 'Tera',  simbolo: 'T',  factor: 12   },
-
-{ prefijo: 'Giga',  simbolo: 'G',  factor: 9   },
+        { prefijo: 'Peta',  simbolo: 'P',  factor: 15  },
+        { prefijo: 'Tera',  simbolo: 'T',  factor: 12  },
+        { prefijo: 'Giga',  simbolo: 'G',  factor: 9   },
         { prefijo: 'Mega',  simbolo: 'M',  factor: 6   },
         { prefijo: 'kilo',  simbolo: 'k',  factor: 3   },
         { prefijo: 'hecto', simbolo: 'h',  factor: 2   },
@@ -45,11 +44,10 @@
         { prefijo: 'mili',  simbolo: 'm',  factor: -3  },
         { prefijo: 'micro', simbolo: 'µ',  factor: -6  },
         { prefijo: 'nano',  simbolo: 'n',  factor: -9  },
-{ prefijo: 'Pico',  simbolo: 'p',  factor: -12   },
-{ prefijo: 'Femto',  simbolo: 'f',  factor: -15   }
+        { prefijo: 'pico',  simbolo: 'p',  factor: -12 },
+        { prefijo: 'femto', simbolo: 'f',  factor: -15 }
     ];
 
-    // Prefijos restringidos (superficie y volumen)
     var PREFIJOS_RESTRINGIDOS = [
         { prefijo: 'kilo',  simbolo: 'k',  factor: 3  },
         { prefijo: 'hecto', simbolo: 'h',  factor: 2  },
@@ -60,7 +58,6 @@
         { prefijo: 'mili',  simbolo: 'm',  factor: -3 }
     ];
 
-    // Prefijos extendidos (longitud, masa y capacidad)
     var PREFIJOS_EXTENDIDOS = [
         { prefijo: 'peta',  simbolo: 'P',  factor: 15  },
         { prefijo: 'tera',  simbolo: 'T',  factor: 12  },
@@ -148,7 +145,6 @@
         return GS.aleatorio.elemento(array);
     }
 
-    // Representación decimal (LaTeX) de un número en notación científica
     function calcularDecimalDesdeCientifica(coef, exp) {
         var coefStr = coef.toFixed(3).replace('.', '');
         if (exp >= 0) {
@@ -165,7 +161,7 @@
     }
 
     // ======================================================================
-    // 4. GENERADORES DE ACTIVIDADES
+    // 4. GENERADORES
     // ======================================================================
 
     function generarTablaMagnitudes() {
@@ -193,7 +189,6 @@
         });
     }
 
-    // --- Notación científica ---
     function generarNotacionCientifica() {
         var ejercicios = [];
 
@@ -202,7 +197,6 @@
             var esGrande = GS.aleatorio.booleano();
 
             if (esGrande) {
-                // Número grande
                 var numBase = GS.aleatorio.entero(1000, 9999);
                 var exponente = GS.aleatorio.entero(1, 15);
                 var strBase = numBase.toString();
@@ -217,8 +211,7 @@
                     decimalStr: strBase + '0'.repeat(exponente)
                 });
             } else {
-                // Número pequeño
-                var numBase2 = GS.aleatorio.entero(1, 9999);
+                var numBase2 = GS.aleatorio.entero(1000, 9999);
                 var ceros = GS.aleatorio.entero(1, 15);
                 var strBase2 = numBase2.toString();
                 var coef2 = parseFloat(strBase2.charAt(0) + '.' + strBase2.slice(1));
@@ -236,7 +229,7 @@
 
         // 5 científica -> decimal
         for (var j = 0; j < 5; j++) {
-            var numBase3 = GS.aleatorio.entero(1, 9999);
+            var numBase3 = GS.aleatorio.entero(1000, 9999);
             var strBase3 = numBase3.toString();
             var coef3 = parseFloat(strBase3.charAt(0) + '.' + strBase3.slice(1));
             var ordenBase3 = strBase3.length - 1;
@@ -261,21 +254,18 @@
         return GS.aleatorio.barajar(ejercicios);
     }
 
-    // --- Cambios simples ---
     function generarCambiosSimples() {
         var ejercicios = [];
 
-        // 2 cambios entre prefijos (longitud, masa, superficie, volumen)
         for (var i = 0; i < 2; i++) {
             var magnitud = GS.aleatorio.elemento(MAGNITUDES_SIMPLES.filter(function (m) {
-    return m.nombre !== 'capacidad' && m.nombre !== 'superficie' && m.nombre !== 'volumen';
-}));
+                return m.nombre !== 'capacidad' && m.nombre !== 'superficie' && m.nombre !== 'volumen';
+            }));
             var origen = prefijoAleatorioDe(magnitud);
             var destino = prefijoAleatorioDe(magnitud);
             while (destino.simbolo === origen.simbolo) {
                 destino = prefijoAleatorioDe(magnitud);
             }
-            // Valores: enteros o con pocos decimales (estilo 0,005)
             var valor;
             if (GS.aleatorio.booleano()) {
                 valor = GS.aleatorio.entero(1, 9999);
@@ -291,7 +281,6 @@
             });
         }
 
-        // 2 cambios L <-> m³
         ejercicios.push({
             tipo: 'litros_a_m3',
             valor: GS.aleatorio.entero(1, 9999)
@@ -304,12 +293,10 @@
         return GS.aleatorio.barajar(ejercicios);
     }
 
-    
     // =============================================================
-    // CAMBIOS COMPUESTOS — 6 generadores
+    // CAMBIOS COMPUESTOS
     // =============================================================
 
-    // A) Área másica: [p]g/[p']m² ↔ [p]g/[p']m²
     function generarCambioAreaMasica() {
         var pMasaOrigen = prefijoAleatorio();
         var pMasaDestino = prefijoAleatorio();
@@ -341,7 +328,6 @@
         };
     }
 
-    // B) Caudal másico: [p]g/[h|min|s] ↔ [p]g/[h|min|s]
     function generarCambioCaudalMasico() {
         var pOrigen = prefijoAleatorio();
         var pDestino = prefijoAleatorio();
@@ -374,7 +360,6 @@
         };
     }
 
-    // C) Densidad con L: [p]g/L ↔ [p]g/m³
     function generarCambioDensidadConL() {
         var pOrigenMasa = prefijoAleatorio();
         var pDestinoMasa = prefijoAleatorio();
@@ -409,7 +394,6 @@
         };
     }
 
-    // D) Velocidad: [p]m/[h|min|s] ↔ [p]m/[h|min|s]
     function generarCambioVelocidad() {
         var pOrigen = prefijoAleatorio();
         var pDestino = prefijoAleatorio();
@@ -442,7 +426,6 @@
         };
     }
 
-    // E) Masa/Volumen con prefijos cúbicos: [p]g/[p]m³ ↔ [p]g/[p]m³
     function generarCambioMasaPorVolumen() {
         var pOrigenMasa = prefijoAleatorio();
         var pDestinoMasa = prefijoAleatorio();
@@ -474,7 +457,6 @@
         };
     }
 
-    // F) Caudal volumétrico: [p]L/[h|min|s] ↔ [p]m³/[h|min|s]
     function generarCambioCaudalVolumetrico() {
         var pOrigen = prefijoAleatorio();
         var pDestino = prefijoAleatorio();
@@ -532,9 +514,9 @@
         return ejercicios;
     }
 
-    // =============================================================
-    // RENDERIZADO DE ACTIVIDADES
-    // =============================================================
+    // ======================================================================
+    // 5. RENDERIZADO
+    // ======================================================================
 
     function renderTablaMagnitudes() {
         var cont = document.getElementById('act-tabla-magnitudes');
@@ -615,9 +597,9 @@
         cont.innerHTML = html;
     }
 
-    // =============================================================
-    // SOLUCIONARIO
-    // =============================================================
+    // ======================================================================
+    // 6. SOLUCIONARIO
+    // ======================================================================
 
     function solucionCambioSimple(e) {
         var valorStr;
@@ -665,9 +647,9 @@
 
         var expNeto = expO - expD;
         if (expNeto > 0) {
-            s3 += '<small style="color:#64748b;">Multiplicamos por 10<sup>' + expNeto + '</sup>: la unidad destino es más pequeña, así que el número aumenta.</small>';
+            s3 += '<small style="color:#64748b;">Multiplicamos por 10<sup>' + expNeto + '</sup>: la unidad destino es más pequeña.</small>';
         } else if (expNeto < 0) {
-            s3 += '<small style="color:#64748b;">Dividimos entre 10<sup>' + Math.abs(expNeto) + '</sup>: la unidad destino es más grande, así que el número disminuye.</small>';
+            s3 += '<small style="color:#64748b;">Dividimos entre 10<sup>' + Math.abs(expNeto) + '</sup>: la unidad destino es más grande.</small>';
         } else {
             s3 += '<small style="color:#64748b;">No hay cambio de factor.</small>';
         }
@@ -678,69 +660,41 @@
         var s = '\\(' + num(e.valor, 2) + '\\, \\text{' + e.origen + '} = ' + num(e.resultado, 4) + '\\, \\text{' + e.destino + '}\\)<br>';
         s += '<div class="gs-latex-container" style="margin:8px 0; padding:10px;">';
 
-        // A) Área másica
         if (e.tipo === 'area_masica') {
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigenMasa.simbolo + 'g}}{\\text{' + e.pOrigenSup.simbolo + 'm}^2}';
             s += ' \\cdot \\dfrac{10^{' + e.factorMasa + '}\\, \\text{' + e.pDestinoMasa.simbolo + 'g}}{10^{0}\\, \\text{' + e.pOrigenMasa.simbolo + 'g}}';
             s += ' \\cdot \\dfrac{10^{' + e.factorSuperficie + '}\\, \\text{' + e.pDestinoSup.simbolo + 'm}^2}{10^{0}\\, \\text{' + e.pOrigenSup.simbolo + 'm}^2}';
             s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestinoMasa.simbolo + 'g}}{\\text{' + e.pDestinoSup.simbolo + 'm}^2}\\)';
-
-        // B) Caudal másico
         } else if (e.tipo === 'caudal_masico') {
-            var factorTiempoStr = '';
-            if (e.factorTiempo >= 1) {
-                factorTiempoStr = '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}';
-            } else {
-                factorTiempoStr = '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
-            }
+            var ft = e.factorTiempo >= 1 ? '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}' : '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigen.simbolo + 'g}}{\\text{' + e.tOrigen.simbolo + '}}';
             s += ' \\cdot \\dfrac{10^{' + e.factorMasa + '}\\, \\text{' + e.pDestino.simbolo + 'g}}{10^{0}\\, \\text{' + e.pOrigen.simbolo + 'g}}';
-            s += ' \\cdot ' + factorTiempoStr;
+            s += ' \\cdot ' + ft;
             s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestino.simbolo + 'g}}{\\text{' + e.tDestino.simbolo + '}}\\)';
-
-        // C) Densidad con L
         } else if (e.tipo === 'densidad_L') {
             var uO = e.origenL ? 'L' : 'm^3';
             var uD = e.origenL ? 'm^3' : 'L';
-            var factorVolStr = e.origenL
-                ? '\\dfrac{10^{3}\\, \\text{m}^3}{10^{0}\\, \\text{L}}'
-                : '\\dfrac{10^{0}\\, \\text{L}}{10^{3}\\, \\text{m}^3}';
+            var fv = e.origenL ? '\\dfrac{10^{3}\\, \\text{m}^3}{10^{0}\\, \\text{L}}' : '\\dfrac{10^{0}\\, \\text{L}}{10^{3}\\, \\text{m}^3}';
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigenMasa.simbolo + 'g}}{\\text{' + uO + '}}';
             s += ' \\cdot \\dfrac{10^{' + e.factorMasa + '}\\, \\text{' + e.pDestinoMasa.simbolo + 'g}}{10^{0}\\, \\text{' + e.pOrigenMasa.simbolo + 'g}}';
-            s += ' \\cdot ' + factorVolStr;
+            s += ' \\cdot ' + fv;
             s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestinoMasa.simbolo + 'g}}{\\text{' + uD + '}}\\)';
-
-        // D) Velocidad
         } else if (e.tipo === 'velocidad') {
-            var factorTiempoStr2 = '';
-            if (e.factorTiempo >= 1) {
-                factorTiempoStr2 = '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}';
-            } else {
-                factorTiempoStr2 = '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
-            }
+            var ft2 = e.factorTiempo >= 1 ? '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}' : '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigen.simbolo + 'm}}{\\text{' + e.tOrigen.simbolo + '}}';
             s += ' \\cdot \\dfrac{10^{' + e.factorLongitud + '}\\, \\text{' + e.pDestino.simbolo + 'm}}{10^{0}\\, \\text{' + e.pOrigen.simbolo + 'm}}';
-            s += ' \\cdot ' + factorTiempoStr2;
+            s += ' \\cdot ' + ft2;
             s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestino.simbolo + 'm}}{\\text{' + e.tDestino.simbolo + '}}\\)';
-
-        // E) Masa por volumen
         } else if (e.tipo === 'masa_por_volumen') {
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigenMasa.simbolo + 'g}}{\\text{' + e.pOrigenVol.simbolo + 'm}^3}';
             s += ' \\cdot \\dfrac{10^{' + e.factorMasa + '}\\, \\text{' + e.pDestinoMasa.simbolo + 'g}}{10^{0}\\, \\text{' + e.pOrigenMasa.simbolo + 'g}}';
             s += ' \\cdot \\dfrac{10^{' + e.factorVolumen + '}\\, \\text{' + e.pDestinoVol.simbolo + 'm}^3}{10^{0}\\, \\text{' + e.pOrigenVol.simbolo + 'm}^3}';
             s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestinoMasa.simbolo + 'g}}{\\text{' + e.pDestinoVol.simbolo + 'm}^3}\\)';
-
-        // F) Caudal volumétrico
         } else if (e.tipo === 'caudal_volumetrico') {
-            var factorTiempoStr3 = '';
-            if (e.factorTiempo >= 1) {
-                factorTiempoStr3 = '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}';
-            } else {
-                factorTiempoStr3 = '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
-            }
+            var ft3 = e.factorTiempo >= 1 ? '\\dfrac{' + e.factorTiempo + '\\, \\text{' + e.tDestino.simbolo + '}}{1\\, \\text{' + e.tOrigen.simbolo + '}}' : '\\dfrac{1\\, \\text{' + e.tDestino.simbolo + '}}{' + (1 / e.factorTiempo) + '\\, \\text{' + e.tOrigen.simbolo + '}}';
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{\\text{' + e.pOrigen.simbolo + 'L}}{\\text{' + e.tOrigen.simbolo + '}}';
             s += ' \\cdot \\dfrac{10^{' + e.factorVolumen + '}\\, \\text{' + e.pDestino.simbolo + 'm}^3}{10^{0}\\, \\text{' + e.pOrigen.simbolo + 'L}}';
-            s += ' \\cdot ' + factorTiempoStr3;
+            s += ' \\cdot ' + ft3;
             s += ' = ' + num(e.resultado, 4) + '\\, \\dfrac{\\text{' + e.pDestino.simbolo + 'm}^3}{\\text{' + e.tDestino.simbolo + '}}\\)';
         }
 
@@ -801,9 +755,9 @@
         return html;
     }
 
-    // =============================================================
-    // VERIFICAR PIN
-    // =============================================================
+    // ======================================================================
+    // 7. VERIFICAR PIN
+    // ======================================================================
 
     async function verificarPin() {
         var pinInput = document.getElementById('solPinInput');
@@ -857,9 +811,9 @@
     }
     window.verificarPin = verificarPin;
 
-    // =============================================================
-    // GENERAR TODO
-    // =============================================================
+    // ======================================================================
+    // 8. GENERAR TODO
+    // ======================================================================
 
     function generarTodo() {
         estado.tablaMagnitudes = generarTablaMagnitudes();
