@@ -669,14 +669,19 @@
         return s3;
     }
 
-    // Función auxiliar: devuelve la fracción unitaria correcta
-    function construirFraccion(exponenteNeto, uMayor, uMenor) {
+        // uDestino y uOrigen son las cadenas de unidad (sin el prefijo, ya lo llevan dentro)
+    // exponenteNeto = expOrigen - expDestino
+    // Si exponenteNeto > 0 → origen tiene el factor mayor → 1 va con el origen, 10^N con el destino
+    // Si exponenteNeto < 0 → destino tiene el factor mayor → 1 va con el destino, 10^N con el origen
+    function construirFraccion(exponenteNeto, uDestino, uOrigen) {
         if (exponenteNeto > 0) {
-            return '\\dfrac{10^{' + exponenteNeto + '}\\, \\text{' + uMenor + '}}{1\\, \\text{' + uMayor + '}}';
+            // Origen mayor → 10^expNeto · destino / 1 · origen
+            return '\\dfrac{10^{' + exponenteNeto + '}\\, \\text{' + uDestino + '}}{1\\, \\text{' + uOrigen + '}}';
         } else if (exponenteNeto < 0) {
-            return '\\dfrac{1\\, \\text{' + uMayor + '}}{10^{' + (-exponenteNeto) + '}\\, \\text{' + uMenor + '}}';
+            // Destino mayor → 1 · destino / 10^(-expNeto) · origen
+            return '\\dfrac{1\\, \\text{' + uDestino + '}}{10^{' + (-exponenteNeto) + '}\\, \\text{' + uOrigen + '}}';
         } else {
-            return '\\dfrac{1\\, \\text{' + uMayor + '}}{1\\, \\text{' + uMenor + '}}';
+            return '\\dfrac{1\\, \\text{' + uDestino + '}}{1\\, \\text{' + uOrigen + '}}';
         }
     }
 
