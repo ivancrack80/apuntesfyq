@@ -667,6 +667,7 @@
             s3 += '<small style="color:#64748b;">No hay cambio de factor.</small>';
         }
         return s3;
+    }
 
         // Función auxiliar: devuelve la fracción unitaria correcta
     // factorOrigen y factorDestino son los exponentes (ya multiplicados por el grado correspondiente)
