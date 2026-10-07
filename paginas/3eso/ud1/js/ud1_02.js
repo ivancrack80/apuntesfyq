@@ -669,8 +669,7 @@
         return s3;
     }
 
-        // Función auxiliar: devuelve la fracción unitaria correcta
-    // factorOrigen y factorDestino son los exponentes (ya multiplicados por el grado correspondiente)
+    // Función auxiliar: devuelve la fracción unitaria correcta
     function construirFraccion(exponenteNeto, uMayor, uMenor) {
         if (exponenteNeto > 0) {
             return '\\dfrac{10^{' + exponenteNeto + '}\\, \\text{' + uMenor + '}}{1\\, \\text{' + uMayor + '}}';
@@ -681,13 +680,11 @@
         }
     }
 
-    // Función auxiliar: formatea un resultado con decimales fijos y sin ceros a la derecha
+    // Función auxiliar: formatea un resultado sin ceros sobrantes
     function formatearResultado(valor) {
         if (Math.abs(valor) >= 1e15 || (valor !== 0 && Math.abs(valor) < 1e-6)) {
-            // Números muy grandes o muy pequeños → notación científica
             return valor.toExponential(2).replace('.', ',');
         }
-        // Redondeamos a 3 decimales y quitamos ceros a la derecha
         var str = valor.toFixed(3);
         str = str.replace(/\.?0+$/, '');
         return str.replace('.', ',');
