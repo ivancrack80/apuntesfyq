@@ -633,12 +633,7 @@
         var expD = e.destino.factor * e.magnitud.exponente;
         var resultado = e.valor * Math.pow(10, expO - expD);
 
-        var resultadoStr;
-        if (Math.abs(resultado) >= 1) {
-            resultadoStr = num(resultado, 2);
-        } else {
-            resultadoStr = num(resultado, 6);
-        }
+        var resultadoStr = formatearResultado(resultado);
 
                 var s3 = '\\(' + valorStr + '\\, \\text{' + uO + '} = ' + resultadoStr + '\\, \\text{' + uD + '}\\)<br>';
         s3 += '<div class="gs-latex-container" style="margin:8px 0; padding:10px;">';
