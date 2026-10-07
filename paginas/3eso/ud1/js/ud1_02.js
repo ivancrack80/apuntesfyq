@@ -601,49 +601,37 @@
     // 6. FORMATEO DE RESULTADOS
     // ======================================================================
 
-    // Formatea un número en notación decimal o científica (LaTeX)
     function formatearResultado(valor) {
-        if (valor === 0) return '0';
+    if (valor === 0) return '0';
 
-        var abs = Math.abs(valor);
+    var abs = Math.abs(valor);
 
-        // Notación científica para valores extremos
-        if (abs >= 1e12 || abs < 1e-4) {
-            var exp = Math.floor(Math.log10(abs));
-            var coef = valor / Math.pow(10, exp);
+    // 1. NOTACIÓN CIENTÍFICA EN LATEX (Para valores extremos)
+    if (abs >= 1e12 || abs < 1e-4) {
+        // .toExponential() calcula el exponente y coeficiente exactos sin perder decimales
+        var partes = valor.toExponential().split('e');
+        var coefStr = partes[0]; // Ej: "1.254" o "5"
+        var exp = parseInt(partes[1], 10);
 
-            // Redondeamos el coeficiente a 2 decimales
-            coef = Math.round(coef * 100) / 100;
+        // Convertimos el punto decimal a coma para el formato LaTeX / Español
+        coefStr = coefStr.replace('.', ',');
 
-            // Si al redondear llegamos a 10, ajustamos
-            if (Math.abs(coef) >= 10) {
-                coef = coef / 10;
-                exp = exp + 1;
-            }
-
-            // Formato LaTeX con coma
-            var coefStr = coef.toFixed(2).replace('.', ',');
-            // Quitamos ceros sobrantes: 5,00 → 5
-            coefStr = coefStr.replace(/,?0+$/, '').replace(/,$/, '');
-            if (coefStr === '') coefStr = '0';
-
-            return coefStr + ' \\cdot 10^{' + exp + '}';
-        }
-
-        // Notación decimal
-        var str;
-        if (abs >= 1) {
-            // Hasta 3 decimales, quitando ceros
-            str = valor.toFixed(3);
-        } else {
-            // Números pequeños: hasta 6 decimales
-            str = valor.toFixed(6);
-        }
-        // Quitar ceros a la derecha
-        str = str.replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '');
-        // Convertir punto a coma
-        return str.replace('.', ',');
+        return coefStr + ' \\cdot 10^{' + exp + '}';
     }
+
+    // 2. NOTACIÓN DECIMAL (Para números intermedios)
+    // Convertimos a texto manteniendo todos los decimales reales que JavaScript tenga en memoria
+    var str = valor.toString();
+
+    // Si el número tiene decimales (contiene un punto), procesamos los ceros sobrantes
+    if (str.indexOf('.') !== -1) {
+        // Quitamos los ceros arrastrados por errores de coma flotante al final, pero mantenemos los reales
+        str = str.replace(/0+$/, '').replace(/\.$/, '');
+    }
+
+    // Convertimos el punto a coma decimal
+    return str.replace('.', ',');
+}
 
     // ======================================================================
     // 7. SOLUCIONARIO
