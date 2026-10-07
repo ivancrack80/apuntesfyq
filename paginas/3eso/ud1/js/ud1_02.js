@@ -620,12 +620,9 @@
                 exp = exp + 1;
             }
 
-            // Convertimos a string con hasta 4 decimales
             var coefStr = coef.toFixed(4);
-            // Quitamos ceros sobrantes
             coefStr = coefStr.replace(/\.?0+$/, '');
             if (coefStr === '' || coefStr === '-') coefStr = '0';
-            // Coma decimal
             coefStr = coefStr.replace('.', ',');
 
             return coefStr + ' \\cdot 10^{' + exp + '}';
@@ -633,12 +630,9 @@
 
         // 2. NOTACIÓN DECIMAL
         var str = valor.toString();
-
-        // Si tiene decimales, quitamos ceros sobrantes al final
         if (str.indexOf('.') !== -1) {
             str = str.replace(/0+$/, '').replace(/\.$/, '');
         }
-
         return str.replace('.', ',');
     }
 
@@ -710,31 +704,47 @@
         return s3;
     }
 
-    // Fracción unitaria para cambios compuestos
-    function construirFraccion(exponenteNeto, uDestino, uOrigen) {
+    // ----------------------------------------------------------------------
+    // Funciones auxiliares para construir fracciones unitarias
+    // Regla: la unidad del origen va al lado OPUESTO en el factor.
+    // ----------------------------------------------------------------------
+
+    // Unidad que está en el NUMERADOR del origen → factor lleva esa unidad ABAJO.
+    // Ejemplo: "g/m³ → hg/mm³", el g está arriba. Factor: 1 hg / 10² g.
+    // exponenteNeto = expOrigen - expDestino
+    function fraccionParaNumerador(exponenteNeto, uOrigen, uDestino) {
         if (exponenteNeto > 0) {
+            // Origen mayor → fracción: 10^expNeto · uDestino / 1 · uOrigen
             return '\\dfrac{10^{' + exponenteNeto + '}\\, ' + uDestino + '}{1\\, ' + uOrigen + '}';
         } else if (exponenteNeto < 0) {
+            // Origen menor → fracción: 1 · uDestino / 10^(-expNeto) · uOrigen
             return '\\dfrac{1\\, ' + uDestino + '}{10^{' + (-exponenteNeto) + '}\\, ' + uOrigen + '}';
         } else {
             return '\\dfrac{1\\, ' + uDestino + '}{1\\, ' + uOrigen + '}';
         }
     }
 
-    // Fracción unitaria para el tiempo.
-    // Regla: la unidad del origen va al lado OPUESTO en el factor.
-    // El tiempo origen está en el DENOMINADOR del original → el factor lleva el tiempo origen arriba.
-    // Factor = (tOrigen arriba) / (tDestino abajo).
+    // Unidad que está en el DENOMINADOR del origen → factor lleva esa unidad ARRIBA.
+    // Ejemplo: "g/dam³ → hg/mm³", el dam³ está abajo. Factor: 1 dam³ / 10¹² mm³.
+    // exponenteNeto = expOrigen - expDestino
+    function fraccionParaDenominador(exponenteNeto, uOrigen, uDestino) {
+        if (exponenteNeto > 0) {
+            // Origen mayor → fracción: 1 · uOrigen / 10^expNeto · uDestino
+            return '\\dfrac{1\\, ' + uOrigen + '}{10^{' + exponenteNeto + '}\\, ' + uDestino + '}';
+        } else if (exponenteNeto < 0) {
+            // Origen menor → fracción: 10^(-expNeto) · uOrigen / 1 · uDestino
+            return '\\dfrac{10^{' + (-exponenteNeto) + '}\\, ' + uOrigen + '}{1\\, ' + uDestino + '}';
+        } else {
+            return '\\dfrac{1\\, ' + uOrigen + '}{1\\, ' + uDestino + '}';
+        }
+    }
+
+    // Tiempo: siempre está en el DENOMINADOR del origen.
+    // Por la regla, el tiempo origen va ARRIBA del factor.
     function construirFraccionTiempo(factorTiempo, tOrigen, tDestino) {
         if (factorTiempo === 1) return '';
 
         // factorTiempo = segOrigen / segDestino
-        // Queremos cancelar [tOrigen] arriba del factor y dejar [tDestino] abajo.
-        // La fracción debe ser = 1.
-        // 1 [tOrigen] = factorTiempo [tDestino]
-        // Por tanto la fracción unitaria es:
-        //     (1/factorTiempo) [tOrigen] / 1 [tDestino]   ... si factorTiempo < 1
-        //     1 [tOrigen] / factorTiempo [tDestino]       ... si factorTiempo > 1
         if (factorTiempo < 1) {
             // Ejemplo: min → h. factorTiempo = 1/60. Fracción: 60 min / 1 h.
             return '\\dfrac{' + (1 / factorTiempo) + '\\, \\text{' + tOrigen + '}}{1\\, \\text{' + tDestino + '}}';
@@ -755,6 +765,8 @@
 
         // -------------------------------------------------------------
         // A) Área másica: [p]g/[p']m² ↔ [p]g/[p']m²
+        // g va arriba del origen → fraccionParaNumerador
+        // m² va abajo del origen → fraccionParaDenominador
         // -------------------------------------------------------------
         if (e.tipo === 'area_masica') {
             var uMasaO = latexUnidad(e.pOrigenMasa.simbolo, 'g');
@@ -762,8 +774,8 @@
             var uSupO = latexUnidad(e.pOrigenSup.simbolo, 'm') + '^2';
             var uSupD = latexUnidad(e.pDestinoSup.simbolo, 'm') + '^2';
 
-            var fMasa = construirFraccion(e.factorMasa, uMasaD, uMasaO);
-            var fSup = construirFraccion(e.factorSuperficie, uSupD, uSupO);
+            var fMasa = fraccionParaNumerador(e.factorMasa, uMasaO, uMasaD);
+            var fSup = fraccionParaDenominador(e.factorSuperficie, uSupO, uSupD);
 
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + uMasaO + '}{' + uSupO + '}';
             s += ' \\cdot ' + fMasa + ' \\cdot ' + fSup;
@@ -771,11 +783,13 @@
 
         // -------------------------------------------------------------
         // B) Caudal másico: [p]g/[h|min|s] ↔ [p]g/[h|min|s]
+        // g va arriba → fraccionParaNumerador
+        // tiempo va abajo → construirFraccionTiempo
         // -------------------------------------------------------------
         } else if (e.tipo === 'caudal_masico') {
             var uMO = latexUnidad(e.pOrigen.simbolo, 'g');
             var uMD = latexUnidad(e.pDestino.simbolo, 'g');
-            var fMasa2 = construirFraccion(e.factorMasa, uMD, uMO);
+            var fMasa2 = fraccionParaNumerador(e.factorMasa, uMO, uMD);
             var fTiempo = construirFraccionTiempo(e.factorTiempo, e.tOrigen.simbolo, e.tDestino.simbolo);
 
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + uMO + '}{\\text{' + e.tOrigen.simbolo + '}}';
@@ -785,22 +799,22 @@
 
         // -------------------------------------------------------------
         // C) Densidad con L: [p]g/L ↔ [p]g/m³
+        // g va arriba → fraccionParaNumerador
+        // L (o m³) va abajo → el factor de L↔m³ se construye explícitamente
         // -------------------------------------------------------------
         } else if (e.tipo === 'densidad_L') {
             var uMO2 = latexUnidad(e.pOrigenMasa.simbolo, 'g');
             var uMD2 = latexUnidad(e.pDestinoMasa.simbolo, 'g');
-            var fMasa3 = construirFraccion(e.factorMasa, uMD2, uMO2);
+            var fMasa3 = fraccionParaNumerador(e.factorMasa, uMO2, uMD2);
 
             if (e.origenL) {
-                // g/L → g/m³
-                // L está abajo en el origen → su factor pone L arriba: 10³ L / 1 m³
+                // g/L → g/m³. L está abajo del origen → L va arriba: 10³ L / 1 m³
                 s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + uMO2 + '}{\\text{L}}';
                 s += ' \\cdot ' + fMasa3;
                 s += ' \\cdot \\dfrac{10^{3}\\, \\text{L}}{1\\, \\text{m}^3}';
                 s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{' + uMD2 + '}{\\text{m}^3}\\)';
             } else {
-                // g/m³ → g/L
-                // m³ está abajo en el origen → su factor pone m³ arriba: 1 m³ / 10³ L
+                // g/m³ → g/L. m³ está abajo del origen → m³ va arriba: 1 m³ / 10³ L
                 s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + uMO2 + '}{\\text{m}^3}';
                 s += ' \\cdot ' + fMasa3;
                 s += ' \\cdot \\dfrac{1\\, \\text{m}^3}{10^{3}\\, \\text{L}}';
@@ -809,11 +823,13 @@
 
         // -------------------------------------------------------------
         // D) Velocidad: [p]m/[h|min|s] ↔ [p]m/[h|min|s]
+        // m va arriba → fraccionParaNumerador
+        // tiempo va abajo → construirFraccionTiempo
         // -------------------------------------------------------------
         } else if (e.tipo === 'velocidad') {
             var uLO = latexUnidad(e.pOrigen.simbolo, 'm');
             var uLD = latexUnidad(e.pDestino.simbolo, 'm');
-            var fLong = construirFraccion(e.factorLongitud, uLD, uLO);
+            var fLong = fraccionParaNumerador(e.factorLongitud, uLO, uLD);
             var fTiempo2 = construirFraccionTiempo(e.factorTiempo, e.tOrigen.simbolo, e.tDestino.simbolo);
 
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + uLO + '}{\\text{' + e.tOrigen.simbolo + '}}';
@@ -823,15 +839,17 @@
 
         // -------------------------------------------------------------
         // E) Masa/Volumen con prefijos cúbicos
+        // g va arriba → fraccionParaNumerador
+        // m³ va abajo → fraccionParaDenominador
         // -------------------------------------------------------------
         } else if (e.tipo === 'masa_por_volumen') {
             var uMO3 = latexUnidad(e.pOrigenMasa.simbolo, 'g');
             var uMD3 = latexUnidad(e.pDestinoMasa.simbolo, 'g');
-            var fMasa4 = construirFraccion(e.factorMasa, uMD3, uMO3);
+            var fMasa4 = fraccionParaNumerador(e.factorMasa, uMO3, uMD3);
 
             var uVO2 = latexUnidad(e.pOrigenVol.simbolo, 'm') + '^3';
             var uVD2 = latexUnidad(e.pDestinoVol.simbolo, 'm') + '^3';
-            var fVol = construirFraccion(e.factorVolumen, uVD2, uVO2);
+            var fVol = fraccionParaDenominador(e.factorVolumen, uVO2, uVD2);
 
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + uMO3 + '}{' + uVO2 + '}';
             s += ' \\cdot ' + fMasa4 + ' \\cdot ' + fVol;
@@ -839,11 +857,13 @@
 
         // -------------------------------------------------------------
         // F) Caudal volumétrico: [p]L/[h|min|s] ↔ [p]m³/[h|min|s]
+        // L va arriba → fraccionParaNumerador (con L como unidad)
+        // tiempo va abajo → construirFraccionTiempo
         // -------------------------------------------------------------
         } else if (e.tipo === 'caudal_volumetrico') {
             var uLO2 = latexUnidad(e.pOrigen.simbolo, 'L');
             var uLD2 = latexUnidad(e.pDestino.simbolo, 'm') + '^3';
-            var fVol2 = construirFraccion(e.factorVolumen, uLD2, uLO2);
+            var fVol2 = fraccionParaNumerador(e.factorVolumen, uLO2, uLD2);
             var fTiempo3 = construirFraccionTiempo(e.factorTiempo, e.tOrigen.simbolo, e.tDestino.simbolo);
 
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + uLO2 + '}{\\text{' + e.tOrigen.simbolo + '}}';
