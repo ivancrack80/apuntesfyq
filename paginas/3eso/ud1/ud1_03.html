@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. En el laboratorio - 3º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA PRINCIPAL -->
+    <header class="gs-header">
+        <h1 class="gs-title">3. En el laboratorio</h1>
+        <div class="gs-subtitle">Normas de seguridad, pictogramas de peligrosidad y materiales de trabajo</div>
+    </header>
+
+    <!-- ================================================================
+         SECCIÓN 3.1. NORMAS DE SEGURIDAD
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-shield-halved"></i> 3.1. Normas de seguridad en el laboratorio
+    </h2>
+    <p>
+        El laboratorio es uno de los lugares más apasionantes de la ciencia: allí se manipulan sustancias, se calientan líquidos, se mezclan reactivos y se observan fenómenos que en clase solo podemos imaginar. Sin embargo, también es un espacio donde un descuido puede convertirse en un accidente grave. La mayoría de los incidentes que ocurren en los laboratorios escolares no se deben a productos especialmente peligrosos, sino a <strong>fallos humanos evitables</strong>: prisas, despistes, malos hábitos o desconocimiento de las normas básicas.
+    </p>
+    <p>
+        Por eso, antes de ponernos el delantal, vamos a leer con atención una situación ficticia pero muy realista. Presta atención a lo que hace cada personaje, porque al final tendrás que identificar todos los errores.
+    </p>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-comments"></i> Lectura inicial: "El primer día de Lucía en el laboratorio"</div>
+        <p style="font-size: 0.95rem; font-style: italic; margin-bottom: 15px;">
+            Lee en voz alta este diálogo. Lucía acaba de llegar al laboratorio por primera vez y Diego, su compañero de mesa, lleva dos cursos usándolo. Mientras lees, intenta detectar <strong>todos los errores</strong> que comete Lucía.
+        </p>
+
+        <div class="gs-dialogo">
+            <div class="gs-dialogo-linea gs-dialogo-lucia">
+                <span class="gs-dialogo-nombre">Lucía:</span>
+                ¡Hola, Diego! Perdona el retraso, vengo corriendo del patio porque hemos terminado el partido de baloncesto un poco tarde. ¿Ya has empezado? Menudo lío tengo encima de la mesa, con la mochila, el bocadillo y todo…
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-diego">
+                <span class="gs-dialogo-nombre">Diego:</span>
+                Tranquila, aún no hemos empezado. Pero, Lucía… ¿dónde está tu bata? Y el pelo lo llevas suelto, con esa bufanda larga. Vas a trabajar con ácido clorhídrico, ¿lo sabes?
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-lucia">
+                <span class="gs-dialogo-nombre">Lucía:</span>
+                ¡Uy, la bata se me ha quedado en casa! Pero no pasa nada, ¿no? Es solo un poco de ácido. Además, tengo mucha hambre, así que voy a comerme el bocadillo mientras tú preparas el material. ¿Me dejas tu mechero para calentar la disolución?
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-diego">
+                <span class="gs-dialogo-nombre">Diego:</span>
+                Ni hablar. Primero, no se come dentro del laboratorio: podrías contaminar la comida sin darte cuenta. Y segundo, el mechero lo enciendo yo cuando toque, no tú con el bocadillo en la mano. Además, no debes encender nada cerca de productos inflamables sin mirar primero las etiquetas. ¿Has leído la etiqueta del frasco que tienes delante?
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-lucia">
+                <span class="gs-dialogo-nombre">Lucía:</span>
+                Pues no… pero huele raro. Voy a acercar la nariz para ver qué es. ¡Anda, mira, tiene un dibujito raro en la etiqueta! ¿Qué significa?
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-diego">
+                <span class="gs-dialogo-nombre">Diego:</span>
+                ¡Para, no huelas directamente! Ese "dibujito" es un pictograma de peligrosidad. Significa que es corrosivo, y si te salpica la piel te puede hacer una herida seria. Para notar el olor, se abanica el aire hacia la nariz con la mano, nunca se acerca la cara al frasco.
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-lucia">
+                <span class="gs-dialogo-nombre">Lucía:</span>
+                Vale, vale, perdón. Entonces… ¿preparo la mezcla? Echo un poco de agua en el ácido, ¿no?
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-diego">
+                <span class="gs-dialogo-nombre">Diego:</span>
+                ¡Al revés, Lucía! Siempre se echa el <strong>ácido sobre el agua</strong>, nunca el agua sobre el ácido. Si lo haces al revés, la mezcla puede calentarse de golpe y salpicar. Y si te salpica, se lava inmediatamente con mucha agua y se avisa al profesor.
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-lucia">
+                <span class="gs-dialogo-nombre">Lucía:</span>
+                Madre mía, cuántas cosas. ¿Y si me entra algo en el ojo? ¿O si me corto con un tubo de ensayo?
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-diego">
+                <span class="gs-dialogo-nombre">Diego:</span>
+                Si te salpica algo en el ojo, lo lavas con el lavaojos y avisas al profesor inmediatamente. Y si tienes una herida en la mano, la proteges con un guante antes de tocar nada. Por eso te he dicho que te pusieras los guantes: los tenemos en el cajón de la derecha.
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-lucia">
+                <span class="gs-dialogo-nombre">Lucía:</span>
+                Tienes razón en todo, Diego. Me he dado cuenta de que he llegado al laboratorio como si fuera el recreo. ¿Me ayudas a repasar las normas antes de empezar?
+            </div>
+        </div>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-circle-check"></i> Los errores de Lucía: comprueba tu análisis</div>
+        <p>
+            Antes de seguir leyendo, compara los errores que has detectado con esta lista. ¿Los has encontrado todos?
+        </p>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Correr por el laboratorio</strong> para llegar tras el partido. Nunca se debe correr dentro.</li>
+            <li><strong>No llevar la bata</strong> puesta. Es obligatoria para proteger la ropa y la piel.</li>
+            <li><strong>Llevar el pelo suelto y una bufanda larga</strong>. Pueden engancharse o entrar en contacto con productos o llamas.</li>
+            <li><strong>Tener la mesa desordenada</strong>, con la mochila y el bocadillo encima.</li>
+            <li><strong>Comer dentro del laboratorio</strong>. La comida puede contaminarse con productos químicos.</li>
+            <li><strong>Coger el mechero sin permiso del profesor</strong> ni haber leído las etiquetas de los productos cercanos.</li>
+            <li><strong>Acercar la nariz al frasco</strong> para oler directamente el producto químico.</li>
+            <li><strong>No leer la etiqueta</strong> antes de manipular el frasco.</li>
+            <li><strong>Verter el agua sobre el ácido</strong> en lugar de al revés.</li>
+            <li><strong>No llevar guantes</strong> cuando va a manipular productos corrosivos.</li>
+        </ol>
+    </div>
+
+    <p>
+        Ahora que ya has visto en acción los errores más habituales, vamos a fijar las normas que todo buen científico debe respetar. Las hemos agrupado en <strong>cinco categorías</strong> según el momento o el tipo de riesgo: preparación, trabajo general, productos químicos, fuentes de calor y accidentes.
+    </p>
+
+    <!-- CATEGORÍA 1 -->
+    <div class="gs-norma-box gs-norma-preparacion">
+        <div class="gs-norma-box-title"><i class="fa-solid fa-shirt"></i> 1. Antes de empezar: preparación personal y del espacio</div>
+        <ul>
+            <li><strong>El área de trabajo debe estar limpia y ordenada.</strong> La mochila en el suelo, el material colocado y sin obstáculos alrededor.</li>
+            <li><strong>Usa bata para proteger tu ropa</strong> y tu piel de posibles salpicaduras.</li>
+            <li><strong>Usa gafas protectoras y guantes de látex cuando sea necesario</strong> (ácidos, bases, productos corrosivos o irritantes).</li>
+            <li><strong>No lleves objetos que dificulten tu movilidad</strong>: bufandas, pañuelos, prendas largas o colgantes. <strong>El pelo largo debe ir recogido.</strong></li>
+            <li><strong>Si tienes heridas que puedan entrar en contacto con los productos químicos, protégelas</strong> con un apósito y un guante antes de empezar.</li>
+        </ul>
+    </div>
+
+    <!-- CATEGORÍA 2 -->
+    <div class="gs-norma-box gs-norma-trabajo">
+        <div class="gs-norma-box-title"><i class="fa-solid fa-person-running"></i> 2. Durante el trabajo: comportamiento</div>
+        <ul>
+            <li><strong>No corras, juegues ni andes de un lado para otro sin motivo.</strong> Los movimientos bruscos provocan derrames y accidentes.</li>
+            <li><strong>No comas ni bebas dentro del laboratorio.</strong> Los alimentos pueden contaminarse sin que te des cuenta.</li>
+            <li><strong>Lávate las manos al terminar</strong>, sobre todo si has manipulado productos químicos.</li>
+        </ul>
+    </div>
+
+    <!-- CATEGORÍA 3 -->
+    <div class="gs-norma-box gs-norma-quimicos">
+        <div class="gs-norma-box-title"><i class="fa-solid fa-flask-vial"></i> 3. Manipulación de productos químicos</div>
+        <ul>
+            <li><strong>No huelas ni bebas los productos químicos.</strong> Para percibir un olor, abanica el aire hacia tu nariz con la mano; nunca acerques la cara al frasco.</li>
+            <li><strong>Antes de manipular cualquier producto, lee la etiqueta y fíjate bien en los pictogramas de peligrosidad.</strong> Esta norma es especialmente importante y la veremos en detalle en el siguiente apartado.</li>
+            <li><strong>Ten cuidado con los ácidos y las bases:</strong> son productos corrosivos y pueden producir quemaduras graves en la piel o los ojos.</li>
+            <li><strong>Al mezclar un ácido con agua, echa siempre el ácido sobre el agua, NUNCA al revés.</strong> La reacción libera calor y, si se hace al revés, puede salpicar violentamente.</li>
+        </ul>
+    </div>
+
+    <!-- CATEGORÍA 4 -->
+    <div class="gs-norma-box gs-norma-calor">
+        <div class="gs-norma-box-title"><i class="fa-solid fa-fire"></i> 4. Fuentes de calor y líquidos calientes</div>
+        <ul>
+            <li><strong>Evita el contacto con fuentes de calor.</strong> No coloques cerca de ellas productos inflamables.</li>
+            <li><strong>No dirijas los productos calientes hacia tu cuerpo.</strong> Podrían salpicarte y producirte quemaduras.</li>
+            <li><strong>Sujeta los tubos de ensayo con pinzas</strong> y calienta siempre apuntando la boca del tubo hacia una zona vacía, nunca hacia ti ni hacia tus compañeros.</li>
+        </ul>
+    </div>
+
+    <!-- CATEGORÍA 5 -->
+    <div class="gs-norma-box gs-norma-accidentes">
+        <div class="gs-norma-box-title"><i class="fa-solid fa-kit-medical"></i> 5. Si ocurre un accidente</div>
+        <ul>
+            <li><strong>Si te salpica algún producto, lava la zona con abundante agua</strong> durante varios minutos y avisa inmediatamente al profesor.</li>
+            <li><strong>Si el producto entra en contacto con los ojos</strong>, usa el lavaojos y mantén los párpados abiertos bajo el chorro de agua.</li>
+            <li><strong>Si se rompe material de vidrio, no lo recojas con las manos.</strong> Avisa al profesor para que lo retire con cepillo, recogedor o pinzas, y nunca uses un recipiente de vidrio que esté agrietado.</li>
+            <li><strong>Nunca ocultes un accidente</strong> por miedo a las consecuencias. Avisar rápido es la diferencia entre un susto y un problema grave.</li>
+        </ul>
+    </div>
+
+    <!-- ================================================================
+         SECCIÓN 3.2. PICTOGRAMAS DE PELIGROSIDAD
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-triangle-exclamation"></i> 3.2. Pictogramas de peligrosidad
+    </h2>
+    <p>
+        En la última norma del apartado anterior hemos visto que <strong>antes de manipular cualquier producto químico hay que leer su etiqueta</strong>. Esa etiqueta contiene información esencial: el nombre de la sustancia, su concentración, las precauciones de uso y, sobre todo, los <strong>pictogramas de peligrosidad</strong>.
+    </p>
+    <p>
+        Los pictogramas son símbolos gráficos normalizados internacionalmente. Todos tienen la misma forma: un <strong>rombo con borde rojo sobre fondo blanco</strong> y un símbolo negro en el centro. Gracias a esta uniformidad, cualquier persona, en cualquier país del mundo, puede reconocer de un vistazo los riesgos de un producto, aunque no entienda el idioma de la etiqueta.
+    </p>
+    <p>
+        Estos nueve pictogramas forman parte del <strong>Sistema Globalmente Armonizado (SGA o GHS)</strong> de las Naciones Unidas. A continuación los tienes todos con su significado.
+    </p>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-skull-crossbones"></i> Los 9 pictogramas oficiales de peligrosidad</div>
+
+        <div class="gs-pictogramas-grid">
+
+            <div class="gs-pictograma-card">
+                <img class="gs-pictograma-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-explos.svg" alt="Pictograma de explosivo">
+                <span class="gs-pictograma-nombre">Explosivo</span>
+                <p class="gs-pictograma-desc">Sustancias que pueden explotar por calor, chispas, fricción o impacto.</p>
+            </div>
+
+            <div class="gs-pictograma-card">
+                <img class="gs-pictograma-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-flamme.svg" alt="Pictograma de inflamable">
+                <span class="gs-pictograma-nombre">Inflamable</span>
+                <p class="gs-pictograma-desc">Se incendia con facilidad en contacto con aire, chispas o fuentes de calor.</p>
+            </div>
+
+            <div class="gs-pictograma-card">
+                <img class="gs-pictograma-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-rondflam.svg" alt="Pictograma de comburente">
+                <span class="gs-pictograma-nombre">Comburente</span>
+                <p class="gs-pictograma-desc">Favorece la combustión de otros materiales; puede avivar un incendio.</p>
+            </div>
+
+            <div class="gs-pictograma-card">
+                <img class="gs-pictograma-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-bottle.svg" alt="Pictograma de gas a presión">
+                <span class="gs-pictograma-nombre">Gas a presión</span>
+                <p class="gs-pictograma-desc">Recipientes con gases comprimidos, licuados o disueltos; pueden explotar al calentarse.</p>
+            </div>
+
+            <div class="gs-pictograma-card">
+                <img class="gs-pictograma-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-acid.svg" alt="Pictograma de corrosivo">
+                <span class="gs-pictograma-nombre">Corrosivo</span>
+                <p class="gs-pictograma-desc">Ataca y destruye metales y tejidos vivos (piel, ojos). Produce quemaduras químicas.</p>
+            </div>
+
+            <div class="gs-pictograma-card">
+                <img class="gs-pictograma-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-skull.svg" alt="Pictograma de toxicidad aguda">
+                <span class="gs-pictograma-nombre">Toxicidad aguda</span>
+                <p class="gs-pictograma-desc">Sustancias muy tóxicas: pueden causar la muerte o intoxicaciones graves rápidamente.</p>
+            </div>
+
+            <div class="gs-pictograma-card">
+                <img class="gs-pictograma-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-exclam.svg" alt="Pictograma de irritante">
+                <span class="gs-pictograma-nombre">Irritante / Atención</span>
+                <p class="gs-pictograma-desc">Irrita la piel, los ojos o las vías respiratorias. Puede provocar reacciones alérgicas.</p>
+            </div>
+
+            <div class="gs-pictograma-card">
+                <img class="gs-pictograma-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-silhouette.svg" alt="Pictograma de peligro para la salud">
+                <span class="gs-pictograma-nombre">Peligro para la salud</span>
+                <p class="gs-pictograma-desc">Puede dañar órganos, provocar cáncer, mutaciones o afectar a la reproducción.</p>
+            </div>
+
+            <div class="gs-pictograma-card">
+                <img class="gs-pictograma-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-pollu.svg" alt="Pictograma de peligro para el medio ambiente">
+                <span class="gs-pictograma-nombre">Peligro para el medio ambiente</span>
+                <p class="gs-pictograma-desc">Tóxico para la fauna y flora acuática; no debe verterse al desagüe ni al suelo.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-key"></i> Cómo leer una etiqueta de producto químico</div>
+        <p>
+            Cuando cojas un frasco en el laboratorio, sigue siempre este orden:
+        </p>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Lee el nombre del producto</strong> y su concentración. No todos los frascos con el mismo nombre son igual de peligrosos.</li>
+            <li><strong>Identifica los pictogramas</strong> que aparecen en la etiqueta. Puede haber uno o varios a la vez.</li>
+            <li><strong>Lee las frases de peligro (frases H)</strong>: describen el tipo de riesgo concreto.</li>
+            <li><strong>Lee los consejos de prudencia (frases P)</strong>: indican qué precauciones tomar al manipularlo.</li>
+            <li><strong>Comprueba la fecha y el estado del envase.</strong> Un frasco deteriorado es un riesgo añadido.</li>
+        </ol>
+    </div>
+
+    <!-- ================================================================
+         SECCIÓN 3.3. MATERIAL DE LABORATORIO
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-flask"></i> 3.3. Material de laboratorio
+    </h2>
+    <p>
+        En el laboratorio cada material tiene una función concreta. Conocerlo bien es imprescindible para usarlo correctamente y evitar accidentes. A continuación tienes el material más habitual, agrupado por el uso que se le da. Fíjate bien en las fotos: cuando llegues al laboratorio, deberías ser capaz de reconocerlos a todos.
+    </p>
+
+    <!-- GRUPO 1: CALENTAMIENTO -->
+    <div class="gs-material-grupo gs-material-grupo--calentamiento">
+        <div class="gs-material-grupo-title"><i class="fa-solid fa-fire"></i> Material de calentamiento</div>
+        <div class="gs-material-grid">
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/mechero_bunsen.jpg" alt="Mechero de Bunsen">
+                <span class="gs-material-nombre">Mechero de Bunsen</span>
+                <p class="gs-material-desc">Fuente de calor que funciona con gas. Se regula la entrada de aire para obtener una llama azul (más caliente) o amarilla (más fría).</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/rejilla_metalica.jpg" alt="Rejilla metálica">
+                <span class="gs-material-nombre">Rejilla metálica</span>
+                <p class="gs-material-desc">Se coloca sobre el trípode o el soporte para repartir el calor de forma uniforme y evitar que el recipiente se rompa por calor directo.</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/tripode.jpg" alt="Trípode">
+                <span class="gs-material-nombre">Trípode</span>
+                <p class="gs-material-desc">Soporte de tres patas que se usa para colocar recipientes sobre el mechero durante el calentamiento.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- GRUPO 2: MEDIDA -->
+    <div class="gs-material-grupo gs-material-grupo--medida">
+        <div class="gs-material-grupo-title"><i class="fa-solid fa-scale-balanced"></i> Material de medida</div>
+        <div class="gs-material-grid">
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/balanza.png" alt="Balanza electrónica">
+                <span class="gs-material-nombre">Balanza electrónica</span>
+                <p class="gs-material-desc">Mide la masa de sólidos y líquidos con precisión. Es imprescindible para preparar disoluciones con concentración exacta.</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/probeta.jpg" alt="Probeta graduada">
+                <span class="gs-material-nombre">Probeta graduada</span>
+                <p class="gs-material-desc">Mide volúmenes de líquidos con bastante precisión. Se lee el valor en la base del menisco, con los ojos a la altura del líquido.</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/bureta.jpg" alt="Bureta">
+                <span class="gs-material-nombre">Bureta</span>
+                <p class="gs-material-desc">Tubo largo graduado con llave en la parte inferior. Permite medir con gran precisión el volumen de líquido que se deja caer gota a gota.</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/pipetas.jpg" alt="Pipetas">
+                <span class="gs-material-nombre">Pipetas</span>
+                <p class="gs-material-desc">Sirven para medir y trasvasar pequeños volúmenes de líquido con precisión. Algunas son graduadas y otras solo miden una cantidad fija.</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/matraz_aforado.jpg" alt="Matraz aforado">
+                <span class="gs-material-nombre">Matraz aforado</span>
+                <p class="gs-material-desc">Recipiente con cuello estrecho y una marca única (el enrase). Se usa para preparar disoluciones de concentración exacta.</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/vaso_precipitados.jpg" alt="Vaso de precipitados">
+                <span class="gs-material-nombre">Vaso de precipitados</span>
+                <p class="gs-material-desc">Recipiente cilíndrico graduado con pico. Sirve para calentar, mezclar y trasvasar líquidos. Su graduación es orientativa, no precisa.</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/vidrio_reloj.jpg" alt="Vidrio de reloj">
+                <span class="gs-material-nombre">Vidrio de reloj</span>
+                <p class="gs-material-desc">Lámina de vidrio ligeramente cóncava. Se usa para pesar pequeñas cantidades de sólidos y para tapar vasos durante el calentamiento.</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/cristalizador.jpg" alt="Cristalizador">
+                <span class="gs-material-nombre">Cristalizador</span>
+                <p class="gs-material-desc">Recipiente ancho y de poca altura. Se usa para evaporar disoluciones lentamente y obtener cristales del soluto.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- GRUPO 3: SOPORTE -->
+    <div class="gs-material-grupo gs-material-grupo--soporte">
+        <div class="gs-material-grupo-title"><i class="fa-solid fa-screwdriver-wrench"></i> Material de soporte y sujeción</div>
+        <div class="gs-material-grid">
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/soporte_universal.jpg" alt="Soporte universal">
+                <span class="gs-material-nombre">Soporte universal</span>
+                <p class="gs-material-desc">Base pesada con varilla metálica vertical. Sirve para sujetar otros materiales (aros, pinzas, buretas) a distintas alturas.</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/pinza_madera.jpg" alt="Pinza de madera">
+                <span class="gs-material-nombre">Pinza de madera</span>
+                <p class="gs-material-desc">Sirve para sujetar tubos de ensayo cuando los calentamos, evitando quemarnos y manteniendo la distancia adecuada.</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/gradilla.jpg" alt="Gradilla">
+                <span class="gs-material-nombre">Gradilla</span>
+                <p class="gs-material-desc">Soporte con agujeros para mantener los tubos de ensayo en vertical, ordenados y sin peligro de caída.</p>
+            </div>
+
+            <div class="gs-material-card">
+                <img class="gs-material-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/materiales/varilla_vidrio.jpg" alt="Varilla de vidrio">
+                <span class="gs-material-nombre">Varilla de vidrio</span>
+                <p class="gs-material-desc">Barra delgada de vidrio. Se usa para agitar
