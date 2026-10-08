@@ -474,7 +474,7 @@
         var uOrigen = pOrigen.simbolo + 'L/' + tOrigen.simbolo;
         var uDestino = pDestino.simbolo + 'm³/' + tDestino.simbolo;
 
-        var expVolumen = pOrigen.factor - 3 - pDestino.factor;
+        var expVolumen = pOrigen.factor - 3 - 3 * pDestino.factor;
         var factorTiempo = tOrigen.segundos / tDestino.segundos;
         var factorTotal = Math.pow(10, expVolumen) * factorTiempo;
         var resultado = valor * factorTotal;
@@ -860,26 +860,33 @@
             s += ' \\cdot ' + fMasa4 + ' \\cdot ' + fVol;
             s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{' + uMD3 + '}{' + uVD2 + '}\\)';
 
-        // -------------------------------------------------------------
+         // -------------------------------------------------------------
         // F) Caudal volumétrico: [p]L/[h|min|s] ↔ [p]m³/[h|min|s]
-        // L va arriba → fraccionParaNumerador (con L como unidad)
-        // tiempo va abajo → construirFraccionTiempo
+        // Puente intermedio: 1 m³ = 1000 L
         // -------------------------------------------------------------
         } else if (e.tipo === 'caudal_volumetrico') {
             var uLO2 = latexUnidad(e.pOrigen.simbolo, 'L');
             var uLD2 = latexUnidad(e.pDestino.simbolo, 'm') + '^3';
-            var fVol2 = fraccionParaNumerador(e.factorVolumen, uLO2, uLD2);
             var fTiempo3 = construirFraccionTiempo(e.factorTiempo, e.tOrigen.simbolo, e.tDestino.simbolo);
 
+            // origen siempre es múltiplo de L, destino siempre es múltiplo de m³
+            var expOrigenL = e.pOrigen.factor;              // prefijo del L origen
+            var expDestinoM3 = 3 * e.pDestino.factor;       // prefijo del m³ destino (cúbico)
+
+            // Factor 1: cancelo [pOrigen]L, pongo L arriba
+            var f1 = '\\dfrac{10^{' + expOrigenL + '}\\, \\text{L}}{1\\, ' + uLO2 + '}';
+            // Factor 2: cancelo L, pongo m³ arriba
+            var f2 = '\\dfrac{1\\, \\text{m}^3}{1000\\, \\text{L}}';
+            // Factor 3: cancelo m³, pongo [pDestino]m³ arriba
+            var f3 = '\\dfrac{1\\, ' + uLD2 + '}{10^{' + expDestinoM3 + '}\\, \\text{m}^3}';
+
             s += '\\(' + num(e.valor, 2) + '\\, \\dfrac{' + uLO2 + '}{\\text{' + e.tOrigen.simbolo + '}}';
-            s += ' \\cdot ' + fVol2;
+            s += ' \\cdot ' + f1;
+            s += ' \\cdot ' + f2;
+            s += ' \\cdot ' + f3;
             if (fTiempo3) s += ' \\cdot ' + fTiempo3;
             s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{' + uLD2 + '}{\\text{' + e.tDestino.simbolo + '}}\\)';
         }
-
-        s += '</div>';
-        return s;
-    }
 
     function generarHTMLSoluciones() {
         var html = '';
