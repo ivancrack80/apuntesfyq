@@ -146,7 +146,7 @@
     }
     window.toggleDyslexiaMode = toggleDyslexiaMode;
 
-    // ======================================================================
+       // ======================================================================
     // 5. GENERADOR DE PDF SIN SOLUCIONARIO
     // ======================================================================
     function generarPDFSinSolucionario() {
@@ -165,6 +165,10 @@
             .map(function (node) { return node.outerHTML; })
             .join('\n');
 
+        // Copiar el cache global de MathJax si existe (necesario si fontCache es 'global')
+        var mjxCache = document.getElementById('MJX-SVG-global-cache');
+        var mjxCacheHTML = mjxCache ? mjxCache.outerHTML : '';
+
         var printWindow = window.open('', '_blank');
         if (!printWindow) {
             alert('El navegador ha bloqueado la ventana emergente. Permite las ventanas emergentes.');
@@ -175,6 +179,7 @@
             '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">' +
             '<title>Apuntes - PDF</title>' + styles + '</head>' +
             '<body style="background: #ffffff; padding: 20px;">' +
+            mjxCacheHTML +
             '<div class="gs-container" style="border: none; box-shadow: none; padding: 0; margin: 0 auto;">' +
             contentClone.innerHTML +
             '</div></body></html>'
@@ -187,7 +192,7 @@
         }, 500);
     }
     window.generarPDFSinSolucionario = generarPDFSinSolucionario;
-
+   
     // ======================================================================
     // 6. SOLUCIONARIO PROTEGIDO CON GAS
     // ======================================================================
