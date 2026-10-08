@@ -887,6 +887,7 @@
             if (fTiempo3) s += ' \\cdot ' + fTiempo3;
             s += ' = ' + formatearResultado(e.resultado) + '\\, \\dfrac{' + uLD2 + '}{\\text{' + e.tDestino.simbolo + '}}\\)';
         }
+	}
 
     function generarHTMLSoluciones() {
         var html = '';
