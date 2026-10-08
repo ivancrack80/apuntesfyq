@@ -72,7 +72,7 @@
             processEnvironments: true
         },
         svg: {
-            fontCache: 'global'
+            fontCache: 'local'
         },
         options: {
             skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
