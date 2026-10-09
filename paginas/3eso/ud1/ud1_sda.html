@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situación de Aprendizaje: Misión Laboratorio - 3º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 3.º ESO · Unidad 1</div>
+        <h1 class="gs-title">Misión Laboratorio: recuperar el cuaderno perdido</h1>
+        <div class="gs-subtitle">Situación de aprendizaje · Repaso integrador de la Unidad 1</div>
+    </header>
+
+    <!-- CONTEXTO NARRATIVO -->
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-circle-info"></i> El incidente del laboratorio</div>
+        <p>
+            El lunes por la mañana, el conserje del centro encontró el laboratorio de Física y Química en un estado lamentable: un frasco volcado sobre la mesa, papeles por el suelo, la gradilla caída y un cuaderno de laboratorio arrugado en una esquina. El becario que había estado trabajando allí el viernes por la tarde no apareció ese día. Y lo más importante: <strong>faltan muchas páginas del cuaderno de registro</strong>, y las que quedan están desordenadas y con anotaciones confusas.
+        </p>
+        <p style="margin-bottom: 0;">
+            La dirección del centro necesita saber qué pasó. Para ello ha formado un <strong>equipo de recuperación</strong>: vosotros. Vuestra misión es reconstruir lo ocurrido a partir de las pruebas que quedaron, aprender de los errores y entregar un <strong>informe oficial</strong>. Lo haréis en equipo y tendréis que resolver <strong>6 misiones encadenadas</strong>.
+        </p>
+    </div>
+
+    <!-- INSTRUCCIONES PARA EL ALUMNADO -->
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-list-check"></i> Cómo funciona esta misión</div>
+        <ul style="margin-bottom: 0;">
+            <li>Cada misión es un apartado independiente. Se puede resolver en clase o en casa.</li>
+            <li>Algunas misiones son individuales, otras en pareja o en grupo.</li>
+            <li>Al final de cada misión hay un <strong>producto</strong> que debéis guardar en vuestro cuaderno o dossier.</li>
+            <li>La misión 6 integra todo y da lugar al <strong>informe final</strong>.</li>
+            <li>Cada misión repasa un contenido de la Unidad 1.</li>
+        </ul>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 1
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-diagram-project"></i> Misión 1. Reconstruir la escena (método científico)
+    </h2>
+    <p>
+        En las páginas que quedaron del cuaderno, el becario había anotado frases sueltas. Pero las escribió todas revueltas, sin orden. Vuestra primera tarea es <strong>ordenarlas según las fases del método científico</strong>.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-note-sticky"></i> Anotaciones del cuaderno (desordenadas)</div>
+        <ol style="margin-bottom: 0;">
+            <li>«He visto burbujas en la disolución al calentarla. Raro.»</li>
+            <li>«Creo que el sulfato de cobre reacciona así porque suelta gases al calentarse.»</li>
+            <li>«Repetí el experimento tres veces con distintas cantidades y siempre pasaba lo mismo.»</li>
+            <li>«He medido el volumen del gas recogido: 12,4 mL, 12,6 mL y 12,5 mL.»</li>
+            <li>«Le voy a contar a Marta lo que he visto para que lo revise ella.»</li>
+            <li>«Si mi hipótesis es cierta, al añadir más sulfato debería formarse más gas.»</li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 1</div>
+        <p style="margin-bottom: 0;">
+            Copia en tu cuaderno una tabla con las <strong>5 fases del método científico</strong> (observación, formulación de hipótesis, experimentación, análisis de datos y comunicación de resultados) y coloca cada anotación en la fase que le corresponde. Algunas frases pueden pertenecer a más de una fase: explica por qué.
+        </p>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 2
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-ruler-combined"></i> Misión 2. Las magnitudes del laboratorio
+    </h2>
+    <p>
+        En otra página del cuaderno, el becario anotó una lista de magnitudes y unidades que utilizó, pero muchas están mal expresadas o confundidas. Vuestra misión es <strong>detectar los errores y corregirlos</strong>.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-list"></i> Anotaciones sospechosas</div>
+        <table class="gs-tabla-datos" style="max-width:100%;">
+            <thead>
+                <tr>
+                    <th>Anotación del becario</th>
+                    <th>¿Qué está mal?</th>
+                    <th>Corrección (magnitud y unidad SI)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>La masa del frasco era de 250</td><td>?</td><td>?</td></tr>
+                <tr><td>La temperatura era de 25 metros</td><td>?</td><td>?</td></tr>
+                <tr><td>El volumen recogido fue de 12 mL</td><td>?</td><td>?</td></tr>
+                <tr><td>La velocidad del gas: 3 kilogramos por segundo</td><td>?</td><td>?</td></tr>
+                <tr><td>La presión: 101,3</td><td>?</td><td>?</td></tr>
+                <tr><td>La densidad: 1,2 litros</td><td>?</td><td>?</td></tr>
+                <tr><td>La fuerza aplicada: 45 newtons por metro</td><td>?</td><td>?</td></tr>
+                <tr><td>El tiempo: 15 kilogramos</td><td>?</td><td>?</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 2</div>
+        <p style="margin-bottom: 0;">
+            Copia la tabla en tu cuaderno y completa las columnas vacías. Para cada caso, indica además si la magnitud es <strong>fundamental o derivada</strong>. Justifica brevemente cada corrección.
+        </p>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 3
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-atom"></i> Misión 3. El día que el gas se escapó (notación científica)
+    </h2>
+    <p>
+        Hay una página que parece escrita con prisa: contiene números enormes y diminutos escritos de forma descuidada. Antes de poder analizarlos, hay que <strong>pasarlos todos a notación científica</strong> correctamente.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-hashtag"></i> Números desordenados del cuaderno</div>
+        <ol style="margin-bottom: 0;">
+            <li>Velocidad de la luz: 300.000.000 m/s</li>
+            <li>Radio de un átomo: 0,000.000.000.1 m</li>
+            <li>Masa de la Tierra: 5.970.000.000.000.000.000.000.000 kg</li>
+            <li>Diámetro de un glóbulo rojo: 0,000.007 m</li>
+            <li>Distancia Tierra-Luna: 384.400.000 m</li>
+            <li>Masa de un protón: 0,000.000.000.000.000.000.000.000.00167 kg</li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-arrow-right-arrow-left"></i> Y ahora al revés</div>
+        <p>
+            El becario también anotó algunos números <strong>ya en notación científica</strong>, pero parece que están mal interpretados. Pásalos a forma decimal:
+        </p>
+        <ol style="margin-bottom: 0;">
+            <li>\(3{,}5 \cdot 10^{8}\)</li>
+            <li>\(7{,}2 \cdot 10^{-6}\)</li>
+            <li>\(9{,}81 \cdot 10^{2}\)</li>
+            <li>\(1{,}6 \cdot 10^{-19}\)</li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 3</div>
+        <p style="margin-bottom: 0;">
+            Realiza todas las conversiones en tu cuaderno. Compara tus resultados con los de un compañero y resolved las diferencias antes de continuar.
+        </p>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 4
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-arrows-rotate"></i> Misión 4. El misterio del frasco volcado (cambios de unidades)
+    </h2>
+    <p>
+        Para reconstruir qué se estaba preparando en el laboratorio, hay que <strong>unificar todas las medidas en unidades del Sistema Internacional</strong>. El becario las había anotado mezclando sistemas y escalas.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-flask"></i> Medidas a convertir al SI</div>
+        <p style="margin-bottom: 10px;"><strong>Cambios simples:</strong></p>
+        <ol>
+            <li>Longitud: 4,5 km → m</li>
+            <li>Masa: 250 mg → kg</li>
+            <li>Capacidad: 1500 mL → L</li>
+            <li>Superficie: 25 cm² → m²</li>
+            <li>Volumen: 0,5 m³ → L</li>
+        </ol>
+        <p style="margin-bottom: 10px;"><strong>Cambios compuestos:</strong></p>
+        <ol style="margin-bottom: 0;">
+            <li>Densidad: 4,8 g/cm³ → kg/m³</li>
+            <li>Velocidad: 72 km/h → m/s</li>
+            <li>Caudal: 200 g/min → kg/h</li>
+            <li>Densidad: 0,92 kg/L → kg/m³</li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 4</div>
+        <p style="margin-bottom: 0;">
+            Realiza los cambios de unidades con <strong>factores de conversión encadenados</strong>. Escribe siempre cada factor paso a paso, no solo el resultado. Al terminar, comprueba si los números tienen sentido físico (una velocidad de 72 km/h debe ser razonable, no 72000 m/s, por ejemplo).
+        </p>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 5
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-user-secret"></i> Misión 5. Encuentra al culpable (pictogramas y seguridad)
+    </h2>
+    <p>
+        En la papelera del laboratorio aparecen tres <strong>etiquetas rotas</strong>. Y en la mesa del becario se encontraron pruebas de que no había seguido las normas de seguridad. Vuestra misión es reconstruir los pictogramas y detectar los errores.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-image"></i> Pistas de las etiquetas rotas</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Etiqueta 1:</strong> solo se ve la mitad izquierda de un símbolo que parece una <em>llama sobre un círculo</em>.</li>
+            <li><strong>Etiqueta 2:</strong> queda un trozo con forma de <em>cabeza con una X en el pecho</em>.</li>
+            <li><strong>Etiqueta 3:</strong> se distingue la silueta de un <em>pez muerto sobre agua</em>.</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-comments"></i> Y además, esta conversación</div>
+        <p style="margin-bottom: 10px; font-style: italic;">
+            Dos compañeros comentaban el viernes por la tarde cómo había trabajado el becario. Estas son sus impresiones:
+        </p>
+        <div class="gs-dialogo">
+            <div class="gs-dialogo-linea gs-dialogo-lucia">
+                <span class="gs-dialogo-nombre">Lucía:</span>
+                ¡Uf! Pues yo lo vi entrar con el bocadillo en la mano, y con el pelo suelto. Menudo lío tenía en la mesa: los frascos destapados, el cuaderno debajo del mechero…
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-diego">
+                <span class="gs-dialogo-nombre">Diego:</span>
+                Y cuando cogió el ácido no se puso ni los guantes. Además, para olerlo, acercó la nariz al frasco en lugar de abanicar. Y por si fuera poco, cuando fue a preparar la mezcla, echó el agua sobre el ácido.
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-lucia">
+                <span class="gs-dialogo-nombre">Lucía:</span>
+                Yo le dije que al menos usara las gafas de protección y se recogiera el pelo, pero me dijo que «no pasaba nada, que era un experimento pequeño».
+            </div>
+        </div>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 5</div>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Identificad los 3 pictogramas</strong> de las etiquetas rotas. Explicad qué significa cada uno y qué precauciones hay que tomar.</li>
+            <li><strong>Enumerad al menos 6 normas de seguridad incumplidas</strong> por el becario, clasificándolas en las 5 categorías de la unidad (preparación, trabajo, productos químicos, calor, accidentes).</li>
+            <li><strong>Proponed</strong> cómo debería haber trabajado correctamente en cada caso.</li>
+        </ol>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 6
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-file-pen"></i> Misión 6. Informe final
+    </h2>
+    <p>
+        Ya tenéis todas las pruebas. Ahora toca <strong>entregar el informe oficial</strong> a la dirección del centro, tal y como se hace en un laboratorio profesional.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-clipboard-list"></i> Estructura del informe</div>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Portada:</strong> título, autoría del equipo, curso y fecha.</li>
+            <li><strong>Resumen de lo ocurrido:</strong> en 5-8 líneas, contad qué pasó en el laboratorio según lo que habéis deducido.</li>
+            <li><strong>Errores detectados y su corrección:</strong> haced una tabla con dos columnas: «error» / «cómo debería haberse hecho».</li>
+            <li><strong>Pictogramas del frasco misterioso:</strong> proponed una etiqueta correcta para el frasco volcado, con su pictograma, sus frases H y P (si las conocéis) y las precauciones básicas.</li>
+            <li><strong>Recomendaciones para el centro:</strong> al menos 3 medidas que la dirección podría tomar para evitar que se repita.</li>
+            <li><strong>Conclusión personal:</strong> en 3-4 líneas, qué habéis aprendido con esta misión.</li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto final</div>
+        <p style="margin-bottom: 0;">
+            <strong>Formato:</strong> folio A4 o A3, con letra legible, bien estructurado y con los pictogramas dibujados o impresos. Se puede entregar en papel o en formato digital (PDF). El informe se expondrá brevemente en clase y servirá como producto de evaluación de la unidad.
+        </p>
+    </div>
+
+    <!-- CRITERIOS DE EVALUACIÓN -->
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-check-double"></i> Qué se va a evaluar</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Rigor científico:</strong> las respuestas son correctas y están bien justificadas.</li>
+            <li><strong>Uso de unidades y notación:</strong> se expresan correctamente las magnitudes y unidades del SI.</li>
+            <li><strong>Interpretación de pictogramas:</strong> se identifican correctamente y se asocian a sus riesgos.</li>
+            <li><strong>Redacción y presentación:</strong> el informe está ordenado, claro y cuidado.</li>
+            <li><strong>Trabajo en equipo:</strong> cada miembro ha participado y ha aportado.</li>
+            <li><strong>Reflexión personal:</strong> la conclusión muestra aprendizaje real.</li>
+        </ul>
+    </div>
+
+    <!-- SOLUCIONARIO PROTEGIDO -->
+    <div class="sol-lock-box" data-unit="3eso_ud1_sda">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--gs-primary);">Solucionario Oficial</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos facilitado por tu docente para comprobar las soluciones de las misiones.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
