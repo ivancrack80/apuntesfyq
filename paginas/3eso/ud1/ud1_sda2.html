@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SdA: El misterio del lago contaminado - 3º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 3.º ESO · Unidad 1</div>
+        <h1 class="gs-title">El misterio del lago contaminado</h1>
+        <div class="gs-subtitle">Situación de aprendizaje · Investigación integradora de la Unidad 1</div>
+    </header>
+
+    <!-- CONTEXTO NARRATIVO -->
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-circle-info"></i> El encargo del ayuntamiento</div>
+        <p>
+            El lago artificial de Valdeflores, a las afueras de la localidad, amaneció el lunes con <strong>decenas de peces flotando muertos</strong> en la orilla. Los vecinos están alarmados. La Confederación Hidrográfica ha tomado muestras del agua y ha detectado dos cosas extrañas:
+        </p>
+        <ul>
+            <li>La <strong>densidad del agua</strong> es de <strong>1,08 g/cm³</strong>, cuando el agua dulce limpia ronda los 1,00 g/cm³.</li>
+            <li>En la orilla se han encontrado <strong>restos de un polvo blanquecino</strong> que nadie sabe de dónde ha salido.</li>
+        </ul>
+        <p style="margin-bottom: 0;">
+            El ayuntamiento ha contratado a vuestro centro como <strong>equipo de analistas químicos</strong>. Vuestra misión es identificar la sustancia responsable, evaluar si es peligrosa y entregar un <strong>informe técnico oficial</strong> con recomendaciones. Lo haréis en equipo, y tendréis que resolver <strong>5 misiones encadenadas</strong>: cada una os acercará un poco más a la resolución del caso.
+        </p>
+    </div>
+
+    <!-- CÓMO FUNCIONA -->
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-list-check"></i> Cómo funciona esta investigación</div>
+        <ul style="margin-bottom: 0;">
+            <li>Las misiones son <strong>secuenciales</strong>: cada una usa lo que descubristeis en la anterior.</li>
+            <li>Al final de cada misión hay un <strong>producto intermedio</strong> que debéis guardar en vuestro dossier.</li>
+            <li>La última misión integra todo y da lugar al <strong>informe técnico final</strong>.</li>
+            <li>Cada misión repasa uno de los cuatro puntos de la Unidad 1.</li>
+            <li>Trabajaréis en <strong>equipos de 3-4 personas</strong>, con roles asignados (ver más abajo).</li>
+        </ul>
+    </div>
+
+    <!-- ROLES DEL EQUIPO -->
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-people-group"></i> Roles del equipo de analistas</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Coordinador/a:</strong> organiza el trabajo, controla los tiempos y se asegura de que todos participen.</li>
+            <li><strong>Analista de datos:</strong> se encarga de las tablas, los cálculos y las gráficas.</li>
+            <li><strong>Responsable de seguridad:</strong> revisa que se cumplan las normas del laboratorio y consulta los pictogramas.</li>
+            <li><strong>Portavoz / redactor/a:</strong> redacta el informe final y lo presenta en clase.</li>
+        </ul>
+        <p style="margin-top: 10px; margin-bottom: 0; font-size: 0.9rem; color: #475569;"><em>Si sois tres, el rol de portavoz puede asumirlo el coordinador/a.</em></p>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 1
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-magnifying-glass"></i> Misión 1. El informe del ayuntamiento
+    </h2>
+    <p>
+        El ayuntamiento os envía el informe técnico que ha elaborado su laboratorio municipal. Lamentablemente, es un informe desastroso: las unidades están mezcladas, faltan datos y algunas afirmaciones son sospechosas. Antes de empezar a analizar nada, hay que <strong>ordenar la información</strong> y formular una primera hipótesis.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-file-lines"></i> Informe del ayuntamiento (fragmento)</div>
+        <blockquote style="margin: 0; padding: 12px 18px; background: rgba(255,255,255,0.85); border-left: 4px solid #1e3a8a; border-radius: 4px; font-size: 0.95rem;">
+            «Muestra tomada el lunes a las 9:15 h en la orilla norte del lago. Se han realizado las siguientes medidas:
+            <br><br>
+            · Densidad del agua: 1,08 g/cm³.<br>
+            · Concentración de sólidos disueltos: 80.000 mg/L.<br>
+            · Temperatura del agua: 289 K.<br>
+            · Volumen de muestra recogida: 0,0005 m³.<br>
+            · pH: 6,9 (dentro de la normalidad).<br>
+            · Masa total de la muestra: 540 g.<br>
+            <br>
+            Se sospecha que el origen puede estar en uno de los cinco productos químicos que se utilizan en la zona: <strong>nitrato de potasio</strong> (fertilizante agrícola), <strong>cloruro de calcio</strong> (fundente para carreteras en invierno), <strong>ácido cítrico</strong> (aditivo alimentario), <strong>sulfato de cobre(II)</strong> (fungicida) o <strong>cloruro de sodio</strong> (sal común). Los análisis de laboratorio confirman que la muestra <strong>NO contiene cobre</strong>.»
+        </blockquote>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-triangle-exclamation"></i> Antes de seguir: cosas que no cuadran</div>
+        <ul style="margin-bottom: 0;">
+            <li>¿Por qué el informe usa <strong>mg/L</strong> si estamos en el SI? ¿Y <strong>K</strong> en lugar de °C?</li>
+            <li>La densidad <strong>1,08 g/cm³</strong> ¿es mucho o poco? ¿Cómo se compara con el agua pura?</li>
+            <li>Nos dicen que <strong>NO hay cobre</strong>: eso descarta una de las cinco sustancias candidatas. ¿Cuál?</li>
+            <li>Nos faltan <strong>datos de otras muestras</strong>: ¿es la misma densidad en toda la orilla? ¿Y en el centro del lago?</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 1</div>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Reescribe el informe</strong> en vuestro dossier pasando todas las medidas al SI y usando las unidades correctas (densidad en kg/m³, temperatura en K, etc.).</li>
+            <li><strong>Formulad al menos dos hipótesis</strong> sobre qué sustancia puede ser la causante. Justificad por qué cada una es plausible y cuál descartaríais ya desde el principio.</li>
+            <li><strong>Proponed qué experimento</strong> haríais para confirmar cuál de las candidatas es la responsable.</li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-lightbulb"></i> Pista para el equipo</div>
+        <p style="margin-bottom: 0;">
+            Fijaos en la pista de las 5 fases del método científico que estudiasteis en el punto 1: ya habéis hecho la <strong>observación</strong> (el informe), estáis a punto de formular la <strong>hipótesis</strong>, y después vendrá la <strong>experimentación</strong> (la haréis en la misión 2). La <strong>comunicación de resultados</strong> será el informe final de la misión 5.
+        </p>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 2
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-flask-vial"></i> Misión 2. Las muestras del laboratorio
+    </h2>
+    <p>
+        El ayuntamiento os ha traído al laboratorio del instituto <strong>cinco disoluciones patrones</strong>, una por cada sustancia candidata, a distintas concentraciones. También os ha dado la <strong>muestra problema</strong> del lago. Para cada sustancia candidata, el laboratorio municipal ha medido la densidad de la disolución a distintas concentraciones.
+    </p>
+    <p>
+        Vuestra tarea ahora es <strong>ordenar y homogeneizar todos los datos</strong>: están en unidades mezcladas y hay que pasarlos al SI antes de poder compararlos.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-table"></i> Densidad de las disoluciones (g/cm³)</div>
+        <div class="gs-table-wrapper">
+            <table class="gs-table">
+                <thead>
+                    <tr>
+                        <th>Concentración (g/L)</th>
+                        <th>KNO₃</th>
+                        <th>CaCl₂</th>
+                        <th>Ác. cítrico</th>
+                        <th>CuSO₄</th>
+                        <th>NaCl</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>0</td><td>1,000</td><td>1,000</td><td>1,000</td><td>1,000</td><td>1,000</td></tr>
+                    <tr><td>20</td><td>1,012</td><td>1,018</td><td>1,008</td><td>1,020</td><td>1,014</td></tr>
+                    <tr><td>40</td><td>1,024</td><td>1,036</td><td>1,016</td><td>1,040</td><td>1,028</td></tr>
+                    <tr><td>60</td><td>1,037</td><td>1,054</td><td>1,024</td><td>1,060</td><td>1,042</td></tr>
+                    <tr><td>80</td><td>1,050</td><td>1,072</td><td>1,032</td><td>1,080</td><td>1,057</td></tr>
+                    <tr><td>100</td><td>1,062</td><td>1,090</td><td>1,040</td><td>1,100</td><td>1,071</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="margin-top: 12px; font-size: 0.9rem; color: #475569;">
+            <em>Nota: los valores son realistas y coherentes con tablas de laboratorio a 20 °C. La pendiente distinta de cada sustancia es su "huella dactilar".</em>
+        </p>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-circle-question"></i> Datos de la muestra problema</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Densidad de la muestra del lago:</strong> 1,08 g/cm³.</li>
+            <li><strong>Concentración estimada de sólidos disueltos:</strong> 80 g/L.</li>
+            <li><strong>pH:</strong> 6,9 (neutro, dentro de la normalidad).</li>
+            <li><strong>Contiene cobre:</strong> NO.</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 2</div>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Pasa todas las densidades al SI</strong> (de g/cm³ a kg/m³). Pista: 1 g/cm³ = 1000 kg/m³.</li>
+            <li><strong>Pasa las concentraciones al SI</strong> (de g/L a kg/m³). Pista: 1 g/L = 1 kg/m³.</li>
+            <li><strong>Descarta una candidata</strong> razonando por qué. Fíjate en la pista del informe del ayuntamiento: "no contiene cobre".</li>
+            <li>Elabora una <strong>tabla resumen</strong> con las 4 candidatas restantes, con todas las magnitudes en el SI.</li>
+        </ol>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 3
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-chart-line"></i> Misión 3. La huella dactilar de cada sustancia
+    </h2>
+    <p>
+        Ya tenéis los datos en el SI. Ahora toca <strong>representarlos gráficamente</strong>. Cada sustancia candidata tiene una relación distinta entre densidad y concentración. Esa relación es su <strong>huella dactilar</strong>: comparando la muestra del lago con cada una de las rectas, podréis identificar la sustancia responsable.
+    </p>
+
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper gs-graph-wrapper--wide">
+            <div id="box_sda_lago" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Comparador de las cinco candidatas</h3>
+            <p>
+                <strong>Instrucciones:</strong> cada recta representa una sustancia candidata. La <strong>línea roja horizontal</strong> marca la densidad de la muestra del lago (1,08 g/cm³ = 1080 kg/m³). Para cada sustancia, observa en qué concentración su recta corta esa línea. La sustancia cuya concentración coincida con la de la muestra del lago (80 g/L) es la culpable.
+            </p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Densidad muestra:</span>
+                    <span class="gs-panel-datos__valor gs-panel-datos__valor--rojo">1080 kg/m³</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Concentración muestra:</span>
+                    <span class="gs-panel-datos__valor gs-panel-datos__valor--rojo">80 kg/m³</span>
+                </div>
+                <hr class="gs-panel-datos__separador">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">¿Cuál encaja?</span>
+                    <span id="sda-sospechoso" class="gs-panel-datos__valor gs-panel-datos__valor--ambar">Pulsa un botón</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-calculator"></i> Cómo obtener la ecuación de cada recta</div>
+        <p>
+            Todas las rectas pasan por el punto (0, 1000) — el agua pura tiene densidad 1000 kg/m³. Eso significa que la <strong>ordenada en el origen</strong> es <strong>n = 1000</strong> para todas. Lo que cambia es la <strong>pendiente m</strong>, que se calcula con dos puntos cualesquiera:
+        </p>
+        <div class="gs-latex-container">
+            $$m = \frac{y_2 - y_1}{x_2 - x_1}$$
+        </div>
+        <p style="margin-bottom: 0;">
+            Por ejemplo, para el KNO₃: entre (20, 1012) y (80, 1050):
+            \(m = \frac{1050 - 1012}{80 - 20} = \frac{38}{60} = 0,633\) kg/m³ por cada kg/m³ de concentración.
+        </p>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 3</div>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Representa las 4 rectas</strong> restantes (ya descartaste el CuSO₄) en una misma gráfica, con colores distintos y una leyenda clara. Eje X: concentración (kg/m³). Eje Y: densidad (kg/m³).</li>
+            <li><strong>Calcula la pendiente m</strong> de cada sustancia usando dos puntos de la tabla.</li>
+            <li><strong>Escribe la ecuación</strong> de cada recta en la forma \(y = m \cdot x + n\).</li>
+            <li>Con la densidad de la muestra (1080 kg/m³), <strong>calcula la concentración que predice cada sustancia</strong> y compárala con la concentración real de la muestra (80 kg/m³).</li>
+            <li><strong>Identifica la sustancia culpable</strong> y justifica la respuesta con los números.</li>
+        </ol>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 4
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-shield-halved"></i> Misión 4. ¿Es peligrosa la sustancia?
+    </h2>
+    <p>
+        Ya sabéis cuál es la sustancia responsable. Ahora el ayuntamiento necesita saber <strong>si es peligrosa</strong> para las personas, los animales y el medio ambiente, y qué precauciones hay que tomar para manipular la muestra y limpiar el lago.
+    </p>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-skull-crossbones"></i> La etiqueta del bidón encontrado</div>
+        <p>
+            Junto al lago, los agentes medioambientales han encontrado un bidón abandonado. La etiqueta está medio borrada, pero se distinguen <strong>dos pictogramas</strong> y parte de una frase:
+        </p>
+        <div class="gs-pictogramas-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+            <div class="gs-pictograma-card">
+                <img class="gs-pictograma-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-exclam.svg" alt="Pictograma de irritante">
+                <span class="gs-pictograma-nombre">Irritante</span>
+                <p class="gs-pictograma-desc">Irrita la piel, los ojos o las vías respiratorias.</p>
+            </div>
+            <div class="gs-pictograma-card">
+                <img class="gs-pictograma-img" src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-pollu.svg" alt="Pictograma de peligro para el medio ambiente">
+                <span class="gs-pictograma-nombre">Peligro para el medio ambiente</span>
+                <p class="gs-pictograma-desc">Tóxico para la fauna y flora acuática.</p>
+            </div>
+        </div>
+        <p style="margin-top: 15px;">
+            La frase parcial que se lee es: <em>«...provoca irritación cutánea. Muy tóxico para los organismos acuáticos...»</em>. Y el nombre del producto empieza por <strong>"NITRATO..."</strong>.
+        </p>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-flask"></i> ¿Es peligroso el nitrato de potasio?</div>
+        <p>
+            El nitrato de potasio (KNO₃) es una sustancia <strong>irritante</strong> para la piel y los ojos, y en grandes cantidades puede ser <strong>peligroso para el medio ambiente acuático</strong>. Aunque se usa habitualmente como fertilizante, un <strong>vertido masivo</strong> provoca:
+        </p>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Eutrofización</strong>: exceso de nutrientes que dispara el crecimiento de algas. Al descomponerse, consumen el oxígeno del agua y los peces mueren asfixiados.</li>
+            <li><strong>Irritación</strong> en piel y mucosas si se manipula sin protección.</li>
+            <li><strong>Contaminación de aguas subterráneas</strong> si se filtra al subsuelo.</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 4</div>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Interpreta los pictogramas</strong> de la etiqueta: ¿qué significan? ¿Qué precauciones implican al manipular el producto?</li>
+            <li><strong>Redacta una ficha de seguridad</strong> breve del nitrato de potasio, con: nombre, fórmula, pictogramas, riesgos principales y consejos de manipulación.</li>
+            <li><strong>Explica con tus palabras</strong> qué es la eutrofización y por qué mata a los peces. ¿Crees que el vertido fue intencionado o accidental? Justifica.</li>
+            <li><strong>Propón 3 medidas</strong> para evitar que vuelva a ocurrir un vertido así en el lago.</li>
+        </ol>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 5
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-file-pen"></i> Misión 5. Informe técnico al ayuntamiento
+    </h2>
+    <p>
+        Habéis llegado al final de la investigación. Toca entregar el <strong>informe técnico oficial</strong> al ayuntamiento, como haría cualquier equipo de analistas químicos profesional. Este informe es el <strong>producto final</strong> de la situación de aprendizaje y servirá como evaluación de la unidad.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-clipboard-list"></i> Estructura del informe</div>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Portada:</strong> título del informe, nombres del equipo y roles, curso, fecha y logo o anagrama del equipo.</li>
+            <li><strong>Resumen ejecutivo:</strong> en 5-8 líneas, contad qué ha pasado en el lago, qué habéis descubierto y qué recomendáis. Es lo primero que leerá el alcalde, así que debe ser claro y directo.</li>
+            <li><strong>Metodología:</strong> explicad cómo habéis trabajado: qué datos os dio el ayuntamiento, cómo los habéis tratado, qué gráfica habéis construido y por qué. Mencionad brevemente las fases del método científico que habéis seguido.</li>
+            <li><strong>Resultados:</strong> incluíd la tabla con las densidades convertidas al SI, la gráfica comparativa de las 4 candidatas y la sustancia identificada, con su concentración.</li>
+            <li><strong>Análisis de peligrosidad:</strong> ficha de seguridad del nitrato de potasio, pictogramas, riesgos para el medio ambiente y explicación de la eutrofización.</li>
+            <li><strong>Recomendaciones:</strong> al menos 3 medidas concretas para limpiar el lago y evitar futuros vertidos.</li>
+            <li><strong>Conclusión personal:</strong> qué habéis aprendido con esta investigación, y qué haríais distinto si volvierais a empezar.</li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto final</div>
+        <p>
+            <strong>Formato:</strong> folio A4 o A3, con estructura clara, gráfica incluida y portada con los roles del equipo.
+        </p>
+        <p>
+            <strong>Entrega y exposición:</strong> el informe se entregará al profesorado y se expondrá brevemente en clase (5 minutos por equipo). El portavoz presentará las conclusiones principales y responderá a las preguntas que planteen los compañeros.
+        </p>
+        <p style="margin-bottom: 0;">
+            <strong>Adaptación individual:</strong> si algún alumno o alumna lo prefiere, puede entregar el informe de forma individual en lugar de en grupo. En ese caso, asume todos los roles del equipo. La evaluación se ajustará al trabajo presentado.
+        </p>
+    </div>
+
+    <!-- CRITERIOS DE EVALUACIÓN -->
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-check-double"></i> Qué se va a evaluar</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Rigor científico:</strong> los datos están bien tratados, las conversiones son correctas y la sustancia identificada es la correcta.</li>
+            <li><strong>Uso de unidades SI y notación científica:</strong> todas las magnitudes se expresan correctamente.</li>
+            <li><strong>Interpretación de gráficas:</strong> se han representado correctamente y se ha extraído la información necesaria.</li>
+            <li><strong>Identificación de peligros:</strong> pictogramas correctamente interpretados y riesgos bien explicados.</li>
+            <li><strong>Redacción y presentación:</strong> informe ordenado, claro, con portada y estructura bien definidas.</li>
+            <li><strong>Trabajo en equipo:</strong> todos los miembros han participado y han asumido su rol.</li>
+            <li><strong>Reflexión personal:</strong> la conclusión demuestra un aprendizaje real y transferible.</li>
+        </ul>
+    </div>
+
+    <!-- SOLUCIONARIO PROTEGIDO -->
+    <div class="sol-lock-box" data-unit="3eso_ud1_sda">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--gs-primary);">Solucionario Oficial</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos facilitado por tu docente para comprobar las soluciones de las misiones.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener('gs-ready', function () {
+
+    if (!document.getElementById('box_sda_lago')) return;
+
+    const bSda = JXG.JSXGraph.initBoard('box_sda_lago', {
+        boundingbox: [0, 1120, 110, 990],
+        axis: true,
+        showCopyright: false,
+        showNavigation: false,
+        defaultAxes: {
+            x: { strokeColor: '#64748b', strokeWidth: 1 },
+            y: { strokeColor: '#64748b', strokeWidth: 1 }
+        }
+    });
+
+    // Datos reales de la tabla (en kg/m³)
+    const candidatas = [
+        { nombre: 'KNO₃',      color: '#16a34a', datos: [[0,1000],[20,1012],[40,1024],[60,1037],[80,1050],[100,1062]] },
+        { nombre: 'CaCl₂',     color: '#dc2626', datos: [[0,1000],[20,1018],[40,1036],[60,1054],[80,1072],[100,1090]] },
+        { nombre: 'Ác. cítrico', color: '#b45309', datos: [[0,1000],[20,1008],[40,1016],[60,1024],[80,1032],[100,1040]] },
+        { nombre: 'NaCl',      color: '#2563eb', datos: [[0,1000],[20,1014],[40,1028],[60,1042],[80,1057],[100,1071]] }
+        // CuSO₄ descartado (contiene cobre)
+    ];
+
+    // Dibujar las rectas de las candidatas
+    candidatas.forEach(cand => {
+        // Puntos de la tabla
+        cand.datos.forEach(pt => {
+            bSda.create('point', pt, {
+                name: '', color: cand.color, size: 3, fixed: true, withLabel: false
+            });
+        });
+        // Recta entre el primer y último punto (todas son lineales)
+        bSda.create('line', [cand.datos[0], cand.datos[cand.datos.length - 1]], {
+            strokeColor: cand.color, strokeWidth: 2.5
+        });
+        // Etiqueta al final de la recta
+        const ultimo = cand.datos[cand.datos.length - 1];
+        bSda.create('text', [ultimo[0] + 3, ultimo[1] + 5, cand.nombre], {
+            fontSize: 12, color: cand.color, fixed: true
+        });
+    });
+
+    // Línea horizontal: densidad de la muestra del lago (1080 kg/m³)
+    bSda.create('line', [[0, 1080], [110, 1080]], {
+        strokeColor: '#000000', strokeWidth: 2, dash: 2
+    });
+    bSda.create('text', [2, 1085, 'Densidad muestra lago: 1080 kg/m³'], {
+        fontSize: 11, color: '#000000', fixed: true
+    });
+
+    // Línea vertical: concentración estimada de la muestra (80 kg/m³)
+    bSda.create('line', [[80, 990], [80, 1120]], {
+        strokeColor: '#000000', strokeWidth: 1, dash: 1
+    });
+    bSda.create('text', [82, 995, 'Concentración\nmuestra: 80'], {
+        fontSize: 10, color: '#475569', fixed: true
+    });
+
+    // Punto de cruce de la muestra problema
+    bSda.create('point', [80, 1080], {
+        name: 'Muestra',
+        color: '#000000',
+        size: 6,
+        fixed: true,
+        label: { offset: [10, -15], fontSize: 11, color: '#000000' }
+    });
+
+    // Marcador inicial: sin identificar
+    GS.setPanel('sda-sospechoso', 'Observa las rectas');
+
+});
+</script>
+
+</body>
+</html>
