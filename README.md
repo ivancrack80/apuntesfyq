@@ -23,21 +23,22 @@ apuntesfyq/
 │   ├── guia-evaluacion.html       ← Guía de evaluación del curso
 │   └── ud1/
 │       ├── README.md              ← Resumen de la unidad
-│       ├── 2eso_ud1_0.html        ← Portada de la unidad
-│       ├── 2eso_ud1_1.html        ← Punto 1
-│       ├── 2eso_ud1_2.html        ← Punto 2
+│       ├── 2eso_ud1_00.html        ← Portada de la unidad
+│       ├── 2eso_ud1_01.html        ← Punto 1
+│       ├── 2eso_ud1_02.html        ← Punto 2
 │       └── ...
 ├── 3eso/
 │   ├── presentacion.html
 │   ├── guia-evaluacion.html
 │   └── ud1/
 │       ├── README.md
-│       ├── 3eso_ud1_0.html        ← Portada
-│       ├── 3eso_ud1_1.html        ← Punto 1: Método científico
-│       ├── 3eso_ud1_2.html        ← Punto 2: Magnitudes y SI
-│       ├── 3eso_ud1_3.html        ← Punto 3: Laboratorio
-│       ├── 3eso_ud1_4.html        ← Punto 4: Datos y gráficas
+│       ├── 3eso_ud1_00.html        ← Portada
+│       ├── 3eso_ud1_01.html        ← Punto 1: Método científico
+│       ├── 3eso_ud1_02.html        ← Punto 2: Magnitudes y SI
+│       ├── 3eso_ud1_03.html        ← Punto 3: Laboratorio
+│       ├── 3eso_ud1_04.html        ← Punto 4: Datos y gráficas
 │       ├── 3eso_ud1_sda.html      ← Situación de Aprendizaje
+│       ├── 3eso_ud1_actfin.html      ← Actividades finales de repaso
 │       └── js/
 │           └── ud1_02.js          ← JS local (solo afecta a ud1_2)
 ├── 4eso/
