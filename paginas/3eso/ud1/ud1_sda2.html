@@ -7,6 +7,71 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
     <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+
+    <style>
+        /* Recorte de pictogramas rotos con borde irregular (zigzag) */
+        .gs-rotura-izq {
+            clip-path: polygon(
+                0% 0%, 45% 0%, 52% 6%, 44% 12%, 54% 18%, 46% 24%,
+                56% 30%, 48% 36%, 58% 42%, 50% 48%, 60% 54%, 52% 60%,
+                62% 66%, 54% 72%, 64% 78%, 56% 84%, 66% 90%, 58% 96%,
+                62% 100%, 0% 100%
+            );
+        }
+        .gs-rotura-der {
+            clip-path: polygon(
+                100% 0%, 55% 0%, 48% 6%, 56% 12%, 46% 18%, 54% 24%,
+                44% 30%, 52% 36%, 42% 42%, 50% 48%, 40% 54%, 48% 60%,
+                38% 66%, 46% 72%, 36% 78%, 44% 84%, 34% 90%, 42% 96%,
+                38% 100%, 100% 100%
+            );
+        }
+        .gs-pictograma-roto {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+        }
+        .gs-pictograma-roto img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .gs-validacion-box {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .gs-validacion-box input {
+            padding: 8px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            width: 200px;
+        }
+        .gs-validacion-box button {
+            background-color: var(--gs-primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .gs-validacion-msg {
+            margin-top: 10px;
+            font-weight: 600;
+            display: none;
+        }
+        .gs-validacion-msg.ok { color: #16a34a; display: block; }
+        .gs-validacion-msg.err { color: #dc2626; display: block; }
+    </style>
 </head>
 <body>
 
@@ -57,6 +122,7 @@
             <li>La última misión integra todo y da lugar al <strong>informe técnico final</strong>.</li>
             <li>Cada misión repasa uno de los cuatro puntos de la Unidad 1.</li>
             <li>Trabajaréis en <strong>equipos de 3-4 personas</strong>, con roles asignados (ver más abajo).</li>
+            <li>Las misiones 1 a 4 se realizarán en <strong>dos sesiones de clase</strong>, sobre folios que se recogerán y devolverán corregidos. El informe final (misión 5) se entrega posteriormente.</li>
         </ul>
     </div>
 
@@ -67,7 +133,7 @@
             <li><strong>Coordinador/a:</strong> organiza el trabajo, controla los tiempos y se asegura de que todos participen.</li>
             <li><strong>Analista de datos:</strong> se encarga de las tablas, los cálculos y las gráficas.</li>
             <li><strong>Responsable de seguridad:</strong> revisa que se cumplan las normas del laboratorio y consulta los pictogramas.</li>
-            <li><strong>Portavoz / redactor/a:</strong> redacta el informe final y lo presenta en clase.</li>
+            <li><strong>Portavoz / redactor/a:</strong> redacta el informe final.</li>
         </ul>
         <p style="margin-top: 10px; margin-bottom: 0; font-size: 0.9rem; color: #475569;"><em>Si sois tres, el rol de portavoz puede asumirlo el coordinador/a.</em></p>
     </div>
@@ -88,14 +154,20 @@
             «Muestra tomada el lunes a las 9:15 h en la orilla norte del lago. Se han realizado las siguientes medidas:
             <br><br>
             · Densidad del agua: <strong>1,08 g/cm³</strong>.<br>
-            · Concentración de sólidos disueltos: <strong>8,0 mg/dL</strong>.<br>
+            · Concentración de sólidos disueltos: <strong>8,0 · 10² mg/dL</strong>.<br>
             · Temperatura del agua: <strong>289 K</strong>.<br>
-            · Volumen de muestra recogida: <strong>500 mL</strong>.<br>
+            · Volumen de muestra recogida: <strong>5,0 · 10⁻¹ L</strong>.<br>
             · Masa total de la muestra: <strong>5,4 · 10² g</strong>.<br>
-            · Contenido en cobre (Cu): <strong>0 µg/dL</strong>.<br>
+            · Contenido en cobre (Cu): <strong>1 · 10⁻⁴ µg/dL</strong> (valor residual).<br>
             · pH: <strong>6,9</strong>.
             <br><br>
-            Se sospecha que el origen puede estar en uno de los cinco productos químicos que se utilizan en la zona: <strong>nitrato de potasio</strong>, <strong>cloruro de calcio</strong>, <strong>ácido cítrico</strong>, <strong>sulfato de cobre(II)</strong> o <strong>cloruro de sodio</strong>.»
+            Se sospecha que el origen puede estar en uno de los cinco productos químicos que se utilizan en la zona:
+            <br>
+            <strong>Sustancia 1</strong> — nitrato de potasio (fertilizante agrícola)<br>
+            <strong>Sustancia 2</strong> — cloruro de calcio (fundente para carreteras)<br>
+            <strong>Sustancia 3</strong> — ácido cítrico (aditivo alimentario)<br>
+            <strong>Sustancia 4</strong> — sulfato de cobre(II) (fungicida)<br>
+            <strong>Sustancia 5</strong> — cloruro de sodio (sal común)»
         </blockquote>
     </div>
 
@@ -132,32 +204,34 @@
                 <thead>
                     <tr>
                         <th>Concentración (g/L)</th>
-                        <th>KNO₃</th>
-                        <th>CaCl₂</th>
-                        <th>Ác. cítrico</th>
-                        <th>CuSO₄</th>
-                        <th>NaCl</th>
+                        <th>Sust. 1</th>
+                        <th>Sust. 2</th>
+                        <th>Sust. 3</th>
+                        <th>Sust. 4</th>
+                        <th>Sust. 5</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr><td>0</td><td>1,000</td><td>1,000</td><td>1,000</td><td>1,000</td><td>1,000</td></tr>
-                    <tr><td>20</td><td>1,020</td><td>1,018</td><td>1,008</td><td>1,025</td><td>1,014</td></tr>
-                    <tr><td>40</td><td>1,040</td><td>1,036</td><td>1,016</td><td>1,050</td><td>1,028</td></tr>
-                    <tr><td>60</td><td>1,060</td><td>1,054</td><td>1,024</td><td>1,075</td><td>1,043</td></tr>
-                    <tr><td>80</td><td><strong>1,080</strong></td><td>1,072</td><td>1,032</td><td>1,100</td><td>1,057</td></tr>
+                    <tr><td>25</td><td>1,025</td><td>1,023</td><td>1,010</td><td>1,031</td><td>1,018</td></tr>
+                    <tr><td>50</td><td>1,050</td><td>1,045</td><td>1,020</td><td>1,063</td><td>1,036</td></tr>
+                    <tr><td>75</td><td>1,075</td><td>1,068</td><td>1,030</td><td>1,094</td><td>1,053</td></tr>
                     <tr><td>100</td><td>1,100</td><td>1,090</td><td>1,040</td><td>1,125</td><td>1,071</td></tr>
                 </tbody>
             </table>
         </div>
+        <p style="margin-top: 12px; font-size: 0.9rem; color: #475569;">
+            <em>Nota: en el informe se identifican las sustancias por número (1 a 5). La lista completa con sus nombres está en la misión 1.</em>
+        </p>
     </div>
 
     <div class="gs-box gs-comprender">
         <div class="gs-comprender-title"><i class="fa-solid fa-circle-question"></i> Datos de la muestra problema</div>
         <ul style="margin-bottom: 0;">
             <li><strong>Densidad de la muestra del lago:</strong> 1,08 g/cm³.</li>
-            <li><strong>Concentración de sólidos disueltos:</strong> 8,0 mg/dL.</li>
+            <li><strong>Concentración de sólidos disueltos:</strong> 8,0 · 10² mg/dL.</li>
             <li><strong>Temperatura:</strong> 289 K.</li>
-            <li><strong>Contenido en cobre:</strong> 0 µg/dL.</li>
+            <li><strong>Contenido en cobre:</strong> 1 · 10⁻⁴ µg/dL (valor residual).</li>
             <li><strong>pH:</strong> 6,9 (neutro, dentro de la normalidad).</li>
         </ul>
     </div>
@@ -185,9 +259,9 @@
     <div class="gs-box gs-comprender">
         <div class="gs-comprender-title"><i class="fa-solid fa-chart-simple"></i> Ejemplo de cómo representar la gráfica</div>
         <p>
-            Antes de representar vuestras cuatro gráficas, observad este ejemplo construido con una sustancia ficticia. Sirve para recordar cómo se coloca cada eje y qué aspecto tiene la recta resultante.
+            Antes de representar vuestras cuatro gráficas, observad este ejemplo construido con una sustancia ficticia. Sirve para recordar cómo se coloca cada eje y qué aspecto tiene la recta resultante. Podéis usar los botones <strong>+</strong> y <strong>−</strong> para acercar o alejar la vista.
         </p>
-        <div class="gs-graph-wrapper" style="max-width: 480px; margin: 0 auto;">
+        <div class="gs-graph-wrapper" style="max-width: 520px; margin: 0 auto;">
             <div id="box_ejemplo_sda" class="jxgbox" style="aspect-ratio: 4/3;"></div>
         </div>
         <p style="margin-top: 10px; font-size: 0.9rem; color: #475569;">
@@ -197,21 +271,31 @@
 
     <div class="gs-box gs-comprender">
         <div class="gs-comprender-title"><i class="fa-solid fa-lightbulb"></i> Antes de empezar, pensad</div>
+        <p>Recordad los tipos de gráficos que habéis estudiado en esta unidad y sus características:</p>
         <ul style="margin-bottom: 0;">
-            <li>¿Qué forma esperáis que tenga cada gráfica? ¿Recta, parábola, hipérbola?</li>
-            <li>¿Pasará la recta por el origen (0, 0)? ¿Por qué?</li>
-            <li>¿Qué creéis que representa la <strong>ordenada en el origen</strong> en este contexto? ¿Y la <strong>pendiente</strong>?</li>
+            <li><strong>Proporcionalidad directa:</strong> recta que pasa por el origen. Ecuación \(y = k \cdot x\).</li>
+            <li><strong>Relación lineal:</strong> recta que no pasa por el origen. Ecuación \(y = m \cdot x + n\).</li>
+            <li><strong>Proporcionalidad inversa:</strong> hipérbola. Ecuación \(y = k / x\).</li>
         </ul>
+        <p style="margin-top: 10px; margin-bottom: 0;">
+            ¿Qué tipo de relación esperáis encontrar entre densidad y concentración? ¿Por qué?
+        </p>
     </div>
 
     <div class="gs-box gs-aplicar">
         <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 3</div>
         <ol style="margin-bottom: 0;">
-            <li>Representad <strong>una gráfica por cada sustancia candidata</strong> (descartando las que hayáis eliminado en la misión anterior). Eje X: concentración en kg/m³. Eje Y: densidad en kg/m³.</li>
+            <li>Representad <strong>una gráfica por cada sustancia candidata</strong> (descartando las que hayáis eliminado en la misión anterior). Eje X: concentración en kg/m³. Eje Y: densidad en kg/m³. <em>Repartíos las gráficas entre los miembros del equipo.</em></li>
             <li>Para cada gráfica, calculad la <strong>pendiente</strong> \(m\) usando dos puntos de la tabla.</li>
             <li>Escribid la <strong>ecuación</strong> de cada recta en la forma \(y = m \cdot x + n\).</li>
             <li>Responded: <strong>¿por qué en todas las gráficas el valor de \(n\) es el mismo? ¿Tiene sentido físico?</strong></li>
-            <li>Con la densidad de la muestra del lago (1080 kg/m³), <strong>calculad la concentración que predice cada sustancia</strong> y comparadla con la concentración real de la muestra. ¿Qué sustancia se ajusta mejor?</li>
+            <li>Con la densidad de la muestra del lago (1,08 g/cm³), <strong>calculad la concentración que predice cada sustancia</strong> de dos formas:
+                <ul>
+                    <li><strong>Analíticamente:</strong> sustituyendo la densidad de la muestra en la ecuación de cada recta.</li>
+                    <li><strong>Gráficamente:</strong> leyendo sobre la gráfica el valor de la concentración correspondiente a esa densidad.</li>
+                </ul>
+            </li>
+            <li>Comparad los resultados con la concentración de la muestra (8,0 · 10² mg/dL, ya pasada al SI en la misión 2). <strong>¿Qué sustancia se ajusta mejor?</strong></li>
             <li><strong>Identificad la sustancia culpable</strong> y justificad la respuesta con los números.</li>
         </ol>
     </div>
@@ -223,42 +307,55 @@
         <i class="fa-solid fa-shield-halved"></i> Misión 4. ¿Es peligrosa la sustancia?
     </h2>
     <p>
-        Ya sabéis cuál es la sustancia responsable. Ahora el ayuntamiento necesita saber <strong>si es peligrosa</strong> para las personas, los animales y el medio ambiente, y qué precauciones hay que tomar para manipular la muestra y limpiar el lago.
+        Ya tenéis una sospechosa. Ahora el ayuntamiento necesita saber <strong>si es peligrosa</strong> para las personas, los animales y el medio ambiente, y qué precauciones hay que tomar para manipular la muestra y limpiar el lago.
     </p>
 
     <div class="gs-box gs-lectura">
         <div class="gs-lectura-title"><i class="fa-solid fa-skull-crossbones"></i> La etiqueta del bidón encontrado</div>
         <p>
-            Junto al lago, los agentes medioambientales han encontrado un bidón abandonado. La etiqueta está muy deteriorada: los pictogramas se han partido por la mitad y no se lee el nombre del producto. Solo se distinguen <strong>dos fragmentos de pictogramas</strong>:
+            Junto al lago, los agentes medioambientales han encontrado un bidón abandonado. La etiqueta está muy deteriorada: los pictogramas se han roto y no se lee el nombre del producto. Solo se distinguen <strong>dos fragmentos</strong> de pictogramas:
         </p>
 
-        <div class="gs-pictogramas-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div class="gs-pictogramas-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
 
             <div class="gs-pictograma-card">
-                <div style="width: 100px; height: 100px; overflow: hidden; margin: 0 auto; position: relative;">
+                <div class="gs-pictograma-roto">
                     <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-exclam.svg"
                          alt="Fragmento de pictograma"
-                         style="width: 200px; height: 100px; position: absolute; left: 0; top: 0; transform: rotate(-25deg); transform-origin: center;">
+                         class="gs-rotura-izq">
                 </div>
-                <span class="gs-pictograma-nombre">Fragmento 1</span>
-                <p class="gs-pictograma-desc">Solo se ve una esquina del símbolo.</p>
+                <span class="gs-pictograma-nombre">Fragmento A</span>
+                <p class="gs-pictograma-desc">Se conserva la mitad izquierda del símbolo.</p>
             </div>
 
             <div class="gs-pictograma-card">
-                <div style="width: 100px; height: 100px; overflow: hidden; margin: 0 auto; position: relative;">
+                <div class="gs-pictograma-roto">
                     <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-pollu.svg"
                          alt="Fragmento de pictograma"
-                         style="width: 200px; height: 100px; position: absolute; right: 0; top: 0; transform: rotate(25deg); transform-origin: center;">
+                         class="gs-rotura-der">
                 </div>
-                <span class="gs-pictograma-nombre">Fragmento 2</span>
-                <p class="gs-pictograma-desc">Solo se ve la otra mitad del símbolo.</p>
+                <span class="gs-pictograma-nombre">Fragmento B</span>
+                <p class="gs-pictograma-desc">Se conserva la mitad derecha del símbolo.</p>
             </div>
 
         </div>
 
         <p style="margin-top: 20px;">
-            En el análisis químico del bidón, el laboratorio ha confirmado que el producto contiene <strong>nitrato de potasio</strong> como componente principal. Este resultado <strong>confirma</strong> la identificación que habéis hecho en la misión 3.
+            Para confirmar la identificación, el laboratorio municipal ha analizado el contenido del bidón. <strong>Introducid el número de la sustancia que habéis identificado en la misión 3</strong> para ver el resultado del análisis.
         </p>
+
+        <div class="gs-validacion-box">
+            <input type="number" id="sdaValidacion" min="1" max="5" placeholder="Nº de sustancia (1-5)">
+            <button onclick="validarSustanciaSdA()">Comprobar</button>
+        </div>
+        <p id="sdaValidacionMsg" class="gs-validacion-msg"></p>
+
+        <div id="sdaConfirmacion" style="display: none; margin-top: 20px; padding: 15px; background: #f0fdf4; border-left: 4px solid #16a34a; border-radius: 6px;">
+            <strong style="color: #166534;"><i class="fa-solid fa-circle-check"></i> Análisis confirmado</strong>
+            <p style="margin: 8px 0 0 0;">
+                El laboratorio municipal confirma que el contenido del bidón es <strong>nitrato de potasio (KNO₃)</strong>, coincidiendo con vuestra identificación. Se trata de un fertilizante agrícola de uso común, pero su vertido masivo al lago ha provocado la eutrofización de las aguas.
+            </p>
+        </div>
     </div>
 
     <div class="gs-box gs-comprender">
@@ -294,7 +391,7 @@
         <ol style="margin-bottom: 0;">
             <li><strong>Portada:</strong> título del informe, nombres del equipo y roles, curso, fecha y logo o anagrama del equipo.</li>
             <li><strong>Resumen ejecutivo:</strong> en 5-8 líneas, contad qué ha pasado en el lago, qué habéis descubierto y qué recomendáis. Es lo primero que leerá el alcalde, así que debe ser claro y directo.</li>
-            <li><strong>Metodología:</strong> explicad cómo habéis trabajado: qué datos os dio el ayuntamiento, cómo los habéis tratado, qué gráfica habéis construido y por qué. Mencionad brevemente las fases del método científico que habéis seguido.</li>
+            <li><strong>Metodología:</strong> explicad cómo habéis trabajado: qué datos os dio el ayuntamiento, cómo los habéis tratado, qué gráficas habéis construido y por qué. Mencionad brevemente las fases del método científico que habéis seguido.</li>
             <li><strong>Resultados:</strong> incluíd la tabla con las densidades convertidas al SI, las cuatro gráficas comparativas y la sustancia identificada, con su concentración estimada.</li>
             <li><strong>Análisis de peligrosidad:</strong> ficha de seguridad del nitrato de potasio, pictogramas, riesgos para el medio ambiente y explicación de la eutrofización.</li>
             <li><strong>Recomendaciones:</strong> al menos 3 medidas concretas para limpiar el lago y evitar futuros vertidos.</li>
@@ -305,10 +402,10 @@
     <div class="gs-box gs-aplicar">
         <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto final</div>
         <p>
-            <strong>Formato:</strong> folio A4 o A3, con estructura clara, gráfica incluida y portada con los roles del equipo.
+            <strong>Formato:</strong> folio A4 o A3, con estructura clara, gráficas incluidas y portada con los roles del equipo.
         </p>
         <p>
-            <strong>Entrega y exposición:</strong> el informe se entregará al profesorado y se expondrá brevemente en clase (5 minutos por equipo). El portavoz presentará las conclusiones principales y responderá a las preguntas que planteen los compañeros.
+            <strong>Entrega:</strong> el informe se entregará al profesorado en la fecha indicada. No habrá exposición oral.
         </p>
         <p style="margin-bottom: 0;">
             <strong>Adaptación individual:</strong> si algún alumno o alumna lo prefiere, puede entregar el informe de forma individual en lugar de en grupo. En ese caso, asume todos los roles del equipo. La evaluación se ajustará al trabajo presentado.
@@ -363,18 +460,30 @@ document.addEventListener('gs-ready', function () {
     // ============ GRÁFICA DE EJEMPLO (sustancia ficticia) ============
     if (document.getElementById('box_ejemplo_sda')) {
         const bEj = JXG.JSXGraph.initBoard('box_ejemplo_sda', {
-            boundingbox: [0, 1150, 120, 980],
+            boundingbox: [-10, 1150, 130, 980],
             axis: true,
             showCopyright: false,
-            showNavigation: false,
+            showNavigation: true,
             defaultAxes: {
-                x: { strokeColor: '#64748b', strokeWidth: 1, name: 'Concentración (kg/m³)', withLabel: true, label: { position: 'right', offset: [-70, -20], fontSize: 11, color: '#475569' } },
-                y: { strokeColor: '#64748b', strokeWidth: 1, name: 'Densidad (kg/m³)', withLabel: true, label: { position: 'top', offset: [-10, 5], fontSize: 11, color: '#475569' } }
+                x: {
+                    strokeColor: '#64748b',
+                    strokeWidth: 1,
+                    name: 'Concentración (kg/m³)',
+                    withLabel: true,
+                    label: { position: 'right', offset: [-120, -20], fontSize: 12, color: '#1e293b' }
+                },
+                y: {
+                    strokeColor: '#64748b',
+                    strokeWidth: 1,
+                    name: 'Densidad (kg/m³)',
+                    withLabel: true,
+                    label: { position: 'top', offset: [-10, 10], fontSize: 12, color: '#1e293b' }
+                }
             }
         });
 
         // Sustancia ficticia "X" con pendiente 0,8
-        const datosX = [[0, 1000], [20, 1016], [40, 1032], [60, 1048], [80, 1064], [100, 1080]];
+        const datosX = [[0, 1000], [25, 1020], [50, 1040], [75, 1060], [100, 1080]];
 
         datosX.forEach(pt => {
             bEj.create('point', pt, { name: '', color: '#dc2626', size: 3, fixed: true });
@@ -384,12 +493,40 @@ document.addEventListener('gs-ready', function () {
             strokeColor: '#16a34a', strokeWidth: 2.5
         });
 
-        bEj.create('text', [5, 1105, 'Sustancia ficticia de ejemplo'], {
+        bEj.create('text', [10, 1105, 'Sustancia ficticia de ejemplo'], {
             fontSize: 12, color: '#166534', fixed: true
         });
     }
 
 });
+
+// ============ VALIDACIÓN DE LA SUSTANCIA (Misión 4) ============
+function validarSustanciaSdA() {
+    const input = document.getElementById('sdaValidacion');
+    const msg = document.getElementById('sdaValidacionMsg');
+    const confirmacion = document.getElementById('sdaConfirmacion');
+
+    if (!input || !msg) return;
+
+    const valor = parseInt(input.value, 10);
+
+    if (isNaN(valor) || valor < 1 || valor > 5) {
+        msg.className = 'gs-validacion-msg err';
+        msg.textContent = 'Introduce un número del 1 al 5.';
+        confirmacion.style.display = 'none';
+        return;
+    }
+
+    if (valor === 1) {
+        msg.className = 'gs-validacion-msg ok';
+        msg.textContent = '✓ Identificación correcta. Aquí tienes el análisis del laboratorio:';
+        confirmacion.style.display = 'block';
+    } else {
+        msg.className = 'gs-validacion-msg err';
+        msg.textContent = '✗ Esa no es la sustancia. Revisad vuestros cálculos y volved a intentarlo.';
+        confirmacion.style.display = 'none';
+    }
+}
 </script>
 
 </body>
