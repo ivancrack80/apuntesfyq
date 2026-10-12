@@ -19,8 +19,8 @@ apuntesfyq/
 ├── pictogramas/                   ← SVGs de pictogramas GHS
 ├── materiales/                    ← Fotos del material de laboratorio
 ├── 2eso/
-│   ├── presentacion.html          ← Presentación del curso
-│   ├── guia-evaluacion.html       ← Guía de evaluación del curso
+│   ├── info.html          ← Presentación del curso
+│   ├── criterios.html       ← Guía de evaluación del curso
 │   └── ud1/
 │       ├── README.md              ← Resumen de la unidad
 │       ├── 2eso_ud1_00.html        ← Portada de la unidad
@@ -28,8 +28,8 @@ apuntesfyq/
 │       ├── 2eso_ud1_02.html        ← Punto 2
 │       └── ...
 ├── 3eso/
-│   ├── presentacion.html
-│   ├── guia-evaluacion.html
+│   ├── info.html
+│   ├── criterios.html
 │   └── ud1/
 │       ├── README.md
 │       ├── 3eso_ud1_00.html        ← Portada
@@ -42,8 +42,8 @@ apuntesfyq/
 │       └── js/
 │           └── ud1_02.js          ← JS local (solo afecta a ud1_2)
 ├── 4eso/
-│   ├── presentacion.html
-│   ├── guia-evaluacion.html
+│   ├── info.html
+│   ├── criterios.html
 │   └── ud1/
 │       └── ...
 └── GUIA.md                        ← Este archivo
@@ -53,8 +53,8 @@ apuntesfyq/
 
 - **Carpetas de curso:** `2eso/`, `3eso/`, `4eso/`.
 - **Carpetas de unidad:** `ud1/`, `ud2/`, ...
-- **Archivos HTML:** `{curso}_ud{N}_{M}.html`, donde `M` es el número de
-  página (`0` = portada, `1..n` = apartados, `sda` = situación de aprendizaje).
+- **Archivos HTML:** `{curso}_ud{N}_{MM}.html`, donde `M` es el número de
+  página (`00` = portada, `01..n` = apartados, `sda` = situación de aprendizaje).
 - **IDs de unidad para el solucionario:** `{curso}_ud{N}_{M}` (ej: `3eso_ud1_2`).
 - **JS local de una página:** dentro de `ud{N}/js/`, con nombre `ud{N}_{MM}.js`
   (ej: `ud1/js/ud1_02.js`).
@@ -81,13 +81,13 @@ Cada unidad sigue **siempre** este patrón:
 
 | Página | Contenido |
 |---|---|
-| `udX_0.html` | **Portada**: gancho + ruta de la unidad + debate inicial |
-| `udX_1.html` | **Punto de estudio 1** + actividades |
-| `udX_2.html` | **Punto de estudio 2** + actividades |
-| `udX_3.html` | **Punto de estudio 3** + actividades |
-| `udX_4.html` | **Punto de estudio 4** + actividades |
+| `udX_00.html` | **Portada**: gancho + ruta de la unidad + debate inicial |
+| `udX_01.html` | **Punto de estudio 1** + actividades |
+| `udX_02.html` | **Punto de estudio 2** + actividades |
+| `udX_03.html` | **Punto de estudio 3** + actividades |
+| `udX_04.html` | **Punto de estudio 4** + actividades |
 | `udX_sda.html` | **Situación de Aprendizaje** (página independiente) |
-| (opcional) | **Actividades finales** de la unidad |
+| `udX_actfin.html` | **Actividades finales** de la unidad |
 
 ### Orden interno de una página de punto de estudio
 
