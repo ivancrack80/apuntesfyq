@@ -778,7 +778,9 @@ li { margin-bottom: 8px; text-align: justify; }
     color: #7f1d1d;
 }
 
-/* 12. Utilidades: recortes e imágenes rotas */
+/* ==========================================================================
+   12. UTILIDADES: RECORTES E IMÁGENES ROTAS
+   ========================================================================== */
 
 .gs-img-roto {
     width: 120px;
@@ -797,7 +799,6 @@ li { margin-bottom: 8px; text-align: justify; }
     object-fit: contain;
 }
 
-/* Mitad izquierda con borde irregular */
 .gs-roto-izq {
     clip-path: polygon(
         0% 0%, 45% 0%, 52% 6%, 44% 12%, 54% 18%, 46% 24%,
@@ -807,7 +808,6 @@ li { margin-bottom: 8px; text-align: justify; }
     );
 }
 
-/* Mitad derecha con borde irregular */
 .gs-roto-der {
     clip-path: polygon(
         100% 0%, 55% 0%, 48% 6%, 56% 12%, 46% 18%, 54% 24%,
@@ -817,7 +817,6 @@ li { margin-bottom: 8px; text-align: justify; }
     );
 }
 
-/* Caja del validador de sustancia */
 .gs-validacion-box {
     display: flex;
     gap: 10px;
