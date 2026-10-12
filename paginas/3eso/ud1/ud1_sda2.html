@@ -7,71 +7,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
     <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
-
-    <style>
-        /* Recorte de pictogramas rotos con borde irregular (zigzag) */
-        .gs-rotura-izq {
-            clip-path: polygon(
-                0% 0%, 45% 0%, 52% 6%, 44% 12%, 54% 18%, 46% 24%,
-                56% 30%, 48% 36%, 58% 42%, 50% 48%, 60% 54%, 52% 60%,
-                62% 66%, 54% 72%, 64% 78%, 56% 84%, 66% 90%, 58% 96%,
-                62% 100%, 0% 100%
-            );
-        }
-        .gs-rotura-der {
-            clip-path: polygon(
-                100% 0%, 55% 0%, 48% 6%, 56% 12%, 46% 18%, 54% 24%,
-                44% 30%, 52% 36%, 42% 42%, 50% 48%, 40% 54%, 48% 60%,
-                38% 66%, 46% 72%, 36% 78%, 44% 84%, 34% 90%, 42% 96%,
-                38% 100%, 100% 100%
-            );
-        }
-        .gs-pictograma-roto {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-        }
-        .gs-pictograma-roto img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        .gs-validacion-box {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-top: 15px;
-        }
-        .gs-validacion-box input {
-            padding: 8px 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            width: 200px;
-        }
-        .gs-validacion-box button {
-            background-color: var(--gs-primary);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        .gs-validacion-msg {
-            margin-top: 10px;
-            font-weight: 600;
-            display: none;
-        }
-        .gs-validacion-msg.ok { color: #16a34a; display: block; }
-        .gs-validacion-msg.err { color: #dc2626; display: block; }
-    </style>
 </head>
 <body>
 
@@ -101,8 +36,11 @@
     <!-- CONTEXTO NARRATIVO -->
     <div class="gs-box gs-ejemplo">
         <div class="gs-ejemplo-title"><i class="fa-solid fa-circle-info"></i> El encargo del ayuntamiento</div>
+        <p style="font-size: 0.85rem; color: #64748b; font-style: italic; margin-bottom: 12px;">
+            <strong>Aviso:</strong> este caso es <strong>ficticio</strong>. Los hechos, los datos y los análisis son inventados con fines educativos, aunque se sitúan en un entorno reconocible (el humedal de Valdeflores, a las afueras de la localidad). Ninguna empresa, institución ni persona real está implicada. Bien podría ocurrir hoy o haber ocurrido en el pasado.
+        </p>
         <p>
-            El lago artificial de Valdeflores, a las afueras de la localidad, amaneció el lunes con <strong>decenas de peces flotando muertos</strong> en la orilla. Los vecinos están alarmados. La Confederación Hidrográfica ha tomado muestras del agua y ha detectado dos cosas extrañas:
+            El humedal de Valdeflores, a las afueras de la localidad, amaneció el lunes con <strong>decenas de peces flotando muertos</strong> en la orilla. Los vecinos están alarmados. La Confederación Hidrográfica ha tomado muestras del agua y ha detectado dos cosas extrañas:
         </p>
         <ul>
             <li>La <strong>densidad del agua</strong> es de <strong>1,08 g/cm³</strong>, cuando el agua dulce limpia ronda los 1,00 g/cm³.</li>
@@ -151,10 +89,10 @@
     <div class="gs-box gs-comprender">
         <div class="gs-comprender-title"><i class="fa-solid fa-file-lines"></i> Informe del ayuntamiento (fragmento)</div>
         <blockquote style="margin: 0; padding: 12px 18px; background: rgba(255,255,255,0.85); border-left: 4px solid #1e3a8a; border-radius: 4px; font-size: 0.95rem;">
-            «Muestra tomada el lunes a las 9:15 h en la orilla norte del lago. Se han realizado las siguientes medidas:
+            «Muestra tomada el lunes a las 9:15 h en la orilla norte del humedal. Se han realizado las siguientes medidas:
             <br><br>
             · Densidad del agua: <strong>1,08 g/cm³</strong>.<br>
-            · Concentración de sólidos disueltos: <strong>8,0 · 10² mg/dL</strong>.<br>
+            · Concentración de sólidos disueltos: <strong>8,0 · 10³ mg/dL</strong>.<br>
             · Temperatura del agua: <strong>289 K</strong>.<br>
             · Volumen de muestra recogida: <strong>5,0 · 10⁻¹ L</strong>.<br>
             · Masa total de la muestra: <strong>5,4 · 10² g</strong>.<br>
@@ -194,7 +132,7 @@
         <i class="fa-solid fa-flask-vial"></i> Misión 2. Las muestras del laboratorio
     </h2>
     <p>
-        El ayuntamiento os ha traído al laboratorio del instituto <strong>cinco disoluciones patrones</strong>, una por cada sustancia candidata, a distintas concentraciones. También os ha dado la <strong>muestra problema</strong> del lago. Para cada sustancia candidata, el laboratorio municipal ha medido la densidad de la disolución a distintas concentraciones.
+        El ayuntamiento os ha traído al laboratorio del instituto <strong>cinco disoluciones patrones</strong>, una por cada sustancia candidata, a distintas concentraciones. También os ha dado la <strong>muestra problema</strong> del humedal. Para cada sustancia candidata, el laboratorio municipal ha medido la densidad de la disolución a distintas concentraciones.
     </p>
 
     <div class="gs-box gs-comprender">
@@ -228,8 +166,8 @@
     <div class="gs-box gs-comprender">
         <div class="gs-comprender-title"><i class="fa-solid fa-circle-question"></i> Datos de la muestra problema</div>
         <ul style="margin-bottom: 0;">
-            <li><strong>Densidad de la muestra del lago:</strong> 1,08 g/cm³.</li>
-            <li><strong>Concentración de sólidos disueltos:</strong> 8,0 · 10² mg/dL.</li>
+            <li><strong>Densidad de la muestra del humedal:</strong> 1,08 g/cm³.</li>
+            <li><strong>Concentración de sólidos disueltos:</strong> 8,0 · 10³ mg/dL.</li>
             <li><strong>Temperatura:</strong> 289 K.</li>
             <li><strong>Contenido en cobre:</strong> 1 · 10⁻⁴ µg/dL (valor residual).</li>
             <li><strong>pH:</strong> 6,9 (neutro, dentro de la normalidad).</li>
@@ -253,7 +191,7 @@
         <i class="fa-solid fa-chart-line"></i> Misión 3. Cada sustancia tiene su propia relación
     </h2>
     <p>
-        Ya tenéis los datos en el SI. Ahora toca <strong>representarlos gráficamente</strong>. Cada sustancia candidata tiene una relación característica entre su densidad y su concentración: no todas las disoluciones se comportan igual al añadir soluto. Comparando la muestra del lago con cada una de las rectas, podréis identificar la sustancia responsable.
+        Ya tenéis los datos en el SI. Ahora toca <strong>representarlos gráficamente</strong>. Cada sustancia candidata tiene una relación característica entre su densidad y su concentración: no todas las disoluciones se comportan igual al añadir soluto. Comparando la muestra del humedal con cada una de las rectas, podréis identificar la sustancia responsable.
     </p>
 
     <div class="gs-box gs-comprender">
@@ -289,13 +227,13 @@
             <li>Para cada gráfica, calculad la <strong>pendiente</strong> \(m\) usando dos puntos de la tabla.</li>
             <li>Escribid la <strong>ecuación</strong> de cada recta en la forma \(y = m \cdot x + n\).</li>
             <li>Responded: <strong>¿por qué en todas las gráficas el valor de \(n\) es el mismo? ¿Tiene sentido físico?</strong></li>
-            <li>Con la densidad de la muestra del lago (1,08 g/cm³), <strong>calculad la concentración que predice cada sustancia</strong> de dos formas:
+            <li>Con la densidad de la muestra del humedal (1,08 g/cm³), <strong>calculad la concentración que predice cada sustancia</strong> de dos formas:
                 <ul>
                     <li><strong>Analíticamente:</strong> sustituyendo la densidad de la muestra en la ecuación de cada recta.</li>
                     <li><strong>Gráficamente:</strong> leyendo sobre la gráfica el valor de la concentración correspondiente a esa densidad.</li>
                 </ul>
             </li>
-            <li>Comparad los resultados con la concentración de la muestra (8,0 · 10² mg/dL, ya pasada al SI en la misión 2). <strong>¿Qué sustancia se ajusta mejor?</strong></li>
+            <li>Comparad los resultados con la concentración de la muestra (8,0 · 10³ mg/dL, ya pasada al SI en la misión 2). <strong>¿Qué sustancia se ajusta mejor?</strong></li>
             <li><strong>Identificad la sustancia culpable</strong> y justificad la respuesta con los números.</li>
         </ol>
     </div>
@@ -307,32 +245,32 @@
         <i class="fa-solid fa-shield-halved"></i> Misión 4. ¿Es peligrosa la sustancia?
     </h2>
     <p>
-        Ya tenéis una sospechosa. Ahora el ayuntamiento necesita saber <strong>si es peligrosa</strong> para las personas, los animales y el medio ambiente, y qué precauciones hay que tomar para manipular la muestra y limpiar el lago.
+        Ya tenéis una sospechosa. Ahora el ayuntamiento necesita saber <strong>si es peligrosa</strong> para las personas, los animales y el medio ambiente, y qué precauciones hay que tomar para manipular la muestra y limpiar el humedal.
     </p>
 
     <div class="gs-box gs-lectura">
         <div class="gs-lectura-title"><i class="fa-solid fa-skull-crossbones"></i> La etiqueta del bidón encontrado</div>
         <p>
-            Junto al lago, los agentes medioambientales han encontrado un bidón abandonado. La etiqueta está muy deteriorada: los pictogramas se han roto y no se lee el nombre del producto. Solo se distinguen <strong>dos fragmentos</strong> de pictogramas:
+            Junto al humedal, los agentes medioambientales han encontrado un bidón abandonado. La etiqueta está muy deteriorada: los pictogramas se han roto y no se lee el nombre del producto. Solo se distinguen <strong>dos fragmentos</strong> de pictogramas:
         </p>
 
         <div class="gs-pictogramas-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
 
             <div class="gs-pictograma-card">
-                <div class="gs-pictograma-roto">
+                <div class="gs-img-roto">
                     <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-exclam.svg"
                          alt="Fragmento de pictograma"
-                         class="gs-rotura-izq">
+                         class="gs-roto-izq">
                 </div>
                 <span class="gs-pictograma-nombre">Fragmento A</span>
                 <p class="gs-pictograma-desc">Se conserva la mitad izquierda del símbolo.</p>
             </div>
 
             <div class="gs-pictograma-card">
-                <div class="gs-pictograma-roto">
+                <div class="gs-img-roto">
                     <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-pollu.svg"
                          alt="Fragmento de pictograma"
-                         class="gs-rotura-der">
+                         class="gs-roto-der">
                 </div>
                 <span class="gs-pictograma-nombre">Fragmento B</span>
                 <p class="gs-pictograma-desc">Se conserva la mitad derecha del símbolo.</p>
@@ -353,7 +291,7 @@
         <div id="sdaConfirmacion" style="display: none; margin-top: 20px; padding: 15px; background: #f0fdf4; border-left: 4px solid #16a34a; border-radius: 6px;">
             <strong style="color: #166534;"><i class="fa-solid fa-circle-check"></i> Análisis confirmado</strong>
             <p style="margin: 8px 0 0 0;">
-                El laboratorio municipal confirma que el contenido del bidón es <strong>nitrato de potasio (KNO₃)</strong>, coincidiendo con vuestra identificación. Se trata de un fertilizante agrícola de uso común, pero su vertido masivo al lago ha provocado la eutrofización de las aguas.
+                El laboratorio municipal confirma que el contenido del bidón es <strong>nitrato de potasio (KNO₃)</strong>, coincidiendo con vuestra identificación. Se trata de un fertilizante agrícola de uso común, pero su vertido masivo al humedal ha provocado la eutrofización de las aguas.
             </p>
         </div>
     </div>
@@ -370,7 +308,7 @@
         <ol style="margin-bottom: 0;">
             <li><strong>Identificad los dos pictogramas rotos</strong>: ¿qué símbolo representan? ¿Qué riesgo indica cada uno? ¿Qué precauciones implican?</li>
             <li><strong>Buscad información</strong> sobre el nitrato de potasio y redactad una <strong>ficha de seguridad breve</strong> con: nombre, fórmula química, pictogramas que le corresponden, riesgos principales y consejos de manipulación.</li>
-            <li><strong>Explicad con vuestras palabras</strong> qué es la eutrofización y por qué un vertido masivo de nitratos puede matar a los peces de un lago.</li>
+            <li><strong>Explicad con vuestras palabras</strong> qué es la eutrofización y por qué un vertido masivo de nitratos puede matar a los peces de un humedal.</li>
             <li><strong>¿Crees que el vertido fue intencionado o accidental?</strong> Justifica tu respuesta a partir de las pruebas encontradas.</li>
             <li><strong>Proponed 3 medidas</strong> que el ayuntamiento podría tomar para evitar que vuelva a ocurrir un vertido así.</li>
         </ol>
@@ -390,11 +328,11 @@
         <div class="gs-comprender-title"><i class="fa-solid fa-clipboard-list"></i> Estructura del informe</div>
         <ol style="margin-bottom: 0;">
             <li><strong>Portada:</strong> título del informe, nombres del equipo y roles, curso, fecha y logo o anagrama del equipo.</li>
-            <li><strong>Resumen ejecutivo:</strong> en 5-8 líneas, contad qué ha pasado en el lago, qué habéis descubierto y qué recomendáis. Es lo primero que leerá el alcalde, así que debe ser claro y directo.</li>
+            <li><strong>Resumen ejecutivo:</strong> en 5-8 líneas, contad qué ha pasado en el humedal, qué habéis descubierto y qué recomendáis. Es lo primero que leerá el alcalde, así que debe ser claro y directo.</li>
             <li><strong>Metodología:</strong> explicad cómo habéis trabajado: qué datos os dio el ayuntamiento, cómo los habéis tratado, qué gráficas habéis construido y por qué. Mencionad brevemente las fases del método científico que habéis seguido.</li>
             <li><strong>Resultados:</strong> incluíd la tabla con las densidades convertidas al SI, las cuatro gráficas comparativas y la sustancia identificada, con su concentración estimada.</li>
             <li><strong>Análisis de peligrosidad:</strong> ficha de seguridad del nitrato de potasio, pictogramas, riesgos para el medio ambiente y explicación de la eutrofización.</li>
-            <li><strong>Recomendaciones:</strong> al menos 3 medidas concretas para limpiar el lago y evitar futuros vertidos.</li>
+            <li><strong>Recomendaciones:</strong> al menos 3 medidas concretas para limpiar el humedal y evitar futuros vertidos.</li>
             <li><strong>Conclusión personal:</strong> qué habéis aprendido con esta investigación, y qué haríais distinto si volvierais a empezar.</li>
         </ol>
     </div>
@@ -512,22 +450,4 @@ function validarSustanciaSdA() {
 
     if (isNaN(valor) || valor < 1 || valor > 5) {
         msg.className = 'gs-validacion-msg err';
-        msg.textContent = 'Introduce un número del 1 al 5.';
-        confirmacion.style.display = 'none';
-        return;
-    }
-
-    if (valor === 1) {
-        msg.className = 'gs-validacion-msg ok';
-        msg.textContent = '✓ Identificación correcta. Aquí tienes el análisis del laboratorio:';
-        confirmacion.style.display = 'block';
-    } else {
-        msg.className = 'gs-validacion-msg err';
-        msg.textContent = '✗ Esa no es la sustancia. Revisad vuestros cálculos y volved a intentarlo.';
-        confirmacion.style.display = 'none';
-    }
-}
-</script>
-
-</body>
-</html>
+        msg.textContent = '
