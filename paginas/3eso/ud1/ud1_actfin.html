@@ -47,11 +47,11 @@
                 <strong>El método científico en acción.</strong><br>
                 Relaciona cada una de estas acciones con la fase del método científico que le corresponde (<em>observación</em>, <em>formulación de hipótesis</em>, <em>experimentación</em>, <em>análisis de datos</em> o <em>publicación de resultados</em>):
                 <ul>
-                    <li>a) «He notado que las plantas que están junto a la ventana crecen más que las del pasillo.»</li>
-                    <li>b) «Creo que las plantas crecen más si reciben más luz.»</li>
+                    <li>a) «He presentado mis conclusiones a la clase con una presentación.»</li>
+                    <li>b) «He calculado el crecimiento medio de cada grupo y he representado los resultados en una gráfica.»</li>
                     <li>c) «He medido el crecimiento de cinco plantas durante tres semanas y he anotado los datos en una tabla.»</li>
-                    <li>d) «He calculado el crecimiento medio de cada grupo y he representado los resultados en una gráfica.»</li>
-                    <li>e) «He presentado mis conclusiones a la clase con una presentación.»</li>
+                    <li>d) «Creo que las plantas crecen más si reciben más luz.»</li>
+                    <li>e) «He notado que las plantas que están junto a la ventana crecen más que las del pasillo.»</li>
                 </ul>
             </li>
 
@@ -114,13 +114,13 @@
             <!-- ACTIVIDAD 5 -->
             <li>
                 <strong>Cambios de unidades simples.</strong><br>
-                Expresa cada medida en la unidad del SI que corresponda:
+                Expresa cada medida en la unidad que se indica:
                 <ul>
-                    <li>a) 3,7 hm → m</li>
-                    <li>b) 0,045 Mg → kg</li>
-                    <li>c) 8 500 mm² → m²</li>
-                    <li>d) 0,25 dam³ → m³</li>
-                    <li>e) \(6{,}3 \cdot 10^{-4}\) kg → g</li>
+                    <li>a) 3,7 hm → dm</li>
+                    <li>b) 0,045 Mg → hg</li>
+                    <li>c) 8 500 mm² → dam²</li>
+                    <li>d) 0,25 dam³ → dm³</li>
+                    <li>e) \(6{,}3 \cdot 10^{-4}\) Pg → Mg</li>
                 </ul>
             </li>
 
@@ -172,44 +172,84 @@
                     <li>Escribir la ecuación que relaciona las dos magnitudes en cada caso.</li>
                 </ol>
 
-                <p style="margin-top: 15px;"><strong>Tabla 1</strong></p>
-                <table class="gs-tabla-datos" style="max-width: 500px;">
+                <table style="width: 100%; border-collapse: separate; border-spacing: 15px 25px; margin-top: 15px;">
                     <tbody>
-                        <tr><th>x</th><td>0,5</td><td>1</td><td>2</td><td>4</td><td>5</td></tr>
-                        <tr><th>y</th><td>40</td><td>20</td><td>10</td><td>5</td><td>4</td></tr>
+                        <!-- FILA 1: Tabla 1 + Gráfica B -->
+                        <tr>
+                            <td style="width: 40%; vertical-align: top;">
+                                <p style="margin-bottom: 8px;"><strong>Tabla 1</strong></p>
+                                <table class="gs-tabla-datos" style="max-width: 100%;">
+                                    <thead>
+                                        <tr><th>x</th><th>y</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>0,5</td><td>40</td></tr>
+                                        <tr><td>1</td><td>20</td></tr>
+                                        <tr><td>2</td><td>10</td></tr>
+                                        <tr><td>4</td><td>5</td></tr>
+                                        <tr><td>5</td><td>4</td></tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td style="width: 60%; vertical-align: middle;">
+                                <p style="margin-bottom: 8px;"><strong>Gráfica B</strong></p>
+                                <div class="gs-graph-wrapper" style="max-width: 260px; margin: 0 auto;">
+                                    <div id="act9_grafB" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- FILA 2: Tabla 2 + Gráfica C -->
+                        <tr>
+                            <td style="vertical-align: top;">
+                                <p style="margin-bottom: 8px;"><strong>Tabla 2</strong></p>
+                                <table class="gs-tabla-datos" style="max-width: 100%;">
+                                    <thead>
+                                        <tr><th>x</th><th>y</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>0</td><td>5</td></tr>
+                                        <tr><td>1</td><td>9</td></tr>
+                                        <tr><td>3</td><td>17</td></tr>
+                                        <tr><td>5</td><td>25</td></tr>
+                                        <tr><td>7</td><td>33</td></tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td style="vertical-align: middle;">
+                                <p style="margin-bottom: 8px;"><strong>Gráfica C</strong></p>
+                                <div class="gs-graph-wrapper" style="max-width: 260px; margin: 0 auto;">
+                                    <div id="act9_grafC" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- FILA 3: Tabla 3 + Gráfica A -->
+                        <tr>
+                            <td style="vertical-align: top;">
+                                <p style="margin-bottom: 8px;"><strong>Tabla 3</strong></p>
+                                <table class="gs-tabla-datos" style="max-width: 100%;">
+                                    <thead>
+                                        <tr><th>x</th><th>y</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>1</td><td>2,5</td></tr>
+                                        <tr><td>2</td><td>5</td></tr>
+                                        <tr><td>3</td><td>7,5</td></tr>
+                                        <tr><td>5</td><td>12,5</td></tr>
+                                        <tr><td>8</td><td>20</td></tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td style="vertical-align: middle;">
+                                <p style="margin-bottom: 8px;"><strong>Gráfica A</strong></p>
+                                <div class="gs-graph-wrapper" style="max-width: 260px; margin: 0 auto;">
+                                    <div id="act9_grafA" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-
-                <p style="margin-top: 15px;"><strong>Tabla 2</strong></p>
-                <table class="gs-tabla-datos" style="max-width: 500px;">
-                    <tbody>
-                        <tr><th>x</th><td>0</td><td>1</td><td>3</td><td>5</td><td>7</td></tr>
-                        <tr><th>y</th><td>5</td><td>9</td><td>17</td><td>25</td><td>33</td></tr>
-                    </tbody>
-                </table>
-
-                <p style="margin-top: 15px;"><strong>Tabla 3</strong></p>
-                <table class="gs-tabla-datos" style="max-width: 500px;">
-                    <tbody>
-                        <tr><th>x</th><td>1</td><td>2</td><td>3</td><td>5</td><td>8</td></tr>
-                        <tr><th>y</th><td>2,5</td><td>5</td><td>7,5</td><td>12,5</td><td>20</td></tr>
-                    </tbody>
-                </table>
-
-                <p style="margin-top: 20px;"><strong>Gráfica A</strong></p>
-                <div class="gs-graph-wrapper" style="max-width: 480px; margin: 0 auto;">
-                    <div id="act9_grafA" class="jxgbox" style="aspect-ratio: 4/3;"></div>
-                </div>
-
-                <p style="margin-top: 20px;"><strong>Gráfica B</strong></p>
-                <div class="gs-graph-wrapper" style="max-width: 480px; margin: 0 auto;">
-                    <div id="act9_grafB" class="jxgbox" style="aspect-ratio: 4/3;"></div>
-                </div>
-
-                <p style="margin-top: 20px;"><strong>Gráfica C</strong></p>
-                <div class="gs-graph-wrapper" style="max-width: 480px; margin: 0 auto;">
-                    <div id="act9_grafC" class="jxgbox" style="aspect-ratio: 4/3;"></div>
-                </div>
             </li>
 
             <!-- ACTIVIDAD 10 -->
@@ -272,8 +312,7 @@ document.addEventListener('gs-ready', function () {
     // ACTIVIDAD 9 — 3 gráficas para asociar
     // ============================================================
 
-    // GRÁFICA A: recta que pasa por el origen (Tabla 3)
-    // y = 2,5·x
+    // GRÁFICA A: recta que pasa por el origen → y = 2,5·x (Tabla 3)
     if (document.getElementById('act9_grafA')) {
         const bA = JXG.JSXGraph.initBoard('act9_grafA', {
             boundingbox: [-1, 22, 10, -3],
@@ -289,35 +328,13 @@ document.addEventListener('gs-ready', function () {
             strokeColor: '#1e3a8a', strokeWidth: 2.5
         });
         bA.create('text', [5, 18, 'Gráfica A'], {
-            fontSize: 14, color: '#1e3a8a', fixed: true
+            fontSize: 13, color: '#1e3a8a', fixed: true
         });
     }
 
-    // GRÁFICA B: hipérbola (Tabla 1)
-    // y = 20/x
+    // GRÁFICA B: recta que corta al eje Y en (0, 5) → y = 4·x + 5 (Tabla 2)
     if (document.getElementById('act9_grafB')) {
         const bB = JXG.JSXGraph.initBoard('act9_grafB', {
-            boundingbox: [-1, 45, 6, -3],
-            axis: true,
-            showCopyright: false,
-            showNavigation: false,
-            defaultAxes: {
-                x: { strokeColor: '#64748b', strokeWidth: 1 },
-                y: { strokeColor: '#64748b', strokeWidth: 1 }
-            }
-        });
-        bB.create('functiongraph', [function(x){ return 20 / x; }, 0.5, 5.5], {
-            strokeColor: '#dc2626', strokeWidth: 2.5
-        });
-        bB.create('text', [3.5, 35, 'Gráfica B'], {
-            fontSize: 14, color: '#dc2626', fixed: true
-        });
-    }
-
-    // GRÁFICA C: recta que corta al eje Y en (0, 5) (Tabla 2)
-    // y = 4·x + 5
-    if (document.getElementById('act9_grafC')) {
-        const bC = JXG.JSXGraph.initBoard('act9_grafC', {
             boundingbox: [-1, 35, 8, -3],
             axis: true,
             showCopyright: false,
@@ -327,15 +344,35 @@ document.addEventListener('gs-ready', function () {
                 y: { strokeColor: '#64748b', strokeWidth: 1 }
             }
         });
-        bC.create('functiongraph', [function(x){ return 4 * x + 5; }, -1, 7.5], {
+        bB.create('functiongraph', [function(x){ return 4 * x + 5; }, -1, 7.5], {
             strokeColor: '#16a34a', strokeWidth: 2.5
         });
-        bC.create('point', [0, 5], {
-            name: 'n = 5', color: '#b45309', size: 4, fixed: true,
-            label: { offset: [8, 5], fontSize: 11, color: '#b45309' }
+        bB.create('point', [0, 5], {
+            name: '5', color: '#b45309', size: 3, fixed: true,
+            label: { offset: [8, 5], fontSize: 10, color: '#b45309' }
         });
-        bC.create('text', [4, 30, 'Gráfica C'], {
-            fontSize: 14, color: '#16a34a', fixed: true
+        bB.create('text', [4, 30, 'Gráfica B'], {
+            fontSize: 13, color: '#16a34a', fixed: true
+        });
+    }
+
+    // GRÁFICA C: hipérbola → y = 20/x (Tabla 1)
+    if (document.getElementById('act9_grafC')) {
+        const bC = JXG.JSXGraph.initBoard('act9_grafC', {
+            boundingbox: [-1, 45, 6, -3],
+            axis: true,
+            showCopyright: false,
+            showNavigation: false,
+            defaultAxes: {
+                x: { strokeColor: '#64748b', strokeWidth: 1 },
+                y: { strokeColor: '#64748b', strokeWidth: 1 }
+            }
+        });
+        bC.create('functiongraph', [function(x){ return 20 / x; }, 0.5, 5.5], {
+            strokeColor: '#dc2626', strokeWidth: 2.5
+        });
+        bC.create('text', [3.5, 35, 'Gráfica C'], {
+            fontSize: 13, color: '#dc2626', fixed: true
         });
     }
 
@@ -355,12 +392,24 @@ function initSolutionBoards() {
             showCopyright: false,
             showNavigation: false,
             defaultAxes: {
-                x: { strokeColor: '#64748b', strokeWidth: 1, name: 'F (N)', withLabel: true, label: { position: 'right', offset: [-40, -20], fontSize: 11, color: '#1e293b' } },
-                y: { strokeColor: '#64748b', strokeWidth: 1, name: 'L (cm)', withLabel: true, label: { position: 'top', offset: [-10, 5], fontSize: 11, color: '#1e293b' } }
+                x: {
+                    strokeColor: '#64748b',
+                    strokeWidth: 1,
+                    name: 'F (N)',
+                    withLabel: true,
+                    label: { position: 'right', offset: [-40, -20], fontSize: 11, color: '#1e293b' }
+                },
+                y: {
+                    strokeColor: '#64748b',
+                    strokeWidth: 1,
+                    name: 'L (cm)',
+                    withLabel: true,
+                    label: { position: 'top', offset: [-10, 5], fontSize: 11, color: '#1e293b' }
+                }
             }
         });
 
-        // Puntos experimentales (ligeramente imperfectos, realistas)
+        // Puntos experimentales
         const datos10 = [[1, 12.4], [2, 15.1], [3, 17.4], [4, 20.1], [5, 22.4]];
         datos10.forEach(pt => {
             b10.create('point', pt, { name: '', color: '#dc2626', size: 3, fixed: true });
@@ -374,12 +423,12 @@ function initSolutionBoards() {
         // Ordenada en el origen marcada
         b10.create('point', [0, 10], {
             name: 'L₀ = 10 cm', color: '#b45309', size: 5, fixed: true,
-            label: { offset: [10, 5], fontSize: 12, color: '#b45309' }
+            label: { offset: [10, 5], fontSize: 11, color: '#b45309' }
         });
 
         // Etiqueta de la pendiente
         b10.create('text', [3, 22, 'pendiente = 2,5 cm/N'], {
-            fontSize: 12, color: '#166534', fixed: true
+            fontSize: 11, color: '#166534', fixed: true
         });
     }
 
