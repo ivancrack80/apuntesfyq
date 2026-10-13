@@ -119,14 +119,20 @@
 <div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">
     <div class="gs-ejemplo-title"><i class="fa-solid fa-ruler-combined"></i> Actividad 5: Cambios de unidades simples</div>
 
-    <ul style="margin-bottom: 0;">
-        <li>a) \(3{,}7 \text{ hm} = 3\,700 \text{ dm}\)</li>
-        <li>b) \(0{,}045 \text{ Mg} = 450 \text{ hg}\)</li>
-        <li>c) \(8\,500 \text{ mm}^2 = 8{,}5 \cdot 10^{-5} \text{ dam}^2\)</li>
-        <li>d) \(0{,}25 \text{ dam}^3 = 250\,000 \text{ dm}^3\)</li>
-        <li>e) \(6{,}3 \cdot 10^{-4} \text{ Pg} = 6{,}3 \cdot 10^{8} \text{ Mg}\)</li>
-    </ul>
-    <p style="font-size: 0.9rem; color: #475569; margin-top: 12px;"><em>Nota sobre el apartado e): el prefijo Peta (P) equivale a \(10^{15}\) y el prefijo Mega (M) equivale a \(10^{6}\). Por tanto, \(1 \text{ Pg} = 10^{9} \text{ Mg}\).</em></p>
+    <p><strong>a) 3,7 hm → dm</strong></p>
+    <p>$$3{,}7 \text{ hm} \cdot \frac{10^2 \text{ m}}{1 \text{ hm}} \cdot \frac{10 \text{ dm}}{1 \text{ m}} = 3{,}7 \cdot 10^3 = 3\,700 \text{ dm}$$</p>
+
+    <p><strong>b) 0,045 Mg → hg</strong></p>
+    <p>$$0{,}045 \text{ Mg} \cdot \frac{10^6 \text{ g}}{1 \text{ Mg}} \cdot \frac{1 \text{ hg}}{10^2 \text{ g}} = 0{,}045 \cdot 10^4 = 450 \text{ hg}$$</p>
+
+    <p><strong>c) 8 500 mm² → dam²</strong></p>
+    <p>$$8\,500 \text{ mm}^2 \cdot \frac{1 \text{ m}^2}{(10^3)^2 \text{ mm}^2} \cdot \frac{1 \text{ dam}^2}{(10^1)^2 \text{ m}^2} = 8\,500 \cdot 10^{-6} \cdot 10^{-2} = 8{,}5 \cdot 10^{-5} \text{ dam}^2$$</p>
+
+    <p><strong>d) 0,25 dam³ → dm³</strong></p>
+    <p>$$0{,}25 \text{ dam}^3 \cdot \frac{(10^1)^3 \text{ m}^3}{1 \text{ dam}^3} \cdot \frac{(10^1)^3 \text{ dm}^3}{1 \text{ m}^3} = 0{,}25 \cdot 10^6 = 250\,000 \text{ dm}^3$$</p>
+
+    <p><strong>e) \(6{,}3 \cdot 10^{-4}\) Pg → Mg</strong></p>
+    <p style="margin-bottom: 0;">$$6{,}3 \cdot 10^{-4} \text{ Pg} \cdot \frac{10^{15} \text{ g}}{1 \text{ Pg}} \cdot \frac{1 \text{ Mg}}{10^6 \text{ g}} = 6{,}3 \cdot 10^{-4} \cdot 10^9 = 6{,}3 \cdot 10^{5} \text{ Mg}$$</p>
 </div>
 
 <!-- ================================================================
@@ -245,14 +251,27 @@
         </tbody>
     </table>
 
-    <p style="margin-top: 15px;"><strong>Justificación de cada caso:</strong></p>
-    <ul style="margin-bottom: 0;">
-        <li><strong>Tabla 1:</strong> al multiplicar cada par \((x, y)\), el producto siempre es 20 (\(0{,}5 \cdot 40 = 20\); \(1 \cdot 20 = 20\); \(2 \cdot 10 = 20\); etc.). Es la característica de una relación inversamente proporcional, cuya gráfica es una hipérbola.</li>
-        <li><strong>Tabla 2:</strong> al aumentar \(x\) de 1 en 1, \(y\) aumenta de 4 en 4. La pendiente es 4. Cuando \(x = 0\), \(y = 5\), luego la ordenada en el origen es 5. Es una recta que no pasa por el origen.</li>
-        <li><strong>Tabla 3:</strong> el cociente \(y/x\) es constante (\(2{,}5/1 = 2{,}5\); \(5/2 = 2{,}5\); \(7{,}5/3 = 2{,}5\); etc.). Es la característica de una relación directamente proporcional, cuya gráfica es una recta que pasa por el origen.</li>
-    </ul>
-</div>
+    <p style="margin-top: 15px;"><strong>Cálculo de las ecuaciones:</strong></p>
 
+    <p><strong>Tabla 1 — Relación inversamente proporcional</strong></p>
+    <p>Comprobamos que el producto \(x \cdot y\) es constante para todos los pares de datos:</p>
+    <p>$$0{,}5 \cdot 40 = 20 \quad ; \quad 1 \cdot 20 = 20 \quad ; \quad 2 \cdot 10 = 20 \quad ; \quad 4 \cdot 5 = 20 \quad ; \quad 5 \cdot 4 = 20$$</p>
+    <p>Por tanto, la constante es \(k = 20\) y la ecuación es:</p>
+    <p>$$y = \frac{20}{x}$$</p>
+
+    <p style="margin-top: 15px;"><strong>Tabla 2 — Relación lineal</strong></p>
+    <p>Calculamos la pendiente con dos puntos cualesquiera, por ejemplo \((1, 9)\) y \((5, 25)\):</p>
+    <p>$$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{25 - 9}{5 - 1} = \frac{16}{4} = 4$$</p>
+    <p>Calculamos la ordenada en el origen con el punto \((0, 5)\), directamente de la tabla: \(n = 5\).</p>
+    <p>La ecuación es:</p>
+    <p>$$y = 4x + 5$$</p>
+
+    <p style="margin-top: 15px;"><strong>Tabla 3 — Relación proporcional directa</strong></p>
+    <p>Calculamos la constante con la diferencia entre dos puntos cualesquiera, por ejemplo \((1; 2{,}5)\) y \((8, 20)\):</p>
+    <p>$$k = \frac{y_2 - y_1}{x_2 - x_1} = \frac{20 - 2{,}5}{8 - 1} = \frac{17{,}5}{7} = 2{,}5$$</p>
+    <p>La ecuación es:</p>
+    <p style="margin-bottom: 0;">$$y = 2{,}5x$$</p>
+</div>
 <!-- ================================================================
      ACTIVIDAD 10
      ================================================================ -->
@@ -279,8 +298,10 @@
     <p>$$L_0 \approx 10 \text{ cm}$$</p>
 
     <p style="margin-top: 15px;"><strong>e) Constante elástica \(k\) del muelle:</strong></p>
-    <p>La pendiente de la gráfica es \(m = 1/k\), por lo que:</p>
-    <p>$$k = \frac{1}{m} = \frac{1}{2{,}5 \text{ cm/N}} = 0{,}4 \text{ N/cm} = 40 \text{ N/m}$$</p>
+     <p>La pendiente de la gráfica es \(m = 1/k\), por lo que:</p>
+     <p>$$k = \frac{1}{m} = \frac{1}{2{,}5 \text{ cm/N}} = 0{,}4 \text{ N/cm}$$</p>
+     <p>Expresamos el resultado en unidades del SI usando un factor de conversión:</p>
+     <p>$$k = 0{,}4 \, \frac{\text{N}}{\cancel{\text{cm}}} \cdot \frac{10^2 \cancel{\text{cm}}}{1 \text{ m}} = 0{,}4 \cdot 10^2 = 40 \text{ N/m}$$</p>
 
     <p style="margin-top: 15px;"><strong>f) Longitud del muelle con \(F = 8 \text{ N}\):</strong></p>
     <p>$$L = 2{,}5 \cdot 8 + 10 = 20 + 10 = 30 \text{ cm}$$</p>
