@@ -101,19 +101,20 @@ En el humedal de Valdeflores aparecen peces muertos. La densidad del agua es an�
 - [x] Punto 3 — Laboratorio (`3eso_ud1_3.html`)
 - [x] Punto 4 — Datos y gráficas (`3eso_ud1_4.html`)
 - [x] SdA — "El misterio del lago contaminado" (`3eso_ud1_sda.html`)
-- [ ] Actividades finales (`3eso_ud1_actfin.html`) ← en diseño
-- [x] Solucionarios en GAS
+- [x] Actividades finales (`3eso_ud1_actfin.html`)
+- [x] Solucionarios en GAS (`/soluciones/3eso/ud1/`)
+
+**Unidad 1 de 3.º ESO: COMPLETA.**
 
 ---
 
 ## Pendiente / próximos pasos
 
-- [ ] Crear `3eso_ud1_actfin.html` con las actividades finales de repaso.
-- [ ] Crear `soluciones/3eso/ud1/ud1_actfin.html` para el GAS.
 - [ ] Migrar el solucionario al JS centralizado (solucionario autogenerado).
 - [ ] Añadir los 4 botones de impresión al `gs-core.js`.
 - [ ] Crear la presentación del curso (`3eso/presentacion.html`).
 - [ ] Crear la guía de evaluación del curso (`3eso/guia-evaluacion.html`).
+- [ ] Empezar la UD2 de 3.º ESO.
 
 ---
 
