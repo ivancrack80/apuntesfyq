@@ -1,1 +1,254 @@
-k
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. La Ciencia que estudiamos: la Física y la Química - 2.º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 2.º ESO · Unidad 1</div>
+        <h1 class="gs-title">1. La Ciencia que estudiamos: la Física y la Química</h1>
+        <div class="gs-subtitle">De la observación de fenómenos cotidianos a la investigación rigurosa de la naturaleza</div>
+    </header>
+
+    <!-- SECCIÓN 1.1 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-eye"></i> 1.1. Observando el entorno: ¿Qué ocurre a nuestro alrededor?
+    </h2>
+    <p>
+        Si te detienes a mirar cuidadosamente tu día a día, verás que la materia sufre constantes transformaciones: un cubito de hielo se derrite en un vaso de refresco, una manzana troceada se vuelve marrón en contacto con el aire, el agua de una olla empieza a hervir al calentarla o un clavo de hierro se oxida si lo dejamos a la intemperie.
+    </p>
+    <p>
+        Para comprender la naturaleza, el primer paso consiste en diferenciar dos tipos fundamentales de fenómenos o cambios:
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin: 25px 0;">
+        <div class="gs-box" style="margin:0; background-color: #f0f9ff; border: 1px solid #bae6fd; border-top: 5px solid #0284c7;">
+            <h3 style="margin-top:0; color:#0369a1;"><i class="fa-solid fa-cube"></i> Cambios Físicos</h3>
+            <p style="font-size:0.95rem; text-align:justify; margin-bottom:10px;">
+                Son transformaciones en las que <strong>no cambia la naturaleza de la sustancia</strong>. La materia sigue siendo la misma antes y después del cambio, aunque se altere su forma, su posición o su estado de agregación.
+            </p>
+            <strong>Ejemplos cotidianos:</strong>
+            <ul style="font-size:0.9rem; padding-left:18px; margin-top:5px; margin-bottom:0;">
+                <li>Romper o arrugar una hoja de papel.</li>
+                <li>Evaporar agua o congelar zumo.</li>
+                <li>Lanzar un balón o mover un mueble.</li>
+            </ul>
+        </div>
+
+        <div class="gs-box" style="margin:0; background-color: #fffbeb; border: 1px solid #fef3c7; border-top: 5px solid #d97706;">
+            <h3 style="margin-top:0; color:#b45309;"><i class="fa-solid fa-fire-flame-curved"></i> Cambios Químicos</h3>
+            <p style="font-size:0.95rem; text-align:justify; margin-bottom:10px;">
+                Son transformaciones profundas en las que las sustancias iniciales del proceso <strong>se convierten en sustancias completamente nuevas</strong> con propiedades muy distintas a las iniciales.
+            </p>
+            <strong>Ejemplos cotidianos:</strong>
+            <ul style="font-size:0.9rem; padding-left:18px; margin-top:5px; margin-bottom:0;">
+                <li>Quemar papel o madera (combustión).</li>
+                <li>Oxidación de un clavo de hierro.</li>
+                <li>Hacer la digestión o la fotosíntesis.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 1.2 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-atom"></i> 1.2. ¿A qué se dedican la Física y la Química?
+    </h2>
+    <p>
+        El ser humano no se conforma con presenciar los fenómenos; busca explicarlos. La <strong>Ciencia</strong> es el conjunto de conocimientos sobre la naturaleza obtenidos mediante la observación y el razonamiento sistemático.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-graduation-cap"></i> Definiciones clave de las dos disciplinas científicas que estudiamos</div>
+        <p style="margin: 0;">
+            • <strong>La Física:</strong> Es la ciencia que estudia los <strong>fenómenos físicos</strong> donde la composición y naturaleza de las sustancias no se altera. Ej. El movimiento, las fuerzas, la energía, la electricidad o el sonido.
+        </p>
+        <p style="margin: 12px 0 0 0;">
+            • <strong>La Química:</strong> Es la ciencia que estudia la composición, la estructura y las propiedades de la materia, así como las reacciones químicas que la transforman en <strong>sustancias diferentes</strong>. Ej. Conocer la composición del agua, la combustión de la madera, etc.
+        </p>
+    </div>
+
+    <!-- SECCIÓN 1.3 -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-vial-circle-check"></i> 1.3. El Método Científico
+    </h2>
+    <p>
+        Para investigar los fenómenos de forma objetiva sin guiarse por opiniones personales ni supersticiones, la comunidad científica emplea el <strong>método científico</strong>: una metodología de trabajo ordenada y rigurosa que permite obtener certezas contrastables sobre el universo.
+    </p>
+
+    <!-- FLOWCHART DEL MÉTODO CIENTÍFICO -->
+    <div class="gs-flowchart">
+
+        <!-- FASE 1 -->
+        <div class="gs-flow-step">
+            1ª FASE: OBSERVACIÓN
+            <small>Examinar y analizar con atención un fenómeno natural utilizando los sentidos o instrumentos de medida para plantearse una pregunta clara.</small>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+
+        <!-- FASE 2 -->
+        <div class="gs-flow-step">
+            2ª FASE: FORMULACIÓN DE HIPÓTESIS
+            <small>Plantear una suposición o explicación provisional comprobable para responder a la pregunta inicial. Debe fundamentarse en conocimientos previos.</small>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+
+        <!-- FASE 3 -->
+        <div class="gs-flow-step">
+            3ª FASE: EXPERIMENTACIÓN
+            <small>Diseñar y realizar pruebas en condiciones controladas (laboratorio o campo) midiendo las variables que afectan al fenómeno estudiado.</small>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+
+        <!-- FASE 4 -->
+        <div class="gs-flow-step">
+            4ª FASE: ANÁLISIS DE DATOS
+            <small>Organizar y procesar las mediciones obtenidas durante las pruebas para descubrir patrones o relaciones matemáticas entre las variables.</small>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrows-split"></i></div>
+        <div class="gs-sub-branches">
+            <div class="gs-sub-box"><i class="fa-solid fa-table"></i> Tablas de datos</div>
+            <div class="gs-sub-box"><i class="fa-solid fa-chart-line"></i> Gráficas representativas</div>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+
+        <!-- DECISIÓN -->
+        <div class="gs-flow-decision">
+            ¿Los resultados de la experimentación confirman la hipótesis?
+        </div>
+
+        <div class="gs-flow-branches">
+            <div class="gs-flow-branch gs-flow-branch--no">
+                <strong><i class="fa-solid fa-circle-xmark"></i> NO SE CONFIRMA</strong><br>
+                La hipótesis resulta ser falsa. Se rechaza, se plantea una hipótesis alternativa y se regresa a la <strong>2ª FASE</strong>.
+            </div>
+            <div class="gs-flow-branch">
+                <strong><i class="fa-solid fa-circle-check"></i> SÍ SE CONFIRMA</strong><br>
+                La hipótesis queda respaldada por las evidencias. Se pasa a la <strong>5ª FASE</strong>.
+            </div>
+        </div>
+
+        <div class="gs-flow-arrow" style="align-self: flex-end; margin-right: 18%;"><i class="fa-solid fa-arrow-down"></i></div>
+
+        <!-- FASE 5 -->
+        <div class="gs-flow-step" style="border-color: var(--gs-green); background: var(--gs-green-bg); color: var(--gs-green-text);">
+            5ª FASE: COMUNICACIÓN DE RESULTADOS Y CONCLUSIONES
+            <small>Redactar informes o publicar artículos científicos para compartir los resultados con la comunidad científica. Dan lugar a:</small>
+        </div>
+        <div class="gs-flow-arrow"><i class="fa-solid fa-arrows-split"></i></div>
+        <div class="gs-sub-branches">
+            <div class="gs-sub-box" style="background: var(--gs-green-bg); border-color: #86efac; color: var(--gs-green-text);">
+                <i class="fa-solid fa-square-root-variable"></i> Leyes Científicas
+            </div>
+            <div class="gs-sub-box" style="background: var(--gs-green-bg); border-color: #86efac; color: var(--gs-green-text);">
+                <i class="fa-solid fa-lightbulb"></i> Teorías Científicas
+            </div>
+        </div>
+
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-book-bookmark"></i> Diferencia entre Ley y Teoría Científica</div>
+        <p style="margin: 0;">
+            • <strong>Ley Científica:</strong> Es el enunciado de una hipótesis confirmada. Se puede expresar mediante una frase y mediante una fórmula matemática. <em>DESCRIBE</em> el fenómeno observado. Ej. La presión que ejerce un gas sobre las paredes es inversamente proporcional al volumen que ocupa. Matemáticamente: \(P \cdot V = \text{constante}\).
+        </p>
+        <p style="margin: 12px 0 0 0;">
+            • <strong>Teoría Científica:</strong> Es una explicación a una serie de hechos demostrados mediante leyes científicas. Permite predecir fenómenos desconocidos. Deben ser revisadas continuamente y solo se consideran ciertas hasta que no se produzca algún descubrimiento que las contradiga. <em>Ejemplo: Teoría cinética de la materia.</em>
+        </p>
+    </div>
+
+    <!-- EJEMPLO HISTÓRICO -->
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-vial-virus"></i> Ejemplo Histórico Real: El Descubrimiento de la Penicilina (Alexander Fleming, 1928)</div>
+        <p>
+            Para comprender cómo se aplican en la práctica cada una de las fases del método científico, analicemos el famoso hallazgo que comentamos al inicio de la unidad:
+        </p>
+        <ul style="margin-bottom: 0;">
+            <li style="margin-bottom: 10px;">
+                <strong>1ª Fase - Observación:</strong> Al regresar de vacaciones, Fleming notó que una de sus placas de cristal con cultivo de bacterias (<em>Staphylococcus</em>) se había contaminado por un hongo verde (<em>Penicillium notatum</em>). Alrededor del hongo existía un área limpia donde las bacterias habían muerto.
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>2ª Fase - Formulación de Hipótesis:</strong> Fleming planteó la siguiente suposición comprobable: <em>«El hongo Penicillium produce una sustancia química capaz de inhibir o destruir las bacterias»</em>.
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>3ª Fase - Experimentación:</strong> Cultivó el hongo por separado en un líquido nutriente, filtró el líquido (al que llamó "jugo de moho") y lo probó directamente contra diversos gérmenes patógenos en tubos de ensayo en el laboratorio.
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>4ª Fase - Análisis de Datos:</strong> Comprobó y registró numéricamente que, incluso diluyendo el extracto del hongo cientos de veces, este seguía destruyendo bacterias tan peligrosas como las del neumococo sin alterar los glóbulos rojos.
+            </li>
+            <li style="margin-bottom: 0;">
+                <strong>5ª Fase - Comunicación de Resultados:</strong> Publicó formalmente sus hallazgos en 1929 en la revista científica <em>British Journal of Experimental Pathology</em>. Años más tarde, los científicos Florey y Chain aislaron la molécula purificada creando el antibiótico llamado <strong>Penicilina</strong>, hallazgo que salvó millones de vidas y valió el Premio Nobel a sus autores.
+            </li>
+        </ul>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades para realizar en el cuaderno</div>
+        <p>Aplica lo aprendido contestando en tu cuaderno a los siguientes ejercicios:</p>
+
+        <ol class="gs-actividades">
+            <li><strong>Clasificación de transformaciones:</strong> Indica en cada caso si se trata de un fenómeno físico o de un fenómeno químico justificando brevemente tu respuesta:
+                <br>a) La digestión de una manzana en el estómago.
+                <br>b) Congelar agua en la cubitera del frigorífico.
+                <br>c) Encender un cerillo de madera.
+                <br>d) Cortar una barra de pan en rodajas.
+            </li>
+            <li><strong>Formulación de Hipótesis:</strong> Imagina que observas que las plantas del patio de tu centro educativo crecen más rápido en primavera que en invierno. Redacta una hipótesis comprobable que trate de explicar esta observación.</li>
+            <li><strong>Identificación de errores:</strong> Un estudiante afirma lo siguiente: <em>«Cuando un experimento demuestra que mi hipótesis era falsa, he perdido el tiempo y el estudio no sirve de nada»</em>. Argumenta con rigor por qué esta afirmación es incorrecta dentro del método científico.</li>
+            <li><strong>Leyes y Teorías:</strong> Explica con tus palabras la diferencia principal entre una <em>ley científica</em> y una <em>teoría científica</em> aportando un ejemplo de cada una.</li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="2eso_ud1_1">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--gs-primary);">Solucionario Oficial para el Alumnado</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos facilitado por tu docente para comprobar las soluciones paso a paso.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
