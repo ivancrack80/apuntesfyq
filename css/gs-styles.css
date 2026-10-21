@@ -786,19 +786,24 @@ li { margin-bottom: 8px; text-align: justify; }
     width: 120px;
     height: 120px;
     margin: 0 auto;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
+    background: #f8fafc; /* Fondo ligeramente gris para que resalte el recorte blanco */
+    border: 1px dashed #cbd5e1; /* Borde discontinuo que simula el hueco de la etiqueta */
     border-radius: 6px;
-    overflow: hidden;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .gs-img-roto img {
-    width: 100%;
-    height: 100%;
+    /* Hacemos la imagen más grande que el contenedor para que el corte afecte al símbolo */
+    width: 140%; 
+    height: 140%;
     object-fit: contain;
+    position: absolute;
 }
 
+/* Recorte zigzag izquierdo */
 .gs-roto-izq {
     clip-path: polygon(
         0% 0%, 45% 0%, 52% 6%, 44% 12%, 54% 18%, 46% 24%,
@@ -808,6 +813,7 @@ li { margin-bottom: 8px; text-align: justify; }
     );
 }
 
+/* Recorte zigzag derecho */
 .gs-roto-der {
     clip-path: polygon(
         100% 0%, 55% 0%, 48% 6%, 56% 12%, 46% 18%, 54% 24%,
@@ -816,7 +822,6 @@ li { margin-bottom: 8px; text-align: justify; }
         38% 100%, 100% 100%
     );
 }
-
  /* Estilos específicos para los pictogramas rotados en esta página */
 .gs-roto-giro-izq {
    clip-path: polygon(
