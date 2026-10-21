@@ -231,34 +231,44 @@
         <p>Los fragmentos que se conservan son estos:</p>
 
         <div class="gs-pictogramas-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
-            <!-- Fragmento 1: Inflamable (girado) -->
-            <div class="gs-pictograma-card">
-                <div class="gs-img-roto" style="transform: rotate(-15deg);">
-                    <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-flamme.svg" alt="Fragmento de pictograma" class="gs-roto-giro-izq">
-                </div>
-                <span class="gs-pictograma-nombre">Etiqueta 1</span>
-                <p class="gs-pictograma-desc">Solo se ve una llama en el borde.</p>
-            </div>
-
-            <!-- Fragmento 2: Toxicidad aguda (girado) -->
-            <div class="gs-pictograma-card">
-                <div class="gs-img-roto" style="transform: rotate(20deg);">
-                    <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-skull.svg" alt="Fragmento de pictograma" class="gs-roto-giro-der">
-                </div>
-                <span class="gs-pictograma-nombre">Etiqueta 2</span>
-                <p class="gs-pictograma-desc">Se intuye una calavera.</p>
-            </div>
-
-            <!-- Fragmento 3: Medio ambiente (girado) -->
-            <div class="gs-pictograma-card">
-                <div class="gs-img-roto" style="transform: rotate(-5deg);">
-                    <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-pollu.svg" alt="Fragmento de pictograma" class="gs-roto-giro-izq">
-                </div>
-                <span class="gs-pictograma-nombre">Etiqueta 3</span>
-                <p class="gs-pictograma-desc">Se distingue la silueta de un pez sobre agua.</p>
-            </div>
+    
+    <!-- Etiqueta 1: Inflamable (corte por la izquierda) -->
+    <div class="gs-pictograma-card">
+        <div class="gs-img-roto gs-roto-izq" style="transform: rotate(-15deg);">
+            <!-- Desplazamos la imagen a la derecha para que el corte pille la llama -->
+            <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-flamme.svg" 
+                 alt="Fragmento de pictograma" 
+                 style="margin-left: 30px;">
         </div>
+        <span class="gs-pictograma-nombre">Etiqueta 1</span>
+        <p class="gs-pictograma-desc">Solo se ve una llama en el borde.</p>
     </div>
+
+    <!-- Etiqueta 2: Toxicidad aguda (corte por la derecha) -->
+    <div class="gs-pictograma-card">
+        <div class="gs-img-roto gs-roto-der" style="transform: rotate(20deg);">
+            <!-- Desplazamos la imagen a la izquierda para que el corte pille la calavera -->
+            <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-skull.svg" 
+                 alt="Fragmento de pictograma" 
+                 style="margin-right: 30px;">
+        </div>
+        <span class="gs-pictograma-nombre">Etiqueta 2</span>
+        <p class="gs-pictograma-desc">Se intuye una calavera.</p>
+    </div>
+
+    <!-- Etiqueta 3: Medio ambiente (corte por la izquierda, giro leve) -->
+    <div class="gs-pictograma-card">
+        <div class="gs-img-roto gs-roto-izq" style="transform: rotate(-5deg);">
+            <!-- Desplazamos un poco hacia abajo y derecha para que el corte diagonal afecte al árbol/pez -->
+            <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-pollu.svg" 
+                 alt="Fragmento de pictograma" 
+                 style="margin-left: 25px; margin-top: 15px;">
+        </div>
+        <span class="gs-pictograma-nombre">Etiqueta 3</span>
+        <p class="gs-pictograma-desc">Se distingue la silueta de un pez sobre agua.</p>
+    </div>
+
+</div>
 
     <div class="gs-box gs-lectura">
         <div class="gs-lectura-title"><i class="fa-solid fa-comments"></i> La conversación de la conserje</div>
