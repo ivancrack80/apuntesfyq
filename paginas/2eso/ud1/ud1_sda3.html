@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SdA: El laboratorio destrozado - 2º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 2.º ESO · Unidad 1</div>
+        <h1 class="gs-title">El laboratorio destrozado: ¿qué pasó el viernes?</h1>
+        <div class="gs-subtitle">Situación de aprendizaje · Investigación integradora de la Unidad 1</div>
+    </header>
+
+    <!-- CONTEXTO NARRATIVO -->
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-circle-info"></i> El encargo de la dirección</div>
+        <p style="font-size: 0.85rem; color: #64748b; font-style: italic; margin-bottom: 12px;">
+            <strong>Aviso:</strong> este caso es <strong>ficticio</strong>. Los hechos, datos y personajes son inventados con fines educativos, aunque se sitúan en un entorno reconocible (el Instituto Sierra de San Jorge, cerca de la localidad). Ninguna persona real está implicada.
+        </p>
+        <p>
+            El lunes por la mañana, la conserje del <strong>Instituto Sierra de San Jorge</strong> encontró el laboratorio de Física y Química patas arriba: un frasco volcado, papeles por el suelo, la gradilla caída y un cuaderno de laboratorio arrugado en una esquina. El becario que había estado trabajando allí el viernes por la tarde no apareció. Y lo más importante: <strong>faltan muchas páginas del cuaderno</strong> y las que quedan están desordenadas y con anotaciones confusas.
+        </p>
+        <p style="margin-bottom: 0;">
+            La directora del centro necesita saber qué pasó. Para ello ha formado un <strong>equipo de investigación</strong>: vosotros. Vuestra misión es reconstruir lo ocurrido a partir de las pruebas que quedaron, aprender de los errores y entregar un <strong>dossier de investigación</strong> junto con un <strong>cartel de normas de seguridad</strong> para el laboratorio. Lo haréis en equipo y tendréis que resolver <strong>4 misiones encadenadas</strong> y un informe final.
+        </p>
+    </div>
+
+    <!-- CÓMO FUNCIONA -->
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-list-check"></i> Cómo funciona esta investigación</div>
+        <ul style="margin-bottom: 0;">
+            <li>Las misiones son <strong>secuenciales</strong>: cada una usa lo que descubristeis en la anterior.</li>
+            <li>Al final de cada misión hay un <strong>producto intermedio</strong> que debéis guardar en vuestro dossier.</li>
+            <li>La misión final integra todo y da lugar al <strong>dossier de investigación</strong> y al <strong>cartel de normas</strong>.</li>
+            <li>Cada misión repasa uno de los bloques de la Unidad 1.</li>
+            <li>Trabajaréis en <strong>equipos de 3-4 personas</strong>, con roles asignados.</li>
+        </ul>
+    </div>
+
+    <!-- ROLES DEL EQUIPO -->
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-people-group"></i> Roles del equipo de investigación</div>
+        <p>Cada miembro del equipo asume un rol principal. Todos los roles son igual de importantes y todos participan en la puesta en común final.</p>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Coordinador/a:</strong> organiza el trabajo, controla los tiempos, vela por que todos participen y <strong>rellena el acta de coevaluación</strong> al final.</li>
+            <li><strong>Analista de datos:</strong> lidera las correcciones de magnitudes, unidades y notación científica (Misión 2).</li>
+            <li><strong>Investigador/a químico/a:</strong> lidera la clasificación de cambios físicos y químicos (Misión 3).</li>
+            <li><strong>Responsable de seguridad:</strong> lidera la identificación de pictogramas y normas de seguridad (Misión 4).</li>
+        </ul>
+        <p style="margin-top: 10px; margin-bottom: 0; font-size: 0.9rem; color: #475569;">
+            <em>Si sois tres, el rol de investigador/a químico/a puede asumirlo el coordinador/a.</em>
+        </p>
+    </div>
+
+    <!-- TRAZABILIDAD Y COEVALUACIÓN -->
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-clipboard-check"></i> Trazabilidad y coevaluación</div>
+        <p>
+            Para que el profesorado pueda evaluar el trabajo de cada miembro por separado, debéis dejar constancia de la autoría:
+        </p>
+        <ul>
+            <li><strong>En cada corrección, cálculo o tabla</strong>, escribid al lado las iniciales de quien la ha realizado.</li>
+            <li><strong>Al final de las sesiones</strong>, el coordinador/a rellenará un <strong>acta de coevaluación</strong> (al final de este documento).</li>
+            <li>El acta se entrega junto con el dossier.</li>
+        </ul>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 1
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-diagram-project"></i> Misión 1. Reconstruir la escena (método científico)
+    </h2>
+    <p>
+        En las páginas que quedaron del cuaderno, el becario había anotado frases sueltas. Pero las escribió todas revueltas, sin orden. Vuestra primera tarea es <strong>ordenarlas según las fases del método científico</strong>.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-note-sticky"></i> Anotaciones del cuaderno (desordenadas)</div>
+        <ol style="margin-bottom: 0;">
+            <li>«He visto que al mezclar los dos líquidos se calentaba el tubo de ensayo.»</li>
+            <li>«Creo que la reacción libera calor porque se forma una sustancia nueva.»</li>
+            <li>«Repetí la mezcla tres veces con distintas cantidades y siempre pasaba lo mismo.»</li>
+            <li>«He medido la temperatura: subió de 20 °C a 45 °C en 10 segundos.»</li>
+            <li>«Le voy a contar a la profesora lo que he visto para que lo revise.»</li>
+            <li>«Si mi hipótesis es cierta, al añadir más cantidad de líquido, subirá más la temperatura.»</li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 1</div>
+        <p style="margin-bottom: 0;">
+            Copia en tu cuaderno una tabla con las <strong>5 fases del método científico</strong> (observación, formulación de hipótesis, experimentación, análisis de datos y comunicación de resultados) y coloca cada anotación en la fase que le corresponde. Algunas frases pueden pertenecer a más de una fase: explica por qué.
+        </p>
+    </div>
+
+    <!-- ================================================================ 
+         MISIÓN 2
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-ruler-combined"></i> Misión 2. Las magnitudes del laboratorio
+    </h2>
+    <p>
+        En otra página del cuaderno, el becario anotó una lista de medidas y unidades que utilizó, pero muchas están mal expresadas o confundidas. Además, en otra hoja hay números escritos de forma descuidada. Vuestra misión es <strong>detectar los errores, corregirlos y pasarlo todo al SI</strong>.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-list"></i> Parte A: Anotaciones sospechosas</div>
+        <table class="gs-tabla-datos" style="max-width:100%;">
+            <thead>
+                <tr>
+                    <th>Anotación del becario</th>
+                    <th>¿Qué está mal?</th>
+                    <th>Corrección (magnitud y unidad SI)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>La masa del frasco era de 250</td><td>?</td><td>?</td></tr>
+                <tr><td>La temperatura era de 25 metros</td><td>?</td><td>?</td></tr>
+                <tr><td>El volumen recogido fue de 12 mL</td><td>?</td><td>?</td></tr>
+                <tr><td>La velocidad del gas: 3 kilogramos por segundo</td><td>?</td><td>?</td></tr>
+                <tr><td>La presión: 101,3</td><td>?</td><td>?</td></tr>
+                <tr><td>La fuerza aplicada: 45 newtons por metro</td><td>?</td><td>?</td></tr>
+                <tr><td>El tiempo: 15 kilogramos</td><td>?</td><td>?</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-hashtag"></i> Parte B: Números desordenados (notación científica)</div>
+        <p>Pasa los siguientes números a notación científica:</p>
+        <ul>
+            <li>a) 0,00045</li>
+            <li>b) 7 200 000</li>
+            <li>c) 0,0000000081</li>
+        </ul>
+        <p>Y ahora al revés, pasa a forma decimal:</p>
+        <ul style="margin-bottom: 0;">
+            <li>d) \(3{,}5 \cdot 10^{8}\)</li>
+            <li>e) \(7{,}2 \cdot 10^{-6}\)</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-arrows-rotate"></i> Parte C: Cambios de unidades</div>
+        <p>Realiza los siguientes cambios expresando el resultado en la unidad que se indica, usando factores de conversión:</p>
+        <p style="margin-bottom: 5px;"><strong>Simples:</strong></p>
+        <ul>
+            <li>a) 3,7 hm → dm</li>
+            <li>b) 0,045 Mg → hg</li>
+            <li>c) 8 500 mm² → dam²</li>
+        </ul>
+        <p style="margin-bottom: 5px;"><strong>Compuestos:</strong></p>
+        <ul style="margin-bottom: 0;">
+            <li>d) \(1{,}5 \text{ g/mL} \rightarrow \text{kg/m}^3\)</li>
+            <li>e) \(108 \text{ km/h} \rightarrow \text{m/s}\)</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 2</div>
+        <p style="margin-bottom: 0;">
+            Corrige la tabla de la Parte A (indicando si la magnitud es fundamental o derivada), realiza las conversiones de la Parte B y de la Parte C escribiendo todos los pasos.
+        </p>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 3
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-flask"></i> Misión 3. ¿Qué le pasó a las sustancias? (cambios físicos y químicos)
+    </h2>
+    <p>
+        En el cuaderno hay una página que habla sobre el experimento que estaba haciendo el becario. Había dos frascos: uno con agua y otro con una sustancia química desconocida. La conserje recuerda haber visto algunas cosas raras. Vuestra misión es <strong>clasificar lo que ocurrió</strong>.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-list-check"></i> Pistas encontradas</div>
+        <ul style="margin-bottom: 0;">
+            <li>El becario <strong>calentó agua</strong> en un vaso de precipitados y salió vapor.</li>
+            <li>Dejó un <strong>clavo de hierro</strong> en un vaso con agua y, al día siguiente, estaba oxidado.</li>
+            <li>Añadió un <strong>sólido blanco</strong> al agua y se disolvió por completo.</li>
+            <li>Al mezclar dos líquidos, la mezcla <strong>cambió de color</strong> y empezó a salir calor.</li>
+            <li>Trozó una <strong>tiza</strong> con un mortero para hacer polvo.</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 3</div>
+        <ol style="margin-bottom: 0;">
+            <li>Clasifica cada pista de la lista anterior como <strong>cambio físico</strong> o <strong>cambio químico</strong>.</li>
+            <li>Justifica tu respuesta en cada caso explicando por qué se trata de uno u otro tipo de cambio.</li>
+            <li>¿Qué pudo pasar con el frasco que se volcó? Redactad una hipótesis sobre lo que ocurrió basándoos en los cambios observados.</li>
+        </ol>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 4
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-shield-halved"></i> Misión 4. Encuentra al culpable (pictogramas y seguridad)
+    </h2>
+    <p>
+        En la papelera del laboratorio aparecen tres <strong>etiquetas rotas</strong>. Y en la mesa del becario se encontraron pruebas de que no había seguido las normas de seguridad. Vuestra misión es reconstruir los pictogramas y detectar los errores.
+    </p>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-image"></i> Las etiquetas rotas</div>
+        <p>Los fragmentos que se conservan son estos:</p>
+
+        <div class="gs-pictogramas-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+            <!-- Fragmento 1: Inflamable (girado) -->
+            <div class="gs-pictograma-card">
+                <div class="gs-img-roto" style="transform: rotate(-15deg);">
+                    <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-flamme.svg" alt="Fragmento de pictograma" class="gs-roto-giro-izq">
+                </div>
+                <span class="gs-pictograma-nombre">Etiqueta 1</span>
+                <p class="gs-pictograma-desc">Solo se ve una llama en el borde.</p>
+            </div>
+
+            <!-- Fragmento 2: Toxicidad aguda (girado) -->
+            <div class="gs-pictograma-card">
+                <div class="gs-img-roto" style="transform: rotate(20deg);">
+                    <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-skull.svg" alt="Fragmento de pictograma" class="gs-roto-giro-der">
+                </div>
+                <span class="gs-pictograma-nombre">Etiqueta 2</span>
+                <p class="gs-pictograma-desc">Se intuye una calavera.</p>
+            </div>
+
+            <!-- Fragmento 3: Medio ambiente (girado) -->
+            <div class="gs-pictograma-card">
+                <div class="gs-img-roto" style="transform: rotate(-5deg);">
+                    <img src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/pictogramas/GHS-pictogram-pollu.svg" alt="Fragmento de pictograma" class="gs-roto-giro-izq">
+                </div>
+                <span class="gs-pictograma-nombre">Etiqueta 3</span>
+                <p class="gs-pictograma-desc">Se distingue la silueta de un pez sobre agua.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-comments"></i> La conversación de la conserje</div>
+        <p style="margin-bottom: 10px; font-style: italic;">
+            La conserje recuerda haber visto al becario el viernes por la tarde. Estas son sus impresiones:
+        </p>
+        <div class="gs-dialogo">
+            <div class="gs-dialogo-linea gs-dialogo-lucia">
+                <span class="gs-dialogo-nombre">Conserje:</span>
+                ¡Uf! Entró con el bocadillo en la mano y con el pelo suelto. Menudo lío tenía en la mesa: los frascos destapados, el cuaderno debajo del mechero…
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-diego">
+                <span class="gs-dialogo-nombre">Profesor:</span>
+                Y cuando cogió el ácido no se puso ni los guantes. Para olerlo, acercó la nariz al frasco en lugar de abanicar. Y cuando fue a preparar la mezcla, echó el agua sobre el ácido.
+            </div>
+            <div class="gs-dialogo-linea gs-dialogo-lucia">
+                <span class="gs-dialogo-nombre">Conserje:</span>
+                Yo le dije que al menos usara las gafas de protección y se recogiera el pelo, pero me dijo que «no pasaba nada, que era un experimento pequeño».
+            </div>
+        </div>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto de la misión 4</div>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Identificad los 3 pictogramas</strong> de las etiquetas rotas. Explicad qué significa cada uno y qué precauciones hay que tomar.</li>
+            <li><strong>Enumerad al menos 6 normas de seguridad incumplidas</strong> por el becario, clasificándolas en las categorías de la unidad (preparación, trabajo, productos químicos, calor, accidentes).</li>
+            <li><strong>Proponed</strong> cómo debería haber trabajado correctamente en cada caso.</li>
+        </ol>
+    </div>
+
+    <!-- ================================================================
+         MISIÓN 5
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-file-pen"></i> Misión 5. Informe final y cartel de normas
+    </h2>
+    <p>
+        Habéis llegado al final de la investigación. Toca entregar el <strong>dossier de investigación</strong> a la dirección del centro y crear un <strong>cartel de normas</strong> para el laboratorio. Este es el producto final de la situación de aprendizaje.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-clipboard-list"></i> Parte 1: Dossier de investigación</div>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Portada:</strong> título, nombres del equipo y roles, curso, fecha y logo o anagrama del equipo.</li>
+            <li><strong>Resumen de lo ocurrido:</strong> en 5-8 líneas, contad qué pasó en el laboratorio según lo que habéis deducido.</li>
+            <li><strong>Errores detectados y su corrección:</strong> haced una tabla con dos columnas: «error» / «cómo debería haberse hecho».</li>
+            <li><strong>Pictogramas del frasco misterioso:</strong> proponed una etiqueta correcta para el frasco volcado, con su pictograma, sus frases H y P (si las conocéis) y las precauciones básicas.</li>
+            <li><strong>Recomendaciones para el centro:</strong> al menos 3 medidas que la dirección podría tomar para evitar que se repita.</li>
+            <li><strong>Conclusión personal:</strong> en 3-4 líneas, qué habéis aprendido con esta misión.</li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-poster"></i> Parte 2: Cartel de normas de seguridad (grupal)</div>
+        <p>En grupo, diseñad un <strong>cartel de normas de seguridad</strong> para colgar en el laboratorio del instituto. Debe incluir:</p>
+        <ul style="margin-bottom: 0;">
+            <li>Un <strong>título llamativo</strong> y un eslogan breve.</li>
+            <li>Al menos <strong>5 normas</strong> de seguridad claras y directas.</li>
+            <li>Al menos <strong>3 pictogramas</strong> de peligrosidad (dibujados o impresos).</li>
+            <li>Uso de colores y un diseño que se lea bien desde lejos (formato A3 o A2).</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-to-square"></i> Producto final</div>
+        <p><strong>Formato:</strong> dossier en folio A4 (individual o grupal) + cartel en A3 o A2 (grupal).</p>
+        <p><strong>Selección:</strong> el mejor cartel se imprimirá y colgará en el laboratorio real del centro.</p>
+        <p style="margin-bottom: 0;"><strong>Entrega:</strong> se entregarán el dossier y el cartel al profesorado en la fecha indicada.</p>
+    </div>
+
+    <!-- CRITERIOS DE EVALUACIÓN -->
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-check-double"></i> Qué se va a evaluar</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Rigor científico:</strong> las respuestas son correctas y están bien justificadas.</li>
+            <li><strong>Uso de unidades y notación:</strong> se expresan correctamente las magnitudes y unidades del SI.</li>
+            <li><strong>Interpretación de pictogramas:</strong> se identifican correctamente y se asocian a sus riesgos.</li>
+            <li><strong>Redacción y presentación:</strong> el dossier está ordenado, claro y cuidado.</li>
+            <li><strong>Creatividad:</strong> el cartel de normas es claro, visual y cumple los requisitos.</li>
+            <li><strong>Trabajo en equipo:</strong> cada miembro ha participado y ha aportado.</li>
+            <li><strong>Reflexión personal:</strong> la conclusión muestra aprendizaje real.</li>
+        </ul>
+    </div>
+
+    <!-- ================================================================
+         ACTA DE COEVALUACIÓN
+         ================================================================ -->
+    <h2 class="gs-section-title">
+        <i class="fa-solid fa-clipboard-check"></i> Acta de coevaluación del equipo
+    </h2>
+    <p>
+        Este documento lo rellena el <strong>coordinador/a</strong> al finalizar las sesiones de trabajo. Se entrega junto con el dossier.
+    </p>
+
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-users"></i> Equipo: ____________________ · Fecha: ____ / ____ / ______</div>
+
+        <div class="gs-table-wrapper">
+            <table class="gs-table">
+                <thead>
+                    <tr>
+                        <th>Miembro</th>
+                        <th>Rol asignado</th>
+                        <th>Tareas realizadas</th>
+                        <th>Implicación (1-5)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p style="margin-top: 20px;"><strong>Valoración global del grupo (1-5):</strong> ______</p>
+        <p><strong>¿Alguien no ha participado? ¿Por qué?</strong></p>
+        <p style="border-bottom: 1px solid #cbd5e1; padding-bottom: 25px; margin-bottom: 20px;">&nbsp;</p>
+
+        <p><strong>¿Qué mejoraríais del trabajo en equipo?</strong></p>
+        <p style="border-bottom: 1px solid #cbd5e1; padding-bottom: 25px; margin-bottom: 20px;">&nbsp;</p>
+
+        <p><strong>Firma del coordinador/a:</strong></p>
+        <p style="border-bottom: 1px solid #cbd5e1; padding-bottom: 35px; margin-bottom: 20px;">&nbsp;</p>
+    </div>
+
+    <div class="gs-box gs-lectura" style="border-left: 4px solid #dc2626;">
+        <div class="gs-lectura-title" style="color: #dc2626;"><i class="fa-solid fa-triangle-exclamation"></i> Aviso importante sobre la veracidad del acta</div>
+        <p style="margin-bottom: 0;">
+            El acta de coevaluación es un <strong>documento oficial del equipo</strong>. El profesorado <strong>contrasta lo declarado con su propia observación directa</strong> durante las sesiones. Si se detecta que el acta no refleja la realidad, <strong>todo el equipo verá penalizada su nota</strong> en el apartado de trabajo en equipo.
+        </p>
+    </div>
+
+    <!-- SOLUCIONARIO PROTEGIDO -->
+    <div class="sol-lock-box" data-unit="2eso_ud1_sda">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--gs-primary);">Solucionario Oficial</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos facilitado por tu docente para comprobar las soluciones de las misiones.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
