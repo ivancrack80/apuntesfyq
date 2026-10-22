@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD2.1 - Evolución Histórica de los Modelos Atómicos - 4º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Unidad 2 • Bloque de Estructura de la Materia</div>
+        <h1 class="gs-title">1. Evolución Histórica de los Modelos Atómicos</h1>
+        <div class="gs-subtitle">El camino científico desde la intuición griega hasta el modelo mecano-cuántico actual</div>
+    </header>
+
+    <!-- LÍNEA DEL TIEMPO RECAPITULATIVA -->
+    <div class="gs-index-list" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-bottom: 30px;">
+        <div class="gs-index-item" style="flex: 1; min-width: 100px; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 10px;">
+            <span class="gs-index-num" style="margin-bottom: 5px; font-size: 0.9rem; width: auto; height: auto; padding: 2px 8px; border-radius: 12px;">S. V a.C.</span>
+            <span class="gs-index-name" style="font-size: 0.9rem;">Demócrito</span>
+            <span class="gs-index-desc" style="font-size: 0.75rem; margin-top: 2px;">Átomo indivisible</span>
+        </div>
+        <div class="gs-index-item" style="flex: 1; min-width: 100px; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 10px;">
+            <span class="gs-index-num" style="margin-bottom: 5px; font-size: 0.9rem; width: auto; height: auto; padding: 2px 8px; border-radius: 12px;">1808</span>
+            <span class="gs-index-name" style="font-size: 0.9rem;">Dalton</span>
+            <span class="gs-index-desc" style="font-size: 0.75rem; margin-top: 2px;">Esfera maciza</span>
+        </div>
+        <div class="gs-index-item" style="flex: 1; min-width: 100px; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 10px;">
+            <span class="gs-index-num" style="margin-bottom: 5px; font-size: 0.9rem; width: auto; height: auto; padding: 2px 8px; border-radius: 12px;">1897</span>
+            <span class="gs-index-name" style="font-size: 0.9rem;">Thomson</span>
+            <span class="gs-index-desc" style="font-size: 0.75rem; margin-top: 2px;">Electrón / Pudin</span>
+        </div>
+        <div class="gs-index-item" style="flex: 1; min-width: 100px; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 10px;">
+            <span class="gs-index-num" style="margin-bottom: 5px; font-size: 0.9rem; width: auto; height: auto; padding: 2px 8px; border-radius: 12px;">1911</span>
+            <span class="gs-index-name" style="font-size: 0.9rem;">Rutherford</span>
+            <span class="gs-index-desc" style="font-size: 0.75rem; margin-top: 2px;">Núcleo y corteza</span>
+        </div>
+        <div class="gs-index-item" style="flex: 1; min-width: 100px; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 10px;">
+            <span class="gs-index-num" style="margin-bottom: 5px; font-size: 0.9rem; width: auto; height: auto; padding: 2px 8px; border-radius: 12px;">1913</span>
+            <span class="gs-index-name" style="font-size: 0.9rem;">Bohr</span>
+            <span class="gs-index-desc" style="font-size: 0.75rem; margin-top: 2px;">Órbitas cuantizadas</span>
+        </div>
+        <div class="gs-index-item" style="flex: 1; min-width: 100px; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 10px;">
+            <span class="gs-index-num" style="margin-bottom: 5px; font-size: 0.9rem; width: auto; height: auto; padding: 2px 8px; border-radius: 12px;">1926</span>
+            <span class="gs-index-name" style="font-size: 0.9rem;">Schrödinger</span>
+            <span class="gs-index-desc" style="font-size: 0.75rem; margin-top: 2px;">Nube de orbitales</span>
+        </div>
+    </div>
+
+    <div class="gs-box gs-lectura" style="border-left-color: #dc2626;">
+        <div class="gs-lectura-title" style="color: #991b1b;"><em>"Dos milenios de estancamiento frente a cincuenta años de vértigo."</em></div>
+        <p style="margin-bottom: 0;">
+            Durante más de 2.000 años, el pensamiento humano permaneció atado a la idea intuitiva de los cuatro elementos de Aristóteles. Sin embargo, a comienzos del siglo XX, la ciencia experimentó una aceleración sin precedentes: en apenas cinco décadas, una cascada de experimentos precisos derribó dogmas ancestrales y dio paso a una comprensión profunda y revolucionaria del átomo.
+        </p>
+    </div>
+
+    <!-- 1.1 GRECIA -->
+    <h2 class="gs-section-title">1.1. La Concepción Griega: El inicio y el gran error histórico</h2>
+    <p>El debate sobre la naturaleza última de la materia nació en la Grecia clásica:</p>
+    <p><strong>Demócrito y Leucipo (siglo V a.C.):</strong> Postularon mediante la pura reflexión filosófica que la materia era discontinua. Al dividir cualquier cuerpo sucesivamente, se llegaba a partículas indivisibles e impenetrables llamadas <strong>átomos</strong> (del griego <em>a-tomos</em>, sin división). Para ellos, los átomos eran eternos, inmutables y se diferenciaban solo en forma, tamaño y orden.</p>
+    <p><strong>Aristóteles (siglo IV a.C.):</strong> Rechazó la idea de átomo y de vacío, defendiendo que la materia era continua y resultaba de la mezcla de cuatro elementos fundamentales (tierra, agua, aire y fuego) bajo cuatro cualidades (frío, calor, sequedad y humedad). Su inmensa autoridad filosófica consolidó este error durante casi dos milenios.</p>
+
+    <!-- 1.2 DALTON -->
+    <h2 class="gs-section-title">1.2. John Dalton: La primera teoría científica moderna (1808)</h2>
+    <p>A principios del siglo XIX, John Dalton rescató la hipótesis atómica para fundamentar cuantitativamente las leyes ponderales de la química (conservación de la masa y proporciones definidas). Dalton imaginó los átomos como esferas compactas, rígidas e indivisibles ("bolas de billar").</p>
+    <p><strong>Revisión crítica de sus postulados a la luz de la ciencia actual:</strong></p>
+    <ul>
+        <li style="margin-bottom: 8px;"><em>"La materia está formada por átomos indivisibles e indestructibles."</em><br><span style="color:#dc2626;"><strong>Refutado:</strong> El átomo es divisible y posee estructura interna compuesta por partículas subatómicas.</span></li>
+        <li style="margin-bottom: 8px;"><em>"Todos los átomos de un mismo elemento son exactamente idénticos en masa y propiedades."</em><br><span style="color:#dc2626;"><strong>Refutado:</strong> La existencia de los <strong>isótopos</strong> demuestra que átomos del mismo elemento pueden tener distinta masa (diferente número de neutrones).</span></li>
+        <li style="margin-bottom: 8px;"><em>"Los compuestos se forman por unión de átomos en proporciones numéricas sencillas."</em><br><span style="color:#16a34a;"><strong>Válido:</strong> Esencial para comprender las fórmulas moleculares, aunque Dalton erró al asumir siempre proporciones 1:1 fijas (suponía que el agua era \(\text{HO}\)).</span></li>
+        <li style="margin-bottom: 8px;"><em>"En las reacciones químicas los átomos no se crean ni se destruyen, solo se reorganizan."</em><br><span style="color:#16a34a;"><strong>Válido:</strong> Base de la estequiometría y conservación de la masa en reacciones químicas ordinarias.</span></li>
+    </ul>
+
+    <!-- 1.3 THOMSON -->
+    <h2 class="gs-section-title">1.3. Modelo de Thomson: El átomo revela su interior (1897-1904)</h2>
+    <p>El estudio de las descargas eléctricas en gases a baja presión en <strong>tubos de rayos catódicos</strong> demostró que se desprendían partículas con carga negativa idénticas para cualquier gas empleado. J.J. Thomson descubrió así la primera partícula subatómica: el <strong>electrón</strong>.</p>
+    <p>Para explicar la neutralidad eléctrica de la materia, Thomson propuso el <strong>modelo del pudin de pasas</strong>: el átomo es una esfera uniforme de carga positiva en cuyo interior se encuentran incrustados los electrones negativos.</p>
+    
+    <div style="text-align: center; margin: 20px 0;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Modelo_at%C3%B3mico_de_Thomson_2021.png" alt="Modelo de Thomson" style="max-width: 250px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" referrerpolicy="no-referrer">
+        <p style="font-size: 0.75rem; color: #64748b; margin-top: 5px;">Modelo del pastel de pasas (Thomson).</p>
+    </div>
+
+    <p><strong>El contrapunto de la carga positiva (Eugen Goldstein, 1886):</strong> Al perforar el cátodo en un tubo de descarga, Goldstein observó unos rayos que viajaban en sentido opuesto a los catódicos (los <em>rayos canales</em>). Eran iones positivos formados al arrancar los electrones a los átomos de gas residual. Este hallazgo demostró la existencia de carga positiva en el átomo, aunque Goldstein no identificó la partícula fundamental que la portaba.</p>
+    
+    <div style="text-align: center; margin: 20px 0; padding: 15px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <p style="font-weight: 600; color: #1e3a8a; margin-bottom: 10px;"><i class="fa-solid fa-flask"></i> Simulación interactiva: Tubo de Rayos Catódicos</p>
+        <iframe width="100%" height="375px" frameborder="no" scrolling="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="https://lab.concord.org/embeddable.html#interactives/interactions/crookesElectrodes.json" style="border: 2px solid #1e3a8a; border-radius: 8px;"></iframe>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-bullseye"></i> Experimento de Millikan (1909): La cuantización de la carga</div>
+        <p style="margin: 0;">Mediante el célebre experimento de la gota de aceite, Robert Millikan equilibró la fuerza de gravedad y la fuerza eléctrica sobre gotas de aceite electrizadas. Determinó que cualquier carga eléctrica siempre es un múltiplo entero de un valor fundamental: <strong>\(e = 1,602 \cdot 10^{-19}\text{ C}\)</strong>, fijando así la carga elemental del electrón.</p>
+    </div>
+
+    <!-- 1.4 RUTHERFORD -->
+    <h2 class="gs-section-title">1.4. Ernest Rutherford: El descubrimiento del núcleo (1911)</h2>
+    <p>En 1911, Ernest Rutherford (junto a Geiger y Marsden) bombardeó una finísima lámina de oro con partículas alfa (\(\alpha\), núcleos de Helio con carga positiva). Según el modelo de Thomson, todas debían atravesar la lámina casi sin desviarse. Sin embargo, observaron que:</p>
+    <ul>
+        <li>La gran mayoría atravesaba la lámina en línea recta sin desviarse.</li>
+        <li>Algunas pocas sufrían desviaciones notables.</li>
+        <li>Aproximadamente 1 de cada 10.000 <strong>rebotaba hacia atrás</strong>.</li>
+    </ul>
+    <p>Rutherford concluyó que la masa y la carga positiva no estaban repartidas, sino concentradas en una zona central pequeñísima llamada <strong>núcleo</strong>. Los electrones giran a su alrededor en la <strong>corteza</strong> describiendo órbitas circulares. La mayor parte del átomo es espacio vacío.</p>
+    <p>Años más tarde, en 1919, al bombardear nitrógeno con partículas alfa, Rutherford logró aislar el núcleo del átomo de hidrógeno y demostró que era una partícula presente en todos los núcleos atómicos: el <strong>protón</strong>.</p>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Modelo_at%C3%B3mico_de_Rutherford.png" alt="Modelo de Rutherford" style="max-width: 250px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" referrerpolicy="no-referrer">
+        <p style="font-size: 0.75rem; color: #64748b; margin-top: 5px;">Modelo nuclear planetario de Rutherford.</p>
+    </div>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <p style="font-weight: 600; color: #1e3a8a; margin-bottom: 10px;"><i class="fa-solid fa-atom"></i> Simulación PhET: Dispersión de Rutherford</p>
+        <iframe src="https://phet.colorado.edu/sims/html/rutherford-scattering/1.1.0/rutherford-scattering_es_ES.html" width="100%" height="400px" style="border: 2px solid #1e3a8a; border-radius: 8px; max-width: 700px;"></iframe>
+    </div>
+
+    <p><strong>James Chadwick y el neutrón (1932):</strong> Rutherford intuyó que debía existir otra partícula en el núcleo para compensar la repulsión entre protones y aportar la masa faltante. Hubo que esperar a 1932 para que James Chadwick descubriera el <strong>neutrón</strong>, una partícula sin carga eléctrica y de masa similar a la del protón.</p>
+
+    <div class="gs-box gs-comprender" style="background-color: #f0fdf4; border-left-color: #16a34a;">
+        <p style="margin: 0; color: #166534;"><strong>Aciertos:</strong> Descubrió la existencia del núcleo atómico, identificó el protón y demostró que la materia está casi totalmente vacía.</p>
+    </div>
+    <div class="gs-box gs-comprender" style="background-color: #fef2f2; border-left-color: #dc2626;">
+        <p style="margin: 0; color: #991b1b;"><strong>Fallos:</strong> Incompatible con la física clásica: un electrón acelerado en órbita circular debería emitir radiación continuamente, perder energía y colapsar en el núcleo en \(10^{-10}\text{ s}\). Tampoco explicaba los espectros atómicos discontinuos.</p>
+    </div>
+
+    <!-- 1.5 BOHR -->
+    <h2 class="gs-section-title">1.5. Niels Bohr: La cuantización de la energía (1913)</h2>
+    <p>Para resolver la inestabilidad del modelo de Rutherford y explicar los <strong>espectros de emisión atómicos</strong> (líneas de luz discretas que emiten los gases al excitarse), Niels Bohr aplicó las ideas cuánticas de Planck y Einstein:</p>
+    <ul>
+        <li><strong>Órbitas estacionarias:</strong> Los electrones solo giran en órbitas circulares permitidas (\(n = 1, 2, 3\dots\)) sin emitir radiación. En ellas su energía está cuantizada.</li>
+        <li><strong>Saltos cuánticos:</strong> El electrón solo emite o absorbe energía en forma de fotón de luz (\(\Delta E = h \cdot \nu\)) cuando salta de un nivel a otro. Si sube de nivel absorbe energía; al caer a un nivel inferior emite un fotón de frecuencia exacta.</li>
+    </ul>
+
+    <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
+        <div style="text-align: center; flex: 1; min-width: 250px;">
+            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Hydrogen_Emission_Spectrum.svg/330px-Hydrogen_Emission_Spectrum.svg.png" alt="Espectro Hidrógeno" style="max-width: 380px; width: 100%; border-radius: 6px;" referrerpolicy="no-referrer">
+            <p style="font-size: 0.75rem; color: #64748b; margin-top: 5px;">Líneas del espectro visible del Hidrógeno.</p>
+        </div>
+        <div style="text-align: center; flex: 1; min-width: 250px;">
+            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Bohr_atom_model_Spanish.svg/langes-250px-Bohr_atom_model_Spanish.svg.png" alt="Modelo de Bohr" style="max-width: 260px; width: 100%; border-radius: 6px;" referrerpolicy="no-referrer">
+            <p style="font-size: 0.75rem; color: #64748b; margin-top: 5px;">Niveles y transiciones electrónicas en el modelo de Bohr.</p>
+        </div>
+    </div>
+
+    <div class="gs-box gs-comprender" style="background-color: #f0fdf4; border-left-color: #16a34a;">
+        <p style="margin: 0; color: #166534;"><strong>Aciertos:</strong> Justificó cuantitativamente la estabilidad atómica y predijo con exactitud matemática las líneas del espectro del hidrógeno.</p>
+    </div>
+    <div class="gs-box gs-comprender" style="background-color: #fef2f2; border-left-color: #dc2626;">
+        <p style="margin: 0; color: #991b1b;"><strong>Fallos:</strong> Solo era válido para el átomo de hidrógeno (1 solo electrón). Fallaba al aplicarlo a átomos polielectrónicos con más electrones.</p>
+    </div>
+
+    <!-- 1.6 MECANO CUÁNTICO -->
+    <h2 class="gs-section-title">1.6. Modelo Mecano-cuántico Actual (Schrödinger)</h2>
+    <p>A partir de 1925, la física formuló una nueva descripción de la materia basada en la ecuación de onda de Erwin Schrödinger. Desaparece la idea de "órbita" fija y se introduce el concepto de <strong>orbital atómico</strong>: región tridimensional del espacio alrededor del núcleo donde existe una <strong>probabilidad muy alta (mayor al 90%)</strong> de encontrar al electrón.</p>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Schrodinger_model_of_the_atom.svg/330px-Schrodinger_model_of_the_atom.svg.png" alt="Modelo Schrödinger" style="display:block; margin: 10px auto; max-width: 320px; width: 100%; border-radius: 8px;" referrerpolicy="no-referrer">
+        <p style="text-align: center; font-size: 0.75rem; color: #64748b;">Nube de densidad de probabilidad y orbital atómico.</p>
+    </div>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-lightbulb"></i> Sabías que... Las dos reglas invisibles de la cuántica</div>
+        <p>El modelo cuántico se sostiene sobre dos principios revolucionarios propuestos en los años 20:</p>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Dualidad onda-corpúsculo (Louis de Broglie):</strong> Los electrones no son solo "pelotitas" de materia; también se comportan como ondas electromagnéticas.</li>
+            <li><strong>Principio de Incertidumbre (Werner Heisenberg):</strong> Es físicamente imposible conocer al mismo tiempo y con precisión absoluta la posición y la velocidad exacta de un electrón. Cuanto más mides una, más se desdibuja la otra.</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-atom"></i> Más allá de protones y neutrones: El Zoo de Partículas</div>
+        <p style="margin-bottom: 0;">Aunque en química trabajamos con protones, neutrones y electrones, la física moderna ha demostrado que el mundo subatómico es mucho más rico. El electrón es una partícula elemental indivisible (un <em>leptón</em>), pero los protones y neutrones están formados por partículas aún más pequeñas llamadas <strong>quarks</strong>. ¡Un protón consta de dos quarks <em>up</em> y un quark <em>down</em> (\(uud\)), unidos por partículas mediadoras de fuerza llamadas <em>gluones</em>!</p>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-check-double"></i> Acierto Definitivo del Modelo Cuántico</div>
+        <p style="margin: 0;">El modelo mecano-cuántico describe con precisión insuperable el comportamiento químico, las configuraciones electrónicas de todos los elementos de la tabla periódica y los enlaces moleculares de la química moderna.</p>
+    </div>
+
+    <!-- SÍNTESIS COMPARATIVA -->
+    <h2 class="gs-section-title">1.7. Tabla Síntesis Comparativa de Modelos Atómicos</h2>
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th>Modelo</th>
+                    <th>Año y Autor</th>
+                    <th>Experimento / Hito Clave</th>
+                    <th>Aportación Principal</th>
+                    <th>Limitación Principal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Esférico</strong></td>
+                    <td>1808 • J. Dalton</td>
+                    <td>Leyes ponderales químicas</td>
+                    <td>Primera base científica del átomo</td>
+                    <td>Lo consideraba indivisible e inmutable</td>
+                </tr>
+                <tr>
+                    <td><strong>Pudin de pasas</strong></td>
+                    <td>1897 • J.J. Thomson</td>
+                    <td>Tubo de rayos catódicos</td>
+                    <td>Descubrimiento del electrón (\(e^-\))</td>
+                    <td>No explicaba el núcleo ni el espacio vacío</td>
+                </tr>
+                <tr>
+                    <td><strong>Planetario</strong></td>
+                    <td>1911 • E. Rutherford</td>
+                    <td>Lámina de oro y partículas \(\alpha\)</td>
+                    <td>Descubrimiento del núcleo y del protón</td>
+                    <td>Inestable según la electrodinámica clásica</td>
+                </tr>
+                <tr>
+                    <td><strong>Órbitas cuantizadas</strong></td>
+                    <td>1913 • N. Bohr</td>
+                    <td>Espectro de emisión del Hidrógeno</td>
+                    <td>Niveles discretos de energía para \(e^-\)</td>
+                    <td>Solo funcionaba bien para el Hidrógeno</td>
+                </tr>
+                <tr>
+                    <td><strong>Mecano-Cuántico</strong></td>
+                    <td>1926 • E. Schrödinger</td>
+                    <td>Ecuación de onda y mecánica cuántica</td>
+                    <td>Concepto de orbital (probabilidad)</td>
+                    <td>Exige formulación matemática compleja</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SOLUCIONARIO PROTEGIDO -->
+    <div class="sol-lock-box" data-unit="4eso_ud2_1">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--gs-primary);">Solucionario Oficial para el Alumnado</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos facilitado por tu docente para comprobar las soluciones paso a paso.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
