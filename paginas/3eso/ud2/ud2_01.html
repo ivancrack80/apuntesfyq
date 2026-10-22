@@ -39,184 +39,242 @@
             En la antigua Grecia, la pregunta sobre de qué estaba hecha la materia dividió a los filósofos. <strong>Aristóteles</strong> propuso que todo estaba formado por cuatro elementos (tierra, agua, aire y fuego) que se combinaban entre sí. Su teoría era fácil de entender y fue aceptada durante casi 2000 años.
         </p>
         <p style="margin-bottom: 0;">
-            Sin embargo, <strong>Demócrito y Leucipo</strong> imaginaron algo muy distinto: si dividías la materia en trozos cada vez más pequeños, llegaría un punto en el que ya no se podría dividir más. A esa partícula indivisible la llamaron <strong>átomo</strong> (que significa "sin división"). Aunque Demócrito se adelantó a su tiempo, no pudo demostrarlo con experimentos, por lo que su idea cayó en el olvido... hasta el siglo XIX.
+            Sin embargo, <strong>Demócrito y Leucipo</strong> imaginaron algo muy distinto: si dividías la materia en trozos cada vez más pequeños, llegaría un punto en el que ya no se podría dividir más. A esa partícula indivisible la llamaron <strong>átomo</strong> (que significa "sin división"). Aunque Demócrito se adelantó a su tiempo, no pudo demostrarlo con experimentos, por lo que su idea cayó en el olvido.
         </p>
     </div>
 
-    <!-- MUSEO INTERACTIVO -->
-    <h2 class="gs-section-title">
-        <i class="fa-solid fa-landmark"></i> El Museo de los Modelos Atómicos
-    </h2>
     <p>
-        La ciencia avanza construyendo y derribando ideas. Ningún modelo es perfecto; cada uno acierta una parte de la realidad, pero falla en otra, lo que obliga a buscar uno nuevo. Pulsa los botones para viajar en el tiempo y descubrir cómo evolucionó nuestra idea del átomo.
+        La ciencia no avanza de la noche a la mañana. A lo largo de los siglos, los científicos fueron proponiendo diferentes <strong>modelos atómicos</strong>. Un modelo científico es una representación mental o gráfica que intenta explicar cómo es la realidad. Ningún modelo es perfecto: cada uno acierta una parte, pero falla en otra, lo que obliga a buscar uno nuevo.
+    </p>
+
+    <!-- ================================================================
+         MODELO 1: DALTON
+         ================================================================ -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-circle"></i> 1.1. El Modelo de Dalton (1808): La esfera indivisible</h2>
+    <p>
+        A principios del siglo XIX, el químico inglés <strong>John Dalton</strong> retomó la idea de Demócrito, pero esta vez basándose en experimentos reales sobre cómo reaccionaban los gases. Dalton propuso que la materia estaba formada por partículas muy pequeñas, macizas e indivisibles a las que llamó átomos.
+    </p>
+    
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper">
+            <div id="box_dalton" class="jxgbox" style="aspect-ratio: 2/1;"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>El átomo como una bola de billar</h3>
+            <p style="margin-bottom: 12px;">Para Dalton, los átomos de un mismo elemento eran idénticos entre sí (como esferas perfectas) y distintos a los de otros elementos.</p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label" style="color: #16a34a; font-weight: bold;">✓ Qué acertó:</span>
+                    <span class="gs-panel-datos__valor" style="font-weight: normal;">Explicó las leyes de la química de su época y recuperó la idea del átomo basándose en pruebas.</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label" style="color: #dc2626; font-weight: bold;">✗ Punto débil:</span>
+                    <span class="gs-panel-datos__valor" style="font-weight: normal;">No explicaba los fenómenos eléctricos. Además, los átomos SÍ se pueden dividir.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         MODELO 2: THOMSON
+         ================================================================ -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-plug"></i> 1.2. El Modelo de Thomson (1897): El pudin de pasas</h2>
+    <p>
+        A finales del siglo XIX, se descubrió que los átomos podían emitir partículas con carga negativa (los electrones). Si el átomo fuera una esfera maciza e indivisible, ¿cómo podía salir algo de él? <strong>J.J. Thomson</strong> propuso un nuevo modelo: el átomo sería una gran esfera de carga positiva con los electrones incrustados en ella.
     </p>
 
     <div class="gs-visual-block">
         <div class="gs-graph-wrapper">
-            <div id="box_modelos" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+            <div id="box_thomson" class="jxgbox" style="aspect-ratio: 2/1;"></div>
         </div>
         <div class="gs-graph-explanation">
-            <h3 id="modelo-titulo" style="color: var(--gs-primary);">Selecciona un modelo</h3>
-            <p id="modelo-desc" style="min-height: 80px;">Pulsa los botones inferiores para visualizar cada modelo atómico.</p>
-            
+            <h3>Los electrones como pasas en un pudin</h3>
+            <p style="margin-bottom: 12px;">Imagina una masa positiva (el pudin) con pequeñas cargas negativas (las pasas) repartidas por toda la esfera.</p>
             <div class="gs-panel-datos">
                 <div class="gs-panel-datos__fila">
                     <span class="gs-panel-datos__label" style="color: #16a34a; font-weight: bold;">✓ Qué acertó:</span>
-                    <span id="modelo-acierto" class="gs-panel-datos__valor" style="font-weight: normal;">—</span>
+                    <span class="gs-panel-datos__valor" style="font-weight: normal;">Demostró que el átomo no es indivisible, sino que contiene electrones.</span>
                 </div>
                 <div class="gs-panel-datos__fila">
                     <span class="gs-panel-datos__label" style="color: #dc2626; font-weight: bold;">✗ Punto débil:</span>
-                    <span id="modelo-fallo" class="gs-panel-datos__valor" style="font-weight: normal;">—</span>
+                    <span class="gs-panel-datos__valor" style="font-weight: normal;">No explicaba por qué las partículas alfa atravesaban el átomo sin desviarse casi nunca.</span>
                 </div>
-            </div>
-
-            <div class="gs-selector-btns" style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px;">
-                <button class="gs-selector-btn" onclick="mostrarModelo('dalton')">Dalton (1808)</button>
-                <button class="gs-selector-btn" onclick="mostrarModelo('thomson')">Thomson (1897)</button>
-                <button class="gs-selector-btn" onclick="mostrarModelo('rutherford')">Rutherford (1911)</button>
-                <button class="gs-selector-btn" onclick="mostrarModelo('bohr')">Bohr (1913)</button>
-                <button class="gs-selector-btn" onclick="mostrarModelo('schrodinger')">Schrödinger (1926)</button>
             </div>
         </div>
     </div>
 
-    <!-- CIERRE DEL PUNTO 1 -->
-    <div class="gs-box gs-comprender">
-        <div class="gs-comprender-title"><i class="fa-solid fa-atom"></i> La visión actual: El modelo mecano-cuántico</div>
-        <p>
-            El modelo de Schrödinger (1926) es el que se acepta hoy en día. En él, los electrones ya no giran en órbitas perfectas como planetas. En su lugar, se mueven en <strong>orbitales</strong>: regiones del espacio donde hay una alta probabilidad de encontrar al electrón (una especie de "nube de probabilidad").
+    <!-- ================================================================
+         MODELO 3: RUTHERFORD
+         ================================================================ -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-atom"></i> 1.3. El Modelo de Rutherford (1911): El sistema solar</h2>
+    <p>
+        Para comprobar el modelo de Thomson, <strong>Ernest Rutherford</strong> disparó partículas positivas (partículas alfa) contra una lámina de oro. Esperaba que pasaran de largo o se desviaran un poco. Pero, para su sorpresa, algunas partículas <strong>rebotaban</strong> hacia atrás. La única explicación era que el átomo estaba prácticamente vacío y tenía un núcleo central diminuto, muy denso y positivo.
+    </p>
+
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper">
+            <div id="box_rutherford" class="jxgbox" style="aspect-ratio: 2/1;"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Un núcleo diminuto y electrones orbitando</h3>
+            <p style="margin-bottom: 12px;">El átomo es como un estadio de fútbol: el núcleo es una canica en el centro y los electrones son como moscas volando en las gradas.</p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label" style="color: #16a34a; font-weight: bold;">✓ Qué acertó:</span>
+                    <span class="gs-panel-datos__valor" style="font-weight: normal;">Descubrió el núcleo atómico y demostró que el átomo está casi vacío.</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label" style="color: #dc2626; font-weight: bold;">✗ Punto débil:</span>
+                    <span class="gs-panel-datos__valor" style="font-weight: normal;">Según la física clásica, los electrones deberían caer al núcleo en espiral. No explicaba los colores de los fuegos artificiales.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         MODELO 4: BOHR
+         ================================================================ -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-solar-panel"></i> 1.4. El Modelo de Bohr (1913): Órbitas cuantizadas</h2>
+    <p>
+        El joven físico <strong>Niels Bohr</strong> se dio cuenta de que los colores que emiten los átomos (por ejemplo, en las luces de neón) eran la clave. Propuso que los electrones solo podían girar en <strong>órbitas permitidas</strong> (niveles de energía). Mientras giraban en ellas no perdían energía. Pero cuando un electrón saltaba de una órbita a otra, emitía o absorbía energía en forma de luz.
+    </p>
+
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper">
+            <div id="box_bohr" class="jxgbox" style="aspect-ratio: 2/1;"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Los "escalones" de energía</h3>
+            <p style="margin-bottom: 12px;">El electrón no puede estar en cualquier lugar, solo en órbitas concretas (como una escalera donde solo puedes pisar los escalones, no el aire entre ellos).</p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label" style="color: #16a34a; font-weight: bold;">✓ Qué acertó:</span>
+                    <span class="gs-panel-datos__valor" style="font-weight: normal;">Explicó a la perfección los espectros de luz del átomo de hidrógeno (los colores).</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label" style="color: #dc2626; font-weight: bold;">✗ Punto débil:</span>
+                    <span class="gs-panel-datos__valor" style="font-weight: normal;">Solo funcionaba para átomos con un solo electrón. No explicaba átomos más complejos.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         MODELO 5: SCHRÖDINGER
+         ================================================================ -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-cloud"></i> 1.5. El Modelo Actual de Schrödinger (1926): Nubes de probabilidad</h2>
+    <p>
+        Con la llegada de la mecánica cuántica, <strong>Erwin Schrödinger</strong> demostró que es imposible saber exactamente dónde está un electrón y a qué velocidad se mueve a la vez. En su lugar, calculó la <strong>probabilidad</strong> de encontrarlo en una región del espacio. A esa región la llamó <strong>orbital</strong>. El átomo pasa a ser un núcleo rodeado de "nubes" donde es más probable encontrar a los electrones.
+    </p>
+
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper">
+            <div id="box_schrodinger" class="jxgbox" style="aspect-ratio: 2/1;"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Nubes de probabilidad</h3>
+            <p style="margin-bottom: 12px;">Cuanto más intenso es el color de la nube, mayor es la probabilidad de encontrar al electrón en esa zona.</p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label" style="color: #16a34a; font-weight: bold;">✓ Qué acertó:</span>
+                    <span class="gs-panel-datos__valor" style="font-weight: normal;">Es el modelo actual. Explica el comportamiento de todos los elementos de la tabla periódica.</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label" style="color: #dc2626; font-weight: bold;">✗ Punto débil:</span>
+                    <span class="gs-panel-datos__valor" style="font-weight: normal;">Es un modelo matemáticamente muy complejo y difícil de visualizar mentalmente.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades de repaso</div>
+        <ol class="gs-actividades">
+            <li><strong>El avance de la ciencia:</strong> Explica por qué el modelo de Rutherford sustituyó al de Thomson. ¿Qué experimento lo demostró?</li>
+            <li><strong>El modelo de Bohr:</strong> ¿Por qué el modelo de Bohr explicaba los colores de los fuegos artificiales y el de Rutherford no?</li>
+            <li><strong>Pensamiento crítico:</strong> Si Dalton viviera hoy y viera el modelo de Schrödinger, ¿qué crees que le sorprendería más?</li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="3eso_ud2_1">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--gs-primary);">Solucionario Oficial</h3>
+        </div>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos para comprobar las soluciones.
         </p>
-        <p style="margin-bottom: 0;">
-            Para entender bien esta nube y cómo se organizan los electrones dentro de ella, necesitamos aprender los conceptos de niveles, subniveles y orbitales. Eso es exactamente lo que veremos en el próximo apartado.
-        </p>
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
     </div>
 
 </div>
 
 <script>
 document.addEventListener('gs-ready', function () {
-    if (!document.getElementById('box_modelos')) return;
 
-    // Configuración base del lienzo
-    const board = JXG.JSXGraph.initBoard('box_modelos', {
-        boundingbox: [-6, 6, 6, -6], 
-        axis: false, 
-        showCopyright: false, 
-        showNavigation: false
-    });
+    // 1. DALTON
+    if (document.getElementById('box_dalton')) {
+        const bDalton = JXG.JSXGraph.initBoard('box_dalton', { boundingbox: [-5, 3, 5, -3], axis: false, showCopyright: false, showNavigation: false });
+        bDalton.create('circle', [[-2, 0], 1], { fillColor: '#94a3b8', strokeColor: '#475569', strokeWidth: 2 });
+        bDalton.create('circle', [[2, 0], 1], { fillColor: '#94a3b8', strokeColor: '#475569', strokeWidth: 2 });
+        bDalton.create('text', [-2, -1.8, 'Átomo A'], { fontSize: 12, color: '#475569', anchorX: 'middle' });
+        bDalton.create('text', [2, -1.8, 'Átomo B'], { fontSize: 12, color: '#475569', anchorX: 'middle' });
+    }
 
-    // Grupos para ocultar/mostrar modelos
-    const gDalton = new JXG.Group(board);
-    const gThomson = new JXG.Group(board);
-    const gRutherford = new JXG.Group(board);
-    const gBohr = new JXG.Group(board);
-    const gSchrodinger = new JXG.Group(board);
+    // 2. THOMSON
+    if (document.getElementById('box_thomson')) {
+        const bThomson = JXG.JSXGraph.initBoard('box_thomson', { boundingbox: [-5, 3, 5, -3], axis: false, showCopyright: false, showNavigation: false });
+        bThomson.create('circle', [[0, 0], 2.5], { fillColor: '#fecdd3', strokeColor: '#f43f5e', strokeWidth: 2, fillOpacity: 0.6 });
+        const posT = [[-1,1], [1.2,0.8], [0.5,-1.5], [-1.5,-0.5], [1.8,-1], [-0.2,1.8], [-1.8,1.5], [1.5,1.8], [-0.8,-1.8], [2,-0.2], [0,0.5]];
+        posT.forEach(p => bThomson.create('point', p, { name: '', color: '#1e3a8a', size: 4, fixed: true }));
+    }
 
-    // --- MODELO DE DALTON ---
-    const daltonSphere = board.create('circle', [[0, 0], 2], { fillColor: '#94a3b8', strokeColor: '#475569', strokeWidth: 2 });
-    const daltonText = board.create('text', [-1, -0.2, 'Esfera\nindivisible'], { fontSize: 14, color: '#fff', anchorX: 'middle', anchorY: 'middle' });
-    gDalton.addPoints([daltonSphere]);
+    // 3. RUTHERFORD
+    if (document.getElementById('box_rutherford')) {
+        const bRuth = JXG.JSXGraph.initBoard('box_rutherford', { boundingbox: [-5, 3, 5, -3], axis: false, showCopyright: false, showNavigation: false });
+        bRuth.create('point', [0, 0], { name: '', color: '#dc2626', size: 8, fixed: true });
+        // Órbitas punteadas
+        bRuth.create('curve', [function(t){ return 2*Math.cos(t); }, function(t){ return 2*Math.sin(t); }, 0, 2*Math.PI], { strokeColor: '#cbd5e1', strokeWidth: 1.5, dash: 2 });
+        bRuth.create('curve', [function(t){ return 3.5*Math.cos(t); }, function(t){ return 3.5*Math.sin(t); }, 0, 2*Math.PI], { strokeColor: '#cbd5e1', strokeWidth: 1.5, dash: 2 });
+        // Electrones
+        bRuth.create('point', [2, 0], { name: '', color: '#1e3a8a', size: 4, fixed: true });
+        bRuth.create('point', [0, -3.5], { name: '', color: '#1e3a8a', size: 4, fixed: true });
+    }
 
-    // --- MODELO DE THOMSON ---
-    const thomsonSphere = board.create('circle', [[0, 0], 2.5], { fillColor: '#fecdd3', strokeColor: '#f43f5e', strokeWidth: 2, fillOpacity: 0.6 });
-    const thomsonElectrons = [];
-    const posT = [[-1,1], [1.2,0.8], [0.5,-1.5], [-1.5,-0.5], [1.8,-1], [-0.2,1.8], [-1.8,1.5], [1.5,1.8], [-0.8,-1.8], [2,-0.2], [0,0.5]];
-    posT.forEach(p => {
-        thomsonElectrons.push(board.create('point', p, { name: '', color: '#1e3a8a', size: 4, fixed: true }));
-    });
-    gThomson.addPoints([thomsonSphere, ...thomsonElectrons]);
+    // 4. BOHR
+    if (document.getElementById('box_bohr')) {
+        const bBohr = JXG.JSXGraph.initBoard('box_bohr', { boundingbox: [-5, 3, 5, -3], axis: false, showCopyright: false, showNavigation: false });
+        bBohr.create('point', [0, 0], { name: '', color: '#dc2626', size: 8, fixed: true });
+        // Órbitas sólidas
+        bBohr.create('circle', [[0,0], 1.5], { strokeColor: '#94a3b8', strokeWidth: 1.5 });
+        bBohr.create('circle', [[0,0], 2.8], { strokeColor: '#94a3b8', strokeWidth: 1.5 });
+        // Electrones
+        bBohr.create('point', [1.5, 0], { name: '', color: '#1e3a8a', size: 4, fixed: true });
+        bBohr.create('point', [0, -2.8], { name: '', color: '#1e3a8a', size: 4, fixed: true });
+    }
 
-    // --- MODELO DE RUTHERFORD ---
-    const ruthNucleus = board.create('point', [0, 0], { name: '', color: '#dc2626', size: 8, fixed: true });
-    const ruthOrbit1 = board.create('curve', [function(t){ return 2.5*Math.cos(t); }, function(t){ return 2.5*Math.sin(t); }, 0, 2*Math.PI], { strokeColor: '#cbd5e1', strokeWidth: 1, dash: 2 });
-    const ruthOrbit2 = board.create('curve', [function(t){ return 4*Math.cos(t); }, function(t){ return 4*Math.sin(t); }, 0, 2*Math.PI], { strokeColor: '#cbd5e1', strokeWidth: 1, dash: 2 });
-    const ruthE1 = board.create('point', [2.5, 0], { name: '', color: '#1e3a8a', size: 4, fixed: true });
-    const ruthE2 = board.create('point', [0, -4], { name: '', color: '#1e3a8a', size: 4, fixed: true });
-    gRutherford.addPoints([ruthNucleus, ruthE1, ruthE2]);
-    gRutherford.addPoints([ruthOrbit1, ruthOrbit2]);
-
-    // --- MODELO DE BOHR ---
-    const bohrNucleus = board.create('point', [0, 0], { name: '', color: '#dc2626', size: 8, fixed: true });
-    const bohrOrbit1 = board.create('circle', [[0,0], 2], { strokeColor: '#94a3b8', strokeWidth: 1 });
-    const bohrOrbit2 = board.create('circle', [[0,0], 3.5], { strokeColor: '#94a3b8', strokeWidth: 1 });
-    const bohrOrbit3 = board.create('circle', [[0,0], 5], { strokeColor: '#94a3b8', strokeWidth: 1 });
-    const bohrE1 = board.create('point', [2, 0], { name: '', color: '#1e3a8a', size: 4, fixed: true });
-    const bohrE2 = board.create('point', [0, -3.5], { name: '', color: '#1e3a8a', size: 4, fixed: true });
-    const bohrE3 = board.create('point', [-3.5, 0], { name: '', color: '#1e3a8a', size: 4, fixed: true });
-    gBohr.addPoints([bohrNucleus, bohrE1, bohrE2, bohrE3]);
-    gBohr.addPoints([bohrOrbit1, bohrOrbit2, bohrOrbit3]);
-
-    // --- MODELO DE SCHRÖDINGER ---
-    const schNucleus = board.create('point', [0, 0], { name: '', color: '#dc2626', size: 8, fixed: true });
-    const schCloud1 = board.create('circle', [[0,0], 3], { fillColor: '#93c5fd', strokeColor: 'none', fillOpacity: 0.3 });
-    const schCloud2 = board.create('circle', [[0,0], 4.5], { fillColor: '#60a5fa', strokeColor: 'none', fillOpacity: 0.15 });
-    gSchrodinger.addPoints([schNucleus, schCloud1, schCloud2]);
-
-    // Ocultar todos al inicio excepto Dalton
-    gThomson.hide();
-    gRutherford.hide();
-    gBohr.hide();
-    gSchrodinger.hide();
-
-    // Función para cambiar de modelo
-    window.mostrarModelo = function(modelo) {
-        // Ocultar todos
-        gDalton.hide(); gThomson.hide(); gRutherford.hide(); gBohr.hide(); gSchrodinger.hide();
-
-        // Datos del modelo seleccionado
-        let titulo = "", desc = "", acierto = "", fallo = "";
-
-        if (modelo === 'dalton') {
-            gDalton.show();
-            titulo = "Modelo de Dalton (1808)";
-            desc = "La materia está formada por átomos indivisibles e indestructibles, como pequeñas esferas macizas. Los átomos de un mismo elemento son iguales entre sí.";
-            acierto = "Recuperó la idea del átomo y explicó las leyes ponderales de la química (conservación de la masa).";
-            fallo = "No explicaba los fenómenos eléctricos (como la electricidad estática) ni la radiactividad. Los átomos no son indivisibles.";
-        } 
-        else if (modelo === 'thomson') {
-            gThomson.show();
-            titulo = "Modelo de Thomson (1897)";
-            desc = "El átomo es una esfera de carga positiva con los electrones (cargas negativas) incrustados en ella, como las pasas en un pudin.";
-            acierto = "Descubrió la existencia del electrón, demostrando que el átomo sí se puede dividir en partes más pequeñas.";
-            fallo = "No explicaba por qué las partículas alfa atravesaban una lámina de oro sin desviarse casi nunca (Experimento de Rutherford).";
-        }
-        else if (modelo === 'rutherford') {
-            gRutherford.show();
-            titulo = "Modelo de Rutherford (1911)";
-            desc = "El átomo tiene un núcleo central muy pequeño, denso y con carga positiva. Los electrones giran a su alrededor en el espacio vacío, como los planetas alrededor del Sol.";
-            acierto = "Demostró que el átomo está prácticamente vacío y descubrió el núcleo atómico.";
-            fallo = "Según la física clásica, un electrón girando debería perder energía y caer al núcleo en espiral. No explicaba los espectros de luz de los elementos.";
-        }
-        else if (modelo === 'bohr') {
-            gBohr.show();
-            titulo = "Modelo de Bohr (1913)";
-            desc = "Los electrones giran en órbitas circulares permitidas (niveles de energía). Mientras están en una órbita no emiten energía, pero al saltar de una a otra emiten o absorben luz.";
-            acierto = "Explicó perfectamente los espectros de emisión del átomo de hidrógeno (los colores de los fuegos artificiales y luces de neón).";
-            fallo = "Solo funcionaba para átomos con un solo electrón (como el hidrógeno). No explicaba átomos más complejos ni el desdoblamiento de las líneas espectrales.";
-        }
-        else if (modelo === 'schrodinger') {
-            gSchrodinger.show();
-            titulo = "Modelo Mecano-Cuántico (Schrödinger, 1926)";
-            desc = "No podemos saber exactamente dónde está un electrón. Nos movemos en probabilidades: los electrones se encuentran en orbitales, regiones del espacio (nubes) donde es muy probable encontrarlos.";
-            acierto = "Es el modelo actual. Explica el comportamiento de todos los átomos, desde el hidrógeno hasta los más pesados, y la formación de enlaces.";
-            fallo = "No es un punto débil en sí, pero es un modelo matemáticamente complejo y difícil de visualizar. Sigue sin explicar la gravedad.";
-        }
-
-        // Actualizar el panel de datos
-        document.getElementById('modelo-titulo').innerText = titulo;
-        document.getElementById('modelo-desc').innerText = desc;
-        
-        const acDiv = document.getElementById('modelo-acierto');
-        acDiv.innerText = acierto;
-        acDiv.style.color = '#166534'; // verde oscuro
-
-        const faDiv = document.getElementById('modelo-fallo');
-        faDiv.innerText = fallo;
-        faDiv.style.color = '#991b1b'; // rojo oscuro
-    };
-
-    // Iniciar mostrando Dalton
-    window.mostrarModelo('dalton');
+    // 5. SCHRÖDINGER
+    if (document.getElementById('box_schrodinger')) {
+        const bSch = JXG.JSXGraph.initBoard('box_schrodinger', { boundingbox: [-5, 3, 5, -3], axis: false, showCopyright: false, showNavigation: false });
+        bSch.create('point', [0, 0], { name: '', color: '#dc2626', size: 8, fixed: true });
+        // Nubes de probabilidad
+        bSch.create('circle', [[0,0], 2.5], { fillColor: '#93c5fd', strokeColor: 'none', fillOpacity: 0.4 });
+        bSch.create('circle', [[0,0], 3.5], { fillColor: '#60a5fa', strokeColor: 'none', fillOpacity: 0.15 });
+        bSch.create('text', [0, -4.5, 'Nube de electrones (orbital)'], { fontSize: 12, color: '#1e3a8a', anchorX: 'middle' });
+    }
 });
 </script>
 
