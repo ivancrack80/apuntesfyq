@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 2 - El Átomo y la Organización Periódica</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </header>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 3.º ESO · Unidad 2</div>
+        <h1 class="gs-title">El Átomo y la Organización Periódica</h1>
+        <div class="gs-subtitle">De los filósofos griegos a los orbitales cuánticos y la Tabla Periódica</div>
+    </header>
+
+    <!-- GANCHO HISTÓRICO -->
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-scale-unbalanced"></i> Historia de la Ciencia: El debate que duró 2000 años</div>
+        <p>
+            Hace más de 2000 años, dos filósofos griegos se hicieron la misma pregunta: ¿de qué está hecha la materia? <strong>Aristóteles</strong> estaba convencido de que todo se componía de cuatro elementos: tierra, agua, aire y fuego. Era una idea lógica y visual. Pero otro filósofo, <strong>Demócrito</strong> (junto a Leucipo), pensó algo completamente distinto: imaginó que si cortabas una piedra por la mitad, y luego otra vez, y otra, llegaría un momento en que no podrías cortar más. A esa partícula indivisible la llamó <em>átomo</em>.
+        </p>
+        <p>
+            Durante los siguientes 2000 años, la humanidad le dio la razón a Aristóteles. La idea del átomo fue olvidada y tratada como una simple curiosidad filosófica. No fue hasta el siglo XIX, con la llegada de los experimentos rigurosos de Dalton, Thomson y Rutherford, cuando descubrimos que Demócrito tenía razón... pero la materia era mucho más extraña de lo que imaginó. 
+        </p>
+        <p style="margin-bottom: 0;">
+            En esta unidad, recorreremos ese camino: cómo pasamos de la intuición de los griegos a los modelos atómicos modernos, cómo se organizan los electrones y por qué esa organización es la clave que explica el orden de la Tabla Periódica.
+        </p>
+    </div>
+
+    <!-- EXPLICACIÓN RELEVANTE -->
+    <h2 class="gs-section-title">La arquitectura invisible de la materia</h2>
+    <p>
+        Comprender el átomo hoy requiere entender cómo la ciencia fue desmontándolo pieza a pieza. A lo largo de esta unidad descubriremos cómo las partículas del núcleo definen la identidad de un elemento, de qué manera los electrones dictan las reglas de la reactividad química y cómo esa información se resume en el mapa más importante de la química: la Tabla Periódica.
+    </p>
+
+    <!-- RUTA DE LA UNIDAD -->
+    <h2 class="gs-section-title">Ruta de la Unidad: ¿Qué vamos a dominar?</h2>
+    <ul class="gs-index-list">
+        <li class="gs-index-item">
+            <span class="gs-index-num">1</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Evolución Histórica del Concepto de Átomo</span>
+                <span class="gs-index-desc">Analizaremos el desarrollo histórico de la teoría atómica, desde las ideas de Aristóteles y Demócrito hasta los modelos de Dalton, Thomson, Rutherford, Bohr y Schrödinger. Veremos cómo la ciencia avanza a base de derribar modelos anteriores.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">2</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Caracterización de los Átomos</span>
+                <span class="gs-index-desc">Estudiaremos las partículas subatómicas (protones, neutrones y electrones) y su ubicación. Definiremos el número atómico (<code>Z</code>) y el número másico (<code>A</code>), y entenderemos la importancia del número atómico para ordenar la tabla (Moseley). Trabajaremos con la unidad de masa atómica (u), la masa atómica promedio, los isótopos (y sus aplicaciones) y la formación de iones.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">3</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Organización de la Corteza Electrónica</span>
+                <span class="gs-index-desc">Aprenderemos cómo se distribuyen los electrones alrededor del núcleo. Estudiaremos los niveles y subniveles de energía y los orbitales atómicos, herramientas fundamentales para poder escribir e interpretar la configuración electrónica de cualquier átomo.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">4</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">La Tabla Periódica</span>
+                <span class="gs-index-desc">Conoceremos las primeras clasificaciones (metales y no metales, naturales y artificiales) y recordaremos a Mendeleiev. Estudiaremos la tabla actual: grupos, periodos, la nomenclatura de las familias, las características comunes de los elementos y el ion más estable que forman. Analizaremos una tabla reducida de 60 elementos (representativos, los 3d y grupos 10, 11 y 12).</span>
+            </div>
+        </li>
+    </ul>
+
+    <!-- DEBATE INICIAL -->
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-comments"></i> Cuestiones para la reflexión inicial</div>
+        <p>
+            Antes de adentrarnos en los contenidos del tema, reflexiona sobre estas dos cuestiones con tu compañero o compañera:
+        </p>
+        <ol style="margin-bottom: 0;">
+            <li style="margin-bottom: 10px;"><strong>El poder de una idea:</strong> Aristóteles era el científico más respetado de su época, pero se equivocó al negar la existencia del átomo. Demócrito acertó, pero nadie le creyó durante 2000 años. ¿Crees que en la ciencia actual podría estar pasando algo parecido con alguna teoría? ¿Por qué la ciencia necesita pruebas y no solo confiar en la autoridad de alguien famoso?</li>
+            <li><strong>La identidad de un elemento:</strong> Si dos átomos tienen los mismos protones y electrones, pero distinto número de neutrones (isótopos), siguen siendo el mismo elemento químico. Sin embargo, uno puede ser estable y otro radiactivo. ¿Qué parte del átomo crees que es la que "manda" a la hora de decidir si dos átomos son el mismo elemento?</li>
+        </ol>
+    </div>
+
+</div>
+
+</body>
+</html>
