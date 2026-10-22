@@ -12,7 +12,7 @@
 
 <div class="gs-container">
 
-    <!--- BARRA DE ACCESIBILIDAD --->
+    <!-- BARRA DE ACCESIBILIDAD -->
     <div class="accessibility-bar">
         <div class="font-size-controls" title="Ajustar tamaño de texto">
             <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
@@ -67,7 +67,7 @@
                 <tr>
                     <td><strong>Electrón</strong></td>
                     <td>\(e^-\)</td>
-                    <td>Negativa (-1)</td>
+                    <td>Negativa (-1) <br> \( -1,6 \cdot 10^{-19} \text{ C} \)</td>
                     <td>Muy pequeña (≈ 1/1836 u)</td>
                     <td>En la corteza (alrededor del núcleo)</td>
                 </tr>
@@ -84,18 +84,28 @@
     <p>
         Para identificar un átomo, no necesitamos contarlo todo. Los científicos utilizan dos números fundamentales:
     </p>
-    <ul>
-        <li><strong>Número atómico (Z):</strong> Es el número de <strong>protones</strong> que hay en el núcleo. Es como el DNI del átomo: define de qué elemento químico se trata. Por ejemplo, si un átomo tiene \(Z = 8\) (8 protones), siempre será Oxígeno. Si tiene \(Z = 26\) (26 protones), siempre será Hierro.</li>
-        <li><strong>Número másico (A):</strong> Es la suma de los <strong>protones y los neutrones</strong> del núcleo (las partículas que pesan). Es decir, \(A = Z + \text{neutrones}\).</li>
-    </ul>
 
     <div class="gs-box gs-comprender">
-        <div class="gs-comprender-title"><i class="fa-solid fa-calculator"></i> Cómo calcular protones, neutrones y electrones</div>
+        <div class="gs-comprender-title"><i class="fa-solid fa-fingerprint"></i> Número atómico (Z)</div>
+        <p style="margin-bottom: 0;">
+            Es el número de <strong>protones</strong> que hay en el núcleo. Es como el DNI del átomo: define de qué elemento químico se trata. Por ejemplo, si un átomo tiene \(Z = 8\) (8 protones), siempre será Oxígeno. Si tiene \(Z = 26\) (26 protones), siempre será Hierro.
+        </p>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-weight-hanging"></i> Número másico (A)</div>
+        <p style="margin-bottom: 0;">
+            Es la suma de los <strong>protones y los neutrones</strong> del núcleo (las partículas que pesan). Es decir, \(A = Z + \text{neutrones}\).
+        </p>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-calculator"></i> Cómo calcular protones, neutrones y electrones</div>
         <p>Si conocemos \(Z\) y \(A\) de un átomo, podemos saber exactamente cuántas partículas tiene:</p>
         <ul style="margin-bottom: 0;">
             <li><strong>Protones (p\(^+\)):</strong> Es igual al número atómico (\(Z\)).</li>
             <li><strong>Neutrones (n\(^0\)):</strong> Se calcula restando al número másico el número atómico: \(n^0 = A - Z\).</li>
-            <li><strong>Electrones (e\(^-\)):</strong> Si el átomo es <strong>neutro</strong> (no tiene carga), el número de electrones es igual al de protones: \(e^- = Z\).</li>
+            <li><strong>Electrones (e\(^-\)):</strong> Si el átomo es <strong>neutro</strong> (no tiene carga), el número de electrones es igual al de protones: <strong>\(e^- = p^+\) (= Z)</strong>.</li>
         </ul>
     </div>
 
@@ -120,18 +130,21 @@
         Los isótopos son átomos del <strong>mismo elemento químico</strong> (mismo \(Z\)) pero con <strong>diferente número de neutrones</strong> (y por tanto, diferente \(A\)). Químicamente se comportan casi igual, pero sus núcleos pueden ser estables o inestables (radiactivos).
     </p>
 
-    <div class="gs-box gs-ejemplo">
-        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo: Los isótopos del Carbono</div>
-        <p>
-            El carbono tiene \(Z = 6\). Sus isótopos más conocidos son:
-        </p>
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-atom"></i> La notación atómica: \(^{A}_{Z}\text{X}^{q}\)</div>
+        <p>Para representar un átomo o un ion de forma completa, se utiliza la siguiente notación:</p>
+        <div class="gs-latex-container" style="text-align: center; font-size: 1.5rem; margin: 15px 0;">
+            \(^{A}_{Z}\text{X}^{q}\)
+        </div>
         <ul style="margin-bottom: 0;">
-            <li><strong>Carbono-12 (\(^{12}\text{C}\)):</strong> Tiene 6 protones y 6 neutrones (\(A = 12\)). Es estable.</li>
-            <li><strong>Carbono-14 (\(^{14}\text{C}\)):</strong> Tiene 6 protones y 8 neutrones (\(A = 14\)). Es radiactivo y se usa para datar restos arqueológicos.</li>
+            <li><strong>X:</strong> Es el símbolo químico del elemento (ej. C, O, Na).</li>
+            <li><strong>A (superíndice izquierdo):</strong> Número másico (protones + neutrones).</li>
+            <li><strong>Z (subíndice izquierdo):</strong> Número atómico (número de protones).</li>
+            <li><strong>q (superíndice derecho):</strong> Carga eléctrica del ion. Si es un átomo neutro, no se pone nada. Si es un catión, se pone el signo + (ej. \(^{23}_{11}\text{Na}^{+}\)). Si es un anión, el signo - (ej. \(^{35}_{17}\text{Cl}^{-}\)).</li>
         </ul>
     </div>
 
-    <p style="margin-top: 20px;"><strong>Aplicaciones de los isótopos:</strong></p>
+    <p><strong>Aplicaciones de los isótopos:</strong></p>
     <ul>
         <li><strong>Medicina (sanitaria):</strong> El Yodo-131 se usa para tratar el cáncer de tiroides. El Tecnecio-99 se usa en pruebas de imagen.</li>
         <li><strong>Investigación científica:</strong> El Carbono-14 se usa para datar restos fósiles y determinar su antigüedad.</li>
@@ -142,143 +155,133 @@
     <!-- 2.4 NEUTRALIDAD Y FORMACIÓN DE IONES -->
     <h2 class="gs-section-title"><i class="fa-solid fa-plus-minus"></i> 2.4. La neutralidad del átomo y la formación de iones</h2>
     <p>
-        En su estado natural, los átomos son <strong>eléctricamente neutros</strong>, porque el número de protones (cargas positivas) es exactamente igual al número de electrones (cargas negativas).
+        En su estado natural, los átomos son <strong>eléctricamente neutros</strong>, porque el número de protones (cargas positivas) es exactamente igual al número de electrones (cargas negativas): \(e^- = p^+\).
     </p>
     <p>
         Sin embargo, los átomos tienden a buscar la estabilidad. Para ello, a veces ganan o pierden electrones en su última capa. Cuando esto ocurre, dejan de ser neutros y se convierten en <strong>iones</strong> (átomos con carga eléctrica).
     </p>
 
     <div class="gs-box gs-comprender">
-        <div class="gs-comprender-title"><i class="fa-solid fa-arrow-right-arrow-left"></i> Tipos de iones</div>
-        <ul style="margin-bottom: 0;">
-            <li><strong>Cationes (iones positivos):</strong> El átomo <strong>pierde electrones</strong>. Al perder cargas negativas, el número de protones positivos supera al de electrones, por lo que el átomo queda con carga positiva (ej. Na\(^+\)).</li>
-            <li><strong>Aniones (iones negativos):</strong> El átomo <strong>gana electrones</strong>. Al ganar cargas negativas, ahora hay más electrones que protones, por lo que el átomo queda con carga negativa (ej. Cl\(^-\)).</li>
+        <div class="gs-comprender-title"><i class="fa-solid fa-calculator"></i> Cálculo de la carga de un ion</div>
+        <p>
+            La carga eléctrica (\(q\)) de un átomo o ion se calcula como la diferencia entre el número de protones y el número de electrones:
+        </p>
+        <div class="gs-latex-container" style="text-align: center;">
+            \(q = p^+ - e^-\)
+        </div>
+        <ul style="margin-bottom: 0; margin-top: 10px;">
+            <li><strong>Catión (ion positivo):</strong> El átomo <strong>pierde electrones</strong>. Al haber menos electrones que protones, \(q > 0\). (ej. \(^{23}_{11}\text{Na}^{+}\)).</li>
+            <li><strong>Anión (ion negativo):</strong> El átomo <strong>gana electrones</strong>. Al haber más electrones que protones, \(q < 0\). (ej. \(^{35}_{17}\text{Cl}^{-}\)).</li>
         </ul>
     </div>
 
-    <!-- SIMULADOR INTERACTIVO -->
+    <!-- SIMULADOR PHET -->
     <div class="gs-box gs-lectura" style="margin-top: 40px; border-color: var(--gs-accent); background-color: #f8fafc;">
-        <div class="gs-lectura-title" style="color: var(--gs-primary);"><i class="fa-solid fa-gamepad"></i> Simulador: Construye tu átomo</div>
+        <div class="gs-lectura-title" style="color: var(--gs-primary);"><i class="fa-solid fa-gamepad"></i> Simulador: Construye un átomo (PhET)</div>
         <p>
-            Usa los botones para añadir o quitar partículas. Observa cómo cambia la identidad del átomo y si se convierte en un ion. Mantén el número de protones fijo si quieres ver cómo se forman los isótopos.
+            Usa este simulador interactivo de la Universidad de Colorado para experimentar con protones, neutrones y electrones. Observa cómo cambia el elemento, la carga y la masa. Fíjate en las dos primeras órbitas: la primera solo admite 2 electrones, y la segunda hasta 8.
         </p>
-
-        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
-            
-            <!-- Controles -->
-            <div style="flex: 1; min-width: 250px; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-                
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <span style="font-weight: 600; color: #dc2626;">Protones (Z):</span>
-                    <div>
-                        <button onclick="modificarParticula('p', -1)" class="gs-selector-btn" style="padding: 2px 10px;">-</button>
-                        <span id="val-p" style="font-weight: bold; font-size: 1.2rem; display: inline-block; width: 30px; text-align: center;">6</span>
-                        <button onclick="modificarParticula('p', 1)" class="gs-selector-btn" style="padding: 2px 10px;">+</button>
-                    </div>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <span style="font-weight: 600; color: #475569;">Neutrones (n):</span>
-                    <div>
-                        <button onclick="modificarParticula('n', -1)" class="gs-selector-btn" style="padding: 2px 10px;">-</button>
-                        <span id="val-n" style="font-weight: bold; font-size: 1.2rem; display: inline-block; width: 30px; text-align: center;">6</span>
-                        <button onclick="modificarParticula('n', 1)" class="gs-selector-btn" style="padding: 2px 10px;">+</button>
-                    </div>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <span style="font-weight: 600; color: #2563eb;">Electrones (e):</span>
-                    <div>
-                        <button onclick="modificarParticula('e', -1)" class="gs-selector-btn" style="padding: 2px 10px;">-</button>
-                        <span id="val-e" style="font-weight: bold; font-size: 1.2rem; display: inline-block; width: 30px; text-align: center;">6</span>
-                        <button onclick="modificarParticula('e', 1)" class="gs-selector-btn" style="padding: 2px 10px;">+</button>
-                    </div>
-                </div>
-                
-                <hr style="border: none; border-top: 1px dashed #cbd5e1; margin: 15px 0;">
-                <p style="font-size: 0.85rem; color: #64748b; text-align: center; margin-bottom: 0;">Prueba a quitar un electrón o a cambiar un neutrón por otro.</p>
-            </div>
-
-            <!-- Resultados y Visualización -->
-            <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 10px;">
-                
-                <div class="gs-panel-datos" style="margin: 0; background: #fff;">
-                    <div class="gs-panel-datos__fila">
-                        <span class="gs-panel-datos__label">Número másico (A):</span>
-                        <span id="sim-A" class="gs-panel-datos__valor gs-panel-datos__valor--azul" style="font-weight: bold;">12</span>
-                    </div>
-                    <div class="gs-panel-datos__fila">
-                        <span class="gs-panel-datos__label">Carga:</span>
-                        <span id="sim-carga" class="gs-panel-datos__valor" style="font-weight: bold;">0 (Neutro)</span>
-                    </div>
-                    <div class="gs-panel-datos__fila">
-                        <span class="gs-panel-datos__label">Especie:</span>
-                        <span id="sim-especie" class="gs-panel-datos__valor gs-panel-datos__valor--verde" style="font-weight: bold;">Carbono</span>
-                    </div>
-                </div>
-
-                <div class="gs-graph-wrapper" style="margin: 0; max-width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff;">
-                    <div id="box_simulador" class="jxgbox" style="aspect-ratio: 4/3;"></div>
-                </div>
-            </div>
+        <div style="text-align: center; margin-top: 15px;">
+            <iframe src="https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_es.html" width="100%" height="500px" scrolling="no" allowfullscreen style="border: 2px solid #1e3a8a; border-radius: 8px;"></iframe>
         </div>
     </div>
 
     <!-- 2.5 MASA ATÓMICA -->
-    <h2 class="gs-section-title"><i class="fa-solid fa-weight-hanging"></i> 2.5. La masa del átomo</h2>
+    <h2 class="gs-section-title"><i class="fa-solid fa-weight-hanging"></i> 2.5. La masa del átomo y la unidad de masa atómica (u)</h2>
     <p>
-        Como vimos, el protón y el neutrón tienen una masa muy parecida (≈ 1 u), mientras que el electrón es unas 1836 veces más ligero. Por eso, cuando medimos la masa de un átomo, prácticamente ignoramos la masa de los electrones y nos centramos en el núcleo.
+        Como vimos, el protón y el neutrón tienen una masa muy parecida, mientras que el electrón es unas 1836 veces más ligero. Por eso, cuando medimos la masa de un átomo, prácticamente ignoramos la masa de los electrones y nos centramos en el núcleo.
     </p>
     <p>
-        La unidad de masa atómica (u) se define como la doceava parte de la masa de un átomo de Carbono-12.
+        La masa de un átomo es extremadamente pequeña (del orden de \(10^{-27}\) kg), lo que hace muy incómodo trabajar con kilogramos. Para evitar números tan pequeños, los químicos utilizan una unidad especial: la <strong>unidad de masa atómica (u)</strong>, también llamada dalton (Da).
     </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-ruler"></i> Definición de la unidad de masa atómica (u)</div>
+        <p>
+            La unidad de masa atómica (u) se define como la <strong>doceava parte de la masa de un átomo de Carbono-12</strong>.
+        </p>
+        <p style="margin-bottom: 0;">
+            Su equivalencia con el kilogramo es:
+        </p>
+        <div class="gs-latex-container" style="text-align: center;">
+            \(1 \text{ u} = 1,6605 \cdot 10^{-27} \text{ kg}\)
+        </div>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo resuelto: Conversión de u a kg</div>
+        <p>
+            La masa de un átomo de Oxígeno es aproximadamente \(16 \text{ u}\). ¿Cuál es su masa en kilogramos?
+        </p>
+        <div class="gs-latex-container" style="text-align: center;">
+            \(16 \text{ u} \cdot \frac{1,6605 \cdot 10^{-27} \text{ kg}}{1 \text{ u}} = 2,6568 \cdot 10^{-26} \text{ kg}\)
+        </div>
+    </div>
+
     <p>
         Pero cuando miramos la tabla periódica, vemos que la masa del Cloro (Cl) no es un número entero (no es 35 ni 36), sino <strong>35,45 u</strong>. ¿Por qué? Porque en la naturaleza, los elementos son una mezcla de sus distintos isótopos. La masa que aparece en la tabla es la <strong>masa atómica promedio</strong>, que tiene en cuenta la abundancia de cada isótopo.
     </p>
 
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-calculator"></i> Fórmula de la masa atómica promedio</div>
+        <p>
+            Si un elemento tiene varios isótopos, su masa atómica promedio (\(\bar{m}\)) se calcula multiplicando la masa de cada isótopo por su abundancia relativa (en porcentaje) y sumando los resultados:
+        </p>
+        <div class="gs-latex-container" style="text-align: center;">
+            \(\bar{m} = \frac{m_1 \cdot A_1 + m_2 \cdot A_2 + \dots + m_n \cdot A_n}{100}\)
+        </div>
+        <p style="margin-bottom: 0; font-size: 0.9rem; color: #475569;">
+            Donde \(m_i\) es la masa de cada isótopo (en u) y \(A_i\) es su abundancia (en %).
+        </p>
+    </div>
+
     <div class="gs-box gs-ejemplo">
         <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo resuelto: Masa atómica promedio del Cloro</div>
-        <p>
-            El cloro tiene dos isótopos principales:
-        </p>
+        <p>El cloro tiene dos isótopos principales (datos reales):</p>
         <ul>
-            <li>Cloro-35 (masa 35 u): está presente en un <strong>75%</strong> de los casos.</li>
-            <li>Cloro-37 (masa 37 u): está presente en un <strong>25%</strong> de los casos.</li>
+            <li>Cloro-35 (masa 34,9688 u): abundancia del <strong>75,77%</strong>.</li>
+            <li>Cloro-37 (masa 36,9659 u): abundancia del <strong>24,23%</strong>.</li>
         </ul>
-        <p>Para calcular la masa promedio, multiplicamos la masa de cada isótopo por su abundancia (en tanto por uno) y los sumamos:</p>
+        <p>Aplicamos la fórmula:</p>
         <div class="gs-latex-container" style="text-align: center;">
-            $$ Masa \ promedio = (35 \cdot 0,75) + (37 \cdot 0,25) $$
-            $$ Masa \ promedio = 26,25 + 9,25 = 35,5 \text{ u} $$
+            \(\bar{m} = \frac{(34,9688 \cdot 75,77) + (36,9659 \cdot 24,23)}{100}\)
+            \(\bar{m} = \frac{2649,58 + 895,68}{100} = 35,45 \text{ u}\)
         </div>
-        <p style="margin-bottom: 0;">Este valor (35,5 u) es el que aparece en la tabla periódica.</p>
+        <p style="margin-bottom: 0;">Este valor (35,45 u) es el que aparece en la tabla periódica.</p>
     </div>
 
     <!-- ACTIVIDADES -->
     <div class="gs-box gs-aplicar">
         <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades de repaso</div>
         <ol class="gs-actividades">
-            <li>Completa la siguiente tabla en tu cuaderno:
+            <li>Completa la siguiente tabla en tu cuaderno. Fíjate en que los datos que se dan son diferentes en cada fila:
                 <table class="gs-tabla-datos" style="max-width: 100%; margin-top: 10px;">
                     <thead>
                         <tr>
-                            <th>Elemento</th>
+                            <th>Especie</th>
                             <th>Z</th>
                             <th>A</th>
-                            <th>Protones</th>
-                            <th>Neutrones</th>
-                            <th>Electrones</th>
+                            <th>p\(^+\)</th>
+                            <th>n\(^0\)</th>
+                            <th>e\(^-\)</th>
+                            <th>Carga (q)</th>
+                            <th>¿Neutro, catión o anión?</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Oxígeno</td><td>8</td><td>16</td><td></td><td></td><td></td></tr>
-                        <tr><td>Aluminio</td><td>13</td><td>27</td><td></td><td></td><td></td></tr>
-                        <tr><td>Hierro</td><td>26</td><td>56</td><td></td><td></td><td></td></tr>
+                        <tr><td>\(^{23}_{11}\text{Na}\)</td><td>11</td><td>23</td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>\(^{35}_{17}\text{Cl}^{-}\)</td><td></td><td></td><td>17</td><td>18</td><td></td><td></td><td></td></tr>
+                        <tr><td>\(^{24}_{12}\text{Mg}^{2+}\)</td><td></td><td>24</td><td></td><td></td><td>10</td><td></td><td></td></tr>
+                        <tr><td>Oxígeno</td><td></td><td>16</td><td>8</td><td></td><td>10</td><td></td><td></td></tr>
+                        <tr><td>Aluminio</td><td>13</td><td>27</td><td></td><td>14</td><td></td><td></td><td></td></tr>
                     </tbody>
                 </table>
             </li>
-            <li><strong>Iones:</strong> El átomo de Magnesio (Mg) tiene \(Z=12\) y \(A=24\). Si pierde 2 electrones, ¿qué tipo de ion forma (catión o anión)? ¿Cuál es su carga?</li>
-            <li><strong>Isótopos:</strong> Un átomo de Litio tiene 3 protones y 4 neutrones. Otro átomo de Litio tiene 3 protones y 3 neutrones. ¿Son el mismo elemento? ¿Son isótopos entre sí? ¿Cuál es el número másico de cada uno?</li>
-            <li><strong>Masa promedio:</strong> El cobre tiene dos isótopos: Cu-63 (69% de abundancia) y Cu-65 (31% de abundancia). Calcula su masa atómica promedio.</li>
+            <li><strong>Isótopos:</strong> Observa las siguientes especies y agrupa las que sean isótopos entre sí. Justifica tu respuesta.
+                <br>\(^{12}_{6}\text{C}\), \(^{14}_{6}\text{C}\), \(^{14}_{7}\text{N}\), \(^{16}_{8}\text{O}\), \(^{12}_{6}\text{C}^{2+}\)
+            </li>
+            <li><strong>Masa promedio:</strong> El cobre (Cu) tiene dos isótopos naturales: Cu-63 con una masa de 62,93 u y una abundancia del 69,15%, y Cu-65 con una masa de 64,93 u y una abundancia del 30,85%. Calcula su masa atómica promedio e indica si el resultado coincide con el valor que aparece en la tabla periódica (63,55 u).
+            </li>
         </ol>
     </div>
 
@@ -305,109 +308,6 @@
     </div>
 
 </div>
-
-<script>
-document.addEventListener('gs-ready', function () {
-    // SIMULADOR
-    if (!document.getElementById('box_simulador')) return;
-
-    // Estado inicial
-    let p = 6, n = 6, e = 6;
-
-    // Colores de elementos
-    const colores = {
-        1: '#f8fafc', 2: '#fef08a', 3: '#fca5a5', 4: '#fcd34d', 5: '#86efac', 6: '#1e293b', 
-        7: '#3b82f6', 8: '#ef4444', 9: '#22c55e', 10: '#818cf8', 11: '#fbbf24', 12: '#a1a1aa'
-    };
-    const nombres = {
-        1: 'Hidrógeno', 2: 'Helio', 3: 'Litio', 4: 'Berilio', 5: 'Boro', 6: 'Carbono', 
-        7: 'Nitrógeno', 8: 'Oxígeno', 9: 'Flúor', 10: 'Neón', 11: 'Sodio', 12: 'Magnesio'
-    };
-
-    const board = JXG.JSXGraph.initBoard('box_simulador', {
-        boundingbox: [-5, 4, 5, -4], axis: false, showCopyright: false, showNavigation: false
-    });
-
-    // Grupos de objetos
-    const nucleo = board.create('circle', [[0, 0], 1.2], { fillColor: '#e2e8f0', strokeColor: '#94a3b8', strokeWidth: 2 });
-    const orbital = board.create('circle', [[0, 0], 3], { strokeColor: '#cbd5e1', strokeWidth: 1, dash: 2 });
-
-    // Función para dibujar protones y neutrones en el núcleo (distribución simple)
-    const pintarNucleo = () => {
-        // Eliminar los anteriores
-        board.objectsList.filter(o => o.elType === 'point' && o.getAttribute('name') === 'nucleon').forEach(o => board.removeObject(o));
-        
-        const total = p + n;
-        for(let i=0; i<total; i++) {
-            // Distribuir en espiral dentro del círculo
-            const angle = i * 2.39996; // ángulo dorado
-            const radius = 0.2 * Math.sqrt(i); 
-            const cx = radius * Math.cos(angle);
-            const cy = radius * Math.sin(angle);
-            
-            const esProton = i < p;
-            board.create('point', [cx, cy], {
-                name: 'nucleon', size: 3, fixed: true,
-                color: esProton ? '#ef4444' : '#64748b', // Rojo protón, gris neutrón
-                withLabel: false
-            });
-        }
-    };
-
-    const pintarElectrones = () => {
-        board.objectsList.filter(o => o.elType === 'point' && o.getAttribute('name') === 'electron').forEach(o => board.removeObject(o));
-        
-        for(let i=0; i<e; i++) {
-            const angle = (i / e) * 2 * Math.PI;
-            const cx = 3 * Math.cos(angle);
-            const cy = 3 * Math.sin(angle);
-            board.create('point', [cx, cy], {
-                name: 'electron', size: 4, fixed: true,
-                color: '#3b82f6', // Azul electrón
-                withLabel: false
-            });
-        }
-    };
-
-    const actualizarSimulador = () => {
-        // Actualizar textos
-        document.getElementById('val-p').innerText = p;
-        document.getElementById('val-n').innerText = n;
-        document.getElementById('val-e').innerText = e;
-
-        const A = p + n;
-        document.getElementById('sim-A').innerText = A;
-
-        const carga = p - e;
-        let cargaTexto = carga === 0 ? '0 (Neutro)' : (carga > 0 ? `+${carga}` : carga);
-        let especTexto = p > 0 && p <= 12 ? nombres[p] : 'Elemento desconocido';
-        
-        const elemCarga = document.getElementById('sim-carga');
-        elemCarga.innerText = cargaTexto;
-        elemCarga.className = 'gs-panel-datos__valor ' + (carga === 0 ? '' : (carga > 0 ? 'gs-panel-datos__valor--rojo' : 'gs-panel-datos__valor--azul'));
-
-        const elemEspecie = document.getElementById('sim-especie');
-        elemEspecie.innerText = especTexto;
-        
-        // Color del núcleo según elemento
-        nucleo.setAttribute({ fillColor: colores[p] || '#e2e8f0' });
-        if (p === 6) nucleo.setAttribute({ fillColor: '#334155' }); // Carbono más oscuro
-
-        pintarNucleo();
-        pintarElectrones();
-    };
-
-    window.modificarParticula = (tipo, cambio) => {
-        if (tipo === 'p' && p + cambio >= 1 && p + cambio <= 12) p += cambio;
-        if (tipo === 'n' && n + cambio >= 0) n += cambio;
-        if (tipo === 'e' && e + cambio >= 0) e += cambio;
-        actualizarSimulador();
-    };
-
-    // Iniciar
-    actualizarSimulador();
-});
-</script>
 
 </body>
 </html>
