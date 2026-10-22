@@ -97,14 +97,16 @@ El lunes por la mañana aparece el laboratorio de Física y Química destrozado 
 - [x] Punto 2 — Magnitudes y SI (`2eso_ud1_2.html`)
 - [x] Punto 3 — Laboratorio (`2eso_ud1_3.html`)
 - [x] SdA — "El laboratorio destrozado" (`2eso_ud1_sda.html`)
-- [x] Actividades finales (`2eso_ud1_actfin.html`) *(Nota: pendiente de crear el archivo actfin si aún no lo has hecho)*
+- [x] Actividades finales (`2eso_ud1_actfin.html`)
 - [x] Solucionarios en GAS (`/soluciones/2eso/ud1/`)
+
+**Unidad 1 de 2.º ESO: COMPLETA.**
 
 **Unidad 1 de 2.º ESO: COMPLETA.**
 
 ---
 
-## Pendiente / próximos pasos
+## Pendiente / próximos pasos (proyecto global)
 
 - [ ] Verificar el correcto funcionamiento de los solucionarios en el GAS.
 - [ ] Migrar el solucionario al JS centralizado (mejora global pendiente).
