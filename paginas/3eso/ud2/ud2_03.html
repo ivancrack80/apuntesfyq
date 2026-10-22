@@ -26,82 +26,174 @@
         </button>
     </div>
 
-    <!-- TÍTULO PRINCIPAL -->
+    <!-- CABECERA -->
     <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 3.º ESO · Unidad 2</div>
         <h1 class="gs-title">3. La Corteza Electrónica</h1>
-        <div class="gs-subtitle">Cómo se organizan los electrones: niveles, subniveles y configuración</div>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div class="gs-subtitle" style="flex: 1; min-width: 250px;">Cómo se organizan los electrones: niveles, subniveles y configuración</div>
+            <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; color: #475569; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-regular fa-clock" style="color: var(--gs-primary);"></i> 
+                <strong>Temporalización estimada:</strong> 2 h. 
+            </div>
+        </div>
     </header>
 
-    <p>
-        En el punto anterior vimos que los electrones se encuentran en la nube electrónica. Pero no están ahí de forma caótica: se organizan en <strong>niveles</strong> y <strong>subniveles</strong> de energía. Para entenderlo, vamos a usar un símil muy sencillo: imagina que el átomo es un <strong>hotel</strong>.
-    </p>
+    <!-- INTRODUCCIÓN: EL SÍMIL DEL HOTEL -->
+    <div class="gs-box gs-lectura" style="border-left-color: var(--gs-primary); background-color: #f8fafc; margin-bottom: 30px;">
+        <div class="gs-lectura-title" style="color: var(--gs-primary); font-size: 1.15rem;"><i class="fa-solid fa-hotel"></i> Una idea para empezar: el hotel atómico</div>
+        <p>
+            Antes de entrar en materia, imagina un hotel muy peculiar. Tiene varias <strong>plantas</strong> (niveles de energía) y no todas las plantas tienen los mismos tipos de <strong>habitaciones</strong> (subniveles).
+        </p>
+        <p>
+            Hay habitaciones de 1 cama (tipo <em>s</em>), de 3 camas (tipo <em>p</em>), de 5 camas (tipo <em>d</em>) y de 7 camas (tipo <em>f</em>). Por norma general, en cada cama solo pueden dormir <strong>2 personas</strong> (los electrones). 
+        </p>
+        <p style="margin-bottom: 0;">
+            Si llegan 3 personas a una habitación de 3 camas, lo lógico es que cada una ocupe una cama distinta. Pero si llega una cuarta persona, tendrá que compartir cama. Con esta idea en la cabeza, ahora sí, vamos a ver cómo lo explica la química.
+        </p>
+    </div>
 
-    <!-- EL SÍMIL DEL HOTEL -->
-    <div class="gs-box gs-lectura" style="border-left-color: var(--gs-primary); background-color: #f8fafc;">
-        <div class="gs-lectura-title" style="color: var(--gs-primary);"><i class="fa-solid fa-hotel"></i> El símil del hotel atómico</div>
+    <!-- 3.1 CONCEPTO QUÍMICO -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-atom"></i> 3.1. Niveles, subniveles y orbitales</h2>
+    <p>
+        En el modelo mecano-cuántico actual, los electrones no giran en órbitas fijas. Se encuentran en <strong>orbitales atómicos</strong>: regiones del espacio donde existe una alta probabilidad de encontrar al electrón.
+    </p>
+    <p>
+        Estos orbitales se organizan en la corteza siguiendo un orden energético:
+    </p>
+    <ul>
+        <li><strong>Niveles de energía (n):</strong> Son las capas principales (n=1, 2, 3...). A mayor valor de <em>n</em>, mayor energía y más lejos del núcleo.</li>
+        <li><strong>Subniveles:</strong> Dentro de cada nivel (excepto el primero), existen subniveles designados con letras: <strong>s, p, d, f</strong>.</li>
+        <li><strong>Orbitales:</strong> Cada subnivel está formado por un número concreto de orbitales. En cada orbital solo caben <strong>2 electrones</strong>.</li>
+    </ul>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-door-open"></i> Capacidad de electrones por subnivel</div>
         <ul style="margin-bottom: 0;">
-            <li><strong>Las plantas del hotel</strong> son los <strong>niveles de energía</strong> (1, 2, 3, 4...). Los electrones siempre intentan alojarse en las plantas más bajas (las de menor energía).</li>
-            <li><strong>Las habitaciones</strong> de cada planta son los <strong>orbitales</strong>. Hay habitaciones de distintos tipos (subniveles \(s, p, d, f\)).</li>
-            <li><strong>Las camas</strong> de cada habitación son los <strong>espacios para electrones</strong>. En cada cama solo pueden dormir <strong>2 electrones</strong> (uno en la cabecera y otro a los pies, que serían los espines opuestos).</li>
+            <li><strong>Subnivel \(s\):</strong> 1 orbital \(\rightarrow\) Máximo <strong>2 electrones</strong>.</li>
+            <li><strong>Subnivel \(p\):</strong> 3 orbitales \(\rightarrow\) Máximo <strong>6 electrones</strong>.</li>
+            <li><strong>Subnivel \(d\):</strong> 5 orbitales \(\rightarrow\) Máximo <strong>10 electrones</strong>.</li>
+            <li><strong>Subnivel \(f\):</strong> 7 orbitales \(\rightarrow\) Máximo <strong>14 electrones</strong>.</li>
         </ul>
     </div>
 
-    <div class="gs-box gs-comprender">
-        <div class="gs-comprender-title"><i class="fa-solid fa-bed"></i> La regla de las camas (Regla de Hund)</div>
-        <p>
-            Imagina que en la planta 2 hay una habitación con 3 camas (el subnivel \(p\)). Si llegan 3 electrones, lo lógico es que cada uno ocupe una cama distinta y se ponga en la cabecera (desapareados). 
-        </p>
-        <p style="margin-bottom: 0;">
-            Si llega un cuarto electrón, ya no quedan camas libres, así que tendrá que compartir cama con uno de ellos y ponerse a los pies (espín opuesto).
-        </p>
-    </div>
-
-    <!-- CAPACIDAD DE LOS SUBNIVELES -->
-    <h2 class="gs-section-title"><i class="fa-solid fa-door-open"></i> 3.1. Capacidad de cada tipo de habitación</h2>
-    <p>Cada tipo de subnivel (habitación) tiene un número distinto de orbitales (camas):</p>
-    <ul>
-        <li><strong>Subnivel \(s\):</strong> 1 orbital (1 cama) \(\rightarrow\) Máximo <strong>2 electrones</strong>.</li>
-        <li><strong>Subnivel \(p\):</strong> 3 orbitales (3 camas) \(\rightarrow\) Máximo <strong>6 electrones</strong>.</li>
-        <li><strong>Subnivel \(d\):</strong> 5 orbitales (5 camas) \(\rightarrow\) Máximo <strong>10 electrones</strong>.</li>
-        <li><strong>Subnivel \(f\):</strong> 7 orbitales (7 camas) \(\rightarrow\) Máximo <strong>14 electrones</strong>.</li>
-    </ul>
-
-    <!-- CONFIGURACIÓN ELECTRÓNICA -->
-    <h2 class="gs-section-title"><i class="fa-solid fa-list-ol"></i> 3.2. Cómo escribir la configuración electrónica</h2>
+    <!-- 3.2 CONFIGURACIÓN ELECTRÓNICA Y MOELLER -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-list-ol"></i> 3.2. La configuración electrónica y el Diagrama de Möeller</h2>
     <p>
-        Para saber en qué orden se van llenando las habitaciones, usamos el <strong>Diagrama de Möeller</strong> (la regla de las diagonales). Los electrones siempre van primero a las habitaciones de las plantas más bajas.
+        La <strong>configuración electrónica</strong> es la forma ordenada en la que se distribuyen los electrones de un átomo en sus diferentes niveles y subniveles.
+    </p>
+    <p>
+        Para escribirla, los electrones se van colocando en los orbitales de <strong>menor a mayor energía</strong>. Para no equivocarnos con el orden, utilizamos el <strong>Diagrama de Möeller</strong> (también llamado regla de las diagonales). Debemos seguir las flechas diagonales para saber qué subnivel se llena primero:
     </p>
 
-    <div class="gs-latex-container" style="text-align: center; font-weight: bold; background: #fff; padding: 15px; border-radius: 8px;">
-        \(1s \rightarrow 2s \rightarrow 2p \rightarrow 3s \rightarrow 3p \rightarrow 4s \rightarrow 3d \rightarrow 4p \rightarrow 5s \rightarrow 4d \rightarrow 5p \rightarrow 6s \rightarrow 4f \dots\)
+    <!-- SVG DEL DIAGRAMA DE MOELLER -->
+    <div class="gs-svg-wrapper">
+        <svg viewBox="0 0 430 380" xmlns="http://www.w3.org/2000/svg" style="max-width: 380px; width: 100%; height: auto; display: block; margin: 0 auto;">
+            <style>
+                .sub-text { font-family: 'Roboto', sans-serif; font-size: 15px; font-weight: bold; fill: #1e3a8a; }
+                .diag-line { stroke: #dc2626; stroke-width: 2.2; stroke-dasharray: 5,4; marker-end: url(#arrow); }
+                .node-bg { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; }
+            </style>
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626" />
+                </marker>
+            </defs>
+
+            <!-- Columna S (x = 60) -->
+            <g transform="translate(60, 0)">
+                <circle cx="0" cy="40" r="18" class="node-bg"/><text x="0" y="45" text-anchor="middle" class="sub-text">1s</text>
+                <circle cx="0" cy="90" r="18" class="node-bg"/><text x="0" y="95" text-anchor="middle" class="sub-text">2s</text>
+                <circle cx="0" cy="140" r="18" class="node-bg"/><text x="0" y="145" text-anchor="middle" class="sub-text">3s</text>
+                <circle cx="0" cy="190" r="18" class="node-bg"/><text x="0" y="195" text-anchor="middle" class="sub-text">4s</text>
+                <circle cx="0" cy="240" r="18" class="node-bg"/><text x="0" y="245" text-anchor="middle" class="sub-text">5s</text>
+                <circle cx="0" cy="290" r="18" class="node-bg"/><text x="0" y="295" text-anchor="middle" class="sub-text">6s</text>
+                <circle cx="0" cy="340" r="18" class="node-bg"/><text x="0" y="345" text-anchor="middle" class="sub-text">7s</text>
+            </g>
+
+            <!-- Columna P (x = 160) -->
+            <g transform="translate(160, 0)">
+                <circle cx="0" cy="90" r="18" class="node-bg"/><text x="0" y="95" text-anchor="middle" class="sub-text">2p</text>
+                <circle cx="0" cy="140" r="18" class="node-bg"/><text x="0" y="145" text-anchor="middle" class="sub-text">3p</text>
+                <circle cx="0" cy="190" r="18" class="node-bg"/><text x="0" y="195" text-anchor="middle" class="sub-text">4p</text>
+                <circle cx="0" cy="240" r="18" class="node-bg"/><text x="0" y="245" text-anchor="middle" class="sub-text">5p</text>
+                <circle cx="0" cy="290" r="18" class="node-bg"/><text x="0" y="295" text-anchor="middle" class="sub-text">6p</text>
+                <circle cx="0" cy="340" r="18" class="node-bg"/><text x="0" y="345" text-anchor="middle" class="sub-text">7p</text>
+            </g>
+
+            <!-- Columna D (x = 260) -->
+            <g transform="translate(260, 0)">
+                <circle cx="0" cy="140" r="18" class="node-bg"/><text x="0" y="145" text-anchor="middle" class="sub-text">3d</text>
+                <circle cx="0" cy="190" r="18" class="node-bg"/><text x="0" y="195" text-anchor="middle" class="sub-text">4d</text>
+                <circle cx="0" cy="240" r="18" class="node-bg"/><text x="0" y="245" text-anchor="middle" class="sub-text">5d</text>
+                <circle cx="0" cy="290" r="18" class="node-bg"/><text x="0" y="295" text-anchor="middle" class="sub-text">6d</text>
+            </g>
+
+            <!-- Columna F (x = 360) -->
+            <g transform="translate(360, 0)">
+                <circle cx="0" cy="190" r="18" class="node-bg"/><text x="0" y="195" text-anchor="middle" class="sub-text">4f</text>
+                <circle cx="0" cy="240" r="18" class="node-bg"/><text x="0" y="245" text-anchor="middle" class="sub-text">5f</text>
+            </g>
+
+            <!-- Diagonales de llenado exactamente alineadas -->
+            <!-- 1s -->
+            <line x1="90" y1="25" x2="30" y2="55" class="diag-line"/>
+            <!-- 2s -->
+            <line x1="90" y1="75" x2="30" y2="105" class="diag-line"/>
+            <!-- 2p -> 3s -->
+            <line x1="190" y1="75" x2="30" y2="155" class="diag-line"/>
+            <!-- 3p -> 4s -->
+            <line x1="190" y1="125" x2="30" y2="205" class="diag-line"/>
+            <!-- 3d -> 4p -> 5s -->
+            <line x1="290" y1="125" x2="30" y2="255" class="diag-line"/>
+            <!-- 4d -> 5p -> 6s -->
+            <line x1="290" y1="175" x2="30" y2="305" class="diag-line"/>
+            <!-- 4f -> 5d -> 6p -> 7s -->
+            <line x1="390" y1="175" x2="30" y2="355" class="diag-line"/>
+            <!-- 5f -> 6d -> 7p -->
+            <line x1="390" y1="225" x2="130" y2="355" class="diag-line"/>
+        </svg>
+        <p style="font-size: 0.88rem; color: #64748b; margin-top: 8px; text-align: center;"><em>Figura 1: Diagrama de Möeller. Sigue el orden de las flechas rojas para llenar los orbitales.</em></p>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-shoe-prints"></i> El orden de llenado</div>
+        <p style="margin-bottom: 0;">
+            Siguiendo el diagrama, el orden de energía de menor a mayor es: <br>
+            \(1s \rightarrow 2s \rightarrow 2p \rightarrow 3s \rightarrow 3p \rightarrow 4s \rightarrow 3d \rightarrow 4p \rightarrow 5s \rightarrow 4d \rightarrow 5p \rightarrow 6s \rightarrow 4f \dots\)
+        </p>
     </div>
 
     <div class="gs-box gs-ejemplo">
         <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplos resueltos</div>
-        <p>Para escribir la configuración de un átomo, solo tenemos que repartir sus electrones (que son iguales a su número atómico \(Z\)) por las habitaciones en ese orden:</p>
+        <p>Para escribir la configuración de un átomo, solo tenemos que repartir sus electrones (que son iguales a su número atómico \(Z\)) por los orbitales en ese orden:</p>
         <ul>
-            <li><strong>Oxígeno (\(Z=8\)):</strong> Sus 8 electrones se reparten: 2 en el 1s, 2 en el 2s y los 4 últimos en el 2p. <br> Configuración: <strong>\(1s^2\ 2s^2\ 2p^4\)</strong></li>
-            <li><strong>Magnesio (\(Z=12\)):</strong> <br> Configuración: <strong>\(1s^2\ 2s^2\ 2p^6\ 3s^2\)</strong></li>
-            <li><strong>Cloro (\(Z=17\)):</strong> <br> Configuración: <strong>\(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^5\)</strong></li>
+            <li><strong>Oxígeno (\(Z=8\)):</strong> <br> \(1s^2\ 2s^2\ 2p^4\)</li>
+            <li><strong>Magnesio (\(Z=12\)):</strong> <br> \(1s^2\ 2s^2\ 2p^6\ 3s^2\)</li>
+            <li><strong>Cloro (\(Z=17\)):</strong> <br> \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^5\)</li>
+            <li><strong>Calcio (\(Z=20\)):</strong> <br> \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\)</li>
         </ul>
     </div>
 
     <div class="gs-box gs-ejemplo">
         <div class="gs-ejemplo-title"><i class="fa-solid fa-list-ol"></i> Un ejemplo con números grandes</div>
-        <p>Para átomos con muchos electrones, la configuración se hace más larga. Por ejemplo, para el <strong>Plomo (Pb, \(Z=82\))</strong>, llegaríamos hasta el subnivel \(4f\) (que recordemos que tiene capacidad para 14 electrones):</p>
+        <p>Para átomos con muchos electrones, la configuración se hace más larga. Por ejemplo, para el <strong>Plomo (Pb, \(Z=82\))</strong>, llegaríamos hasta el subnivel \(4f\) (que tiene capacidad para 14 electrones):</p>
         <div class="gs-latex-container" style="text-align: center; background: #fff; padding: 10px; border-radius: 8px; overflow-x: auto;">
             \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^{10}\ 4p^6\ 5s^2\ 4d^{10}\ 5p^6\ 6s^2\ \mathbf{4f^{14}}\ 5d^{10}\ 6p^2\)
         </div>
-        <p style="margin-bottom: 0; font-size: 0.9rem;">La configuración electrónica puede parecer larga, pero es solo cuestión de ir llenando las habitaciones en el orden correcto.</p>
     </div>
 
-    <!-- CAPA DE VALENCIA -->
+    <!-- 3.3 CAPA DE VALENCIA -->
     <h2 class="gs-section-title"><i class="fa-solid fa-star"></i> 3.3. La capa de valencia</h2>
     <p>
-        La <strong>capa de valencia</strong> es la última planta del hotel que tiene huéspedes (el nivel de energía más externo ocupado). Los electrones que están en esa planta se llaman <strong>electrones de valencia</strong>.
+        Aunque un átomo puede tener muchos electrones, los que realmente importan para la química son los que están en la <strong>capa más externa</strong>.
     </p>
     <p>
-        Estos electrones son los más importantes porque son los que participan en los enlaces químicos y los que se ganan o pierden para formar iones. Todos los átomos quieren tener 8 electrones en su capa de valencia (la regla del octeto) para ser estables, como los gases nobles.
+        A esta capa se la conoce como <strong>capa de valencia</strong>. Los electrones que se encuentran en ella son los <strong>electrones de valencia</strong>. 
+    </p>
+    <p>
+        Si te fijas en las configuraciones, la capa más externa siempre termina en los subniveles <strong>\(ns\)</strong> y <strong>\(np\)</strong> (por ejemplo, \(3s\) y \(3p\) para el cloro, o \(4s\) para el calcio).
     </p>
 
     <div class="gs-box gs-ejemplo">
@@ -110,7 +202,7 @@
         <div class="gs-latex-container" style="text-align: center; background: #fff; padding: 10px; border-radius: 8px;">
             \(1s^2\ 2s^2\ 2p^6\ \mathbf{3s^2\ 3p^5}\)
         </div>
-        <p>Su capa de valencia es la 3 (la planta 3) y tiene 7 electrones (\(3s^2\ 3p^5\)). Le falta solo 1 electrón para tener 8. Para conseguirlo, <strong>gana 1 electrón</strong> y se convierte en el ion \(\text{Cl}^-\).</p>
+        <p>Su capa de valencia es la 3 (los subniveles \(3s\) y \(3p\)) y tiene 7 electrones en total. Le falta solo 1 electrón para tener 8 (la regla del octeto). Para conseguirlo, <strong>gana 1 electrón</strong> y se convierte en el ion \(\text{Cl}^-\).</p>
         <div class="gs-latex-container" style="text-align: center; background: #fff; padding: 10px; border-radius: 8px;">
             \(\text{Cl } (1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^5) \longrightarrow \text{Cl}^- (1s^2\ 2s^2\ 2p^6\ \mathbf{3s^2\ 3p^6})
         </div>
@@ -122,12 +214,16 @@
         <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades de repaso</div>
         <ol class="gs-actividades">
             <li><strong>Configuración electrónica:</strong> Escribe la configuración electrónica de los siguientes átomos neutros:
-                <br>a) Nitrógeno (\(Z=7\))
-                <br>b) Calcio (\(Z=20\))
+                <br>a) Litio (\(Z=3\))
+                <br>b) Nitrógeno (\(Z=7\))
+                <br>c) Sodio (\(Z=11\))
+                <br>d) Azufre (\(Z=16\))
+                <br>e) Potasio (\(Z=19\))
             </li>
-            <li><strong>Iones y capa de valencia:</strong> Un átomo neutro tiene la configuración electrónica \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^4\). 
-                <br>a) ¿Cuántos electrones tiene en su capa de valencia?
-                <br>b) ¿Cuál es el ion más estable que formará? Escribe su configuración electrónica.
+            <li><strong>Capa de valencia e iones:</strong> Un átomo neutro tiene la configuración electrónica \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^4\). 
+                <br>a) ¿Cuál es su capa de valencia?
+                <br>b) ¿Cuántos electrones de valencia tiene?
+                <br>c) ¿Cuál es el ion más estable que formará? Escribe su configuración electrónica.
             </li>
         </ol>
     </div>
