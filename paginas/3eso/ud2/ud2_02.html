@@ -12,7 +12,7 @@
 
 <div class="gs-container">
 
-    <!--- BARRA DE ACCESIBILIDAD --->
+    <!-- BARRA DE ACCESIBILIDAD -->
     <div class="accessibility-bar">
         <div class="font-size-controls" title="Ajustar tamaño de texto">
             <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
@@ -28,8 +28,17 @@
 
     <!-- CABECERA -->
     <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 3.º ESO · Unidad 2</div>
         <h1 class="gs-title">2. Caracterización de los Átomos</h1>
-        <div class="gs-subtitle">Las partículas subatómicas, los isótopos, la formación de iones y la masa atómica</div>
+        
+        <!-- TEMPORALIZACIÓN -->
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div class="gs-subtitle" style="flex: 1; min-width: 250px;">Las partículas subatómicas, los isótopos, la formación de iones y la masa atómica</div>
+            <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; color: #475569; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-regular fa-clock" style="color: var(--gs-primary);"></i> 
+                <strong>Temporalización estimada:</strong> 3 h.
+            </div>
+        </div>
     </header>
 
     <!-- 2.1 PARTÍCULAS SUBATÓMICAS -->
@@ -44,7 +53,7 @@
                 <tr>
                     <th>Partícula</th>
                     <th>Símbolo</th>
-                    <th>Carga eléctrica</th>
+                    <th>Carga eléctrica (q)</th>
                     <th>Masa (aprox.)</th>
                     <th>Ubicación en el átomo</th>
                 </tr>
@@ -53,7 +62,7 @@
                 <tr>
                     <td><strong>Protón</strong></td>
                     <td>\(p^+\)</td>
-                    <td>Positiva (+1)</td>
+                    <td>Positiva (+1) <br> \( +1,6 \cdot 10^{-19} \text{ C} \)</td>
                     <td>1 u</td>
                     <td>En el núcleo</td>
                 </tr>
@@ -131,26 +140,28 @@
     </p>
 
     <div class="gs-box gs-lectura">
-        <div class="gs-lectura-title"><i class="fa-solid fa-atom"></i> La notación atómica: \(^{A}_{Z}\text{X}^{q}\)</div>
+        <div class="gs-lectura-title"><i class="fa-solid fa-atom"></i> La notación atómica: \(^{A}_{Z}\text{X}^{\pm q}\)</div>
         <p>Para representar un átomo o un ion de forma completa, se utiliza la siguiente notación:</p>
         <div class="gs-latex-container" style="text-align: center; font-size: 1.5rem; margin: 15px 0;">
-            \(^{A}_{Z}\text{X}^{q}\)
+            \(^{A}_{Z}\text{X}^{\pm q}\)
         </div>
         <ul style="margin-bottom: 0;">
             <li><strong>X:</strong> Es el símbolo químico del elemento (ej. C, O, Na).</li>
             <li><strong>A (superíndice izquierdo):</strong> Número másico (protones + neutrones).</li>
             <li><strong>Z (subíndice izquierdo):</strong> Número atómico (número de protones).</li>
-            <li><strong>q (superíndice derecho):</strong> Carga eléctrica del ion. Si es un átomo neutro, no se pone nada. Si es un catión, se pone el signo + (ej. \(^{23}_{11}\text{Na}^{+}\)). Si es un anión, el signo - (ej. \(^{35}_{17}\text{Cl}^{-}\)).</li>
+            <li><strong>± q (superíndice derecho):</strong> Carga eléctrica del ion. Si es un átomo neutro, no se pone nada. Si es un catión, se pone el signo + (ej. \(^{23}_{11}\text{Na}^{+}\)). Si es un anión, el signo - (ej. \(^{35}_{17}\text{Cl}^{-}\)).</li>
         </ul>
     </div>
 
-    <p><strong>Aplicaciones de los isótopos:</strong></p>
-    <ul>
-        <li><strong>Medicina (sanitaria):</strong> El Yodo-131 se usa para tratar el cáncer de tiroides. El Tecnecio-99 se usa en pruebas de imagen.</li>
-        <li><strong>Investigación científica:</strong> El Carbono-14 se usa para datar restos fósiles y determinar su antigüedad.</li>
-        <li><strong>Agricultura:</strong> Se usan isótopos radiactivos para estudiar cómo absorben las plantas los fertilizantes y mejorar las cosechas.</li>
-        <li><strong>Energía:</strong> El Uranio-235 se utiliza en las centrales nucleares para producir energía eléctrica.</li>
-    </ul>
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-microscope"></i> Aplicaciones de los isótopos</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Medicina (sanitaria):</strong> El Yodo-131 se usa para tratar el cáncer de tiroides. El Tecnecio-99 se usa en pruebas de imagen.</li>
+            <li><strong>Investigación científica:</strong> El Carbono-14 se usa para datar restos fósiles y determinar su antigüedad.</li>
+            <li><strong>Agricultura:</strong> Se usan isótopos radiactivos para estudiar cómo absorben las plantas los fertilizantes y mejorar las cosechas.</li>
+            <li><strong>Energía:</strong> El Uranio-235 se utiliza en las centrales nucleares para producir energía eléctrica.</li>
+        </ul>
+    </div>
 
     <!-- 2.4 NEUTRALIDAD Y FORMACIÓN DE IONES -->
     <h2 class="gs-section-title"><i class="fa-solid fa-plus-minus"></i> 2.4. La neutralidad del átomo y la formación de iones</h2>
@@ -271,7 +282,8 @@
                     <tbody>
                         <tr><td>\(^{23}_{11}\text{Na}\)</td><td>11</td><td>23</td><td></td><td></td><td></td><td></td><td></td></tr>
                         <tr><td>\(^{35}_{17}\text{Cl}^{-}\)</td><td></td><td></td><td>17</td><td>18</td><td></td><td></td><td></td></tr>
-                        <tr><td>\(^{24}_{12}\text{Mg}^{2+}\)</td><td></td><td>24</td><td></td><td></td><td>10</td><td></td><td></td></tr>
+                        <!-- Fila modificada: se dan electrones y carga, pero no los protones -->
+                        <tr><td>\(^{24}_{12}\text{Mg}^{2+}\)</td><td></td><td>24</td><td></td><td></td><td>10</td><td>+2</td><td></td></tr>
                         <tr><td>Oxígeno</td><td></td><td>16</td><td>8</td><td></td><td>10</td><td></td><td></td></tr>
                         <tr><td>Aluminio</td><td>13</td><td>27</td><td></td><td>14</td><td></td><td></td><td></td></tr>
                     </tbody>
