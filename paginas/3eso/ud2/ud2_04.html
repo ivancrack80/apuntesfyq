@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. El Sistema Periódico - 3º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+    
+    <style>
+        /* Ajustes específicos para el recorte del iframe de la tabla periódica */
+        .iframe-cropper {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            background-color: #ffffff;
+        }
+        .cropped-iframe {
+            position: absolute;
+            top: -340px;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: 1090px;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 3.º ESO · Unidad 2</div>
+        <h1 class="gs-title">4. El Sistema Periódico</h1>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div class="gs-subtitle" style="flex: 1; min-width: 250px;">Clasificación de los elementos, grupos, periodos y familias químicas</div>
+            <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; color: #475569; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-regular fa-clock" style="color: var(--gs-primary);"></i> 
+                <strong>Temporalización estimada:</strong> 3 sesiones.
+            </div>
+        </div>
+    </header>
+
+    <!-- 4.1 INTRODUCCIÓN Y EVOLUCIÓN -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-clock-rotate-left"></i> 4.1. ¿Qué es un elemento químico?</h2>
+    <p>
+        Antes de sumergirnos en la tabla periódica, es fundamental distinguir entre dos conceptos que a veces se confunden:
+    </p>
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-atom"></i> Átomo vs. Elemento químico</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Átomo:</strong> Es la partícula más pequeña de la materia que mantiene las propiedades de una sustancia. Cada átomo tiene un número concreto de protones, neutrones y electrones.</li>
+            <li><strong>Elemento químico:</strong> Es el conjunto de todos los átomos que tienen el <strong>mismo número atómico (Z)</strong>, es decir, el mismo número de protones. Por ejemplo, el elemento "Oxígeno" agrupa a todos los átomos que tienen 8 protones (sean isótopos o iones).</li>
+        </ul>
+    </div>
+
+    <h2 class="gs-section-title"><i class="fa-solid fa-book-open"></i> 4.2. Breve historia de la clasificación</h2>
+    <p>
+        A lo largo del siglo XIX, el número de elementos conocidos creció enormemente, y los químicos sintieron la necesidad de ordenarlos:
+    </p>
+    <ul>
+        <li><strong>Dmitri Mendeléiev (1869):</strong> Ordenó los elementos por su masa atómica. Su gran acierto fue <strong>dejar huecos vacíos</strong> para elementos que aún no se habían descubierto, prediciendo sus propiedades con gran exactitud.</li>
+        <li><strong>Henry Moseley (1913):</strong> Descubrió que las propiedades de los elementos no dependen de su masa, sino de su <strong>número atómico (Z)</strong>. Desde entonces, la tabla periódica actual se ordena por número atómico creciente.</li>
+    </ul>
+
+    <!-- 4.3 ESTRUCTURA DE LA TABLA -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-table-cells"></i> 4.3. Estructura del Sistema Periódico Actual</h2>
+    <p>
+        Actualmente se conocen <strong>118 elementos químicos</strong>. Se disponen por orden creciente de su número atómico (Z) en filas y columnas.
+    </p>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-layer-group"></i> Periodos (filas)</div>
+        <p style="margin-bottom: 0;">
+            Son las <strong>7 filas</strong> de la tabla. Los elementos de un mismo periodo tienen el <strong>mismo número de capas electrónicas</strong> (niveles de energía). Por ejemplo, todos los elementos del periodo 3 (como el Sodio o el Cloro) tienen sus electrones distribuidos en 3 capas.
+        </p>
+    </div>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-people-group"></i> Grupos o Familias (columnas)</div>
+        <p style="margin-bottom: 0;">
+            Son las <strong>18 columnas</strong> de la tabla. Los elementos de un mismo grupo tienen el <strong>mismo número de electrones en su capa de valencia</strong> (la capa más externa). Esto hace que tengan <strong>propiedades químicas muy similares</strong>. Por ejemplo, todos los elementos del grupo 1 tienen 1 electrón en su última capa.
+        </p>
+    </div>
+
+    <!-- 4.4 FAMILIAS Y ELECTRONES DE VALENCIA -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-list-ol"></i> 4.4. Grupos representativos y sus iones</h2>
+    <p>
+        En 3º ESO nos centramos en los llamados <strong>elementos representativos</strong>: los grupos 1, 2 y del 13 al 18. En esta tabla puedes ver su relación con los electrones de valencia, el tipo de elemento y el ion más probable que forman para alcanzar la estabilidad (regla del octeto):
+    </p>
+
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th>Grupo</th>
+                    <th>Famila Química</th>
+                    <th>Electrones de valencia</th>
+                    <th>Clasificación</th>
+                    <th>Ion más probable</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center"><strong>1</strong></td>
+                    <td>Alcalinos</td>
+                    <td class="center">1</td>
+                    <td>Metal</td>
+                    <td class="center">\(X^+\)</td>
+                </tr>
+                <tr>
+                    <td class="center"><strong>2</strong></td>
+                    <td>Alcalinotérreos</td>
+                    <td class="center">2</td>
+                    <td>Metal</td>
+                    <td class="center">\(X^{2+}\)</td>
+                </tr>
+                <tr>
+                    <td class="center"><strong>13</strong></td>
+                    <td>Térreos o Boroideos</td>
+                    <td class="center">3</td>
+                    <td>Metal / Semimetal</td>
+                    <td class="center">\(X^{3+}\)</td>
+                </tr>
+                <tr>
+                    <td class="center"><strong>14</strong></td>
+                    <td>Carbonoideos</td>
+                    <td class="center">4</td>
+                    <td>Semimetal / No metal</td>
+                    <td class="center">Suele formar enlaces covalentes</td>
+                </tr>
+                <tr>
+                    <td class="center"><strong>15</strong></td>
+                    <td>Pnictógenos o Nitrogenoideos</td>
+                    <td class="center">5</td>
+                    <td>No metal</td>
+                    <td class="center">\(X^{3-}\)</td>
+                </tr>
+                <tr>
+                    <td class="center"><strong>16</strong></td>
+                    <td>Calcógenos o Anfígenos</td>
+                    <td class="center">6</td>
+                    <td>No metal</td>
+                    <td class="center">\(X^{2-}\)</td>
+                </tr>
+                <tr>
+                    <td class="center"><strong>17</strong></td>
+                    <td>Halógenos</td>
+                    <td class="center">7</td>
+                    <td>No metal</td>
+                    <td class="center">\(X^-\)</td>
+                </tr>
+                <tr>
+                    <td class="center"><strong>18</strong></td>
+                    <td>Gases Nobles</td>
+                    <td class="center">8 (2 en el He)</td>
+                    <td>Gas Noble</td>
+                    <td class="center">No forma iones (0)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 4.5 UBICACIÓN Y PROPIEDADES BÁSICAS -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-map-location-dot"></i> 4.5. Ubicación y clasificación de los elementos</h2>
+    <p>
+        Si conocemos el grupo y el periodo de un elemento (por ejemplo, a partir de su configuración electrónica), podemos localizarlo en la tabla y deducir sus características básicas. 
+    </p>
+    
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-compass"></i> ¿Cómo se clasifican según su posición?</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Metales:</strong> Ocupan la zona izquierda y central de la tabla. Tienen tendencia a perder electrones (forman cationes).</li>
+            <li><strong>No metales:</strong> Se sitúan en la zona derecha. Tienen tendencia a ganar electrones (forman aniones) o a compartirlos.</li>
+            <li><strong>Semimetales (o metaloides):</strong> Se encuentran en la frontera entre metales y no metales (como el silicio o el germanio). Tienen propiedades intermedias.</li>
+            <li><strong>Gases nobles:</strong> Ocupan el grupo 18. Tienen la capa de valencia completa, por lo que son muy estables y no forman iones.</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplo: Deducir las propiedades de un elemento</div>
+        <p>
+            Si sabemos que un elemento está en el <strong>Periodo 3</strong> y en el <strong>Grupo 17</strong>:
+        </p>
+        <ul style="margin-bottom: 0;">
+            <li>Por el periodo 3, sabemos que tiene 3 capas de electrones.</li>
+            <li>Por el grupo 17, sabemos que tiene 7 electrones de valencia. Al estar en la zona derecha, es un <strong>No Metal</strong> (es el Cloro).</li>
+            <li>Para ser estable, le falta 1 electrón para llegar a 8, así que ganará uno y formará el ion <strong>\(Cl^-\)</strong>.</li>
+        </ul>
+    </div>
+
+    <!-- TABLA INTERACTIVA -->
+    <h3>Explora la Tabla Periódica Interactiva</h3>
+    <p>Consulta los 118 elementos con sus nombres, masas y propiedades en tiempo real:</p>
+    <div class="iframe-cropper">
+        <iframe src="https://ptable.com/?lang=es#Propiedades" class="cropped-iframe" allowfullscreen title="Tabla Periódica Ptable"></iframe>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades de repaso</div>
+        <ol class="gs-actividades">
+            <li>
+                <strong>Diferencia entre átomo y elemento:</strong> Explica con tus palabras la diferencia entre un átomo de oxígeno y el elemento químico oxígeno.
+            </li>
+            <li>
+                <strong>Grupos y periodos:</strong> Un elemento tiene 4 capas de electrones y 2 electrones en su última capa.
+                <br>a) ¿En qué periodo y grupo está?
+                <br>b) ¿Es un metal o un no metal?
+                <br>c) ¿Qué ion formará? (Escribe su símbolo genérico, por ejemplo, \(X^{2+}\)).
+            </li>
+            <li>
+                <strong>Ubicación en la tabla:</strong> Indica si los siguientes elementos son metales, no metales o gases nobles basándote en su grupo:
+                <br>a) Un elemento del grupo 16.
+                <br>b) Un elemento del grupo 1.
+                <br>c) Un elemento del grupo 18.
+            </li>
+            <li>
+                <strong>Iones:</strong> El átomo de Calcio (Ca) está en el periodo 4 y grupo 2. ¿Cuántos electrones de valencia tiene? ¿Qué ion formará para ser estable?
+            </li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="3eso_ud2_4">
+        <div class="sol-lock-header">
+            <div class="gs-comprender-title" style="color: var(--gs-primary);">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i> Solucionario Oficial
+            </div>
+        </div>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos para comprobar las soluciones.
+        </p>
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
