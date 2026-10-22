@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. La Corteza Electrónica - 3º ESO</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- TÍTULO PRINCIPAL -->
+    <header class="gs-header">
+        <h1 class="gs-title">3. La Corteza Electrónica</h1>
+        <div class="gs-subtitle">Cómo se organizan los electrones: niveles, subniveles y configuración</div>
+    </header>
+
+    <p>
+        En el punto anterior vimos que los electrones se encuentran en la nube electrónica. Pero no están ahí de forma caótica: se organizan en <strong>niveles</strong> y <strong>subniveles</strong> de energía. Para entenderlo, vamos a usar un símil muy sencillo: imagina que el átomo es un <strong>hotel</strong>.
+    </p>
+
+    <!-- EL SÍMIL DEL HOTEL -->
+    <div class="gs-box gs-lectura" style="border-left-color: var(--gs-primary); background-color: #f8fafc;">
+        <div class="gs-lectura-title" style="color: var(--gs-primary);"><i class="fa-solid fa-hotel"></i> El símil del hotel atómico</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Las plantas del hotel</strong> son los <strong>niveles de energía</strong> (1, 2, 3, 4...). Los electrones siempre intentan alojarse en las plantas más bajas (las de menor energía).</li>
+            <li><strong>Las habitaciones</strong> de cada planta son los <strong>orbitales</strong>. Hay habitaciones de distintos tipos (subniveles \(s, p, d, f\)).</li>
+            <li><strong>Las camas</strong> de cada habitación son los <strong>espacios para electrones</strong>. En cada cama solo pueden dormir <strong>2 electrones</strong> (uno en la cabecera y otro a los pies, que serían los espines opuestos).</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-bed"></i> La regla de las camas (Regla de Hund)</div>
+        <p>
+            Imagina que en la planta 2 hay una habitación con 3 camas (el subnivel \(p\)). Si llegan 3 electrones, lo lógico es que cada uno ocupe una cama distinta y se ponga en la cabecera (desapareados). 
+        </p>
+        <p style="margin-bottom: 0;">
+            Si llega un cuarto electrón, ya no quedan camas libres, así que tendrá que compartir cama con uno de ellos y ponerse a los pies (espín opuesto).
+        </p>
+    </div>
+
+    <!-- CAPACIDAD DE LOS SUBNIVELES -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-door-open"></i> 3.1. Capacidad de cada tipo de habitación</h2>
+    <p>Cada tipo de subnivel (habitación) tiene un número distinto de orbitales (camas):</p>
+    <ul>
+        <li><strong>Subnivel \(s\):</strong> 1 orbital (1 cama) \(\rightarrow\) Máximo <strong>2 electrones</strong>.</li>
+        <li><strong>Subnivel \(p\):</strong> 3 orbitales (3 camas) \(\rightarrow\) Máximo <strong>6 electrones</strong>.</li>
+        <li><strong>Subnivel \(d\):</strong> 5 orbitales (5 camas) \(\rightarrow\) Máximo <strong>10 electrones</strong>.</li>
+        <li><strong>Subnivel \(f\):</strong> 7 orbitales (7 camas) \(\rightarrow\) Máximo <strong>14 electrones</strong>.</li>
+    </ul>
+
+    <!-- CONFIGURACIÓN ELECTRÓNICA -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-list-ol"></i> 3.2. Cómo escribir la configuración electrónica</h2>
+    <p>
+        Para saber en qué orden se van llenando las habitaciones, usamos el <strong>Diagrama de Möeller</strong> (la regla de las diagonales). Los electrones siempre van primero a las habitaciones de las plantas más bajas.
+    </p>
+
+    <div class="gs-latex-container" style="text-align: center; font-weight: bold; background: #fff; padding: 15px; border-radius: 8px;">
+        \(1s \rightarrow 2s \rightarrow 2p \rightarrow 3s \rightarrow 3p \rightarrow 4s \rightarrow 3d \rightarrow 4p \rightarrow 5s \rightarrow 4d \rightarrow 5p \rightarrow 6s \rightarrow 4f \dots\)
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-lightbulb"></i> Ejemplos resueltos</div>
+        <p>Para escribir la configuración de un átomo, solo tenemos que repartir sus electrones (que son iguales a su número atómico \(Z\)) por las habitaciones en ese orden:</p>
+        <ul>
+            <li><strong>Oxígeno (\(Z=8\)):</strong> Sus 8 electrones se reparten: 2 en el 1s, 2 en el 2s y los 4 últimos en el 2p. <br> Configuración: <strong>\(1s^2\ 2s^2\ 2p^4\)</strong></li>
+            <li><strong>Magnesio (\(Z=12\)):</strong> <br> Configuración: <strong>\(1s^2\ 2s^2\ 2p^6\ 3s^2\)</strong></li>
+            <li><strong>Cloro (\(Z=17\)):</strong> <br> Configuración: <strong>\(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^5\)</strong></li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-list-ol"></i> Un ejemplo con números grandes</div>
+        <p>Para átomos con muchos electrones, la configuración se hace más larga. Por ejemplo, para el <strong>Plomo (Pb, \(Z=82\))</strong>, llegaríamos hasta el subnivel \(4f\) (que recordemos que tiene capacidad para 14 electrones):</p>
+        <div class="gs-latex-container" style="text-align: center; background: #fff; padding: 10px; border-radius: 8px; overflow-x: auto;">
+            \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^{10}\ 4p^6\ 5s^2\ 4d^{10}\ 5p^6\ 6s^2\ \mathbf{4f^{14}}\ 5d^{10}\ 6p^2\)
+        </div>
+        <p style="margin-bottom: 0; font-size: 0.9rem;">La configuración electrónica puede parecer larga, pero es solo cuestión de ir llenando las habitaciones en el orden correcto.</p>
+    </div>
+
+    <!-- CAPA DE VALENCIA -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-star"></i> 3.3. La capa de valencia</h2>
+    <p>
+        La <strong>capa de valencia</strong> es la última planta del hotel que tiene huéspedes (el nivel de energía más externo ocupado). Los electrones que están en esa planta se llaman <strong>electrones de valencia</strong>.
+    </p>
+    <p>
+        Estos electrones son los más importantes porque son los que participan en los enlaces químicos y los que se ganan o pierden para formar iones. Todos los átomos quieren tener 8 electrones en su capa de valencia (la regla del octeto) para ser estables, como los gases nobles.
+    </p>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-bolt"></i> Ejemplo: Formación del ion Cloruro</div>
+        <p>Fíjate en el Cloro (\(Z=17\)):</p>
+        <div class="gs-latex-container" style="text-align: center; background: #fff; padding: 10px; border-radius: 8px;">
+            \(1s^2\ 2s^2\ 2p^6\ \mathbf{3s^2\ 3p^5}\)
+        </div>
+        <p>Su capa de valencia es la 3 (la planta 3) y tiene 7 electrones (\(3s^2\ 3p^5\)). Le falta solo 1 electrón para tener 8. Para conseguirlo, <strong>gana 1 electrón</strong> y se convierte en el ion \(\text{Cl}^-\).</p>
+        <div class="gs-latex-container" style="text-align: center; background: #fff; padding: 10px; border-radius: 8px;">
+            \(\text{Cl } (1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^5) \longrightarrow \text{Cl}^- (1s^2\ 2s^2\ 2p^6\ \mathbf{3s^2\ 3p^6})
+        </div>
+        <p style="margin-bottom: 0;">Ahora tiene 8 electrones en su última planta, igual que el gas noble Argón.</p>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades de repaso</div>
+        <ol class="gs-actividades">
+            <li><strong>Configuración electrónica:</strong> Escribe la configuración electrónica de los siguientes átomos neutros:
+                <br>a) Nitrógeno (\(Z=7\))
+                <br>b) Calcio (\(Z=20\))
+            </li>
+            <li><strong>Iones y capa de valencia:</strong> Un átomo neutro tiene la configuración electrónica \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^4\). 
+                <br>a) ¿Cuántos electrones tiene en su capa de valencia?
+                <br>b) ¿Cuál es el ion más estable que formará? Escribe su configuración electrónica.
+            </li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="3eso_ud2_3">
+        <div class="sol-lock-header">
+            <div class="gs-comprender-title" style="color: var(--gs-primary);">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i> Solucionario Oficial
+            </div>
+        </div>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos para comprobar las soluciones.
+        </p>
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
