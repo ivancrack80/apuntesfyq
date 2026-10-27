@@ -1621,27 +1621,25 @@ body.dyslexia-mode .gs-index-item {
 }
 
 /* ==========================================================================
-   IFRAME DE PTABLE (AISLADO)
+   IFRAME DE PTABLE (AMPLIADO)
    ========================================================================== */
 .gs-ptable-wrapper {
     width: 100%;
-    height: 820px; /* Altura del recorte visible */
+    height: 600px; /* Aumentamos la altura de la ventana visible (antes 520px) */
     overflow: hidden;
     position: relative;
     border-radius: 8px;
     border: 1px solid #cbd5e1;
     background-color: #ffffff;
-    /* Forzar un contexto de apilamiento limpio */
     isolation: isolate; 
 }
 
 .gs-ptable-iframe {
     position: absolute;
-    top: -320px; /* Ajusta este valor para cortar la cabecera de ptable */
+    top: -380px; /* Subimos más el corte para ocultar la cabecera de ptable */
     left: -10px;
-    width: calc(100% + 20px);
-    height: 1100px; /* Altura total para que quepa todo */
+    width: 130%; /* Hacemos la tabla un 30% más ancha para que se vea más grande (zoom) */
+    height: 1400px; /* Damos mucha altura para que no se corte por abajo */
     border: 0;
-    /* Aseguramos que no herede cosas raras */
     box-sizing: content-box; 
 }
