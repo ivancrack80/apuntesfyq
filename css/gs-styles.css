@@ -1616,33 +1616,7 @@ body.dyslexia-mode .gs-index-item {
     top: -340px;
     left: -5px;
     width: calc(100% + 10px);
-    height: 1090px;
+    height: 1150px;
     border: 0;
 }
 
-/* ==========================================================================
-   IFRAME DE PTABLE (FORZADO A TAMAÑO GRANDE)
-   ========================================================================== */
-.gs-ptable-wrapper {
-    width: 100% !important;
-    height: 600px !important; /* Ventana visible */
-    overflow: hidden !important;
-    position: relative !important;
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
-    background-color: #ffffff;
-    display: block !important;
-}
-
-.gs-ptable-iframe {
-    position: absolute !important;
-    top: -250px !important; /* Ajusta para ocultar la cabecera de ptable */
-    left: 0 !important;
-    width: 100% !important; /* Ocupa todo el ancho de la ventana */
-    height: 1200px !important; /* Altura real interna para que no se corte */
-    border: 0 !important;
-    display: block !important;
-    /* Esto es clave: evita que el CSS global aplaste el iframe */
-    min-width: 100% !important; 
-    min-height: 1200px !important;
-}
