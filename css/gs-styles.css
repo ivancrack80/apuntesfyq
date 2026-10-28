@@ -1604,7 +1604,7 @@ body.dyslexia-mode .gs-index-item {
 /* Ajustes específicos para el recorte del iframe de la tabla periódica */
 .iframe-cropper {
     width: 100%;
-    height: 700px;
+    height: 650px;
     overflow: hidden;
     position: relative;
     border-radius: 8px;
@@ -1616,7 +1616,7 @@ body.dyslexia-mode .gs-index-item {
     top: -340px;
     left: -5px;
     width: calc(100% + 10px);
-    height: 1200px;
+    height: 1175px;
     border: 0;
 }
 
