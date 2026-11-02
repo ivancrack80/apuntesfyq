@@ -5,29 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4. El Sistema Periódico - 3º ESO</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
-    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/ivancrack80/apuntesfyq/main/css/gs-styles.css">
+<script src="https://raw.githubusercontent.com/ivancrack80/apuntesfyq/main/js/gs-core.js"></script>
     
-    <style>
-        /* Ajustes específicos para el recorte del iframe de la tabla periódica */
-        .iframe-cropper {
-            width: 100%;
-            height: 650px; /* Altura ajustada para que no asomen anuncios */
-            overflow: hidden;
-            position: relative;
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-            background-color: #ffffff;
-        }
-        .cropped-iframe {
-            position: absolute;
-            top: -340px;
-            left: -5px;
-            width: calc(100% + 10px);
-            height: 850px; /* Altura recortada para ocultar la publicidad inferior */
-            border: 0;
-        }
-    </style>
+    
 </head>
 <body>
 
@@ -114,16 +95,35 @@
     </div>
 
     <div class="gs-box gs-comprender">
-        <div class="gs-comprender-title"><i class="fa-solid fa-table-cells-large"></i> ¿Qué información hay en cada casilla?</div>
-        <p style="margin-bottom: 8px;">Si te fijas en cualquier elemento de la tabla, verás que cada casilla suele contener:</p>
-        <ul style="margin-bottom: 0;">
-            <li><strong>El número atómico (Z):</strong> Normalmente arriba a la izquierda.</li>
-            <li><strong>El símbolo químico:</strong> La letra grande en el centro.</li>
-            <li><strong>El nombre del elemento:</strong> Debajo del símbolo.</li>
-            <li><strong>La masa atómica promedio:</strong> Normalmente debajo del nombre.</li>
-            <li><strong>Otros datos:</strong> Según la tabla, también pueden aparecer datos termodinámicos (punto de fusión/ebullición), la configuración electrónica o el estado de la materia.</li>
-        </ul>
+    <div class="gs-comprender-title"><i class="fa-solid fa-table-cells-large"></i> ¿Qué información hay en cada casilla?</div>
+    <p>Si te fijas en cualquier elemento de la tabla, verás que cada casilla suele contener mucha información condensada. Vamos a verlo con un ejemplo real (el Cloro):</p>
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center; justify-content: center; margin: 25px 0;">
+        
+        <!-- CASILLA DE EJEMPLO (CLORO) -->
+        <div style="background: #f8fafc; border: 2px solid #1e3a8a; border-radius: 8px; width: 160px; height: 160px; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif;">
+            <!-- Número Atómico -->
+            <span style="position: absolute; top: 8px; left: 12px; font-size: 1rem; color: #dc2626; font-weight: bold;">17</span>
+            <!-- Símbolo -->
+            <span style="font-size: 3.5rem; font-weight: bold; color: #1e3a8a; line-height: 1;">Cl</span>
+            <!-- Nombre -->
+            <span style="font-size: 0.95rem; color: #475569; margin-top: 5px;">Cloro</span>
+            <!-- Masa Atómica -->
+            <span style="position: absolute; bottom: 8px; font-size: 0.9rem; color: #16a34a; font-weight: bold;">35,45 u</span>
+        </div>
+
+        <!-- LEYENDA EXPLICATIVA -->
+        <div style="flex: 1; min-width: 250px;">
+            <ul style="margin-bottom: 0; font-size: 0.95rem;">
+                <li style="margin-bottom: 12px;"><strong style="color: #dc2626;">Número atómico (Z):</strong> Arriba a la izquierda. Es el número de protones (en este caso, 17).</li>
+                <li style="margin-bottom: 12px;"><strong style="color: #1e3a8a;">Símbolo químico:</strong> La letra grande en el centro (Cl). Siempre va la primera en mayúscula.</li>
+                <li style="margin-bottom: 12px;"><strong style="color: #475569;">Nombre del elemento:</strong> Justo debajo del símbolo (Cloro).</li>
+                <li style="margin-bottom: 12px;"><strong style="color: #16a34a;">Masa atómica promedio:</strong> Abajo a la izquierda o en el centro (35,45 u).</li>
+                <li><strong>Otros datos:</strong> Dependiendo de la tabla, también pueden aparecer datos termodinámicos (punto de fusión/ebullición), la configuración electrónica o el estado de la materia.</li>
+            </ul>
+        </div>
     </div>
+</div>
 
     <!-- 4.4 ESTRUCTURA DE LA TABLA -->
     <h2 class="gs-section-title"><i class="fa-solid fa-table-cells"></i> 4.4. Estructura del Sistema Periódico Actual</h2>
