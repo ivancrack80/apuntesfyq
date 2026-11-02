@@ -1616,7 +1616,7 @@ body.dyslexia-mode .gs-index-item {
     top: -340px;
     left: -5px;
     width: calc(100% + 10px);
-    height: 550px; !important;
+    height: 400px; !important;
     border: 0;
 }
 
