@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SdA: El Cofre del Alquimista - 3º ESO</title>
+
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/ivancrack80/apuntesfyq/main/css/gs-styles.css">
+    <script src="https://raw.githubusercontent.com/ivancrack80/apuntesfyq/main/js/gs-core.js"></script>
+    
+    <style>
+        /* Estilos para el candado digital */
+        .gs-candado {
+            background-color: #1e293b;
+            border: 4px solid #475569;
+            border-radius: 12px;
+            padding: 20px;
+            display: inline-flex;
+            gap: 15px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.8), 0 10px 25px rgba(0,0,0,0.5);
+            margin: 20px auto;
+        }
+
+        .gs-digito {
+            background-color: #0f172a;
+            color: #22c55e; /* Verde neón */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 3rem;
+            font-weight: bold;
+            width: 60px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            border: 2px solid #334155;
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+        }
+
+        .gs-cofre {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .gs-cofre img {
+            max-width: 300px;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+        }
+
+        /* Estilos para los enigmas */
+        .gs-enigma {
+            background: #ffffff;
+            border-left: 4px solid var(--gs-primary);
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .gs-enigma-num {
+            background: var(--gs-primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 3.º ESO · Unidad 2</div>
+        <h1 class="gs-title">El Cofre del Alquimista</h1>
+        <div class="gs-subtitle">Situación de aprendizaje · El escape room de la materia</div>
+    </header>
+
+    <!-- NARRATIVA -->
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-scroll"></i> La leyenda del cofre</div>
+        <p>
+            Has encontrado un antiguo cofre en el desván del laboratorio. Perteneció a un famoso alquimista que ocultó sus secretos sobre la estructura de la materia. El cofre está cerrado con un **candado digital de 4 cifras**. 
+        </p>
+        <p style="margin-bottom: 0;">
+            Para abrirlo, debes resolver los 4 enigmas que el alquimista grabó en la tapa. La solución a cada enigma te dará una de las cifras del código. **Atención:** Cada vez que recargues la página, el alquimista cambiará los enigmas y el código. ¡Solo tienes una oportunidad!
+        </p>
+    </div>
+
+    <!-- EL COFRE Y EL CANDADO -->
+    <div class="gs-cofre">
+        <!-- Icono de cofre cerrado -->
+        <div style="font-size: 6rem; color: #78350f; margin-bottom: 10px;">
+            <i class="fa-solid fa-box-archive"></i>
+        </div>
+        
+        <!-- El candado digital -->
+        <div class="gs-candado">
+            <div class="gs-digito" id="cod-1">?</div>
+            <div class="gs-digito" id="cod-2">?</div>
+            <div class="gs-digito" id="cod-3">?</div>
+            <div class="gs-digito" id="cod-4">?</div>
+        </div>
+        <p style="font-size: 0.9rem; color: #64748b; margin-top: 15px;">
+            Anota este código de 4 cifras. Lo necesitarás para abrir el cofre en Moodle.
+        </p>
+    </div>
+
+    <!-- LOS ENIGMAS -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-puzzle-piece"></i> Los 4 Enigmas del Alquimista</h2>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-enigma">
+            <span class="gs-enigma-num">1</span>
+            <strong>El elemento oculto:</strong> <span id="enigma-1">Cargando...</span>
+        </div>
+        
+        <div class="gs-enigma">
+            <span class="gs-enigma-num">2</span>
+            <strong>El ión inestable:</strong> <span id="enigma-2">Cargando...</span>
+        </div>
+
+        <div class="gs-enigma">
+            <span class="gs-enigma-num">3</span>
+            <strong>La masa del núcleo:</strong> <span id="enigma-3">Cargando...</span>
+        </div>
+
+        <div class="gs-enigma">
+            <span class="gs-enigma-num">4</span>
+            <strong>La posición en la tabla:</strong> <span id="enigma-4">Cargando...</span>
+        </div>
+    </div>
+
+    <!-- INSTRUCCIONES PARA MOODLE -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-lock-open"></i> ¿Cómo abrir el cofre?</div>
+        <ol style="margin-bottom: 0;">
+            <li>Resuelve los 4 enigmas en tu cuaderno.</li>
+            <li>El resultado del Enigma 1 es la primera cifra.</li>
+            <li>El resultado del Enigma 2 es la segunda cifra (si la carga es +2, la cifra es 2).</li>
+            <li>El resultado del Enigma 3 es la tercera cifra.</li>
+            <li>El resultado del Enigma 4 es la cuarta cifra.</li>
+            <li>Ve a la tarea de Moodle e introduce el código de 4 cifras. ¡Si es correcto, el cofre se abrirá y tendrás tu recompensa!</li>
+        </ol>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener('gs-ready', function () {
+
+    // --- 1. ENIGMA 1: CONFIGURACIÓN -> Z (Del 1 al 20) ---
+    // Seleccionamos un elemento del 3 al 20 (para que tengan configuración)
+    const elementosE1 = [
+        { z: 3, conf: "1s² 2s¹" }, { z: 4, conf: "1s² 2s²" }, { z: 5, conf: "1s² 2s² 2p¹" },
+        { z: 6, conf: "1s² 2s² 2p²" }, { z: 7, conf: "1s² 2s² 2p³" }, { z: 8, conf: "1s² 2s² 2p⁴" },
+        { z: 9, conf: "1s² 2s² 2p⁵" }, { z: 10, conf: "1s² 2s² 2p⁶" }, { z: 11, conf: "1s² 2s² 2p⁶ 3s¹" },
+        { z: 12, conf: "1s² 2s² 2p⁶ 3s²" }, { z: 13, conf: "1s² 2s² 2p⁶ 3s² 3p¹" }, { z: 14, conf: "1s² 2s² 2p⁶ 3s² 3p²" },
+        { z: 15, conf: "1s² 2s² 2p⁶ 3s² 3p³" }, { z: 16, conf: "1s² 2s² 2p⁶ 3s² 3p⁴" }, { z: 17, conf: "1s² 2s² 2p⁶ 3s² 3p⁵" },
+        { z: 18, conf: "1s² 2s² 2p⁶ 3s² 3p⁶" }, { z: 19, conf: "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹" }, { z: 20, conf: "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²" }
+    ];
+    const el1 = elementosE1[Math.floor(Math.random() * elementosE1.length)];
+    document.getElementById('enigma-1').innerHTML = `La configuración electrónica de un átomo neutro es <strong>${el1.conf}</strong>. ¿Cuál es su número atómico (Z)?`;
+    document.getElementById('cod-1').innerText = el1.z;
+
+    // --- 2. ENIGMA 2: PROTONES Y ELECTRONES -> CARGA ---
+    // Generamos un átomo con un desajuste de electrones (carga +1, +2, -1, -2)
+    const protonesE2 = Math.floor(Math.random() * (20 - 3 + 1)) + 3;
+    const posiblesCargas = [1, 2, -1, -2]; // Evitamos la carga 0 para que sea un ion
+    const cargaE2 = posiblesCargas[Math.floor(Math.random() * posiblesCargas.length)];
+    const electronesE2 = protonesE2 - cargaE2; // Si carga es +1, electrones = p - 1
+
+    const signoE2 = cargaE2 > 0 ? "+" + cargaE2 : cargaE2;
+    document.getElementById('enigma-2').innerHTML = `Un átomo tiene <strong>${protonesE2} protones</strong> y <strong>${electronesE2} electrones</strong>. ¿Cuál es su carga eléctrica neta? (Indica solo el número, sin el signo)`;
+    document.getElementById('cod-2').innerText = Math.abs(cargaE2); // Usamos el valor absoluto para la cifra
+
+    // --- 3. ENIGMA 3: PROTONES + NEUTRONES -> A (Número másico) ---
+    const zE3 = Math.floor(Math.random() * (20 - 3 + 1)) + 3;
+    const neutronesE3 = Math.floor(Math.random() * (30 - 3 + 1)) + 3;
+    const aE3 = zE3 + neutronesE3;
+
+    document.getElementById('enigma-3').innerHTML = `Un isótopo tiene <strong>${zE3} protones</strong> y <strong>${neutronesE3} neutrones</strong>. ¿Cuál es su número másico (A)?`;
+    // Como A puede ser de dos cifras, para el candado usaremos la suma de sus dígitos
+    const cifraE3 = aE3.toString().length > 1 ? (parseInt(aE3.toString()[0]) + parseInt(aE3.toString()[1])) : aE3;
+    // Si la suma da más de 9, lo ajustamos (ej. 19 -> 1+9=10 -> 1+0=1)
+    const cifraFinalE3 = cifraE3 > 9 ? (Math.floor(cifraE3/10) + cifraE3%10) : cifraE3;
+    document.getElementById('cod-3').innerText = cifraFinalE3;
+
+    // --- 4. ENIGMA 4: GRUPO Y PERIODO -> ELECTRONES DE VALENCIA ---
+    // Grupos representativos y sus electrones de valencia
+    const gruposE4 = [
+        { grupo: 1, val: 1 }, { grupo: 2, val: 2 }, 
+        { grupo: 13, val: 3 }, { grupo: 14, val: 4 }, { grupo: 15, val: 5 }, 
+        { grupo: 16, val: 6 }, { grupo: 17, val: 7 }
+    ];
+    const gE4 = gruposE4[Math.floor(Math.random() * gruposE4.length)];
+    const periodoE4 = Math.floor(Math.random() * 4) + 1; // Periodos 1 al 4
+
+    document.getElementById('enigma-4').innerHTML = `Un elemento se encuentra en el <strong>Periodo ${periodoE4}</strong> y en el <strong>Grupo ${gE4.grupo}</strong>. ¿Cuántos electrones de valencia tiene?`;
+    document.getElementById('cod-4').innerText = gE4.val;
+
+});
+</script>
+
+</body>
+</html>
