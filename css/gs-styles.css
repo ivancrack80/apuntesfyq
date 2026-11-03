@@ -1618,6 +1618,6 @@ body.dyslexia-mode .gs-index-item {
     top: -300px; /* Sube el iframe para ocultar el menú de ptable */
     left: -5px;
     width: calc(100% + 10px);
-    height: 1200px; /* ¡Muy importante! Debe ser MUY alto para que quepa toda la tabla */
+    height: 1150px; /* ¡Muy importante! Debe ser MUY alto para que quepa toda la tabla */
     border: 0;
 }
