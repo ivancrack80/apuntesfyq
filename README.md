@@ -116,8 +116,8 @@ Cada unidad sigue **siempre** este patrón:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>...</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/css/gs-styles.css">
-    <script src="https://cdn.jsdelivr.net/gh/ivancrack80/apuntesfyq@main/js/gs-core.js"></script>
+    <link rel="stylesheet" href="https://ivancrack80.github.io/apuntesfyq/css/gs-styles.css">
+    <script src="https://ivancrack80.github.io/apuntesfyq/js/gs-core.js"></script>
     <!-- Si hace falta JS propio: -->
     <!-- <script src="js/udX_YY.js"></script> -->
 </head>
