@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 2 - La Materia y sus Propiedades</title>
+
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/ivancrack80/apuntesfyq/main/css/gs-styles.css">
+    <script src="https://raw.githubusercontent.com/ivancrack80/apuntesfyq/main/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </header>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 2.º ESO · Unidad 2</div>
+        <h1 class="gs-title">La Materia y sus Propiedades</h1>
+        <div class="gs-subtitle">De qué está hecho todo: masa, volumen, densidad y estados de agregación</div>
+    </header>
+
+    <!-- GANCHO HISTÓRICO -->
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-ship"></i> El misterio del acero que se hundió</div>
+        <p>
+            En 1912, el <strong>Titanic</strong> se hundió en su viaje inaugural. Cuando los científicos rescataron fragmentos del casco años después, descubrieron algo asombroso: el acero utilizado en su construcción era mucho más frágil de lo que debería. A muy bajas temperaturas (como las del océano Atlántico esa noche), el material perdía su resistencia y se rompía como el cristal. 
+        </p>
+        <p style="margin-bottom: 0;">
+            ¿Sabías que el acero de hoy en día está diseñado precisamente para no hacer eso? Toda la tecnología moderna (desde un avión de 300 toneladas que vuela, hasta el móvil que tienes en la mano) depende de conocer a la perfección la materia, cómo se comporta, cuánto pesa y qué espacio ocupa. En esta unidad, abriremos el "manual de instrucciones" de la materia.
+        </p>
+    </div>
+
+    <!-- EXPLICACIÓN RELEVANTE -->
+    <h2 class="gs-section-title">La materia está en todas partes</h2>
+    <p>
+        Todo lo que nos rodea, lo que podemos tocar, oler o ver (y lo que no vemos, como el aire) es materia. Pero no toda la materia es igual. No pesa lo mismo un kilo de plumas que un kilo de plomo (aunque pesen igual, ¡ocupan muchísimo más espacio las plumas!). 
+    </p>
+    <p>
+        A lo largo de esta unidad, aprenderás a medir y a describir la materia con precisión. Descubrirás cómo medir el volumen de un balón de fútbol, por qué una piedra se hunde y un barco flota, o cuál es la diferencia entre un sólido, un líquido y un gas.
+    </p>
+
+    <!-- RUTA DE LA UNIDAD -->
+    <h2 class="gs-section-title">Ruta de la Unidad: ¿Qué vamos a dominar?</h2>
+    <ul class="gs-index-list">
+        <li class="gs-index-item">
+            <span class="gs-index-num">1</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">La Materia y sus Propiedades</span>
+                <span class="gs-index-desc">Aprenderemos a diferenciar las propiedades generales (como la masa y el volumen) de las propiedades características (como la densidad).</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">2</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">La Medida de la Masa y el Volumen</span>
+                <span class="gs-index-desc">Descubriremos cómo medir la masa con la balanza y cómo medir el volumen, ya sea de un sólido regular (con fórmulas), uno irregular (método de la probeta), un líquido o un gas.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">3</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">La Densidad: La Huella Dactilar de la Materia</span>
+                <span class="gs-index-desc">Aprenderemos qué es la densidad, cómo se calcula, cómo se mide en el laboratorio y por qué es una propiedad tan importante que nos permite identificar sustancias.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">4</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Los Estados de Agregación y sus Cambios</span>
+                <span class="gs-index-desc">Estudiaremos cómo se comportan las partículas en los sólidos, líquidos y gases, y qué ocurre cuando la materia cambia de estado (fusión, ebullición, etc.).</span>
+            </div>
+        </li>
+    </ul>
+
+    <!-- DEBATE INICIAL -->
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-comments"></i> Cuestiones para la reflexión inicial</div>
+        <p>
+            Antes de adentrarnos en los contenidos del tema, reflexiona sobre estas dos cuestiones con tu compañero o compañera:
+        </p>
+        <ol style="margin-bottom: 0;">
+            <li style="margin-bottom: 10px;"><strong>¿Pesan lo mismo?</strong> Si te digo que cojas 1 kg de plomo y 1 kg de plumas, ¿pesan lo mismo? ¿Ocupan el mismo espacio? ¿Por qué crees que un barco de acero flota en el agua pero una moneda de acero se hunde?</li>
+            <li><strong>El aire es materia:</strong> Mucha gente cree que el aire no es nada. Sin embargo, si hinchas un globo, este se expande y pesa un poquito más. ¿Qué propiedades de la materia crees que tiene el aire?</li>
+        </ol>
+    </div>
+
+</div>
+
+</body>
+</html>
