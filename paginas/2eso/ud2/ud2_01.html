@@ -342,4 +342,45 @@
             <li>Clasifica las siguientes propiedades según sean generales o características: color, masa, punto de ebullición, volumen, dureza, densidad.</li>
             <li>Calcula el volumen de una caja de zapatos que mide \(30 \text{ cm}\) de largo, \(20 \text{ cm}\) de ancho y \(10 \text{ cm}\) de alto. Exprésalo en \(\text{cm}^3\) y en litros.</li>
             <li>En una probeta hay \(80 \text{ mL}\) de agua. Al introducir una piedra, el nivel sube hasta \(95 \text{ mL}\). ¿Cuál es el volumen de la piedra?</li>
-            <li>Un lingote de oro tiene una masa de \(386 \text{ g}\) y ocupa un volumen de \(20 \text{ cm}^3\). Calcul
+            <li>Un lingote de oro tiene una masa de \(386 \text{ g}\) y ocupa un volumen de \(20 \text{ cm}^3\). Calcula su densidad. ¿Coincide con la tabla de densidades?</li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="2eso_ud2_1">
+        <div class="sol-lock-header">
+            <div class="gs-comprender-title" style="color: var(--gs-primary);">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i> Solucionario Oficial
+            </div>
+        </div>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos para comprobar las soluciones.
+        </p>
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div> <!-- Cierre del gs-container -->
+
+<script>
+    // Función para mostrar u ocultar la solución del ejercicio de clasificación
+    function toggleSolucion(id) {
+        var el = document.getElementById(id);
+        if (el.classList.contains('show')) {
+            el.classList.remove('show');
+        } else {
+            el.classList.add('show');
+        }
+    }
+</script>
+
+</body>
+</html>
