@@ -1,8 +1,7 @@
 document.addEventListener('gs-ready', function() {
-    // --- ESTADO ---
     const state = {
         agua: 0,
-        maxAgua: 100,
+        maxAgua: 90, // Cambiado a 90 para que la probeta virtual no se desborde visualmente
         objetoActual: null,
         objPosicion: 'inicio',
         estaMojado: false,
@@ -14,7 +13,6 @@ document.addEventListener('gs-ready', function() {
         }
     };
 
-    // --- DOM ---
     const elAgua = document.getElementById('agua-rect');
     const elPesoDisplay = document.getElementById('peso-display');
     const objMoneda = document.getElementById('obj-moneda');
@@ -30,7 +28,6 @@ document.addEventListener('gs-ready', function() {
     const btnCheck = document.getElementById('btn-check');
     const msgFeedback = document.getElementById('msg-feedback');
 
-    // --- AGUA ---
     let waterInterval;
     function startWater() {
         if (state.objPosicion === 'probeta') return;
@@ -50,14 +47,15 @@ document.addEventListener('gs-ready', function() {
     function stopWater() { clearInterval(waterInterval); }
 
     function updateAguaVisual() {
-        const rangoPixeles = 700;
+        // La probeta tiene el fondo en Y=730 y el tope en Y=102. Rango total 628px.
+        // 1 mL = 628 / 90 = 6.977 px
+        const rangoPixeles = 628;
         const alturaPx = (state.agua / state.maxAgua) * rangoPixeles;
-        const yPos = 850 - alturaPx;
+        const yPos = 730 - alturaPx;
         elAgua.setAttribute('y', yPos);
         elAgua.setAttribute('height', alturaPx);
     }
 
-    // --- OBJETO ---
     function setObjeto(tipo) {
         state.objetoActual = tipo;
         state.objPosicion = 'inicio';
@@ -84,7 +82,6 @@ document.addEventListener('gs-ready', function() {
     objMoneda.addEventListener('click', function() { if (state.objPosicion === 'inicio') setObjeto('moneda'); });
     objPiedra.addEventListener('click', function() { if (state.objPosicion === 'inicio') setObjeto('piedra'); });
 
-    // --- ACCIONES ---
     btnPesar.addEventListener('click', function() {
         if (state.objPosicion !== 'inicio') return;
         const d = state.datos[state.objetoActual];
