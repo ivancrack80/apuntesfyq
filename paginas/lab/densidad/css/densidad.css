@@ -30,26 +30,22 @@
     box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
 }
 
+/* Unificamos la altura de todas las cajas para que se alineen bien */
 .lab-svg-wrapper {
     width: 200px;
-    height: 300px;
+    height: 350px;
     position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: center;
 }
-.balanza-wrapper {
-    width: 200px;
-    height: 150px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
+.balanza-wrapper { height: 250px; } /* Un poco más bajo porque la balanza es ancha */
+.probeta-wrapper { height: 350px; }
+.objeto-wrapper { height: 250px; width: 120px; }
 
 .svg-probeta { width: 100%; height: 100%; }
 .svg-balanza { width: 100%; height: 100%; }
 
-/* El objeto arrastrable */
 .objeto-svg {
     width: 60px;
     height: 60px;
@@ -67,13 +63,12 @@
     transform: translateX(-50%) scale(0.8);
 }
 .objeto-svg.pos-probeta {
-    bottom: -10px;
+    bottom: 20px; /* Ajustado para que quede dentro del agua */
     left: 50%;
     transform: translateX(-50%) scale(0.8);
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
-/* Panel de control */
 .lab-controls {
     display: flex;
     flex-wrap: wrap;
@@ -106,7 +101,6 @@
 .btn-reset { background: #ef4444; color: white; }
 .btn-reset:hover:not(:disabled) { background: #dc2626; }
 
-/* Panel de resultados */
 .panel-resultados {
     background: white;
     border: 1px solid #e2e8f0;
@@ -134,8 +128,6 @@
 
 #agua-rect {
     transition: y 0.1s linear, height 0.1s linear;
-    fill: #7dd3fc;
-    opacity: 0.6;
 }
 
 .lab-zone h4 {
