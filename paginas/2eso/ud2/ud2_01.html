@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. La Materia y sus Propiedades - 2º ESO</title>
+
+    <link rel="stylesheet" href="https://ivancrack80.github.io/apuntesfyq/css/gs-styles.css">
+    <script src="https://ivancrack80.github.io/apuntesfyq/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </header>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 2.º ESO · Unidad 2</div>
+        <h1 class="gs-title">1. La Materia y sus Propiedades</h1>
+        <div class="gs-subtitle">Masa, volumen, densidad y cómo medirlos correctamente</div>
+    </header>
+
+    <!-- 1.1 PROPIEDADES -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-cubes"></i> 1.1. ¿Qué es la materia? Propiedades generales y características</h2>
+    <p>
+        La <strong>materia</strong> es todo aquello que tiene masa y ocupa un volumen en el espacio. Todo lo que podemos ver, tocar o medir es materia: una piedra, el agua, el aire de un globo o tu propio cuerpo.
+    </p>
+    <p>
+        Para describir la materia, utilizamos las <strong>propiedades</strong>. Estas se dividen en dos grandes grupos:
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-balance-scale"></i> Propiedades generales</div>
+        <p>
+            Son las propiedades que <strong>tienen todas las materias</strong>, independientemente de qué sustancia sea. No nos sirven para identificar de qué está hecho un objeto. Las dos principales son:
+        </p>
+        <ul style="margin-bottom: 0;">
+            <li><strong>La masa:</strong> la cantidad de materia que tiene un cuerpo.</li>
+            <li><strong>El volumen:</strong> el espacio que ocupa esa materia.</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-fingerprint"></i> Propiedades características</div>
+        <p>
+            Son las propiedades que <strong>varían de unas sustancias a otras</strong>. Nos permiten identificar de qué sustancia se trata, porque son como su "huella dactilar". Ejemplos:
+        </p>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Densidad:</strong> el plomo es muy denso, el corcho muy poco.</li>
+            <li><strong>Color:</strong> el oro es amarillo, la plata es blanca.</li>
+            <li><strong>Punto de fusión/ebullición:</strong> el agua hierve a 100 °C, el alcohol a 78 °C.</li>
+            <li><strong>Dureza, brillo, solubilidad, conductividad...</strong></li>
+        </ul>
+    </div>
+
+    <!-- 1.2 LA MASA -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-weight-hanging"></i> 1.2. La masa</h2>
+    <p>
+        La <strong>masa</strong> es la cantidad de materia que tiene un cuerpo. Es una propiedad general que no cambia aunque cambiemos de lugar (tu masa es la misma en la Tierra que en la Luna).
+    </p>
+    <ul>
+        <li><strong>Unidad en el SI:</strong> El <strong>kilogramo (kg)</strong>. También es habitual usar el gramo (g) o el miligramo (mg).</li>
+        <li><strong>Instrumento de medida:</strong> La <strong>balanza</strong> (electrónica o de precisión).</li>
+    </ul>
+
+    <!-- 1.3 EL VOLUMEN -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-cube"></i> 1.3. El volumen</h2>
+    <p>
+        El <strong>volumen</strong> es el espacio que ocupa un cuerpo. Al igual que la masa, es una propiedad general.
+    </p>
+    <ul>
+        <li><strong>Unidad en el SI:</strong> El <strong>metro cúbico (m³)</strong>. En el laboratorio, es muy común usar el litro (L) o el mililitro (mL).</li>
+        <li><strong>Instrumento de medida:</strong> Depende del estado de la materia. Para líquidos y gases se usan <strong>probetas</strong> o matraces; para sólidos regulares, reglas o pies de rey.</li>
+    </ul>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-droplet"></i> Equivalencias de volumen muy útiles</div>
+        <ul style="margin-bottom: 0;">
+            <li>\(1 \text{ m}^3 = 1000 \text{ L}\) (un metro cúbico es como una caja de 1000 litros).</li>
+            <li>\(1 \text{ dm}^3 = 1 \text{ L}\)</li>
+            <li>\(1 \text{ cm}^3 = 1 \text{ mL}\)</li>
+        </ul>
+    </div>
+
+    <!-- 1.4 MEDIDA DEL VOLUMEN SEGÚN EL ESTADO -->
+    <h3>¿Cómo se mide el volumen? Depende del estado</h3>
+
+    <h4>1. Sólidos regulares (con fórmulas)</h4>
+    <p>
+        Si el sólido tiene una forma geométrica definida (esfera, cilindro, cubo/ortoedro), podemos medir sus dimensiones (radio, altura, lados) con una regla y aplicar la fórmula matemática correspondiente.
+    </p>
+
+    <!-- SVG DE FIGURAS GEOMÉTRICAS -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 20px 0;">
+        
+        <!-- ESFERA -->
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 15px; text-align: center; flex: 1; min-width: 200px;">
+            <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; margin-bottom: 10px;">
+                <circle cx="50" cy="50" r="40" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2" fill-opacity="0.6"/>
+                <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke="#1e3a8a" stroke-width="1.5" stroke-dasharray="4,4"/>
+                <line x1="50" y1="50" x2="90" y2="50" stroke="#dc2626" stroke-width="2" stroke-dasharray="2,2"/>
+                <text x="70" y="45" font-size="12" fill="#dc2626" font-weight="bold">r</text>
+            </svg>
+            <h4 style="margin: 0 0 5px 0;">Esfera</h4>
+            <div class="gs-latex-container" style="padding: 5px; margin: 0; background: transparent;">\(V = \frac{4}{3} \cdot \pi \cdot r^3\)</div>
+        </div>
+
+        <!-- CILINDRO -->
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 15px; text-align: center; flex: 1; min-width: 200px;">
+            <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; margin-bottom: 10px;">
+                <ellipse cx="50" cy="25" rx="30" ry="10" fill="#86efac" stroke="#166534" stroke-width="2"/>
+                <ellipse cx="50" cy="75" rx="30" ry="10" fill="#86efac" stroke="#166534" stroke-width="2" fill-opacity="0.6"/>
+                <path d="M 20 25 L 20 75 A 30 10 0 0 0 80 75 L 80 25" fill="none" stroke="#166534" stroke-width="2"/>
+                <line x1="50" y1="25" x2="50" y2="75" stroke="#dc2626" stroke-width="2" stroke-dasharray="2,2"/>
+                <line x1="80" y1="25" x2="80" y2="75" stroke="#0284c7" stroke-width="2"/>
+                <text x="55" y="50" font-size="12" fill="#dc2626" font-weight="bold">h</text>
+                <text x="85" y="50" font-size="12" fill="#0284c7" font-weight="bold">r</text>
+            </svg>
+            <h4 style="margin: 0 0 5px 0;">Cilindro</h4>
+            <div class="gs-latex-container" style="padding: 5px; margin: 0; background: transparent;">\(V = \pi \cdot r^2 \cdot h\)</div>
+        </div>
+
+        <!-- ORTOEDRO -->
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 15px; text-align: center; flex: 1; min-width: 200px;">
+            <svg viewBox="0 0 100 100" style="width: 80px; height: 80px; margin-bottom: 10px;">
+                <polygon points="20,30 70,30 70,80 20,80" fill="#fca5a5" stroke="#991b1b" stroke-width="2" fill-opacity="0.6"/>
+                <polygon points="20,30 40,10 90,10 70,30" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <polygon points="70,30 90,10 90,60 70,80" fill="#fca5a5" stroke="#991b1b" stroke-width="2" fill-opacity="0.8"/>
+                <line x1="20" y1="80" x2="70" y2="80" stroke="#1e3a8a" stroke-width="2"/>
+                <text x="45" y="95" font-size="12" fill="#1e3a8a" font-weight="bold">b</text>
+                <line x1="70" y1="30" x2="70" y2="80" stroke="#166534" stroke-width="2"/>
+                <text x="75" y="55" font-size="12" fill="#166534" font-weight="bold">h</text>
+                <line x1="70" y1="30" x2="90" y2="10" stroke="#b45309" stroke-width="2"/>
+                <text x="85" y="25" font-size="12" fill="#b45309" font-weight="bold">a</text>
+            </svg>
+            <h4 style="margin: 0 0 5px 0;">Ortoedro (caja)</h4>
+            <div class="gs-latex-container" style="padding: 5px; margin: 0; background: transparent;">\(V = a \cdot b \cdot h\)</div>
+        </div>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-calculator"></i> Ejemplo resuelto: Volumen de un cilindro</div>
+        <p>Tenemos un vaso de precipitados con forma de cilindro perfecto. Al medir con una regla, vemos que su radio es de \(3 \text{ cm}\) y su altura es de \(10 \text{ cm}\). ¿Cuál es su volumen?</p>
+        <ol>
+            <li>Aplicamos la fórmula: \(V = \pi \cdot r^2 \cdot h\)</li>
+            <li>Sustituimos los datos: \(V = 3,14 \cdot (3)^2 \cdot 10\)</li>
+            <li>Calculamos: \(V = 3,14 \cdot 9 \cdot 10 = \mathbf{282,6 \text{ cm}^3}\)</li>
+        </ol>
+        <p style="margin-bottom: 0;">Como \(1 \text{ cm}^3 = 1 \text{ mL}\), el vaso puede contener \(282,6 \text{ mL}\) de líquido.</p>
+    </div>
+
+    <h4>2. Sólidos irregulares (método de la probeta)</h4>
+    <p>
+        Si el sólido tiene una forma irregular (como una piedra o una llave), no podemos usar fórmulas. Utilizamos el <strong>método de desplazamiento de agua</strong>:
+    </p>
+    <ol>
+        <li>Llenamos una probeta con un volumen conocido de agua (por ejemplo, \(50 \text{ mL}\)).</li>
+        <li>Introducimos el sólido con cuidado, asegurándonos de que se hunda completamente y no queden burbujas.</li>
+        <li>El nivel del agua subirá. Medimos el nuevo volumen (por ejemplo, \(70 \text{ mL}\)).</li>
+        <li>La diferencia entre ambos volúmenes es el volumen del sólido: \(70 - 50 = \mathbf{20 \text{ mL}}\) (o \(20 \text{ cm}^3\)).</li>
+    </ol>
+
+    <h4>3. Líquidos</h4>
+    <p>
+        El volumen de los líquidos se mide directamente con una <strong>probeta</strong> o una pipeta. Es muy importante mirar la base del <em>menisco</em> (la curva que forma el líquido en la superficie) con los ojos a la misma altura para evitar el error de paralaje.
+    </p>
+
+    <h4>4. Gases</h4>
+    <p>
+        Los gases tienden a expandirse y ocupan todo el espacio disponible. Por tanto, <strong>el volumen de un gas es igual al volumen del recipiente que lo contiene</strong>. Además, el volumen de un gas cambia mucho si cambiamos la presión o la temperatura (esto lo estudiaremos más adelante con las leyes de los gases).
+    </p>
+
+    <!-- 1.5 LA DENSIDAD -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-water"></i> 1.4. La densidad: una propiedad característica</h2>
+    <p>
+        La <strong>densidad</strong> es la propiedad característica que nos dice cuánta masa hay concentrada en un volumen determinado. Es decir, relaciona la masa de un cuerpo con el espacio que ocupa.
+    </p>
+    <p>
+        Se calcula dividiendo la masa entre el volumen:
+    </p>
+    <div class="gs-latex-container" style="text-align: center; font-size: 1.2rem;">
+        \(d = \frac{m}{V}\)
+    </div>
+    <ul>
+        <li><strong>Unidad en el SI:</strong> El \(\text{kg/m}^3\). En el laboratorio es muy común usar el \(\text{g/cm}^3\) (o \(\text{g/mL}\)).</li>
+    </ul>
+    <p>
+        La densidad es una propiedad característica: nos permite identificar sustancias. Por ejemplo, el agua tiene una densidad de \(1 \text{ g/cm}^3\), el hierro de \(7,8 \text{ g/cm}^3\) y el corcho de \(0,2 \text{ g/cm}^3\). Por eso un trozo de corcho flota en agua (tiene menos densidad) y una moneda se hunde (tiene más densidad).
+    </p>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-flask"></i> Procedimiento experimental para medir la densidad de un sólido</div>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Medir la masa:</strong> Pesamos el objeto en la balanza (ej. \(m = 50 \text{ g}\)).</li>
+            <li><strong>Medir el volumen:</strong> Si es regular, medimos con regla y aplicamos la fórmula. Si es irregular, usamos el método de la probeta (ej. \(V = 10 \text{ cm}^3\)).</li>
+            <li><strong>Calcular la densidad:</strong> Aplicamos la fórmula \(d = \frac{m}{V}\).</li>
+            <li><strong>Resultado:</strong> \(d = \frac{50 \text{ g}}{10 \text{ cm}^3} = \mathbf{5 \text{ g/cm}^3}\).</li>
+        </ol>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades de repaso</div>
+        <ol class="gs-actividades">
+            <li>Clasifica las siguientes propiedades según sean generales o características: color, masa, punto de ebullición, volumen, dureza, densidad.</li>
+            <li>Calcula el volumen de una caja de zapatos que mide \(30 \text{ cm}\) de largo, \(20 \text{ cm}\) de ancho y \(10 \text{ cm}\) de alto. Exprésalo en \(\text{cm}^3\) y en litros.</li>
+            <li>En una probeta hay \(80 \text{ mL}\) de agua. Al introducir una piedra, el nivel sube hasta \(95 \text{ mL}\). ¿Cuál es el volumen de la piedra?</li>
+            <li>Un lingote de oro tiene una masa de \(386 \text{ g}\) y ocupa un volumen de \(20 \text{ cm}^3\). Calcula su densidad.</li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="2eso_ud2_1">
+        <div class="sol-lock-header">
+            <div class="gs-comprender-title" style="color: var(--gs-primary);">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i> Solucionario Oficial
+            </div>
+        </div>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos para comprobar las soluciones.
+        </p>
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
