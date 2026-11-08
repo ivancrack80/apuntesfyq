@@ -391,7 +391,7 @@
         </div>
     </div>
         
-    <!-- SOLUCIONARIO -->
+        <!-- SOLUCIONARIO -->
     <div class="sol-lock-box" data-unit="2eso_ud2_1">
         <div class="sol-lock-header">
             <div class="gs-comprender-title" style="color: var(--gs-primary);">
@@ -399,12 +399,12 @@
             </div>
         </div>
         <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
-            Introduce el código PIN de 6 dígitos para comprobar las soluciones.
+            Introduce el código PIN de 6 dígitos para comprobar las soluciones de las actividades actuales.
         </p>
         <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
             <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
                    style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
-            <button onclick="verifySolPin()" id="btnUnlockSol"
+            <button onclick="window.verificarPin()" id="btnUnlockSol"
                     style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
                 Comprobar
             </button>
