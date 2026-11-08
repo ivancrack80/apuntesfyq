@@ -1,18 +1,20 @@
-document.addEventListener('gs-ready', function () {
-    
-    // --- TABLA DE MATERIALES EN EL SI ---
-    // Usamos las densidades exactas (en kg/m3) y su equivalente en g/cm3 para los cálculos
+(function () {
+    'use strict';
+
+    // --- TABLA DE MATERIALES (Densidad en el SI) ---
     const materiales = [
-        { nombre: "Corcho", d_si: 250, d_cm3: 0.25 },
-        { nombre: "Madera", d_si: 500, d_cm3: 0.5 },
-        { nombre: "Vidrio", d_si: 2500, d_cm3: 2.5 },
-        { nombre: "Aluminio", d_si: 2700, d_cm3: 2.7 },
-        { nombre: "Titanio", d_si: 4500, d_cm3: 4.5 },
-        { nombre: "Hierro", d_si: 7800, d_cm3: 7.8 },
-        { nombre: "Cobre", d_si: 8900, d_cm3: 8.9 },
-        { nombre: "Plata", d_si: 10500, d_cm3: 10.5 },
-        { nombre: "Plomo", d_si: 11300, d_cm3: 11.3 }
+        { nombre: "Corcho", d: 250 },
+        { nombre: "Madera", d: 500 },
+        { nombre: "Vidrio", d: 2500 },
+        { nombre: "Aluminio", d: 2700 },
+        { nombre: "Titanio", d: 4500 },
+        { nombre: "Hierro", d: 7800 },
+        { nombre: "Cobre", d: 8900 },
+        { nombre: "Plata", d: 10500 },
+        { nombre: "Plomo", d: 11300 }
     ];
+
+    let problemasActuales = []; // Aquí guardaremos los datos y soluciones
 
     function random(min, max, dec = 0) {
         let num = Math.random() * (max - min) + min;
@@ -23,78 +25,198 @@ document.addEventListener('gs-ready', function () {
         return array[Math.floor(Math.random() * array.length)];
     }
 
-    // --- FUNCIÓN PRINCIPAL QUE GENERA LOS ENUNCIADOS ---
+    function num(valor, decimales) {
+        let d = decimales === undefined ? 2 : decimales;
+        return valor.toFixed(d).replace('.', ',');
+    }
+
+    // Genera el HTML del solucionario paso a paso
+    function generarHTMLSoluciones() {
+        let html = '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
+        html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-pen-clip"></i> Resolución paso a paso</div>';
+        html += '<ol>';
+
+        problemasActuales.forEach(p => {
+            html += '<li style="margin-bottom: 20px;">';
+            html += '<strong>Problema:</strong> ' + p.enunciado + '<br><br>';
+            html += '<div style="background: #f8fafc; padding: 10px; border-radius: 6px; border-left: 3px solid #0284c7;">';
+            html += '<strong>Solución:</strong><br>' + p.solucion;
+            html += '</div></li>';
+        });
+
+        html += '</ol></div>';
+        return html;
+    }
+
     window.generarNuevasActividades = function() {
         if (!document.getElementById('act-densidad-1')) return;
+        
+        problemasActuales = []; // Vaciamos los problemas anteriores
 
         // --- BLOQUE 1: Cálculo directo ---
         let mat1 = elegirAlAzar(materiales);
-        // Generamos un volumen "bonito" (múltiplo de 5)
         let v1_cm3 = Math.round(random(10, 100) / 5) * 5; 
-        // Calculamos la masa real y la redondeamos a 1 decimal (como una balanza)
-        let m1_g = parseFloat((mat1.d_cm3 * v1_cm3).toFixed(1)); 
+        let m1_g = parseFloat((mat1.d / 1000 * v1_cm3).toFixed(1)); 
         
-        document.getElementById('act-densidad-1').innerHTML = `
-            Un bloque metálico tiene una masa de <strong>${m1_g} g</strong> y ocupa un volumen de <strong>${v1_cm3} cm³</strong>. 
-            Calcula su densidad en unidades del SI y consulta la tabla de densidades de la teoría para decir de qué material se trata.
+        let m1_kg = m1_g / 1000;
+        let v1_m3 = v1_cm3 / 1000000;
+        let d1 = mat1.d;
+
+        let en1 = `Un bloque metálico tiene una masa de <strong>${m1_g} g</strong> y ocupa un volumen de <strong>${v1_cm3} cm³</strong>. Calcula su densidad en unidades del SI y consulta la tabla para decir de qué material se trata.`;
+        document.getElementById('act-densidad-1').innerHTML = en1;
+
+        let sol1 = `
+            1º Convertimos al SI:<br>
+            • Masa: \\(${m1_g} \\text{ g} \\cdot \\frac{1 \\text{ kg}}{1000 \\text{ g}} = ${num(m1_kg, 3)} \\text{ kg}\\)<br>
+            • Volumen: \\(${v1_cm3} \\text{ cm}^3 \\cdot \\frac{1 \\text{ m}^3}{1\\,000\\,000 \\text{ cm}^3} = ${num(v1_m3, 6)} \\text{ m}^3\\)<br>
+            2º Calculamos la densidad: \\(d = \\frac{${num(m1_kg, 3)}}{${num(v1_m3, 6)}} = \\mathbf{${num(d1, 0)} \\text{ kg/m}^3}\\)<br>
+            3º Buscamos en la tabla: Corresponde al <strong>${mat1.nombre}</strong>.
         `;
+        problemasActuales.push({ enunciado: en1, solucion: sol1 });
 
         // --- BLOQUE 2: Cálculo de la masa ---
         let mat2 = elegirAlAzar(materiales);
         let v2_cm3 = Math.round(random(20, 150) / 5) * 5; 
-        let m2_g = parseFloat((mat2.d_cm3 * v2_cm3).toFixed(1));
-        let m2_kg = parseFloat((m2_g / 1000).toFixed(3)); // Damos el dato en kg
+        let m2_g = parseFloat((mat2.d / 1000 * v2_cm3).toFixed(1));
+        let m2_kg = m2_g / 1000;
+        let v2_m3 = v2_cm3 / 1000000;
 
-        document.getElementById('act-densidad-2').innerHTML = `
-            Un objeto tiene un volumen de <strong>${v2_cm3} cm³</strong> y está hecho de un material con una densidad de <strong>${mat2.d_si} kg/m³</strong>. 
-            ¿Cuál será su masa en kilogramos?
+        let en2 = `Un objeto tiene un volumen de <strong>${v2_cm3} cm³</strong> y está hecho de un material con una densidad de <strong>${mat2.d} kg/m³</strong>. ¿Cuál será su masa en kilogramos?`;
+        document.getElementById('act-densidad-2').innerHTML = en2;
+
+        let sol2 = `
+            1º Convertimos el volumen al SI:<br>
+            \\(${v2_cm3} \\text{ cm}^3 \\cdot \\frac{1 \\text{ m}^3}{1\\,000\\,000 \\text{ cm}^3} = ${num(v2_m3, 6)} \\text{ m}^3\\)<br>
+            2º Despejamos y calculamos la masa:<br>
+            \\(m = d \\cdot V = ${mat2.d} \\cdot ${num(v2_m3, 6)} = \\mathbf{${num(m2_kg, 3)} \\text{ kg}}\\)<br>
+            <em>(Equivale a ${m2_g} g)</em>
         `;
+        problemasActuales.push({ enunciado: en2, solucion: sol2 });
 
         // --- BLOQUE 3: Cálculo del volumen ---
         let mat3 = elegirAlAzar(materiales);
         let m3_kg = random(1, 10, 2); 
-        // Calculamos el volumen exacto en m3 y lo pasamos a cm3 y a litros
-        let v3_cm3 = parseFloat(((m3_kg * 1000) / mat3.d_cm3).toFixed(1));
-        let v3_L = parseFloat((v3_cm3 / 1000).toFixed(3));
+        let v3_m3 = m3_kg / mat3.d;
+        let v3_L = v3_m3 * 1000;
 
-        document.getElementById('act-densidad-3').innerHTML = `
-            Una pieza metálica tiene una masa de <strong>${m3_kg} kg</strong> y sabemos que su densidad es de <strong>${mat3.d_si} kg/m³</strong>. 
-            ¿Qué volumen ocupa en litros?
+        let en3 = `Una pieza metálica tiene una masa de <strong>${num(m3_kg, 2)} kg</strong> y sabemos que su densidad es de <strong>${mat3.d} kg/m³</strong>. ¿Qué volumen ocupa en litros?`;
+        document.getElementById('act-densidad-3').innerHTML = en3;
+
+        let sol3 = `
+            1º Despejamos el volumen en el SI:<br>
+            \\(V = \\frac{m}{d} = \\frac{${num(m3_kg, 2)}}{${mat3.d}} = ${num(v3_m3, 5)} \\text{ m}^3\\)<br>
+            2º Pasamos a litros:<br>
+            \\(${num(v3_m3, 5)} \\text{ m}^3 \\cdot \\frac{1000 \\text{ L}}{1 \\text{ m}^3} = \\mathbf{${num(v3_L, 2)} \\text{ L}}\\)
         `;
+        problemasActuales.push({ enunciado: en3, solucion: sol3 });
 
-        // --- BLOQUE 4: Geometría + Densidad (Ortoedro) ---
-        // Generamos dimensiones en cm (números enteros para que el volumen sea exacto)
+        // --- BLOQUE 4: Ortoedro ---
         let a = random(5, 20); 
         let b = random(5, 20);
         let c = random(5, 20);
         let v4_cm3 = a * b * c;
-        
-        // Calculamos la masa que tendría esa caja si fuera de un material al azar
         let mat4 = elegirAlAzar(materiales);
-        let m4_g = parseFloat((mat4.d_cm3 * v4_cm3).toFixed(1)); 
-        // Si pesa más de 1000g, lo damos en kg para que sea realista
-        let m4_texto = m4_g >= 1000 ? `${parseFloat((m4_g/1000).toFixed(2))} kg` : `${m4_g} g`; 
+        let m4_g = parseFloat((mat4.d / 1000 * v4_cm3).toFixed(1)); 
+        let m4_texto = m4_g >= 1000 ? `${num(m4_g/1000, 2)} kg` : `${m4_g} g`; 
+        let v4_m3 = v4_cm3 / 1000000;
+        let m4_kg = m4_g / 1000;
 
-        document.getElementById('act-densidad-4').innerHTML = `
-            Tenemos una caja metálica de <strong>${a} cm de largo, ${b} cm de ancho y ${c} cm de alto</strong>. Su masa es de <strong>${m4_texto}</strong>.<br>
-            Calcula su volumen, calcula su densidad en kg/m³ y consulta la tabla para decir de qué material se trata.
+        let en4 = `Tenemos una caja metálica de <strong>${a} cm de largo, ${b} cm de ancho y ${c} cm de alto</strong>. Su masa es de <strong>${m4_texto}</strong>. Calcula su volumen, su densidad en kg/m³ y di de qué material se trata.`;
+        document.getElementById('act-densidad-4').innerHTML = en4;
+
+        let sol4 = `
+            1º Volumen geométrico: \\(V = ${a} \\cdot ${b} \\cdot ${c} = ${v4_cm3} \\text{ cm}^3\\)<br>
+            2º Pasamos al SI: \\(V = ${v4_cm3} \\cdot 10^{-6} = ${num(v4_m3, 6)} \\text{ m}^3\\)<br>
+            3º Masa en kg: \\(m = ${m4_texto} = ${num(m4_kg, 3)} \\text{ kg}\\)<br>
+            4º Densidad: \\(d = \\frac{${num(m4_kg, 3)}}{${num(v4_m3, 6)}} = \\mathbf{${mat4.d} \\text{ kg/m}^3}\\)<br>
+            5º Es <strong>${mat4.nombre}</strong>.
         `;
+        problemasActuales.push({ enunciado: en4, solucion: sol4 });
 
-        // --- BLOQUE 5: Geometría + Densidad (Cilindro) ---
+        // --- BLOQUE 5: Cilindro ---
         let r = random(2, 10); 
         let h = random(5, 20); 
-        let v5_cm3 = parseFloat((Math.PI * r * r * h).toFixed(1));
-        
+        let v5_cm3 = Math.PI * r * r * h;
         let mat5 = elegirAlAzar(materiales);
-        let m5_g = parseFloat((mat5.d_cm3 * v5_cm3).toFixed(1));
-        let m5_texto = m5_g >= 1000 ? `${parseFloat((m5_g/1000).toFixed(2))} kg` : `${m5_g} g`;
+        let m5_g = parseFloat((mat5.d / 1000 * v5_cm3).toFixed(1));
+        let m5_texto = m5_g >= 1000 ? `${num(m5_g/1000, 2)} kg` : `${m5_g} g`;
+        let v5_m3 = v5_cm3 / 1000000;
+        let m5_kg = m5_g / 1000;
 
-        document.getElementById('act-densidad-5').innerHTML = `
-            Un cilindro metálico tiene un radio de <strong>${r} cm</strong> y una altura de <strong>${h} cm</strong>. Su masa es de <strong>${m5_texto}</strong>.<br>
-            Calcula su volumen usando la fórmula (toma \(\pi = 3,14\)), calcula su densidad en kg/m³ y di de qué material se trata.
+        let en5 = `Un cilindro metálico tiene un radio de <strong>${r} cm</strong> y una altura de <strong>${h} cm</strong>. Su masa es de <strong>${m5_texto}</strong>. Calcula su volumen usando \\(\\pi = 3,14\\), su densidad en kg/m³ y di de qué material se trata.`;
+        document.getElementById('act-densidad-5').innerHTML = en5;
+
+        let sol5 = `
+            1º Volumen geométrico: \\(V = 3,14 \\cdot (${r})^2 \\cdot ${h} = ${num(v5_cm3, 1)} \\text{ cm}^3\\)<br>
+            2º Pasamos al SI: \\(V = ${num(v5_cm3, 1)} \\cdot 10^{-6} = ${num(v5_m3, 6)} \\text{ m}^3\\)<br>
+            3º Masa en kg: \\(m = ${m5_texto} = ${num(m5_kg, 3)} \\text{ kg}\\)<br>
+            4º Densidad: \\(d = \\frac{${num(m5_kg, 3)}}{${num(v5_m3, 6)}} = \\mathbf{${mat5.d} \\text{ kg/m}^3}\\)<br>
+            5º Es <strong>${mat5.nombre}</strong>.
         `;
+        problemasActuales.push({ enunciado: en5, solucion: sol5 });
+
+        // Ocultar soluciones si estaban abiertas y reiniciar el candado
+        var contentDiv = document.getElementById('protectedSolutions');
+        var authContainer = document.getElementById('solAuthContainer');
+        var lockIcon = document.getElementById('lockIcon');
+        if (contentDiv) { contentDiv.style.display = 'none'; contentDiv.innerHTML = ''; }
+        if (authContainer) authContainer.style.display = 'flex';
+        if (lockIcon) lockIcon.className = 'fa-solid fa-user-lock';
     };
 
-    // Ejecutar al cargar la página por primera vez
-    window.generarNuevasActividades();
-});
+    // --- VERIFICAR PIN ---
+    window.verificarPin = async function() {
+        var pinInput = document.getElementById('solPinInput');
+        var errorMsg = document.getElementById('solErrorMsg');
+        var btn = document.getElementById('btnUnlockSol');
+        var contentDiv = document.getElementById('protectedSolutions');
+        var lockIcon = document.getElementById('lockIcon');
+
+        if (!pinInput) return;
+        var pin = pinInput.value.trim();
+
+        if (!pin || pin.length !== 6) {
+            if (errorMsg) {
+                errorMsg.innerText = 'Escribe el código completo de 6 dígitos.';
+                errorMsg.style.color = '#dc2626';
+                errorMsg.style.display = 'block';
+            }
+            return;
+        }
+
+        if (errorMsg) { errorMsg.innerText = 'Verificando código...'; errorMsg.style.color = '#1e3a8a'; errorMsg.style.display = 'block'; }
+        if (btn) btn.disabled = true;
+
+        var ok = await GS.verifyPinOnly(pin);
+
+        if (ok) {
+            if (errorMsg) errorMsg.style.display = 'none';
+            contentDiv.innerHTML = generarHTMLSoluciones();
+            contentDiv.style.display = 'block';
+            if (lockIcon) lockIcon.className = 'fa-solid fa-user-check';
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise([contentDiv]);
+            }
+            contentDiv.scrollIntoView({ behavior: 'smooth' });
+            var authContainer = document.getElementById('solAuthContainer');
+            if (authContainer) authContainer.style.display = 'none';
+        } else {
+            if (errorMsg) {
+                errorMsg.innerText = 'Código incorrecto. Inténtalo de nuevo.';
+                errorMsg.style.color = '#dc2626';
+                errorMsg.style.display = 'block';
+            }
+            if (btn) btn.disabled = false;
+        }
+    };
+
+    // Ejecutar al cargar
+    document.addEventListener('gs-ready', window.generarNuevasActividades);
+    
+    // Ejecutar si ya está listo (por si acaso)
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(window.generarNuevasActividades, 100);
+    }
+
+})();
