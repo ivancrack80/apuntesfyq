@@ -26,66 +26,35 @@ document.addEventListener('gs-ready', function () {
         return parseFloat(num.toFixed(dec));
     }
 
-    // --- FUNCIÓN PRINCIPAL QUE GENERA LOS EJERCICIOS ---
+    // --- FUNCIÓN PRINCIPAL QUE GENERA LOS ENUNCIADOS ---
     window.generarNuevasActividades = function() {
         if (!document.getElementById('act-densidad-1')) return;
-
-        // Ocultar todas las soluciones al generar nuevas
-        document.querySelectorAll('.sol-content').forEach(el => el.classList.remove('show'));
 
         // --- BLOQUE 1: Cálculo directo ---
         let m1_g = random(50, 500); 
         let v1_cm3 = random(10, 100); 
-        let m1_kg = redondear(m1_g / 1000, 3);
-        let v1_m3 = redondear(v1_cm3 / 1000000, 8);
-        let d1 = redondear(m1_kg / v1_m3, 0);
-        let mat1 = materiales.find(m => Math.abs(m.d - d1) < (m.d * 0.05));
         
         document.getElementById('act-densidad-1').innerHTML = `
             Un bloque metálico tiene una masa de <strong>${m1_g} g</strong> y ocupa un volumen de <strong>${v1_cm3} cm³</strong>. 
-            Calcula su densidad en el SI y consulta la tabla para decir de qué material se trata.
-        `;
-        document.getElementById('sol-densidad-1').innerHTML = `
-            <strong>1º Pasamos las unidades al SI:</strong><br>
-            • Masa: \(${m1_g} \\text{ g} \\cdot \\frac{1 \\text{ kg}}{1000 \\text{ g}} = ${m1_kg} \\text{ kg}\)<br>
-            • Volumen: \(${v1_cm3} \\text{ cm}^3 \\cdot \\frac{1 \\text{ m}^3}{1\\,000\\,000 \\text{ cm}^3} = ${v1_m3} \\text{ m}^3\)<br><br>
-            <strong>2º Calculamos la densidad:</strong><br>
-            \(d = \\frac{m}{V} = \\frac{${m1_kg} \\text{ kg}}{${v1_m3} \\text{ m}^3} = \\mathbf{${d1} \\text{ kg/m}^3}\)<br><br>
-            <strong>3º Buscamos en la tabla:</strong> El valor ${d1} kg/m³ corresponde al <strong>${mat1 ? mat1.nombre : 'Desconocido'}</strong>.
+            Calcula su densidad en unidades del SI y consulta la tabla de densidades de la teoría para decir de qué material se trata.
         `;
 
         // --- BLOQUE 2: Cálculo de la masa ---
         let mat2 = elegirAlAzar(materiales);
         let v2_cm3 = random(20, 150); 
-        let v2_m3 = redondear(v2_cm3 / 1000000, 8);
-        let m2_kg = redondear(mat2.d * v2_m3, 3); 
         
         document.getElementById('act-densidad-2').innerHTML = `
             Un objeto tiene un volumen de <strong>${v2_cm3} cm³</strong> y está hecho de un material con una densidad de <strong>${mat2.d} kg/m³</strong>. 
             ¿Cuál será su masa en kilogramos?
         `;
-        document.getElementById('sol-densidad-2').innerHTML = `
-            <strong>1º Pasamos el volumen al SI:</strong><br>
-            \(${v2_cm3} \\text{ cm}^3 \\cdot \\frac{1 \\text{ m}^3}{1\\,000\\,000 \\text{ cm}^3} = ${v2_m3} \\text{ m}^3\)<br><br>
-            <strong>2º Despejamos y calculamos la masa:</strong><br>
-            \(m = d \\cdot V = ${mat2.d} \\text{ kg/m}^3 \\cdot ${v2_m3} \\text{ m}^3 = \\mathbf{${m2_kg} \\text{ kg}}\)
-        `;
 
         // --- BLOQUE 3: Cálculo del volumen ---
         let mat3 = elegirAlAzar(materiales);
         let m3_kg = random(1, 10, 2); 
-        let v3_m3 = redondear(m3_kg / mat3.d, 5); 
-        let v3_L = redondear(v3_m3 * 1000, 2); 
         
         document.getElementById('act-densidad-3').innerHTML = `
-            Una pieza de un metal tiene una masa de <strong>${m3_kg} kg</strong> y sabemos que su densidad es de <strong>${mat3.d} kg/m³</strong>. 
+            Una pieza metálica tiene una masa de <strong>${m3_kg} kg</strong> y sabemos que su densidad es de <strong>${mat3.d} kg/m³</strong>. 
             ¿Qué volumen ocupa en litros?
-        `;
-        document.getElementById('sol-densidad-3').innerHTML = `
-            <strong>1º Despejamos el volumen en el SI:</strong><br>
-            \(V = \\frac{m}{d} = \\frac{${m3_kg} \\text{ kg}}{${mat3.d} \\text{ kg/m}^3} = ${v3_m3} \\text{ m}^3\)<br><br>
-            <strong>2º Pasamos el volumen a litros:</strong><br>
-            \(${v3_m3} \\text{ m}^3 \\cdot \\frac{1000 \\text{ L}}{1 \\text{ m}^3} = \\mathbf{${v3_L} \\text{ L}}\)
         `;
 
         // --- BLOQUE 4: Geometría + Densidad (Ortoedro) ---
@@ -100,17 +69,7 @@ document.addEventListener('gs-ready', function () {
 
         document.getElementById('act-densidad-4').innerHTML = `
             Tenemos una caja metálica de <strong>${a} cm de largo, ${b} cm de ancho y ${c} cm de alto</strong>. Su masa es de <strong>${m4_texto}</strong>.<br>
-            Calcula su densidad en kg/m³ y di de qué material se trata.
-        `;
-        document.getElementById('sol-densidad-4').innerHTML = `
-            <strong>1º Calculamos el volumen geométrico:</strong><br>
-            \(V = ${a} \\cdot ${b} \\cdot ${c} = ${v4_cm3} \\text{ cm}^3\)<br><br>
-            <strong>2º Pasamos volumen y masa al SI:</strong><br>
-            • \(V = ${v4_cm3} \\cdot 10^{-6} = ${v4_m3} \\text{ m}^3\)<br>
-            • \(m = ${m4_texto} = ${m4_kg} \\text{ kg}\)<br><br>
-            <strong>3º Calculamos la densidad y buscamos:</strong><br>
-            \(d = \\frac{${m4_kg}}{${v4_m3}} = \\mathbf{${mat4.d} \\text{ kg/m}^3}\)<br>
-            Según la tabla, es <strong>${mat4.nombre}</strong>.
+            Calcula su volumen, calcula su densidad en kg/m³ y consulta la tabla para decir de qué material se trata.
         `;
 
         // --- BLOQUE 5: Geometría + Densidad (Cilindro) ---
@@ -124,17 +83,7 @@ document.addEventListener('gs-ready', function () {
 
         document.getElementById('act-densidad-5').innerHTML = `
             Un cilindro metálico tiene un radio de <strong>${r} cm</strong> y una altura de <strong>${h} cm</strong>. Su masa es de <strong>${m5_texto}</strong>.<br>
-            Calcula su densidad en kg/m³ y di de qué material se trata.
-        `;
-        document.getElementById('sol-densidad-5').innerHTML = `
-            <strong>1º Calculamos el volumen geométrico:</strong><br>
-            \(V = 3,14 \\cdot (${r})^2 \\cdot ${h} = ${v5_cm3} \\text{ cm}^3\)<br><br>
-            <strong>2º Pasamos volumen y masa al SI:</strong><br>
-            • \(V = ${v5_cm3} \\cdot 10^{-6} = ${v5_m3} \\text{ m}^3\)<br>
-            • \(m = ${m5_texto} = ${m5_kg} \\text{ kg}\)<br><br>
-            <strong>3º Calculamos la densidad y buscamos:</strong><br>
-            \(d = \\frac{${m5_kg}}{${v5_m3}} = \\mathbf{${mat5.d} \\text{ kg/m}^3}\)<br>
-            Según la tabla, es <strong>${mat5.nombre}</strong>.
+            Calcula su volumen usando la fórmula, su densidad en kg/m³ y di de qué material se trata consultando la tabla.
         `;
     };
 
