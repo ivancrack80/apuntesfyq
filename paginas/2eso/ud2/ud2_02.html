@@ -26,11 +26,18 @@
         </button>
     </div>
 
-    <!-- CABECERA -->
+        <!-- CABECERA -->
     <header class="gs-header">
         <div class="gs-header-meta">Física y Química · 2.º ESO · Unidad 2</div>
         <h1 class="gs-title">2. Los Estados de Agregación</h1>
-        <div class="gs-subtitle">Cómo se organizan las partículas y qué ocurre cuando cambia la temperatura</div>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div class="gs-subtitle" style="flex: 1; min-width: 250px;">Cómo se organizan las partículas y qué ocurre cuando cambia la temperatura</div>
+            <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; color: #475569; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-regular fa-clock" style="color: var(--gs-primary);"></i> 
+                <strong>Temporalización estimada:</strong> 3 sesiones.
+            </div>
+        </div>
     </header>
 
     <!-- 2.1 LA TEORÍA CINÉTICA -->
@@ -190,7 +197,7 @@
         Cuando un material pasa de un estado a otro, se produce un <strong>cambio de estado</strong>. Para que esto ocurra, es necesario aportar o retirar energía (calor).
     </p>
 
-    <!-- DIAGRAMA DE CAMBIOS DE ESTADO LINEAL -->
+        <!-- DIAGRAMA DE CAMBIOS DE ESTADO LINEAL -->
     <div class="gs-box gs-comprender" style="text-align: center;">
         <div class="gs-comprender-title" style="justify-content: center; margin-bottom: 15px;"><i class="fa-solid fa-arrows-left-right"></i> Procesos de cambio de estado</div>
         
@@ -218,15 +225,17 @@
             <path d="M 180 90 Q 210 50 230 90" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrow-red)"/>
             <text x="205" y="55" text-anchor="middle" font-size="12" fill="#dc2626" font-weight="bold">Fusión</text>
 
+            <!-- Texto de Solidificación un poco más abajo para que no choque con la flecha -->
             <path d="M 230 110 Q 210 150 180 110" fill="none" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
-            <text x="205" y="160" text-anchor="middle" font-size="12" fill="#0284c7" font-weight="bold">Solidificación</text>
+            <text x="205" y="165" text-anchor="middle" font-size="12" fill="#0284c7" font-weight="bold">Solidificación</text>
 
             <!-- Flechas Vaporización / Condensación -->
             <path d="M 370 90 Q 400 50 420 90" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrow-red)"/>
             <text x="395" y="55" text-anchor="middle" font-size="12" fill="#dc2626" font-weight="bold">Vaporización</text>
 
+            <!-- Texto de Condensación un poco más abajo para que no choque con la flecha -->
             <path d="M 420 110 Q 400 150 370 110" fill="none" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
-            <text x="395" y="160" text-anchor="middle" font-size="12" fill="#0284c7" font-weight="bold">Condensación</text>
+            <text x="395" y="165" text-anchor="middle" font-size="12" fill="#0284c7" font-weight="bold">Condensación</text>
 
             <!-- Sublimación (Arriba) -->
             <path d="M 110 70 Q 300 -20 490 70" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrow-red)"/>
@@ -237,7 +246,7 @@
             <text x="300" y="195" text-anchor="middle" font-size="12" fill="#0284c7" font-weight="bold">Sublimación inversa</text>
         </svg>
     </div>
-
+    
     <div class="gs-box gs-lectura">
         <div class="gs-lectura-title"><i class="fa-solid fa-list-check"></i> Definición de cada proceso</div>
         <ul style="margin-bottom: 0;">
@@ -250,7 +259,7 @@
         </ul>
     </div>
 
-    <!-- GRÁFICA JSXGRAPH -->
+        <!-- GRÁFICA JSXGRAPH -->
     <h3>La gráfica de calentamiento y enfriamiento</h3>
     <p>
         Si medimos la temperatura de una sustancia pura mientras la calentamos o enfriamos poco a poco, obtenemos una gráfica con tramos inclinados (sube o baja la temperatura) y tramos horizontales (la temperatura se mantiene constante).
@@ -271,11 +280,11 @@
 
             <div class="gs-panel-datos">
                 <div class="gs-panel-datos__fila">
-                    <span class="gs-panel-datos__label">Punto de fusión:</span>
+                    <span class="gs-panel-datos__label">Punto de fusión (\(T_f\)):</span>
                     <span class="gs-panel-datos__valor gs-panel-datos__valor--azul">20 °C</span>
                 </div>
                 <div class="gs-panel-datos__fila">
-                    <span class="gs-panel-datos__label">Punto de ebullición:</span>
+                    <span class="gs-panel-datos__label">Punto de ebullición (\(T_{eb}\)):</span>
                     <span class="gs-panel-datos__valor gs-panel-datos__valor--rojo">80 °C</span>
                 </div>
             </div>
@@ -284,6 +293,12 @@
 
     <div class="gs-box gs-comprender">
         <div class="gs-comprender-title"><i class="fa-solid fa-lightbulb"></i> Descripción y explicación de la gráfica (TCM)</div>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 15px;">
+            <em>Nota: En la gráfica puedes observar las zonas según la temperatura:</em> <br>
+            • Por debajo de \(T_f\) (20 °C), la sustancia es <strong>sólida</strong>. <br>
+            • Entre \(T_f\) y \(T_{eb}\) (20 °C - 80 °C), la sustancia es <strong>líquida</strong>. <br>
+            • Por encima de \(T_{eb}\) (80 °C), la sustancia es un <strong>gas</strong>.
+        </p>
         
         <p><strong>Si estamos CALENTANDO (aportamos energía):</strong></p>
         <ul>
@@ -343,26 +358,21 @@
 document.addEventListener('gs-ready', function () {
     if (!document.getElementById('box_curva')) return;
 
-    let board; // Variable global para el tablero
+    let board; 
 
     window.cambiarCurva = function(tipo) {
-        // Cambiar clases de los botones
+        // Botones
         document.getElementById('btn-cal').classList.remove('active');
         document.getElementById('btn-enf').classList.remove('active');
-        if (tipo === 'calentamiento') {
-            document.getElementById('btn-cal').classList.add('active');
-        } else {
-            document.getElementById('btn-enf').classList.add('active');
-        }
+        if (tipo === 'calentamiento') document.getElementById('btn-cal').classList.add('active');
+        else document.getElementById('btn-enf').classList.add('active');
 
-        // Si el tablero ya existe, lo destruimos para limpiar todos los objetos
-        if (board) {
-            JXG.JSXGraph.freeBoard(board);
-        }
+        // Limpiar lienzo
+        if (board) JXG.JSXGraph.freeBoard(board);
 
-        // Crear un nuevo tablero
+        // Crear nuevo lienzo con márgenes correctos
         board = JXG.JSXGraph.initBoard('box_curva', {
-            boundingbox: [0, 110, 13, -20],
+            boundingbox: [-0.5, 120, 12.5, -30], // Eje X de 0 a 12, Eje Y de -30 a 120
             axis: true,
             showCopyright: false,
             showNavigation: false,
@@ -372,37 +382,51 @@ document.addEventListener('gs-ready', function () {
             }
         });
 
-        // Dibujar línea de Fusión y Ebullición (punteadas)
-        board.create('line', [[0, 20], [13, 20]], { strokeColor: '#cbd5e1', strokeWidth: 1, dash: 2 });
-        board.create('line', [[0, 80], [13, 80]], { strokeColor: '#cbd5e1', strokeWidth: 1, dash: 2 });
+        // Líneas de referencia Tf y Teb
+        board.create('line', [[0, 20], [12, 20]], { strokeColor: '#94a3b8', strokeWidth: 1, dash: 2, fixed: true });
+        board.create('line', [[0, 80], [12, 80]], { strokeColor: '#94a3b8', strokeWidth: 1, dash: 2, fixed: true });
+
+        // Función auxiliar para dibujar tramos fijos
+        function tramo(p1, p2, color) {
+            board.create('segment', [p1, p2], { strokeColor: color, strokeWidth: 3, fixed: true });
+        }
 
         if (tipo === 'calentamiento') {
+            // Definir puntos (Tiempo, Temperatura)
             const pts = [[0, -10], [2, 20], [4, 20], [7, 80], [10, 80], [12, 100]];
-            for(let i=0; i<pts.length-1; i++) {
-                board.create('segment', [pts[i], pts[i+1]], { strokeColor: '#dc2626', strokeWidth: 3 });
-            }
-            // Letras y textos
-            board.create('text', [1, -5, 'A'], { fontSize: 14, color: '#991b1b', anchorX: 'middle', anchorY: 'bottom' });
-            board.create('text', [3, 25, 'B'], { fontSize: 14, color: '#0284c7', anchorX: 'middle', anchorY: 'bottom' });
-            board.create('text', [5.5, 55, 'C'], { fontSize: 14, color: '#1e3a8a', anchorX: 'middle', anchorY: 'bottom' });
-            board.create('text', [8.5, 85, 'D'], { fontSize: 14, color: '#0284c7', anchorX: 'middle', anchorY: 'bottom' });
-            board.create('text', [11, 95, 'E'], { fontSize: 14, color: '#16a34a', anchorX: 'middle', anchorY: 'bottom' });
+            
+            // Dibujar líneas
+            tramo(pts[0], pts[1], '#dc2626'); // A
+            tramo(pts[1], pts[2], '#0284c7'); // B
+            tramo(pts[2], pts[3], '#1e3a8a'); // C
+            tramo(pts[3], pts[4], '#0284c7'); // D
+            tramo(pts[4], pts[5], '#16a34a'); // E
+
+            // Letras
+            board.create('text', [1, -5, 'A'], { fontSize: 14, color: '#dc2626', anchorX: 'middle', fixed: true });
+            board.create('text', [3, 25, 'B'], { fontSize: 14, color: '#0284c7', anchorX: 'middle', fixed: true });
+            board.create('text', [5.5, 55, 'C'], { fontSize: 14, color: '#1e3a8a', anchorX: 'middle', fixed: true });
+            board.create('text', [8.5, 85, 'D'], { fontSize: 14, color: '#0284c7', anchorX: 'middle', fixed: true });
+            board.create('text', [11, 95, 'E'], { fontSize: 14, color: '#16a34a', anchorX: 'middle', fixed: true });
 
         } else {
             const pts = [[0, 100], [2, 80], [5, 80], [8, 20], [10, 20], [12, -10]];
-            for(let i=0; i<pts.length-1; i++) {
-                board.create('segment', [pts[i], pts[i+1]], { strokeColor: '#0284c7', strokeWidth: 3 });
-            }
-            // Letras y textos
-            board.create('text', [1, 95, 'A'], { fontSize: 14, color: '#16a34a', anchorX: 'middle', anchorY: 'bottom' });
-            board.create('text', [3.5, 85, 'B'], { fontSize: 14, color: '#dc2626', anchorX: 'middle', anchorY: 'bottom' });
-            board.create('text', [6.5, 50, 'C'], { fontSize: 14, color: '#1e3a8a', anchorX: 'middle', anchorY: 'bottom' });
-            board.create('text', [9, 25, 'D'], { fontSize: 14, color: '#dc2626', anchorX: 'middle', anchorY: 'bottom' });
-            board.create('text', [11, -5, 'E'], { fontSize: 14, color: '#991b1b', anchorX: 'middle', anchorY: 'bottom' });
+            
+            tramo(pts[0], pts[1], '#16a34a'); // A
+            tramo(pts[1], pts[2], '#0284c7'); // B
+            tramo(pts[2], pts[3], '#1e3a8a'); // C
+            tramo(pts[3], pts[4], '#0284c7'); // D
+            tramo(pts[4], pts[5], '#dc2626'); // E
+
+            board.create('text', [1, 95, 'A'], { fontSize: 14, color: '#16a34a', anchorX: 'middle', fixed: true });
+            board.create('text', [3.5, 85, 'B'], { fontSize: 14, color: '#0284c7', anchorX: 'middle', fixed: true });
+            board.create('text', [6.5, 55, 'C'], { fontSize: 14, color: '#1e3a8a', anchorX: 'middle', fixed: true });
+            board.create('text', [9, 25, 'D'], { fontSize: 14, color: '#0284c7', anchorX: 'middle', fixed: true });
+            board.create('text', [11, -5, 'E'], { fontSize: 14, color: '#dc2626', anchorX: 'middle', fixed: true });
         }
     };
 
-    // Iniciar con la curva de calentamiento
+    // Iniciar
     window.cambiarCurva('calentamiento');
 });
 </script>
