@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Estados de Agregación - 2º ESO</title>
+
+    <link rel="stylesheet" href="https://ivancrack80.github.io/apuntesfyq/css/gs-styles.css">
+    <script src="https://ivancrack80.github.io/apuntesfyq/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </header>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 2.º ESO · Unidad 2</div>
+        <h1 class="gs-title">2. Los Estados de Agregación</h1>
+        <div class="gs-subtitle">Cómo se organizan las partículas y qué ocurre cuando cambia la temperatura</div>
+    </header>
+
+    <!-- 2.1 LA TEORÍA CINÉTICA -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-atom"></i> 2.1. La Teoría Cinético-Molecular (TCM)</h2>
+    <p>
+        Para entender por qué los sólidos son duros, los líquidos fluyen y los gases se escapan, los científicos utilizan un modelo llamado <strong>Teoría Cinético-Molecular (TCM)</strong>. Esta teoría se basa en cuatro ideas fundamentales:
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-list-ol"></i> Las 4 ideas de la TCM</div>
+        <ol style="margin-bottom: 0;">
+            <li style="margin-bottom: 10px;"><strong>Composición:</strong> La materia está formada por pequeñas partículas (átomos, moléculas o iones). Entre partícula y partícula hay espacio vacío.</li>
+            <li style="margin-bottom: 10px;"><strong>Movimiento:</strong> Las partículas están en continuo movimiento, chocando entre sí y con las paredes del recipiente (poseen energía cinética). Este movimiento es aleatorio.</li>
+            <li style="margin-bottom: 10px;"><strong>Temperatura:</strong> La temperatura es la manifestación de esta energía cinética. Cuanto más rápido se mueven las partículas, más temperatura tiene el cuerpo.</li>
+            <li><strong>Fuerzas de atracción:</strong> Existe una fuerza de atracción (o de cohesión) entre las partículas que hace que se mantengan unidas.</li>
+        </ol>
+    </div>
+
+    <!-- 2.2 CARACTERÍSTICAS DE LOS ESTADOS -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-cubes"></i> 2.2. Características de los estados de agregación</h2>
+    <p>
+        Antes de describir cada estado, necesitamos definir tres conceptos clave:
+    </p>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-book-open"></i> Definiciones previas</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Fluir:</strong> capacidad de un material para moverse y adaptarse a la forma del recipiente que lo contiene (como el agua al caer por un tubo).</li>
+            <li><strong>Difundirse:</strong> capacidad de las partículas de un material para mezclarse y repartirse entre las partículas de otro (como el humo de un cigarro en el aire).</li>
+            <li><strong>Comprimirse:</strong> capacidad de un material para reducir su volumen cuando se le aplica presión (hacerlo más pequeño).</li>
+        </ul>
+    </div>
+
+    <!-- ESTADO SÓLIDO -->
+    <h3>1. El estado sólido</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 20px;">
+        <div style="flex: 0 0 200px; text-align: center;">
+            <!-- SVG: Modelo de bolas sólido -->
+            <svg viewBox="0 0 100 100" style="width: 100%; height: auto; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
+                <circle cx="20" cy="20" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="40" cy="20" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="60" cy="20" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="80" cy="20" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="20" cy="40" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="40" cy="40" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="60" cy="40" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="80" cy="40" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="20" cy="60" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="40" cy="60" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="60" cy="60" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="80" cy="60" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="20" cy="80" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="40" cy="80" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="60" cy="80" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <circle cx="80" cy="80" r="8" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                <!-- Flechas de vibración -->
+                <path d="M 20 10 L 20 15 M 20 25 L 20 30" stroke="#dc2626" stroke-width="1.5"/>
+            </svg>
+            <p style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">Estructura ordenada (vibración)</p>
+        </div>
+        <div style="flex: 1; min-width: 250px;">
+            <ul style="margin-bottom: 0;">
+                <li><strong>Forma y volumen:</strong> Tienen forma constante y volumen constante (propio). Las fuerzas de atracción son muy grandes, manteniendo las partículas muy juntas y en posiciones fijas.</li>
+                <li><strong>¿Se comprimen?</strong> No. No existe espacio libre entre las partículas (están muy próximas).</li>
+                <li><strong>¿Fluyen?</strong> No fluyen por tuberías. Debido a las fuerzas de atracción, la estructura es rígida.</li>
+                <li><strong>¿Se difunden?</strong> Casi no se difunden. Las grandes fuerzas de atracción no permiten que las partículas se trasladen.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ESTADO LÍQUIDO -->
+    <h3>2. El estado líquido</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 20px;">
+        <div style="flex: 0 0 200px; text-align: center;">
+            <!-- SVG: Modelo de bolas líquido -->
+            <svg viewBox="0 0 100 100" style="width: 100%; height: auto; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
+                <circle cx="25" cy="25" r="8" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2"/>
+                <circle cx="50" cy="20" r="8" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2"/>
+                <circle cx="70" cy="30" r="8" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2"/>
+                <circle cx="30" cy="45" r="8" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2"/>
+                <circle cx="55" cy="40" r="8" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2"/>
+                <circle cx="80" cy="50" r="8" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2"/>
+                <circle cx="20" cy="65" r="8" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2"/>
+                <circle cx="45" cy="60" r="8" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2"/>
+                <circle cx="70" cy="70" r="8" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2"/>
+                <circle cx="35" cy="80" r="8" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2"/>
+                <circle cx="60" cy="85" r="8" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2"/>
+            </svg>
+            <p style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">Estructura desordenada (grupos)</p>
+        </div>
+        <div style="flex: 1; min-width: 250px;">
+            <ul style="margin-bottom: 0;">
+                <li><strong>Forma y volumen:</strong> Forma variable (adopta la del recipiente) pero volumen constante. Las fuerzas de atracción son intermedias, permitiendo que las partículas se deslicen pero sin separarse.</li>
+                <li><strong>¿Se comprimen?</strong> Muy poco. Las partículas siguen estando muy juntas, aunque tienen un poco más de libertad que en los sólidos.</li>
+                <li><strong>¿Fluyen?</strong> Sí fluyen. Al poder deslizarse unas sobre otras, se adaptan al recipiente.</li>
+                <li><strong>¿Se difunden?</strong> Sí, difusión lenta. Las partículas pueden moverse y mezclarse, pero con dificultad debido a las fuerzas de cohesión.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ESTADO GASEOSO -->
+    <h3>3. El estado gaseoso</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 20px;">
+        <div style="flex: 0 0 200px; text-align: center;">
+            <!-- SVG: Modelo de bolas gas -->
+            <svg viewBox="0 0 100 100" style="width: 100%; height: auto; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
+                <circle cx="15" cy="20" r="5" fill="#86efac" stroke="#166534" stroke-width="2"/>
+                <circle cx="80" cy="15" r="5" fill="#86efac" stroke="#166534" stroke-width="2"/>
+                <circle cx="45" cy="35" r="5" fill="#86efac" stroke="#166534" stroke-width="2"/>
+                <circle cx="70" cy="60" r="5" fill="#86efac" stroke="#166534" stroke-width="2"/>
+                <circle cx="25" cy="75" r="5" fill="#86efac" stroke="#166534" stroke-width="2"/>
+                <circle cx="85" cy="85" r="5" fill="#86efac" stroke="#166534" stroke-width="2"/>
+                <circle cx="50" cy="80" r="5" fill="#86efac" stroke="#166534" stroke-width="2"/>
+                <!-- Líneas de movimiento -->
+                <line x1="15" y1="20" x2="25" y2="25" stroke="#16a34a" stroke-width="1.5"/>
+                <line x1="80" y1="15" x2="75" y2="25" stroke="#16a34a" stroke-width="1.5"/>
+                <line x1="45" y1="35" x2="40" y2="45" stroke="#16a34a" stroke-width="1.5"/>
+            </svg>
+            <p style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">Estructura muy desordenada (traslación)</p>
+        </div>
+        <div style="flex: 1; min-width: 250px;">
+            <ul style="margin-bottom: 0;">
+                <li><strong>Forma y volumen:</strong> Forma y volumen variable. Las fuerzas de atracción son prácticamente nulas, por lo que las partículas se mueven libremente a grandes distancias.</li>
+                <li><strong>¿Se comprimen?</strong> Sí, mucho. Hay grandes espacios vacíos entre las partículas, por lo que se pueden "apretar".</li>
+                <li><strong>¿Fluyen?</strong> Sí, fluyen con total libertad, ocupando todo el espacio disponible.</li>
+                <li><strong>¿Se difunden?</strong> Sí, difusión rápida. Al moverse libremente, se mezclan muy rápido con otros gases.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- TABLA RESUMEN -->
+    <h3>Tabla resumen de los estados de agregación</h3>
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr style="background-color: #1e3a8a; color: white;">
+                    <th>Propiedad</th>
+                    <th>Sólidos</th>
+                    <th>Líquidos</th>
+                    <th>Gases</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Estructura interna</strong></td><td>Muy ordenada</td><td>Desordenada (grupos)</td><td>Muy desordenada</td></tr>
+                <tr><td><strong>Tipo de movimiento</strong></td><td>Vibración</td><td>Vibración y desplazamiento</td><td>Traslación libre</td></tr>
+                <tr><td><strong>Forma</strong></td><td>Constante</td><td>Variable</td><td>Variable</td></tr>
+                <tr><td><strong>Volumen</strong></td><td>Constante</td><td>Constante</td><td>Variable</td></tr>
+                <tr><td><strong>¿Se comprimen?</strong></td><td>No</td><td>Muy poco</td><td>Sí</td></tr>
+                <tr><td><strong>¿Fluyen?</strong></td><td>No</td><td>Sí</td><td>Sí</td></tr>
+                <tr><td><strong>¿Se difunden?</strong></td><td>Casi no</td><td>Lenta</td><td>Rápida</td></tr>
+                <tr><td><strong>Fuerzas de cohesión</strong></td><td>Muy intensas</td><td>Intermedias</td><td>Muy débiles</td></tr>
+                <tr><td><strong>Distancia entre partículas</strong></td><td>Muy pequeña</td><td>Pequeña</td><td>Muy grande</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 2.3 CAMBIOS DE ESTADO -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-temperature-arrow-up"></i> 2.3. Los cambios de estado</h2>
+    <p>
+        Cuando un material pasa de un estado a otro, se produce un <strong>cambio de estado</strong>. Para que esto ocurra, es necesario aportar o retirar energía (calor).
+    </p>
+
+    <!-- DIAGRAMA DE CAMBIOS DE ESTADO -->
+    <div style="text-align: center; margin: 30px 0;">
+        <svg viewBox="0 0 400 300" style="width: 100%; max-width: 500px; height: auto; font-family: sans-serif;">
+            <!-- Cuadros de estados -->
+            <rect x="150" y="20" width="100" height="40" fill="#fca5a5" stroke="#991b1b" stroke-width="2" rx="4"/>
+            <text x="200" y="45" text-anchor="middle" font-weight="bold" fill="#7f1d1d">SÓLIDO</text>
+
+            <rect x="150" y="240" width="100" height="40" fill="#86efac" stroke="#166534" stroke-width="2" rx="4"/>
+            <text x="200" y="265" text-anchor="middle" font-weight="bold" fill="#14532d">GAS</text>
+
+            <rect x="300" y="130" width="80" height="40" fill="#93c5fd" stroke="#1e3a8a" stroke-width="2" rx="4"/>
+            <text x="340" y="155" text-anchor="middle" font-weight="bold" fill="#1e3a8a">LÍQUIDO</text>
+
+            <!-- Flechas (progresivas en rojo, regresivas en azul) -->
+            <!-- Fusión (Sólido a Líquido) -->
+            <path d="M 250 40 Q 300 40 300 110" fill="none" stroke="#dc2626" stroke-width="3" marker-end="url(#arrow-red)"/>
+            <text x="285" y="70" font-size="12" fill="#dc2626" font-weight="bold">Fusión</text>
+            
+            <!-- Solidificación (Líquido a Sólido) -->
+            <path d="M 310 120 Q 270 80 250 60" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#arrow-blue)"/>
+            <text x="310" y="90" font-size="12" fill="#0284c7" font-weight="bold">Solidificación</text>
+
+            <!-- Vaporización (Líquido a Gas) -->
+            <path d="M 310 170 Q 280 220 250 240" fill="none" stroke="#dc2626" stroke-width="3" marker-end="url(#arrow-red)"/>
+            <text x="310" y="210" font-size="12" fill="#dc2626" font-weight="bold">Vaporización</text>
+
+            <!-- Condensación (Gas a Líquido) -->
+            <path d="M 250 260 Q 320 220 330 180" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#arrow-blue)"/>
+            <text x="260" y="240" font-size="12" fill="#0284c7" font-weight="bold">Condensación</text>
+
+            <!-- Sublimación (Sólido a Gas) -->
+            <path d="M 140 40 Q 50 40 50 140 Q 50 240 140 260" fill="none" stroke="#dc2626" stroke-width="3" marker-end="url(#arrow-red)"/>
+            <text x="60" y="150" font-size="12" fill="#dc2626" font-weight="bold" transform="rotate(-90 60 150)">Sublimación</text>
+
+            <!-- Sublimación inversa (Gas a Sólido) -->
+            <path d="M 160 260 Q 80 240 80 140 Q 80 60 140 50" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#arrow-blue)"/>
+            <text x="90" y="150" font-size="12" fill="#0284c7" font-weight="bold" transform="rotate(-90 90 150)">Sublimación inversa</text>
+
+            <!-- Marcadores de flechas -->
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626" />
+                </marker>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7" />
+                </marker>
+            </defs>
+        </svg>
+        <p style="font-size: 0.9rem; color: #475569;"><strong>Rojo:</strong> Progresivos (necesitan calor). <strong>Azul:</strong> Regresivos (necesitan enfriamiento).</p>
+    </div>
+
+    <!-- GRÁFICA JSXGRAPH -->
+    <h3>La gráfica de calentamiento</h3>
+    <p>
+        Si medimos la temperatura de una sustancia pura mientras la calentamos poco a poco, obtenemos una gráfica con tramos inclinados (sube la temperatura) y tramos horizontales (la temperatura no cambia).
+    </p>
+
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper gs-graph-wrapper--wide">
+            <div id="box_curva" class="jxgbox" style="aspect-ratio: 16/9;"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Curva de calentamiento / enfriamiento</h3>
+            <p>Pulsa los botones para ver cómo varía la temperatura al calentar una sustancia o al enfriarla.</p>
+            
+            <div class="gs-selector-btns" style="margin: 15px 0;">
+                <button class="gs-selector-btn active" onclick="cambiarCurva('calentamiento')">Calentamiento</button>
+                <button class="gs-selector-btn" onclick="cambiarCurva('enfriamiento')">Enfriamiento</button>
+            </div>
+
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Punto de fusión:</span>
+                    <span class="gs-panel-datos__valor gs-panel-datos__valor--azul">20 °C</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Punto de ebullición:</span>
+                    <span class="gs-panel-datos__valor gs-panel-datos__valor--rojo">80 °C</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-lightbulb"></i> ¿Qué ocurre en cada tramo? (Explicación con la TCM)</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Tramos inclinados:</strong> La energía que damos en forma de calor se invierte en aumentar la energía cinética de las partículas (se mueven más rápido). Por eso <strong>sube la temperatura</strong>.</li>
+            <li><strong>Tramos horizontales (cambios de estado):</strong> La temperatura se mantiene constante. La energía aportada no se usa para moverse más rápido, sino para <strong>romper las fuerzas de cohesión</strong> que mantienen unidas a las partículas.</li>
+            <li><em>En el enfriamiento es al revés:</em> se retira energía, las partículas se mueven más lento (baja la temperatura) o se restablecen las fuerzas de atracción (se mantiene la temperatura).</li>
+        </ul>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades de repaso</div>
+        <ol class="gs-actividades">
+            <li>Explica, usando la TCM, por qué los gases se comprimen fácilmente pero los líquidos casi no.</li>
+            <li>¿Qué tipo de movimiento tienen las partículas en un sólido? ¿Y en un gas?</li>
+            <li>Observa la gráfica de calentamiento. Si una sustancia está a 50 °C, ¿en qué estado se encuentra?</li>
+            <li>¿Por qué la temperatura no sube mientras el hielo se está derritiendo?</li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="2eso_ud2_2">
+        <div class="sol-lock-header">
+            <div class="gs-comprender-title" style="color: var(--gs-primary);">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i> Solucionario Oficial
+            </div>
+        </div>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos para comprobar las soluciones.
+        </p>
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener('gs-ready', function () {
+    if (!document.getElementById('box_curva')) return;
+
+    const board = JXG.JSXGraph.initBoard('box_curva', {
+        boundingbox: [0, 100, 10, -20],
+        axis: true,
+        showCopyright: false,
+        showNavigation: false,
+        defaultAxes: {
+            x: { strokeColor: '#64748b', strokeWidth: 1, name: 'Tiempo (min)', withLabel: true, label: { position: 'right', offset: [-40, -20], fontSize: 11, color: '#1e293b' } },
+            y: { strokeColor: '#64748b', strokeWidth: 1, name: 'Temperatura (°C)', withLabel: true, label: { position: 'top', offset: [-10, 5], fontSize: 11, color: '#1e293b' } }
+        }
+    });
+
+    window.cambiarCurva = function(tipo) {
+        // Cambiar botones activos
+        document.querySelectorAll('.gs-selector-btn').forEach(btn => btn.classList.remove('active'));
+        if (tipo === 'calentamiento') document.querySelectorAll('.gs-selector-btn')[0].classList.add('active');
+        else document.querySelectorAll('.gs-selector-btn')[1].classList.add('active');
+
+        // Limpiar board (borrar todas las curvas y textos anteriores)
+        board.objectsList.filter(o => o.elType === 'curve' || o.elType === 'text').forEach(o => board.removeObject(o));
+
+        if (tipo === 'calentamiento') {
+            // Curva de calentamiento (5 fases)
+            // Fase 1: Sólido de -10 a 20 (t=0 a 2)
+            // Fase 2: Fusión a 20 (t=2 a 4)
+            // Fase 3: Líquido de 20 a 80 (t=4 a 7)
+            // Fase 4: Ebullición a 80 (t=7 a 10)
+            // Fase 5: Gas de 80 a 100 (t=10 a 12) -> (Ajustado para que quepa en el eje X)
+            
+            const pts = [
+                [0, -10], [2, 20], [4, 20], [7, 80], [10, 80], [12, 100]
+            ];
+            
+            // Dibujar líneas
+            for(let i=0; i<pts.length-1; i++) {
+                board.create('segment', [pts[i], pts[i+1]], { strokeColor: '#dc2626', strokeWidth: 3 });
+            }
+
+            // Textos de las fases
+            board.create('text', [1, 5, 'Sólido'], { fontSize: 12, color: '#991b1b', anchorX: 'middle' });
+            board.create('text', [3, 25, 'Fusión'], { fontSize: 12, color: '#0284c7', anchorX: 'middle' });
+            board.create('text', [5.5, 50, 'Líquido'], { fontSize: 12, color: '#1e3a8a', anchorX: 'middle' });
+            board.create('text', [8.5, 85, 'Ebullición'], { fontSize: 12, color: '#0284c7', anchorX: 'middle' });
+            board.create('text', [11, 95, 'Gas'], { fontSize: 12, color: '#16a34a', anchorX: 'middle' });
+
+        } else {
+            // Curva de enfriamiento (invertida en el tiempo)
+            // Fase 1: Gas de 100 a 80 (t=0 a 2)
+            // Fase 2: Condensación a 80 (t=2 a 5)
+            // Fase 3: Líquido de 80 a 20 (t=5 a 8)
+            // Fase 4: Solidificación a 20 (t=8 a 10)
+            // Fase 5: Sólido de 20 a -10 (t=10 a 12)
+            
+            const pts = [
+                [0, 100], [2, 80], [5, 80], [8, 20], [10, 20], [12, -10]
+            ];
+
+            for(let i=0; i<pts.length-1; i++) {
+                board.create('segment', [pts[i], pts[i+1]], { strokeColor: '#0284c7', strokeWidth: 3 });
+            }
+
+            // Textos
+            board.create('text', [1, 95, 'Gas'], { fontSize: 12, color: '#16a34a', anchorX: 'middle' });
+            board.create('text', [3.5, 85, 'Condensación'], { fontSize: 12, color: '#dc2626', anchorX: 'middle' });
+            board.create('text', [6.5, 50, 'Líquido'], { fontSize: 12, color: '#1e3a8a', anchorX: 'middle' });
+            board.create('text', [9, 25, 'Solidificación'], { fontSize: 12, color: '#dc2626', anchorX: 'middle' });
+            board.create('text', [11, 5, 'Sólido'], { fontSize: 12, color: '#991b1b', anchorX: 'middle' });
+        }
+    };
+
+    // Iniciar con la curva de calentamiento
+    window.cambiarCurva('calentamiento');
+});
+</script>
+
+</body>
+</html>
