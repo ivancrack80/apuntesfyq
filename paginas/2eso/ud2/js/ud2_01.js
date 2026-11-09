@@ -93,19 +93,27 @@
         `;
         problemasActuales.push({ enunciado: en2, solucion: sol2 });
 
-        // --- BLOQUE 3: Cálculo del volumen ---
+                // --- BLOQUE 3: Cálculo del volumen ---
         let mat3 = elegirAlAzar(materiales);
-        let m3_kg = random(1, 10, 2); 
+        // Generamos la masa directamente en kg (ej. 3.5 kg)
+        let m3_kg = random(1, 10, 2);
+        // Calculamos su equivalente en gramos para mostrarlo en el enunciado
+        let m3_g = m3_kg * 1000;
+        
+        // Cálculo del volumen: m3_m3 = kg / (kg/m3) -> m3
         let v3_m3 = m3_kg / mat3.d;
+        // Cálculo en litros
         let v3_L = v3_m3 * 1000;
 
-        let en3 = `Una pieza metálica tiene una masa de <strong>${num(m3_kg, 2)} kg</strong> y sabemos que su densidad es de <strong>${mat3.d} kg/m³</strong>. ¿Qué volumen ocupa en litros?`;
+        let en3 = `Una pieza metálica tiene una masa de <strong>${num(m3_g, 0)} g</strong> y sabemos que su densidad es de <strong>${mat3.d} kg/m³</strong>. ¿Qué volumen ocupa en litros?`;
         document.getElementById('act-densidad-3').innerHTML = en3;
 
         let sol3 = `
-            1º Despejamos el volumen en el SI:<br>
-            \\(V = \\frac{m}{d} = \\frac{${num(m3_kg, 2)}}{${mat3.d}} = ${num(v3_m3, 5)} \\text{ m}^3\\)<br>
-            2º Pasamos a litros:<br>
+            1º Pasamos la masa al SI (kilogramos):<br>
+            \\(m = ${num(m3_g, 0)} \\text{ g} \\cdot \\frac{1 \\text{ kg}}{1000 \\text{ g}} = ${num(m3_kg, 2)} \\text{ kg}\\)<br>
+            2º Despejamos y calculamos el volumen en el SI:<br>
+            \\(V = \\frac{m}{d} = \\frac{${num(m3_kg, 2)} \\text{ kg}}{${mat3.d} \\text{ kg/m}^3} = ${num(v3_m3, 5)} \\text{ m}^3\\)<br>
+            3º Pasamos a litros:<br>
             \\(${num(v3_m3, 5)} \\text{ m}^3 \\cdot \\frac{1000 \\text{ L}}{1 \\text{ m}^3} = \\mathbf{${num(v3_L, 2)} \\text{ L}}\\)
         `;
         problemasActuales.push({ enunciado: en3, solucion: sol3 });
@@ -117,7 +125,7 @@
         let v4_cm3 = a * b * c;
         let mat4 = elegirAlAzar(materiales);
         let m4_g = parseFloat((mat4.d / 1000 * v4_cm3).toFixed(1)); 
-        let m4_texto = m4_g >= 1000 ? `${num(m4_g/1000, 2)} kg` : `${m4_g} g`; 
+        let m4_texto = m4_g >= 5000 ? `${num(m4_g/1000, 2)} kg` : `${m4_g} g`; 
         let v4_m3 = v4_cm3 / 1000000;
         let m4_kg = m4_g / 1000;
 
@@ -139,7 +147,7 @@
         let v5_cm3 = Math.PI * r * r * h;
         let mat5 = elegirAlAzar(materiales);
         let m5_g = parseFloat((mat5.d / 1000 * v5_cm3).toFixed(1));
-        let m5_texto = m5_g >= 1000 ? `${num(m5_g/1000, 2)} kg` : `${m5_g} g`;
+        let m5_texto = m5_g >= 5000 ? `${num(m5_g/1000, 2)} kg` : `${m5_g} g`;
         let v5_m3 = v5_cm3 / 1000000;
         let m5_kg = m5_g / 1000;
 
