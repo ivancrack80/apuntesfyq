@@ -30,9 +30,27 @@
         return valor.toFixed(d).replace('.', ',');
     }
 
-    // Genera el HTML del solucionario paso a paso
+        // Genera el HTML del solucionario paso a paso
     function generarHTMLSoluciones() {
-        let html = '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
+        // --- BOTÓN DE IMPRESIÓN DOCENTE ---
+        let html = `
+        <div class="no-print" style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 15px; margin-bottom: 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+            <div>
+                <strong style="color: #166534; font-size: 0.98rem; display: block;">
+                    <i class="fa-solid fa-print"></i> Panel de Impresión Docente
+                </strong>
+                <span style="font-size: 0.85rem; color: #15803d;">
+                    Genera un PDF maquetado como libro de texto (sin solucionario).
+                </span>
+            </div>
+            <button onclick="window.generarPDFSinSolucionario()" style="background-color: #16a34a; color: white; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-file-pdf"></i> Imprimir / Guardar PDF
+            </button>
+        </div>
+        `;
+
+        // --- SOLUCIONES PASO A PASO ---
+        html += '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
         html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-pen-clip"></i> Resolución paso a paso</div>';
         html += '<ol>';
 
