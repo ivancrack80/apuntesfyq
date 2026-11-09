@@ -151,7 +151,7 @@
         let v5_m3 = v5_cm3 / 1000000;
         let m5_kg = m5_g / 1000;
 
-        let en5 = `Un cilindro metálico tiene un radio de <strong>${r} cm</strong> y una altura de <strong>${h} cm</strong>. Su masa es de <strong>${m5_texto}</strong>. Calcula su volumen usando \\(\\pi = 3,14\\), su densidad en kg/m³ y di de qué material se trata.`;
+        let en5 = `Un cilindro metálico tiene un radio de <strong>${r} cm</strong> y una altura de <strong>${h} cm</strong>. Su masa es de <strong>${m5_texto}</strong>. ¿Determina el material del que está hecho el cilindro.`;
         document.getElementById('act-densidad-5').innerHTML = en5;
 
         let sol5 = `
