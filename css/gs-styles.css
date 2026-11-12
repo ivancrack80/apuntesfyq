@@ -1504,21 +1504,25 @@ body.dyslexia-mode .gs-index-item {
     }
 }
 
-/* --------------------------------------------------------------------------
-   18. IMPRESIÓN / PDF
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   18. IMPRESIÓN / PDF (ACTUALIZADO)
+   ========================================================================== */
 @page {
     size: A4;
     margin: 1.5cm;
 }
 
 @media print {
+    /* 1. Ocultar elementos no imprimibles */
     .accessibility-bar,
     .sol-lock-box,
-    .no-print {
+    .no-print,
+    iframe, /* Ocultamos los iframes */
+    .iframe-cropper {
         display: none !important;
     }
 
+    /* 2. Resetear el fondo y los márgenes */
     body {
         background-color: #ffffff !important;
         padding: 0 !important;
@@ -1535,10 +1539,12 @@ body.dyslexia-mode .gs-index-item {
         margin: 0 !important;
     }
 
+    /* 3. Evitar cortes en tablas, cajas y gráficos */
     table, tbody, tr, td, th,
     .gs-box, .gs-norma-box, .gs-material-grupo, .gs-material-card,
     .gs-pictograma-card, .gs-dialogo, .comparative-table,
-    .gs-bloque-card, .gs-flowchart, li, blockquote {
+    .gs-bloque-card, .gs-flowchart, li, blockquote,
+    .jxgbox, .gs-graph-wrapper {
         page-break-inside: avoid !important;
         break-inside: avoid !important;
     }
@@ -1560,46 +1566,38 @@ body.dyslexia-mode .gs-index-item {
         print-color-adjust: exact !important;
     }
 
+    /* 4. Tipografía para papel (Verdana 13pt) */
     body, p, td, th, li {
-        font-size: 14pt !important;
-        line-height: 1.6 !important;
+        font-size: 13pt !important;
+        line-height: 1.5 !important;
         color: #000000 !important;
-        font-family: 'Atkinson Hyperlegible', 'Inter', sans-serif !important;
+        font-family: 'Verdana', sans-serif !important;
     }
 
-    .gs-title { font-size: 20pt !important; color: #000000 !important; }
-    .gs-subtitle { font-size: 16pt !important; color: #333333 !important; }
-    .gs-section-title { font-size: 18pt !important; color: #000000 !important; border-left: 4px solid #000000 !important; }
-    h3 { font-size: 15pt !important; color: #000000 !important; }
+       /* Mostrar el aviso de la tabla periódica al imprimir */
+    .tabla-impresa { display: block !important; }
 
+    .gs-title { font-size: 20pt !important; color: #000000 !important; }
+    .gs-subtitle { font-size: 15pt !important; color: #333333 !important; }
+    .gs-section-title { font-size: 17pt !important; color: #000000 !important; border-left: 4px solid #000000 !important; }
+    h3 { font-size: 14pt !important; color: #000000 !important; }
+
+    /* 5. Ajuste de tablas para impresión */
     th, td {
-        border: 2px solid #000000 !important;
-        padding: 12px 14px !important;
+        border: 1px solid #000000 !important;
+        padding: 8px 10px !important;
     }
     th {
         background-color: #f1f5f9 !important;
         color: #000000 !important;
     }
 
+    /* 6. Ajuste de galerías de imágenes */
     .gs-pictogramas-grid { grid-template-columns: repeat(3, 1fr) !important; }
-    .gs-pictograma-img { width: 90px !important; height: 90px !important; }
+    .gs-pictograma-img { width: 80px !important; height: 80px !important; }
     .gs-material-grid { grid-template-columns: repeat(3, 1fr) !important; }
-    .gs-material-img { height: 110px !important; }
-    .gs-hero, .gs-quote-box, .gs-pillar-card, .gs-course-card, .gs-footer-banner {
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-    }
-    .gs-quote-box {
-        background: #f8fafc !important;
-        color: #000000 !important;
-        box-shadow: none !important;
-    }
-    .gs-quote-text, .gs-quote-author, .gs-quote-icon {
-        color: #000000 !important;
-    }
+    .gs-material-img { height: 100px !important; }
 }
-
-
 /* ==========================================================================
    IFRAME DE PTABLE (AJUSTE DEFINITIVO)
    ========================================================================== */
