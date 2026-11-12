@@ -343,11 +343,22 @@
         </ul>
     </div>
 
-    <!-- TABLA INTERACTIVA -->
+        <!-- TABLA INTERACTIVA -->
     <h2 class="gs-section-title"><i class="fa-solid fa-table-cells-large"></i> 4.7. Explora la Tabla Periódica Interactiva</h2>
-    <p>Consulta los 118 elementos con sus nombres, masas y propiedades en tiempo real:</p>
-    <div class="iframe-cropper">
+    <p class="no-print">Consulta los 118 elementos con sus nombres, masas y propiedades en tiempo real:</p>
+    
+    <!-- Contenedor del Iframe (Oculto al imprimir por el CSS) -->
+    <div class="iframe-cropper no-print">
         <iframe src="https://ptable.com/?lang=es#Propiedades" class="cropped-iframe" allowfullscreen title="Tabla Periódica Ptable"></iframe>
+    </div>
+
+    <!-- Aviso para la versión impresa (Oculto en pantalla, visible al imprimir) -->
+    <div class="gs-box gs-lectura" id="aviso-tabla-impresa" style="display: none;">
+        <div class="gs-lectura-title"><i class="fa-solid fa-print"></i> Tabla Periódica en formato papel</div>
+        <p style="margin-bottom: 0;">
+            Por motivos de formato, la tabla periódica interactiva no se puede imprimir en este documento. 
+            Por favor, ten en cuenta <strong>la tabla periódica entregada en clase</strong> para realizar las actividades.
+        </p>
     </div>
 
     <!-- ACTIVIDADES -->
