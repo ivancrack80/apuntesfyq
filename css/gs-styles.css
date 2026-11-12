@@ -1574,15 +1574,28 @@ body.dyslexia-mode .gs-index-item {
         font-family: 'Verdana', sans-serif !important;
     }
 
-       /* Mostrar el aviso de la tabla periódica al imprimir */
-    .tabla-impresa { display: block !important; }
+    /* 5. Aviso de la tabla periódica (El que faltaba) */
+    #aviso-tabla-impresa { 
+        display: block !important; 
+        border: 2px dashed #000000 !important;
+        background: transparent !important;
+        padding: 15px !important;
+        margin-top: 15px !important;
+    }
+    #aviso-tabla-impresa .gs-lectura-title {
+        font-size: 14pt !important;
+        color: #000000 !important;
+        font-weight: bold !important;
+        margin-bottom: 10px !important;
+    }
 
+    /* 6. Tamaño de los títulos y subtítulos */
     .gs-title { font-size: 20pt !important; color: #000000 !important; }
     .gs-subtitle { font-size: 15pt !important; color: #333333 !important; }
     .gs-section-title { font-size: 17pt !important; color: #000000 !important; border-left: 4px solid #000000 !important; }
     h3 { font-size: 14pt !important; color: #000000 !important; }
 
-    /* 5. Ajuste de tablas para impresión */
+    /* 7. Ajuste de tablas para impresión */
     th, td {
         border: 1px solid #000000 !important;
         padding: 8px 10px !important;
@@ -1592,7 +1605,7 @@ body.dyslexia-mode .gs-index-item {
         color: #000000 !important;
     }
 
-    /* 6. Ajuste de galerías de imágenes */
+    /* 8. Ajuste de galerías de imágenes */
     .gs-pictogramas-grid { grid-template-columns: repeat(3, 1fr) !important; }
     .gs-pictograma-img { width: 80px !important; height: 80px !important; }
     .gs-material-grid { grid-template-columns: repeat(3, 1fr) !important; }
