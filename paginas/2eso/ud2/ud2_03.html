@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. El Estudio de los Gases - 2º ESO</title>
+
+    <link rel="stylesheet" href="https://ivancrack80.github.io/apuntesfyq/css/gs-styles.css">
+    <script src="https://ivancrack80.github.io/apuntesfyq/js/gs-core.js"></script>
+    <!-- Cargamos el JS de esta página -->
+    <script src="js/ud2_03.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 2.º ESO · Unidad 2</div>
+        <h1 class="gs-title">3. El Estudio de los Gases</h1>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div class="gs-subtitle" style="flex: 1; min-width: 250px;">Presión, temperatura y las leyes que gobiernan los gases</div>
+            <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; color: #475569; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-regular fa-clock" style="color: var(--gs-primary);"></i> 
+                <strong>Temporalización estimada:</strong> 4 sesiones.
+            </div>
+        </div>
+    </header>
+
+    <!-- 3.1 CONCEPTOS PREVIOS -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-temperature-half"></i> 3.1. Conceptos previos: Presión y Temperatura</h2>
+    
+    <p>
+        Antes de estudiar las leyes de los gases, necesitamos definir dos magnitudes fundamentales que los afectan directamente:
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-gauge-high"></i> La Presión (P)</div>
+        <p>La <strong>presión</strong> es la fuerza que ejercen las partículas de un gas sobre las paredes del recipiente que lo contiene.</p>
+        <p><strong>Explicación con la TCM:</strong> Como las partículas de gas se mueven libremente y a gran velocidad, chocan constantemente contra las paredes. Cada choque ejerce una pequeña fuerza. La suma de millones de choques por segundo es lo que medimos como presión.</p>
+        <p><strong>Unidades de presión:</strong> La unidad del SI es el <strong>Pascal (Pa)</strong> (que equivale a \(1 \text{ N/m}^2\)). Pero en el laboratorio y en la vida cotidiana se usan otras:</p>
+        <ul style="margin-bottom: 0;">
+            <li>\(1 \text{ atmósfera (atm)} = 101\,325 \text{ Pa}\) (la presión normal al nivel del mar).</li>
+            <li>\(1 \text{ bar} = 100\,000 \text{ Pa} \approx 1 \text{ atm}\).</li>
+            <li>\(1 \text{ milibar (mbar)} = 100 \text{ Pa}\) (se usa en meteorología).</li>
+            <li>\(1 \text{ milímetro de mercurio (mmHg)} = 133,3 \text{ Pa}\).</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-temperature-arrow-up"></i> La Temperatura Absoluta (T)</div>
+        <p>En física de gases, no usamos los grados Celsius (°C), sino los <strong>Kelvin (K)</strong>. Esto se debe a que los grados Celsius son una escala "relativa" (el 0 °C es el punto de congelación del agua), pero en los gases lo que importa es la energía real de las partículas.</p>
+        <p><strong>Explicación con la TCM:</strong> La temperatura mide la energía cinética de las partículas. Si pudiéramos enfriar un gas hasta que las partículas se detuvieran por completo (movimiento cero), estaríamos en el <strong>cero absoluto (0 K)</strong>. En esa escala, no hay temperaturas negativas.</p>
+        <p><strong>Conversión de unidades:</strong> La relación con los grados Celsius es muy sencilla:</p>
+        <div class="gs-latex-container" style="text-align: center; font-size: 1.2rem; margin: 10px 0;">
+            \(T(\text{K}) = t(°C) + 273\)
+        </div>
+        <p style="margin-bottom: 0;">Por ejemplo, si tenemos \(25 °C\), en Kelvin serán \(T = 25 + 273 = 298 \text{ K}\).</p>
+    </div>
+
+    <!-- 3.2 LEYES DE LOS GASES -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-flask"></i> 3.2. Las Leyes de los Gases</h2>
+    <p>
+        Los gases cambian su volumen, presión y temperatura constantemente. Las leyes de los gases estudian cómo se relacionan estas variables cuando una de ellas se mantiene constante.
+    </p>
+
+    <!-- LEY 1: BOYLE-MARIOTTE -->
+    <h3>1. Ley de Boyle-Mariotte (Temperatura constante)</h3>
+    <p><strong>Enunciado:</strong> A temperatura constante, el volumen de una masa fija de gas es inversamente proporcional a su presión. Si la presión aumenta, el volumen disminuye, y viceversa.</p>
+    <div class="gs-latex-container" style="text-align: center;">
+        \(P_1 \cdot V_1 = P_2 \cdot V_2\) (si \(T = \text{constante}\))
+    </div>
+    
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper">
+            <div id="box_boyle" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Visualización de la Ley de Boyle</h3>
+            <p>Arrastra el punto azul para modificar la presión y observa cómo cambia el volumen. La curva se llama <em>hipérbola</em>.</p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Presión (P):</span>
+                    <span id="boyle-p" class="gs-panel-datos__valor gs-panel-datos__valor--azul">1.0 atm</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Volumen (V):</span>
+                    <span id="boyle-v" class="gs-panel-datos__valor gs-panel-datos__valor--rojo">10.0 L</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">P · V (constante):</span>
+                    <span id="boyle-k" class="gs-panel-datos__valor gs-panel-datos__valor--verde">10.0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gs-box gs-comprender">
+        <p style="margin-bottom: 0;"><strong>Interpretación TCM:</strong> Al reducir el volumen (apretar el gas), las partículas tienen menos espacio, por lo que chocan más veces contra las paredes y la presión aumenta.</p>
+    </div>
+
+    <!-- LEY 2: CHARLES -->
+    <h3>2. Ley de Charles (Presión constante)</h3>
+    <p><strong>Enunciado:</strong> A presión constante, el volumen de una masa fija de gas es directamente proporcional a su temperatura absoluta. Si la temperatura aumenta, el volumen también.</p>
+    <div class="gs-latex-container" style="text-align: center;">
+        \(\frac{V_1}{T_1} = \frac{V_2}{T_2}\) (si \(P = \text{constante}\))
+    </div>
+    
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper">
+            <div id="box_charles" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Visualización de la Ley de Charles</h3>
+            <p>Arrastra el punto azul para modificar la temperatura y observa cómo cambia el volumen. La gráfica es una línea recta que, si la prolongamos, pasaría por el cero absoluto (0 K).</p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Temperatura (T):</span>
+                    <span id="charles-t" class="gs-panel-datos__valor gs-panel-datos__valor--azul">273 K</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Volumen (V):</span>
+                    <span id="charles-v" class="gs-panel-datos__valor gs-panel-datos__valor--rojo">10.0 L</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">V / T (constante):</span>
+                    <span id="charles-k" class="gs-panel-datos__valor gs-panel-datos__valor--verde">0.0366</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gs-box gs-comprender">
+        <p style="margin-bottom: 0;"><strong>Interpretación TCM:</strong> Al calentar el gas, las partículas se mueven más rápido y chocan con más fuerza contra las paredes. Si la presión debe mantenerse constante, el gas se expande (aumenta su volumen) para compensar.</p>
+    </div>
+
+    <!-- LEY 3: GAY-LUSSAC -->
+    <h3>3. Ley de Gay-Lussac (Volumen constante)</h3>
+    <p><strong>Enunciado:</strong> A volumen constante, la presión de una masa fija de gas es directamente proporcional a su temperatura absoluta. Si la temperatura aumenta, la presión también.</p>
+    <div class="gs-latex-container" style="text-align: center;">
+        \(\frac{P_1}{T_1} = \frac{P_2}{T_2}\) (si \(V = \text{constante}\))
+    </div>
+    
+    <div class="gs-visual-block">
+        <div class="gs-graph-wrapper">
+            <div id="box_gaylussac" class="jxgbox" style="aspect-ratio: 4/3;"></div>
+        </div>
+        <div class="gs-graph-explanation">
+            <h3>Visualización de la Ley de Gay-Lussac</h3>
+            <p>Arrastra el punto azul para modificar la temperatura y observa cómo cambia la presión en un recipiente cerrado.</p>
+            <div class="gs-panel-datos">
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Temperatura (T):</span>
+                    <span id="gl-t" class="gs-panel-datos__valor gs-panel-datos__valor--azul">273 K</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">Presión (P):</span>
+                    <span id="gl-p" class="gs-panel-datos__valor gs-panel-datos__valor--rojo">1.0 atm</span>
+                </div>
+                <div class="gs-panel-datos__fila">
+                    <span class="gs-panel-datos__label">P / T (constante):</span>
+                    <span id="gl-k" class="gs-panel-datos__valor gs-panel-datos__valor--verde">0.00366</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gs-box gs-comprender">
+        <p style="margin-bottom: 0;"><strong>Interpretación TCM:</strong> Al calentar el gas en un recipiente rígido (volumen constante), las partículas se mueven más rápido y chocan con más frecuencia y fuerza contra las paredes. Por tanto, la presión aumenta.</p>
+    </div>
+
+    <!-- 3.3 LEY GENERAL -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-calculator"></i> 3.3. Ley General de los Gases</h2>
+    <p>
+        Las tres leyes anteriores son casos particulares en los que una variable se mantiene constante. Pero, ¿qué pasa si cambian las tres a la vez? Para eso utilizamos la <strong>Ley General de los Gases</strong>, que combina las tres leyes anteriores:
+    </p>
+    <div class="gs-latex-container" style="text-align: center; font-size: 1.2rem; margin: 15px 0;">
+        \(\frac{P_1 \cdot V_1}{T_1} = \frac{P_2 \cdot V_2}{T_2}\)
+    </div>
+    <p>
+        <strong>¿Para qué sirve?</strong> Es la fórmula que usarás en la mayoría de los problemas. Si tienes un estado inicial (1) y un estado final (2) de un gas, y conoces 5 de las 6 variables, puedes calcular la que falta.
+    </p>
+    <p style="margin-bottom: 0;">
+        <em>Nota:</em> Si en algún problema una de las variables no cambia (por ejemplo, nos dicen que la temperatura es constante), podemos simplificar la fórmula eliminando esa variable de ambos lados de la ecuación, y volveremos a tener la ley de Boyle-Mariotte.
+    </p>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades de repaso (Aleatorias)</div>
+        <p>Estas actividades cambian cada vez que recargas la página. Resuélvelas en tu cuaderno y consulta el solucionario para comprobar tus resultados.</p>
+        
+        <ol class="gs-actividades">
+            <li><div id="act-gas-1">Cargando actividad...</div></li>
+            <li><div id="act-gas-2">Cargando actividad...</div></li>
+            <li><div id="act-gas-3">Cargando actividad...</div></li>
+            <li><div id="act-gas-4">Cargando actividad...</div></li>
+            <li><div id="act-gas-5">Cargando actividad...</div></li>
+        </ol>
+
+        <div style="text-align:center; margin-top:25px;">
+            <button id="btn-generar" class="gs-selector-btn" onclick="window.generarNuevasActividades && window.generarNuevasActividades()">
+                <i class="fa-solid fa-rotate"></i> Generar nuevas actividades
+            </button>
+        </div>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="2eso_ud2_3">
+        <div class="sol-lock-header">
+            <div class="gs-comprender-title" style="color: var(--gs-primary);">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i> Solucionario Oficial
+            </div>
+        </div>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos para comprobar las soluciones.
+        </p>
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="window.verificarPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div> <!-- Cierre del gs-container -->
+
+<script>
+document.addEventListener('gs-ready', function () {
+    
+    // --- GRÁFICA BOYLE (P·V = k) ---
+    if (document.getElementById('box_boyle')) {
+        const bBoy = JXG.JSXGraph.initBoard('box_boyle', { boundingbox: [0, 12, 12, 0], axis: true, showCopyright: false, showNavigation: false });
+        const k = 10; // P*V constante
+        bBoy.create('functiongraph', [function(x){ return k/x; }, 0.5, 12], { strokeColor: '#1e3a8a', strokeWidth: 3 });
+        
+        const ptoBoy = bBoy.create('glider', [1, 10, bBoy.create('functiongraph', [function(x){ return k/x; }, 0.5, 12], {visible: false})], { name: 'Gas', color: '#dc2626', size: 5 });
+        
+        function updateBoy() {
+            let p = ptoBoy.X();
+            let v = ptoBoy.Y();
+            GS.setPanel('boyle-p', p.toFixed(2) + ' atm');
+            GS.setPanel('boyle-v', v.toFixed(2) + ' L');
+            GS.setPanel('boyle-k', (p*v).toFixed(2));
+        }
+        ptoBoy.on('drag', updateBoy);
+        bBoy.on('update', updateBoy);
+        updateBoy();
+    }
+
+    // --- GRÁFICA CHARLES (V/T = k) ---
+    if (document.getElementById('box_charles')) {
+        const bChar = JXG.JSXGraph.initBoard('box_charles', { boundingbox: [0, 30, 600, 0], axis: true, showCopyright: false, showNavigation: false });
+        const kChar = 10/273; // V/T constante
+        bChar.create('functiongraph', [function(x){ return kChar * x; }, 0, 600], { strokeColor: '#1e3a8a', strokeWidth: 3 });
+        
+        const ptoChar = bChar.create('glider', [273, 10, bChar.create('functiongraph', [function(x){ return kChar * x; }, 0, 600], {visible: false})], { name: 'Gas', color: '#dc2626', size: 5 });
+        
+        function updateChar() {
+            let t = ptoChar.X();
+            let v = ptoChar.Y();
+            GS.setPanel('charles-t', t.toFixed(0) + ' K');
+            GS.setPanel('charles-v', v.toFixed(2) + ' L');
+            GS.setPanel('charles-k', (v/t).toFixed(4));
+        }
+        ptoChar.on('drag', updateChar);
+        bChar.on('update', updateChar);
+        updateChar();
+    }
+
+    // --- GRÁFICA GAY-LUSSAC (P/T = k) ---
+    if (document.getElementById('box_gaylussac')) {
+        const bGL = JXG.JSXGraph.initBoard('box_gaylussac', { boundingbox: [0, 3, 600, 0], axis: true, showCopyright: false, showNavigation: false });
+        const kGL = 1/273; // P/T constante
+        bGL.create('functiongraph', [function(x){ return kGL * x; }, 0, 600], { strokeColor: '#1e3a8a', strokeWidth: 3 });
+        
+        const ptoGL = bGL.create('glider', [273, 1, bGL.create('functiongraph', [function(x){ return kGL * x; }, 0, 600], {visible: false})], { name: 'Gas', color: '#dc2626', size: 5 });
+        
+        function updateGL() {
+            let t = ptoGL.X();
+            let p = ptoGL.Y();
+            GS.setPanel('gl-t', t.toFixed(0) + ' K');
+            GS.setPanel('gl-p', p.toFixed(2) + ' atm');
+            GS.setPanel('gl-k', (p/t).toFixed(4));
+        }
+        ptoGL.on('drag', updateGL);
+        bGL.on('update', updateGL);
+        updateGL();
+    }
+
+});
+</script>
+
+</body>
+</html>
