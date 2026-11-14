@@ -1,3 +1,58 @@
+(function () {
+    'use strict';
+
+    let problemasActuales = [];
+
+    // Funciones de utilidad
+    function random(min, max, dec = 0) {
+        let num = Math.random() * (max - min) + min;
+        return parseFloat(num.toFixed(dec));
+    }
+
+    function elegirAlAzar(array) {
+        return array[Math.floor(Math.random() * array.length)];
+    }
+
+    function num(valor, decimales) {
+        let d = decimales === undefined ? 2 : decimales;
+        return valor.toFixed(d).replace('.', ',');
+    }
+
+    // Genera el HTML del solucionario paso a paso
+    function generarHTMLSoluciones() {
+        // --- BOTÓN DE IMPRESIÓN DOCENTE ---
+        let html = `
+        <div class="no-print" style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 15px; margin-bottom: 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+            <div>
+                <strong style="color: #166534; font-size: 0.98rem; display: block;">
+                    <i class="fa-solid fa-print"></i> Panel de Impresión Docente
+                </strong>
+                <span style="font-size: 0.85rem; color: #15803d;">
+                    Genera un PDF maquetado como libro de texto.
+                </span>
+            </div>
+            <button onclick="window.generarPDFSinSolucionario()" style="background-color: #16a34a; color: white; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-file-pdf"></i> Imprimir / Guardar PDF
+            </button>
+        </div>
+        `;
+
+        html += '<div class="gs-box gs-ejemplo" style="border-left-color: var(--gs-green);">';
+        html += '<div class="gs-ejemplo-title"><i class="fa-solid fa-pen-clip"></i> Resolución paso a paso</div>';
+        html += '<ol>';
+
+        problemasActuales.forEach(p => {
+            html += '<li style="margin-bottom: 20px;">';
+            html += '<strong>Problema:</strong> ' + p.enunciado + '<br><br>';
+            html += '<div style="background: #f8fafc; padding: 10px; border-radius: 6px; border-left: 3px solid #0284c7;">';
+            html += '<strong>Solución:</strong><br>' + p.solucion;
+            html += '</div></li>';
+        });
+
+        html += '</ol></div>';
+        return html;
+    }
+
     window.generarNuevasActividades = function() {
         if (!document.getElementById('act-gas-1')) return;
         
@@ -64,14 +119,12 @@
         });
 
         // --- BLOQUE 4: Ley de Charles (con ciclo completo de temperatura) ---
-        // T1 en ºC, T2 en K. Pedimos T2 final en ºC.
         let t1_c = random(10, 50);
         let t1_k = t1_c + 273;
         let v1_c = random(1, 10, 1);
         let v2_c = random(v1_c + 1, v1_c + 5, 1); // V2 mayor que V1
         let t2_k = (v2_c * t1_k) / v1_c;
         let t2_c = t2_k - 273;
-        let t2_c_texto = t2_c.toFixed(0);
         
         let en4 = `Tenemos <strong>${num(v1_c, 1)} L</strong> de gas a una temperatura de <strong>${t1_c} °C</strong>. Si calentamos el gas a presión constante hasta que ocupe un volumen de <strong>${num(v2_c, 1)} L</strong>, ¿a qué temperatura (en °C) se encontrará?`;
         document.getElementById('act-gas-4').innerHTML = en4;
@@ -84,7 +137,7 @@
             4º Pasamos a °C: \\(t_2 = ${num(t2_k, 1)} - 273 = \\mathbf{${num(t2_c, 0)} °C}\\)` 
         });
 
-        // --- BLOQUE 5: Ley General (con cambio de unidad de presión) ---
+        // --- BLOQUE 5: Ley General ---
         let p1_g = random(1, 3, 1);
         let p1_g_mmhg = p1_g * 760; // Damos P1 en mmHg
         let v1_g = random(5, 15, 1);
@@ -111,3 +164,60 @@
         if (authContainer) authContainer.style.display = 'flex';
         if (lockIcon) lockIcon.className = 'fa-solid fa-user-lock';
     };
+
+    // --- VERIFICAR PIN ---
+    window.verificarPin = async function() {
+        var pinInput = document.getElementById('solPinInput');
+        var errorMsg = document.getElementById('solErrorMsg');
+        var btn = document.getElementById('btnUnlockSol');
+        var contentDiv = document.getElementById('protectedSolutions');
+        var lockIcon = document.getElementById('lockIcon');
+
+        if (!pinInput) return;
+        var pin = pinInput.value.trim();
+
+        if (!pin || pin.length !== 6) {
+            if (errorMsg) {
+                errorMsg.innerText = 'Escribe el código completo de 6 dígitos.';
+                errorMsg.style.color = '#dc2626';
+                errorMsg.style.display = 'block';
+            }
+            return;
+        }
+
+        if (errorMsg) { errorMsg.innerText = 'Verificando código...'; errorMsg.style.color = '#1e3a8a'; errorMsg.style.display = 'block'; }
+        if (btn) btn.disabled = true;
+
+        var ok = await GS.verifyPinOnly(pin);
+
+        if (ok) {
+            if (errorMsg) errorMsg.style.display = 'none';
+            contentDiv.innerHTML = generarHTMLSoluciones();
+            contentDiv.style.display = 'block';
+            if (lockIcon) lockIcon.className = 'fa-solid fa-user-check';
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise([contentDiv]);
+            }
+            contentDiv.scrollIntoView({ behavior: 'smooth' });
+            var authContainer = document.getElementById('solAuthContainer');
+            if (authContainer) authContainer.style.display = 'none';
+        } else {
+            if (errorMsg) {
+                errorMsg.innerText = 'Código incorrecto. Inténtalo de nuevo.';
+                errorMsg.style.color = '#dc2626';
+                errorMsg.style.display = 'block';
+            }
+            if (btn) btn.disabled = false;
+        }
+    };
+
+    // Ejecutar al cargar
+    document.addEventListener('gs-ready', window.generarNuevasActividades);
+    
+    // Ejecutar si ya está listo (por si acaso)
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(window.generarNuevasActividades, 100);
+    }
+
+})();
