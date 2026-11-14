@@ -55,7 +55,7 @@
         <p><strong>Explicación con la TCM:</strong> Como las partículas de gas se mueven libremente y a gran velocidad, chocan constantemente contra las paredes. Cada choque ejerce una pequeña fuerza. La suma de millones de choques por segundo es lo que medimos como presión. Por tanto, <strong>a mayor número de choques, mayor será la presión ejercida</strong></p>
         <p><strong>Unidades de presión:</strong> La unidad del SI es el <strong>Pascal (Pa)</strong> (que equivale a \(1 \frac{N}{m^2}\)). Pero en el laboratorio y en la vida cotidiana se usan otras:</p>
         <ul style="margin-bottom: 0;">
-            <li>\(1 \text{atm} = 101\,325 \text{ Pa}\) (\(atm \longrightarrow atmósfera \) Es la presión normal al nivel del mar).</li>
+            <li>\(1 \text{atm} = 101\,325 \text{ Pa}\) (Es la presión normal al nivel del mar).</li>
             <li>\(1 \text{ bar} = 100\,000 \text{ Pa} \approx 1 \text{ atm}\).</li>
             <li>\(1 \text{ milibar (mbar)} = 100 \text{ Pa}\) (se usa en meteorología).</li>
             <li>\(1 \text{ atm} = 760 \text{ mmHg}\) (milímetro de mercurio).</li>
@@ -71,7 +71,7 @@
             La temperatura se asocia con el nivel de agitación de las partículas, es decir, con su energía cinética. La escala Celsius tiene valores negativos (por ejemplo, un día de invierno puede estar a -5 °C). Sin embargo, para las partículas de un gas no tiene sentido hablar de "energía cinética negativa". 
         </p>
         <p>
-            <strong>Explicación con la TCM:</strong> Como hemos dicho, la temperatura mide la energía cinética de las partículas. Si enfriamos un gas, sus partículas se mueven cada vez más despacio. Si pudiéramos llegar a enfriarlo hasta que las partículas se detuvieran por completo (las partículas están quietas y por tanto, su energía cinética es cero), estaríamos en el <strong>cero absoluto</strong>. Ese punto teórico equivale a <strong>-273,15 °C</strong> y es una temperatura técnicamente inalcanzable (aunque en laboratorios se han alcanzado temperaturas muy cercanas). Está es la temperatura más baja que se puede alcanzar.
+            <strong>Explicación con la TCM:</strong> Como hemos dicho, la temperatura mide la energía cinética de las partículas. Si enfriamos un gas, sus partículas se mueven cada vez más despacio. Si pudiéramos llegar a enfriarlo hasta que las partículas se detuvieran por completo (las partículas están quietas y por tanto, su energía cinética es cero), estaríamos en el <strong>cero absoluto</strong>. Ese punto teórico equivale a <strong>-273,15 °C</strong> y es una temperatura técnicamente inalcanzable (aunque en laboratorios se han alcanzado temperaturas muy cercanas). Esta es la temperatura más baja que se puede alcanzar.
         </p>
         <p>
             Para eliminar esa "discordancia" de los números negativos, se creó la <strong>escala Kelvin</strong>. En ella, el 0 K es el cero absoluto, y no existen temperaturas negativas. A partir de ahí, la temperatura va aumentando, y con ella, la agitación de las partículas.
@@ -253,13 +253,28 @@
 <script>
 document.addEventListener('gs-ready', function () {
     
-    // --- GRÁFICA BOYLE (P·V = k) ---
+    // --- GRÁFICA BOYLE (P·V = k) - Isotermas ---
     if (document.getElementById('box_boyle')) {
-        const bBoy = JXG.JSXGraph.initBoard('box_boyle', { boundingbox: [0, 12, 12, 0], axis: true, showCopyright: false, showNavigation: false });
-        const k = 10; // P*V constante
-        bBoy.create('functiongraph', [function(x){ return k/x; }, 0.5, 12], { strokeColor: '#1e3a8a', strokeWidth: 3 });
+        const bBoy = JXG.JSXGraph.initBoard('box_boyle', { 
+            boundingbox: [0, 12, 12, 0], 
+            axis: true, 
+            showCopyright: false, 
+            showNavigation: false,
+            defaultAxes: {
+                x: { strokeColor: '#64748b', name: 'Volumen (L)', withLabel: true, label: { position: 'right', offset: [-30, -20], fontSize: 11, color: '#1e293b' } },
+                y: { strokeColor: '#64748b', name: 'Presión (atm)', withLabel: true, label: { position: 'top', offset: [-10, 10], fontSize: 11, color: '#1e293b' } }
+            }
+        });
         
-        const ptoBoy = bBoy.create('glider', [1, 10, bBoy.create('functiongraph', [function(x){ return k/x; }, 0.5, 12], {visible: false})], { name: 'Gas', color: '#dc2626', size: 5 });
+        // Isotermas de fondo (K = 5, 10, 20)
+        bBoy.create('functiongraph', [function(x){ return 5/x; }, 0.4, 12], { strokeColor: '#cbd5e1', strokeWidth: 2, dash: 2 });
+        bBoy.create('functiongraph', [function(x){ return 20/x; }, 0.4, 12], { strokeColor: '#cbd5e1', strokeWidth: 2, dash: 2 });
+        
+        // Isoterma principal (K = 10)
+        const k = 10;
+        const curveBoy = bBoy.create('functiongraph', [function(x){ return k/x; }, 0.4, 12], { strokeColor: '#1e3a8a', strokeWidth: 3 });
+        
+        const ptoBoy = bBoy.create('glider', [1, 10, curveBoy], { name: 'Gas', color: '#dc2626', size: 5 });
         
         function updateBoy() {
             let p = ptoBoy.X();
@@ -273,13 +288,28 @@ document.addEventListener('gs-ready', function () {
         updateBoy();
     }
 
-    // --- GRÁFICA CHARLES (V/T = k) ---
+    // --- GRÁFICA CHARLES (V/T = k) - Isobaras ---
     if (document.getElementById('box_charles')) {
-        const bChar = JXG.JSXGraph.initBoard('box_charles', { boundingbox: [0, 30, 600, 0], axis: true, showCopyright: false, showNavigation: false });
-        const kChar = 10/273; // V/T constante
-        bChar.create('functiongraph', [function(x){ return kChar * x; }, 0, 600], { strokeColor: '#1e3a8a', strokeWidth: 3 });
+        const bChar = JXG.JSXGraph.initBoard('box_charles', { 
+            boundingbox: [0, 40, 600, 0], 
+            axis: true, 
+            showCopyright: false, 
+            showNavigation: false,
+            defaultAxes: {
+                x: { strokeColor: '#64748b', name: 'Temperatura (K)', withLabel: true, label: { position: 'right', offset: [-50, -20], fontSize: 11, color: '#1e293b' } },
+                y: { strokeColor: '#64748b', name: 'Volumen (L)', withLabel: true, label: { position: 'top', offset: [-10, 10], fontSize: 11, color: '#1e293b' } }
+            }
+        });
         
-        const ptoChar = bChar.create('glider', [273, 10, bChar.create('functiongraph', [function(x){ return kChar * x; }, 0, 600], {visible: false})], { name: 'Gas', color: '#dc2626', size: 5 });
+        // Isobaras de fondo (K = 10/273, 20/273)
+        bChar.create('functiongraph', [function(x){ return (10/273) * x; }, 0, 600], { strokeColor: '#cbd5e1', strokeWidth: 2, dash: 2 });
+        bChar.create('functiongraph', [function(x){ return (30/273) * x; }, 0, 600], { strokeColor: '#cbd5e1', strokeWidth: 2, dash: 2 });
+
+        // Isobara principal
+        const kChar = 20/273; 
+        const curveChar = bChar.create('functiongraph', [function(x){ return kChar * x; }, 0, 600], { strokeColor: '#1e3a8a', strokeWidth: 3 });
+        
+        const ptoChar = bChar.create('glider', [273, 20, curveChar], { name: 'Gas', color: '#dc2626', size: 5 });
         
         function updateChar() {
             let t = ptoChar.X();
@@ -293,13 +323,28 @@ document.addEventListener('gs-ready', function () {
         updateChar();
     }
 
-    // --- GRÁFICA GAY-LUSSAC (P/T = k) ---
+    // --- GRÁFICA GAY-LUSSAC (P/T = k) - Isocoras ---
     if (document.getElementById('box_gaylussac')) {
-        const bGL = JXG.JSXGraph.initBoard('box_gaylussac', { boundingbox: [0, 3, 600, 0], axis: true, showCopyright: false, showNavigation: false });
-        const kGL = 1/273; // P/T constante
-        bGL.create('functiongraph', [function(x){ return kGL * x; }, 0, 600], { strokeColor: '#1e3a8a', strokeWidth: 3 });
+        const bGL = JXG.JSXGraph.initBoard('box_gaylussac', { 
+            boundingbox: [0, 4, 600, 0], 
+            axis: true, 
+            showCopyright: false, 
+            showNavigation: false,
+            defaultAxes: {
+                x: { strokeColor: '#64748b', name: 'Temperatura (K)', withLabel: true, label: { position: 'right', offset: [-50, -20], fontSize: 11, color: '#1e293b' } },
+                y: { strokeColor: '#64748b', name: 'Presión (atm)', withLabel: true, label: { position: 'top', offset: [-10, 10], fontSize: 11, color: '#1e293b' } }
+            }
+        });
         
-        const ptoGL = bGL.create('glider', [273, 1, bGL.create('functiongraph', [function(x){ return kGL * x; }, 0, 600], {visible: false})], { name: 'Gas', color: '#dc2626', size: 5 });
+        // Isocoras de fondo (K = 1/273, 3/273)
+        bGL.create('functiongraph', [function(x){ return (1/273) * x; }, 0, 600], { strokeColor: '#cbd5e1', strokeWidth: 2, dash: 2 });
+        bGL.create('functiongraph', [function(x){ return (3/273) * x; }, 0, 600], { strokeColor: '#cbd5e1', strokeWidth: 2, dash: 2 });
+
+        // Isocora principal
+        const kGL = 2/273; 
+        const curveGL = bGL.create('functiongraph', [function(x){ return kGL * x; }, 0, 600], { strokeColor: '#1e3a8a', strokeWidth: 3 });
+        
+        const ptoGL = bGL.create('glider', [273, 2, curveGL], { name: 'Gas', color: '#dc2626', size: 5 });
         
         function updateGL() {
             let t = ptoGL.X();
