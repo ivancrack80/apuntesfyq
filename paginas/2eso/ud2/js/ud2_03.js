@@ -121,4 +121,75 @@
         let t2_g = random(350, 450);
         let v2_g = (p1_g * v1_g * t2_g) / (t1_g * p2_g);
         
-        let en5 = `Un gas se encuentra a <strong>${num(p1_g,1)} atm</strong> y <strong>${num(v1_g,1)} L</strong> a una temperatura de <strong>${t1_g} K</strong>. Si cambiamos las condiciones a <strong>${num(p2_g,1)}
+        let en5 = `Un gas se encuentra a <strong>${num(p1_g,1)} atm</strong> y <strong>${num(v1_g,1)} L</strong> a una temperatura de <strong>${t1_g} K</strong>. Si cambiamos las condiciones a <strong>${num(p2_g,1)} atm</strong> y <strong>${t2_g} K</strong>, ¿qué volumen ocupará?`;
+        document.getElementById('act-gas-5').innerHTML = en5;
+        problemasActuales.push({ 
+            enunciado: en5, 
+            solucion: `Es la Ley General de los Gases: \\(\\frac{P_1 \\cdot V_1}{T_1} = \\frac{P_2 \\cdot V_2}{T_2}\\)<br>
+            1º Despejamos \\(V_2\\): \\(V_2 = \\frac{P_1 \\cdot V_1 \\cdot T_2}{T_1 \\cdot P_2}\\)<br>
+            2º Sustituimos: \\(V_2 = \\frac{${num(p1_g,1)} \\cdot ${num(v1_g,1)} \\cdot ${t2_g}}{${t1_g} \\cdot ${num(p2_g,1)}} = \\mathbf{${num(v2_g, 2)} \\text{ L}}\\)` 
+        });
+
+        // Ocultar soluciones si estaban abiertas y reiniciar el candado
+        var contentDiv = document.getElementById('protectedSolutions');
+        var authContainer = document.getElementById('solAuthContainer');
+        var lockIcon = document.getElementById('lockIcon');
+        if (contentDiv) { contentDiv.style.display = 'none'; contentDiv.innerHTML = ''; }
+        if (authContainer) authContainer.style.display = 'flex';
+        if (lockIcon) lockIcon.className = 'fa-solid fa-user-lock';
+    };
+
+    // --- VERIFICAR PIN ---
+    window.verificarPin = async function() {
+        var pinInput = document.getElementById('solPinInput');
+        var errorMsg = document.getElementById('solErrorMsg');
+        var btn = document.getElementById('btnUnlockSol');
+        var contentDiv = document.getElementById('protectedSolutions');
+        var lockIcon = document.getElementById('lockIcon');
+
+        if (!pinInput) return;
+        var pin = pinInput.value.trim();
+
+        if (!pin || pin.length !== 6) {
+            if (errorMsg) {
+                errorMsg.innerText = 'Escribe el código completo de 6 dígitos.';
+                errorMsg.style.color = '#dc2626';
+                errorMsg.style.display = 'block';
+            }
+            return;
+        }
+
+        if (errorMsg) { errorMsg.innerText = 'Verificando código...'; errorMsg.style.color = '#1e3a8a'; errorMsg.style.display = 'block'; }
+        if (btn) btn.disabled = true;
+
+        var ok = await GS.verifyPinOnly(pin);
+
+        if (ok) {
+            if (errorMsg) errorMsg.style.display = 'none';
+            contentDiv.innerHTML = generarHTMLSoluciones();
+            contentDiv.style.display = 'block';
+            if (lockIcon) lockIcon.className = 'fa-solid fa-user-check';
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise([contentDiv]);
+            }
+            contentDiv.scrollIntoView({ behavior: 'smooth' });
+            var authContainer = document.getElementById('solAuthContainer');
+            if (authContainer) authContainer.style.display = 'none';
+        } else {
+            if (errorMsg) {
+                errorMsg.innerText = 'Código incorrecto. Inténtalo de nuevo.';
+                errorMsg.style.color = '#dc2626';
+                errorMsg.style.display = 'block';
+            }
+            if (btn) btn.disabled = false;
+        }
+    };
+
+    document.addEventListener('gs-ready', window.generarNuevasActividades);
+    
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(window.generarNuevasActividades, 100);
+    }
+
+})();
