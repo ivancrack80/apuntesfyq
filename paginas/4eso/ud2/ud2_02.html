@@ -1,1 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Estructura Atómica de la Materia - 4º ESO</title>
 
+    <link rel="stylesheet" href="https://ivancrack80.github.io/apuntesfyq/css/gs-styles.css">
+    <script src="https://ivancrack80.github.io/apuntesfyq/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 4.º ESO · Unidad 2</div>
+        <h1 class="gs-title">1. Estructura Atómica de la Materia</h1>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div class="gs-subtitle" style="flex: 1; min-width: 250px;">Partículas subatómicas, isótopos y configuración electrónica</div>
+            <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; color: #475569; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-regular fa-clock" style="color: var(--gs-primary);"></i> 
+                <strong>Temporalización estimada:</strong> 3 sesiones.
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. PARTÍCULAS BÁSICAS -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-atom"></i> 2.1. Partículas Subatómicas Fundamentales</h2>
+    <p>
+        El átomo es la unidad fundamental de la materia que conserva las propiedades de un elemento químico. Aunque históricamente se consideraba indivisible, la física moderna ha demostrado que está constituido por una estructura interna diferenciada en dos regiones principales: el <strong>núcleo atómico</strong> (muy denso y con carga positiva) y la <strong>corteza electrónica</strong> (un espacio volumétricamente mucho mayor donde se encuentran los electrones).
+    </p>
+    <p>
+        Las tres partículas subatómicas fundamentales que determinan el comportamiento físico y químico del átomo son los <strong>protones</strong>, los <strong>neutrones</strong> y los <strong>electrones</strong>:
+    </p>
+
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th>Partícula</th>
+                    <th>Símbolo</th>
+                    <th>Carga Eléctrica Relativa</th>
+                    <th>Carga Absoluta (C)</th>
+                    <th>Masa Relativa (u)</th>
+                    <th>Masa Absoluta (kg)</th>
+                    <th>Ubicación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Protón</strong></td>
+                    <td class="center">\(p^+\)</td>
+                    <td class="center">\(+1\)</td>
+                    <td class="center">\(+1,602 \times 10^{-19}\)</td>
+                    <td class="center">\(\approx 1\text{ u}\)</td>
+                    <td class="center">\(1,673 \times 10^{-27}\)</td>
+                    <td>Núcleo</td>
+                </tr>
+                <tr>
+                    <td><strong>Neutrón</strong></td>
+                    <td class="center">\(n^0\)</td>
+                    <td class="center">\(0\)</td>
+                    <td class="center">\(0\)</td>
+                    <td class="center">\(\approx 1\text{ u}\)</td>
+                    <td class="center">\(1,675 \times 10^{-27}\)</td>
+                    <td>Núcleo</td>
+                </tr>
+                <tr>
+                    <td><strong>Electrón</strong></td>
+                    <td class="center">\(e^-\)</td>
+                    <td class="center">\(-1\)</td>
+                    <td class="center">\(-1,602 \times 10^{-19}\)</td>
+                    <td class="center">\(\approx \frac{1}{1836}\text{ u}\)</td>
+                    <td class="center">\(9,109 \times 10^{-31}\)</td>
+                    <td>Corteza</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-lightbulb"></i> Idea Clave sobre la masa de un átomo</div>
+        <p style="margin: 0;">
+            Más del \(99,9\%\) de la masa total de un átomo se concentra exclusivamente en el núcleo. La masa del electrón es tan insignificante en comparación con la del protón o neutrón (unas 1836 veces menor) que se desprecia al calcular la masa total del átomo.
+        </p>
+    </div>
+
+    <!-- 2. CARACTERIZACIÓN DEL ÁTOMO -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-fingerprint"></i> 2.2. Caracterización del Átomo: Z, A y Notación de Núclidos</h2>
+    
+    <h3>2.2.1. Número Atómico (\(Z\))</h3>
+    <p>
+        El <strong>número atómico (\(Z\))</strong> representa el número total de <strong>protones</strong> presentes en el núcleo de un átomo. Es el "DNI" o la seña de identidad de un elemento: <em>todos los átomos que tienen el mismo número atómico pertenecen al mismo elemento químico y poseen idénticas propiedades químicas</em>.
+    </p>
+
+    <h3>2.2.2 Número Másico (\(A\))</h3>
+    <p>
+        El <strong>número másico (\(A\))</strong> indica la suma total de nucleones (protones más neutrones) que contiene el núcleo atómico:
+    </p>
+    <div class="gs-latex-container">
+        $$A = Z + N \implies N = A - Z$$
+    </div>
+    <p>Donde \(N\) es el número de neutrones.</p>
+
+    <h3>2.2.3. Notación Núclido / Isotópica</h3>
+    <p>Para caracterizar de forma completa cualquier especie atómica o iónica se utiliza la siguiente notación estándar:</p>
+    <div class="gs-latex-container">
+        $$^{A}_{Z}\text{X}^{\pm q}$$
+    </div>
+    <ul>
+        <li>\(\text{X}\): Símbolo químico del elemento.</li>
+        <li>\(A\): Número másico (supraíndice izquierdo).</li>
+        <li>\(Z\): Número atómico (subíndice izquierdo).</li>
+        <li>\(q\): Carga eléctrica neta de la especie (supraíndice derecho). Si es neutro, se omite. \((q = p^+ - e^-)\)</li>
+    </ul>
+
+    <h3>2.2.4. Concepto de Elemento Químico</h3>
+    <p>
+        Un <strong>elemento químico</strong> es una sustancia pura formada por átomos que poseen exactamente el mismo número atómico (\(Z\)), independientemente de cuántos neutrones contengan en sus núcleos o cuántos electrones hayan en sus cortezas.
+    </p>
+
+    <!-- 3. ISÓTOPOS Y MASA ATÓMICA PROMEDIO -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-scale-balanced"></i> 2.3. Isótopos y Masa Atómica Promedio (Ponderada)</h2>
+    
+    <p>
+        Los <strong>isótopos</strong> son átomos que pertenecen al mismo elemento químico (tienen misma cantidad de protones, lo que significa mismo número atómico \(Z\)), pero que difieren en su número de neutrones (\(N\)) y, por consiguiente, tienen distinto número másico (\(A\)).
+    </p>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-flask"></i> Ejemplos Tradicionales de Isótopos: Los isótopos del Hidrógeno</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Protio (\(^{1}_{1}\text{H}\)):</strong> 1 protón, 0 neutrones, 1 electrón. (Abundancia \(\approx 99,98\%\))</li>
+            <li><strong>Deuterio (\(^{2}_{1}\text{H}\) o \(\text{D}\)):</strong> 1 protón, 1 neutrón, 1 electrón. (Abundancia \(\approx 0,015\%\))</li>
+            <li><strong>Tritio (\(^{3}_{1}\text{H}\) o \(\text{T}\)):</strong> 1 protón, 2 neutrones, 1 electrón. (Radiactivo, trazas)</li>
+        </ul>
+    </div>
+
+    <h3>2.3.1. La masa de los átomos</h3>
+    <p>
+        Dado que las masas de los átomos son extremadamente pequeñas, medir su masa en kilogramos resulta poco práctico en el laboratorio. Por ello, se establece como referencia la <strong>unidad de masa atómica unificada</strong>, cuyo símbolo es <strong>(\(\text{u}\))</strong>, definida como la doceava parte (\(\frac{1}{12}\)) de la masa de un átomo de carbono-12 (\(^{12}\text{C}\)).
+    </p>
+    <p>La equivalencia entre la unidad de masa atómica y la unidad del Sistema Internacional (kilogramo) es:</p>
+    <div class="gs-latex-container">
+        $$1\text{ u} = 1,66 \cdot 10^{-27}\text{ kg}$$
+    </div>
+    <p>
+        En la naturaleza, la inmensa mayoría de los elementos químicos se presentan como una mezcla isotópica constante. La masa atómica relativa que figura en la tabla periódica corresponde a la <strong>media ponderada</strong> de las masas de sus isótopos naturales atendiendo a su abundancia relativa en porcentaje (\(\%\)):
+    </p>
+    <p>
+        La <strong>abundancia relativa isotópica</strong> (\(A_i\)) es el porcentaje o proporción en la que se encuentra un determinado isótopo en una muestra natural con respecto al conjunto total de átomos de ese mismo elemento.
+    </p>
+    <div class="gs-latex-container">
+        $$\bar{M} = \frac{(M_1 \cdot A_1) + (M_2 \cdot A_2) + \dots + (M_n \cdot A_n)}{100}$$
+    </div>
+    <p>Donde \(M_1, M_2, \dots, M_n\) son las masas isotópicas y \(A_1, A_2, \dots, A_n\) representan las abundancias relativas en porcentaje (\(\%\)) de cada isótopo.</p>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-calculator"></i> Ejemplo Resuelto 1: Obtención de la Masa Atómica Promedio y Conversión a kg</div>
+        <p><strong>Enunciado:</strong> El cloro presente en la naturaleza consta de un \(75,78\%\) de \(^{35}\text{Cl}\) (masa isotópica \(34,97\text{ u}\)) y un \(24,22\%\) de \(^{37}\text{Cl}\) (masa isotópica \(36,97\text{ u}\)). Determina la masa atómica media del cloro en \(\text{u}\) y calcula la masa en kilogramos (\(\text{kg}\)) correspondiente a un átomo de cloro.</p>
+        <p><strong>Resolución paso a paso:</strong></p>
+        <ol style="margin-bottom: 0;">
+            <li>
+                Planteamos la fórmula sustituyendo la masa de cada isótopo y su respectivo porcentaje de abundancia:
+                <div class="gs-latex-container">
+                    $$\bar{M} = \frac{(34,97\text{ u} \cdot 75,78) + (36,97\text{ u} \cdot 24,22)}{100}$$
+                </div>
+            </li>
+            <li>
+                Realizamos las multiplicaciones en el numerador:
+                <div class="gs-latex-container">
+                    $$\bar{M} = \frac{2649,9766 + 895,4134}{100} = \frac{3545,39}{100}$$
+                </div>
+            </li>
+            <li>
+                Dividimos entre 100 para obtener la masa atómica media en \(\text{u}\):
+                <div class="gs-latex-container">
+                    $$\bar{M} = \mathbf{35,45\text{ u}}$$
+                </div>
+            </li>
+            <li>
+                Convertimos el resultado a kilogramos mediante el factor de conversión (\(1\text{ u} = 1,66 \cdot 10^{-27}\text{ kg}\)):
+                <div class="gs-latex-container" style="margin-bottom: 0;">
+                    $$m = 35,45\text{ u} \cdot \frac{1,66 \cdot 10^{-27}\text{ kg}}{1\text{ u}} = \mathbf{5,88 \cdot 10^{-26}\text{ kg}}$$
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-calculator"></i> Ejemplo Resuelto 2: Cálculo de la Abundancia Isotópica Porcentual</div>
+        <p><strong>Enunciado:</strong> La masa atómica promedio del cobre es \(63,55\text{ u}\). Sabiendo que el cobre posee dos isótopos estables, el \(^{63}\text{Cu}\) (\(62,93\text{ u}\)) y el \(^{65}\text{Cu}\) (\(64,93\text{ u}\)), calcula el porcentaje de abundancia de cada uno en la corteza terrestre.</p>
+        <p><strong>Resolución paso a paso:</strong></p>
+        <ol style="margin-bottom: 0;">
+            <li>Definimos la variable \(x\) como el porcentaje del primer isótopo (\(^{63}\text{Cu}\)). Como la suma de los porcentajes es \(100\%\), el porcentaje del segundo isótopo (\(^{65}\text{Cu}\)) será \((100 - x)\).</li>
+            <li>
+                Sustituimos en la expresión de la media ponderada:
+                <div class="gs-latex-container">
+                    $$63,55 = \frac{(62,93 \cdot x) + [64,93 \cdot (100 - x)]}{100}$$
+                </div>
+            </li>
+            <li>
+                Despejamos la ecuación de primer grado:
+                <div class="gs-latex-container">
+                    $$63,55 \cdot 100 = 62,93x + 6493 - 64,93x$$
+                </div>
+                <div class="gs-latex-container">
+                    $$6355 - 6493 = -2,00x \implies -138 = -2,00x$$
+                </div>
+                <div class="gs-latex-container">
+                    $$x = \frac{-138}{-2,00} = \mathbf{69,0\%}$$
+                </div>
+            </li>
+            <li>
+                Obtenemos el porcentaje del isótopo secundario:
+                <div class="gs-latex-container" style="margin-bottom: 0;">
+                    $$\%(^{65}\text{Cu}) = 100 - 69,0 = \mathbf{31,0\%}$$
+                </div>
+            </li>
+        </ol>
+        <p style="margin-top: 15px; margin-bottom: 0;"><em>Conclusión:</em> El cobre está compuesto por un <strong>\(69,0\%\)</strong> de \(^{63}\text{Cu}\) y un <strong>\(31,0\%\)</strong> de \(^{65}\text{Cu}\).</p>
+    </div>
+
+    <!-- 4. CONFIGURACIÓN ELECTRÓNICA -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-layer-group"></i> 2.4. La Corteza Electrónica</h2>
+
+    <p>
+        Los electrones de un átomo no se distribuyen al azar, sino que se organizan en la <strong>corteza electrónica</strong> ocupando <strong>orbitales atómicos</strong> (regiones del espacio con la máxima probabilidad de encontrar un electrón).
+    </p>
+    <p>
+        La <strong>configuración electrónica</strong> indica la forma ordenada y estructurada en que se distribuyen los electrones en los diferentes niveles, subniveles y orbitales de energía alrededor del núcleo.
+    </p>
+
+    <h3>2.4.1. Estructura de la Corteza: Niveles, Subniveles y Orbitales</h3>
+    <p>La corteza se organiza jerárquicamente atendiendo a su capacidad energética:</p>
+    <ul>
+        <li><strong>Niveles principales de energía (\(n = 1, 2, 3, 4, 5, 6, 7\)):</strong> Indican la proximidad o distancia media de los electrones al núcleo.</li>
+        <li><strong>Subniveles de energía (\(s, p, d, f\)):</strong> Divisiones dentro de cada nivel energético.</li>
+        <li><strong>Orbitales atómicos:</strong> Cada subnivel está formado por un número concreto de orbitales. Dado que en cada orbital caben como máximo <strong>2 electrones</strong>, la capacidad total queda distribuida así:
+            <ul>
+                <li><strong>Subnivel \(s\):</strong> 1 orbital \(\rightarrow\) Máximo <strong>2 electrones</strong> (\(s^2\)).</li>
+                <li><strong>Subnivel \(p\):</strong> 3 orbitales \(\rightarrow\) Máximo <strong>6 electrones</strong> (\(p^6\)).</li>
+                <li><strong>Subnivel \(d\):</strong> 5 orbitales \(\rightarrow\) Máximo <strong>10 electrones</strong> (\(d^{10}\)).</li>
+                <li><strong>Subnivel \(f\):</strong> 7 orbitales \(\rightarrow\) Máximo <strong>14 electrones</strong> (\(f^{14}\)).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-arrows-spin"></i> El espín del electrón y la ocupación de orbitales</div>
+        <p>
+            El <strong>espín</strong> se puede entender como si el electrón se comportase como un <strong>pequeño imán</strong>. Debido a esta propiedad magnética, el electrón solo puede orientarse de dos formas posibles (a favor o en contra de un campo magnético externo). En la práctica, representamos estas dos orientaciones con una flecha hacia arriba (\(\uparrow\)) y una flecha hacia abajo (\(\downarrow\)).
+        </p>
+        <p>
+            Para que dos electrones puedan convivir dentro del mismo orbital, es imprescindible que posean <strong>espines opuestos o antiparalelos</strong> (\(\uparrow\downarrow\)). Si el orbital solo contiene un electrón, se dice que está <strong>desapareado</strong> (\(\uparrow\)).
+        </p>
+
+        <!-- Diagrama visual de orbitales en cajas -->
+        <div style="display: flex; gap: 15px; justify-content: center; margin: 20px 0; text-align: center; flex-wrap: wrap;">
+            <div style="border: 1px solid #d1d5db; padding: 10px; border-radius: 8px; background-color: #f9fafb; min-width: 120px;">
+                <div style="border: 2px solid #374151; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; margin: 0 auto; background-color: #ffffff; border-radius: 4px;"></div>
+                <small style="display: block; margin-top: 6px; font-weight: 600;">Orbital vacío</small>
+            </div>
+            <div style="border: 1px solid #d1d5db; padding: 10px; border-radius: 8px; background-color: #f9fafb; min-width: 120px;">
+                <div style="border: 2px solid #374151; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto; background-color: #ffffff; border-radius: 4px;">\(\uparrow\)</div>
+                <small style="display: block; margin-top: 6px; font-weight: 600;">Electrón desapareado</small>
+            </div>
+            <div style="border: 1px solid #d1d5db; padding: 10px; border-radius: 8px; background-color: #f9fafb; min-width: 120px;">
+                <div style="border: 2px solid #374151; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto; background-color: #ffffff; border-radius: 4px;">\(\uparrow\downarrow\)</div>
+                <small style="display: block; margin-top: 6px; font-weight: 600;">Par apareado (espines opuestos)</small>
+            </div>
+        </div>
+    </div>
+
+    <h3>2.4.2. Principios de Llenado</h3>
+    <p>El llenado de los orbitales en un átomo en su <strong>estado fundamental</strong> (su estado de mínima energía y máxima estabilidad) sigue tres reglas clave:</p>
+    <ol>
+        <li><strong>Principio de Aufbau (o de Mínima Energía):</strong> Los electrones van ocupando de forma progresiva los orbitales de menor energía disponible antes de pasar a subniveles de mayor energía.</li>
+        <li><strong>Principio de Exclusión de Pauli:</strong> Un orbital atómico solo puede albergar como máximo 2 electrones, los cuales deben poseer espines opuestos (\(\uparrow\downarrow\)).</li>
+        <li><strong>Regla de Hund (Máxima Multiplicidad):</strong> Al llenar subniveles formados por varios orbitales de la misma energía (\(p, d, f\)), los electrones ocupan primero posiciones individuales con espines paralelos (\(\uparrow\)) antes de empezar a aparearse (\(\uparrow\downarrow\)).</li>
+    </ol>
+
+    <div class="gs-box gs-lectura" style="border-left: 4px solid #dc2626;">
+        <div class="gs-lectura-title" style="color: #dc2626;"><i class="fa-solid fa-triangle-exclamation"></i> ¡Ojo, el átomo puede tener otras configuraciones!</div>
+        <p style="margin: 0 0 6px 0;">Si al analizar una configuración electrónica detectas que no se cumplen estas reglas, te encontrarás ante uno de estos dos escenarios:</p>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Estado excitado (Posible):</strong> El átomo ha absorbido energía y un electrón ha "saltado" a un nivel u orbital superior dejando huecos abajo (incumple el principio de Aufbau). Es una configuración real, pero inestable. Ej. \(1s^2\ 2s^2\ 2p^6\ 4s^1\) El electrón \(3s^1\) ha saltado al orbital \(4s^1\).</li>
+            <li><strong>Configuración prohibida (Imposible):</strong> Hay más de 2 electrones en un mismo orbital o 2 electrones en el mismo orbital tienen el mismo espín (\(\uparrow\uparrow\)). Al incumplir el principio de Pauli, esta configuración <strong>no puede existir en la naturaleza</strong>. Ej. \(1s^2\ 2s^3\) No puede existir \(3~e^-\) en el subnivel <strong>s</strong>.</li>
+        </ul>
+    </div>
+
+    <h3>2.4.3. El Diagrama de Moeller</h3>
+    <p>
+        El <strong>Diagrama de Moeller</strong> (o regla de las diagonales) es una regla mnemotécnica muy útil que marca la secuencia teórica de llenado según el orden creciente de energía de los subniveles:
+    </p>
+    <div class="gs-latex-container">
+        $$1s \rightarrow 2s \rightarrow 2p \rightarrow 3s \rightarrow 3p \rightarrow 4s \rightarrow 3d \rightarrow 4p \rightarrow 5s \rightarrow 4d \rightarrow 5p \rightarrow 6s \dots$$
+    </div>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-circle-info"></i> Carácter experimental de la configuración electrónica</div>
+        <p style="margin-bottom: 0;">
+            Conviene destacar que la configuración electrónica real de los elementos se determina mediante <strong>ensayos experimentales</strong>. Aunque la regla de Moeller predice con éxito la estructura de la mayoría de los átomos, existen excepciones (como el cromo, \(Z=24\), o el cobre, \(Z=29\)), en los que la distribución real varía para lograr una mayor estabilidad energética con subniveles semiocupados (\(d^5\)) o completamente llenos (\(d^{10}\)).
+        </p>
+    </div>
+
+    <div class="gs-svg-wrapper">
+        <svg viewBox="0 0 430 380" xmlns="http://www.w3.org/2000/svg" style="max-width: 380px; width: 100%; height: auto; display: block; margin: 0 auto;">
+            <style>
+                .sub-text { font-family: 'Roboto', sans-serif; font-size: 15px; font-weight: bold; fill: #1e3a8a; }
+                .diag-line { stroke: #dc2626; stroke-width: 2.2; stroke-dasharray: 5,4; marker-end: url(#arrow); }
+                .node-bg { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; }
+            </style>
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626" />
+                </marker>
+            </defs>
+
+            <!-- Columna S (x = 60) -->
+            <g transform="translate(60, 0)">
+                <circle cx="0" cy="40" r="18" class="node-bg"/><text x="0" y="45" text-anchor="middle" class="sub-text">1s</text>
+                <circle cx="0" cy="90" r="18" class="node-bg"/><text x="0" y="95" text-anchor="middle" class="sub-text">2s</text>
+                <circle cx="0" cy="140" r="18" class="node-bg"/><text x="0" y="145" text-anchor="middle" class="sub-text">3s</text>
+                <circle cx="0" cy="190" r="18" class="node-bg"/><text x="0" y="195" text-anchor="middle" class="sub-text">4s</text>
+                <circle cx="0" cy="240" r="18" class="node-bg"/><text x="0" y="245" text-anchor="middle" class="sub-text">5s</text>
+                <circle cx="0" cy="290" r="18" class="node-bg"/><text x="0" y="295" text-anchor="middle" class="sub-text">6s</text>
+                <circle cx="0" cy="340" r="18" class="node-bg"/><text x="0" y="345" text-anchor="middle" class="sub-text">7s</text>
+            </g>
+
+            <!-- Columna P (x = 160) -->
+            <g transform="translate(160, 0)">
+                <circle cx="0" cy="90" r="18" class="node-bg"/><text x="0" y="95" text-anchor="middle" class="sub-text">2p</text>
+                <circle cx="0" cy="140" r="18" class="node-bg"/><text x="0" y="145" text-anchor="middle" class="sub-text">3p</text>
+                <circle cx="0" cy="190" r="18" class="node-bg"/><text x="0" y="195" text-anchor="middle" class="sub-text">4p</text>
+                <circle cx="0" cy="240" r="18" class="node-bg"/><text x="0" y="245" text-anchor="middle" class="sub-text">5p</text>
+                <circle cx="0" cy="290" r="18" class="node-bg"/><text x="0" y="295" text-anchor="middle" class="sub-text">6p</text>
+                <circle cx="0" cy="340" r="18" class="node-bg"/><text x="0" y="345" text-anchor="middle" class="sub-text">7p</text>
+            </g>
+
+            <!-- Columna D (x = 260) -->
+            <g transform="translate(260, 0)">
+                <circle cx="0" cy="140" r="18" class="node-bg"/><text x="0" y="145" text-anchor="middle" class="sub-text">3d</text>
+                <circle cx="0" cy="190" r="18" class="node-bg"/><text x="0" y="195" text-anchor="middle" class="sub-text">4d</text>
+                <circle cx="0" cy="240" r="18" class="node-bg"/><text x="0" y="245" text-anchor="middle" class="sub-text">5d</text>
+                <circle cx="0" cy="290" r="18" class="node-bg"/><text x="0" y="295" text-anchor="middle" class="sub-text">6d</text>
+            </g>
+
+            <!-- Columna F (x = 360) -->
+            <g transform="translate(360, 0)">
+                <circle cx="0" cy="190" r="18" class="node-bg"/><text x="0" y="195" text-anchor="middle" class="sub-text">4f</text>
+                <circle cx="0" cy="240" r="18" class="node-bg"/><text x="0" y="245" text-anchor="middle" class="sub-text">5f</text>
+            </g>
+
+            <!-- Diagonales de llenado exactamente alineadas -->
+            <line x1="90" y1="25" x2="30" y2="55" class="diag-line"/>
+            <line x1="90" y1="75" x2="30" y2="105" class="diag-line"/>
+            <line x1="190" y1="75" x2="30" y2="155" class="diag-line"/>
+            <line x1="190" y1="125" x2="30" y2="205" class="diag-line"/>
+            <line x1="290" y1="125" x2="30" y2="255" class="diag-line"/>
+            <line x1="290" y1="175" x2="30" y2="305" class="diag-line"/>
+            <line x1="390" y1="175" x2="30" y2="355" class="diag-line"/>
+            <line x1="390" y1="225" x2="130" y2="355" class="diag-line"/>
+        </svg>
+        <p style="font-size: 0.88rem; color: #64748b; margin-top: 8px; margin-bottom: 0;"><em>Figura 1: Secuencia gráfica de Moeller para la distribución energética de electrones.</em></p>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-list-ol"></i> Ejemplos Completos de Configuración Electrónica</div>
+        <p>Se distribuyen los electrones siguiendo el diagrama y posteriormente, como buena práctica, se agrupan ordenados por capas principales:</p>
+        <ul style="margin-bottom: 0;">
+            <li style="margin-bottom: 8px;"><strong>Litio (\(\text{Li}\), \(Z=3\)):</strong> Configuración: \(1s^2\ 2s^1\)</li>
+            <li style="margin-bottom: 8px;"><strong>Nitrógeno (\(\text{N}\), \(Z=7\)):</strong> Configuración: \(1s^2\ 2s^2\ 2p^3\)</li>
+            <li style="margin-bottom: 8px;"><strong>Magnesio (\(\text{Mg}\), \(Z=12\)):</strong> Configuración: \(1s^2\ 2s^2\ 2p^6\ 3s^2\)</li>
+            <li style="margin-bottom: 8px;"><strong>Silicio (\(\text{Si}\), \(Z=14\)):</strong> Configuración: \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^2\)</li>
+            <li style="margin-bottom: 8px;"><strong>Argón (\(\text{Ar}\), \(Z=18\)):</strong> Configuración: \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\) (Gas noble, capa 3 completa con 8 electrones).</li>
+            <li style="margin-bottom: 8px;"><strong>Titanio (\(\text{Ti}\), \(Z=22\)):</strong> • Llenado por diagonales: \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ \mathbf{4s^2\ 3d^2}\)<br>• Ordenado por capas: \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ \mathbf{3d^2\ 4s^2}\)</li>
+            <li style="margin-bottom: 8px;"><strong>Galio (\(\text{Ga}\), \(Z=31\)):</strong> • Llenado por diagonales: \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^{10}\ 4p^1\)<br>• Ordenado por capas: \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 3d^{10}\ \mathbf{4s^2\ 4p^1}\)</li>
+            <li style="margin-bottom: 8px;"><strong>Bromo (\(\text{Br}\), \(Z=35\)):</strong> • Llenado por diagonales: \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^{10}\ 4p^5\)<br>• Ordenado por capas: \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 3d^{10}\ \mathbf{4s^2\ 4p^5}\)</li>
+            <li style="margin-bottom: 0;"><strong>Yodo (\(\text{I}\), \(Z=53\)):</strong> • Llenado por diagonales: \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^{10}\ 4p^6\ 5s^2\ 4d^{10}\ 5p^5\)<br>• Ordenado por capas: \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 3d^{10}\ 4s^2\ 4p^6\ 4d^{10}\ \mathbf{5s^2\ 5p^5}\)</li>
+        </ul>
+    </div>
+
+    <h3>2.4.4. Capa de Valencia, Electrón Diferenciador y Estabilidad de los Gases Nobles</h3>
+    <p>
+        La <strong>capa de valencia</strong> es el nivel principal de energía más externo ocupado por electrones (el mayor valor de \(n\) en la configuración electrónica). Los electrones que se encuentran en esta capa se denominan <strong>electrones de valencia</strong> y son los responsables del comportamiento y los enlaces químicos del elemento.
+    </p>
+    <p>
+        Por su parte, el <strong>electrón diferenciador</strong> es el último electrón que se incorpora a la configuración electrónica de un átomo en su estado fundamental; es decir, el electrón que marca la diferencia entre un elemento de número atómico \(Z\) y el siguiente de número atómico \(Z+1\). 
+    </p>
+    <p>
+        Los <strong>gases nobles</strong> \((He, Ne, Ar, Kr, Xe, Rn)\) son extraordinariamente estables e inertes químicamente debido a que tienen su capa de valencia completamente saturada con <strong>8 electrones</strong> (\(ns^2 np^6\), excepto el Helio que se satura con \(1s^2\)). Esta condición de máxima estabilidad energética constituye el origen de la <strong>Regla del Octeto</strong>.
+    </p>
+
+    <!-- 5. FORMACIÓN DE IONES -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-bolt"></i> 2.5. Formación de Iones y Justificación Energética</h2>
+    
+    <p>
+        Los átomos de la mayoría de los elementos químicos no poseen 8 electrones en su capa de valencia y, por tanto, son inestables. Para alcanzar la configuración electrónica estable del <strong>gas noble más próximo</strong>, los átomos tienden a <strong>ganar o perder electrones</strong> en su corteza, transformándose en especies cargadas llamadas <strong>iones</strong>.
+    </p>
+
+    <h3>2.5.1. Cationes (Iones Positivos)</h3>
+    <p>
+        Se forman cuando un átomo neutro (generalmente un <strong>metal</strong> con 1, 2 o 3 electrones de valencia) <strong>pierde electrones</strong> para vaciar su capa más externa y quedarse con el octeto de la capa inmediatamente anterior. Al tener más protones que electrones, adquiere carga positiva neta.
+    </p>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-plus-circle"></i> Semirreacciones de formación de cationes</div>
+        <ul style="margin-bottom: 0;">
+            <li style="margin-bottom: 12px;">
+                <strong>Ion Sodio (\(\text{Na}^+\)):</strong>
+                <div class="gs-latex-container">
+                    $$\text{Na } (1s^2\ 2s^2\ 2p^6\ \mathbf{3s^1}) \longrightarrow \mathbf{\text{Na}^+} (1s^2\ 2s^2\ 2p^6) + 1e^-$$
+                </div>
+                <em>Explicación:</em> El átomo de Sodio pierde su único electrón \(3s^1\) y adquiere la configuración del gas noble <strong>\(Ne\)</strong> (\(10\text{ }e^-\)).
+            </li>
+            <li style="margin-bottom: 12px;">
+                <strong>Ion Magnesio (\(\text{Mg}^{2+}\)):</strong>
+                <div class="gs-latex-container">
+                    $$\text{Mg } (1s^2\ 2s^2\ 2p^6\ \mathbf{3s^2}) \longrightarrow \mathbf{\text{Mg}^{2+}} (1s^2\ 2s^2\ 2p^6) + 2e^-$$
+                </div>
+                <em>Explicación:</em> Pierde sus 2 electrones de valencia y pasa a ser isoelectrónico con el <strong>\(Ne\)</strong>.
+            </li>
+            <li style="margin-bottom: 0;">
+                <strong>Ion Aluminio (\(\text{Al}^{3+}\)):</strong>
+                <div class="gs-latex-container">
+                    $$\text{Al } (1s^2\ 2s^2\ 2p^6\ \mathbf{3s^2\ 3p^1}) \longrightarrow \mathbf{\text{Al}^{3+}} (1s^2\ 2s^2\ 2p^6) + 3e^-$$
+                </div>
+                <em>Explicación:</em> Pierde sus 3 electrones de valencia y pasa a ser isoelectrónico con el <strong>\(Ne\)</strong>.
+            </li>
+        </ul>
+    </div>
+
+    <h3>2.5.2. Aniones (Iones Negativos)</h3>
+    <p>
+        Se forman cuando un átomo neutro (típicamente un <strong>no metal</strong> con 5, 6 o 7 electrones de valencia) <strong>gana electrones</strong> para completar su capa de valencia hasta alcanzar los 8 electrones (\(ns^2 np^6\)). Al acumular más electrones que protones, adquiere carga negativa neta.
+    </p>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-minus-circle"></i> Semirreacciones de formación de aniones</div>
+        <ul style="margin-bottom: 0;">
+            <li style="margin-bottom: 12px;">
+                <strong>Ion Cloruro (\(\text{Cl}^-\)):</strong>
+                <div class="gs-latex-container">
+                    $$\text{Cl } (1s^2\ 2s^2\ 2p^6\ 3s^2\ \mathbf{3p^5}) + 1e^- \longrightarrow \mathbf{\text{Cl}^-} (1s^2\ 2s^2\ 2p^6\ 3s^2\ \mathbf{3p^6})$$
+                </div>
+                <em>Explicación:</em> Capta un electrón para completar su subnivel \(3p\) y adquiere la configuración del gas noble <strong>\(Ar\)</strong> (\(18\text{ }e^-\)).
+            </li>
+            <li style="margin-bottom: 12px;">
+                <strong>Ion Óxido (\(\text{O}^{2-}\)):</strong>
+                <div class="gs-latex-container">
+                    $$\text{O } (1s^2\ 2s^2\ \mathbf{2p^4}) + 2e^- \longrightarrow \mathbf{\text{O}^{2-}} (1s^2\ 2s^2\ \mathbf{2p^6})$$
+                </div>
+                <em>Explicación:</em> Capta 2 electrones para completar el octeto, adquiriendo la configuración del <strong>\(Ne\)</strong>.
+            </li>
+            <li style="margin-bottom: 0;">
+                <strong>Ion Nitruro (\(\text{N}^{3-}\)):</strong>
+                <div class="gs-latex-container">
+                    $$\text{N } (1s^2\ 2s^2\ \mathbf{2p^3}) + 3e^- \longrightarrow \mathbf{\text{N}^{3-}} (1s^2\ 2s^2\ \mathbf{2p^6})$$
+                </div>
+                <em>Explicación:</em> Capta 3 electrones para completar el octeto, adquiriendo la configuración del <strong>\(Ne\)</strong>.
+            </li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-comprender" style="border-left-color: #dc2626; background-color: #fef2f2;">
+        <div class="gs-comprender-title" style="color: #991b1b;"><i class="fa-solid fa-triangle-exclamation"></i> Principio Inviolable: La inmutabilidad del núcleo</div>
+        <p style="margin: 0; color: #7f1d1d;">
+            ¡<strong>JAMÁS</strong> se forma un ion modificando el número de protones en el núcleo! El número de protones (\(Z\)) define al elemento químico. Si cambiáramos los protones estaríamos ante una reacción nuclear (transmutación). Los iones se forman <strong>exclusivamente por transferencia (ganancia o pérdida) de electrones en la corteza</strong>.
+        </p>
+    </div>
+
+    <h3>2.5.3. Tabla Resumen: Comparación de Especies Neutras e Iónicas</h3>
+    <p>A continuación se muestra el recuento riguroso de partículas para diferentes especies:</p>
+
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th>Especie</th>
+                    <th>Tipo</th>
+                    <th>\(Z\)</th>
+                    <th>\(A\)</th>
+                    <th>Protones (\(p^+\))</th>
+                    <th>Neutrones (\(n^0\))</th>
+                    <th>Electrones (\(e^-\))</th>
+                    <th>Configuración Electrónica</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>\(^{23}_{11}\text{Na}\)</strong></td>
+                    <td>Átomo neutro</td>
+                    <td class="center">11</td>
+                    <td class="center">23</td>
+                    <td class="center">11</td>
+                    <td class="center">\(23-11 = 12\)</td>
+                    <td class="center"><strong>11</strong></td>
+                    <td>\(1s^2\ 2s^2\ 2p^6\ 3s^1\)</td>
+                </tr>
+                <tr>
+                    <td><strong>\(^{23}_{11}\text{Na}^+\)</strong></td>
+                    <td>Catión monovalente</td>
+                    <td class="center">11</td>
+                    <td class="center">23</td>
+                    <td class="center">11</td>
+                    <td class="center">\(23-11 = 12\)</td>
+                    <td class="center"><strong>10</strong> (\(11-1\))</td>
+                    <td>\(1s^2\ 2s^2\ 2p^6\) (config. Neón)</td>
+                </tr>
+                <tr>
+                    <td><strong>\(^{35}_{17}\text{Cl}\)</strong></td>
+                    <td>Átomo neutro</td>
+                    <td class="center">17</td>
+                    <td class="center">35</td>
+                    <td class="center">17</td>
+                    <td class="center">\(35-17 = 18\)</td>
+                    <td class="center"><strong>17</strong></td>
+                    <td>\(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^5\)</td>
+                </tr>
+                <tr>
+                    <td><strong>\(^{35}_{17}\text{Cl}^-\)</strong></td>
+                    <td>Anión monovalente</td>
+                    <td class="center">17</td>
+                    <td class="center">35</td>
+                    <td class="center">17</td>
+                    <td class="center">\(35-17 = 18\)</td>
+                    <td class="center"><strong>18</strong> (\(17+1\))</td>
+                    <td>\(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\) (config. Argón)</td>
+                </tr>
+                <tr>
+                    <td><strong>\(^{16}_{\ 8}\text{O}^{2-}\)</strong></td>
+                    <td>Anión divalente</td>
+                    <td class="center">8</td>
+                    <td class="center">16</td>
+                    <td class="center">8</td>
+                    <td class="center">\(16-8 = 8\)</td>
+                    <td class="center"><strong>10</strong> (\(8+2\))</td>
+                    <td>\(1s^2\ 2s^2\ 2p^6\) (config. Neón)</td>
+                </tr>
+                <tr>
+                    <td><strong>\(^{40}_{20}\text{Ca}^{2+}\)</strong></td>
+                    <td>Catión divalente</td>
+                    <td class="center">20</td>
+                    <td class="center">40</td>
+                    <td class="center">20</td>
+                    <td class="center">\(40-20 = 20\)</td>
+                    <td class="center"><strong>18</strong> (\(20-2\))</td>
+                    <td>\(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\) (config. Argón)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades de repaso</div>
+        <ol class="gs-actividades">
+            <li>
+                <strong>Estructura atómica e iones:</strong> Dado el núclido \(^{56}_{26}\text{Fe}^{3+}\) (catión Hierro(3+)):
+                <br>a) Determina el número de protones, neutrones y electrones.
+                <br>b) Escribe la configuración electrónica del catión indicando claramente los electrones que ha perdido.
+            </li>
+            <li>
+                <strong>Identificación de elementos y valencia:</strong> Un elemento químico neutro \(X\) posee la siguiente configuración electrónica: \(1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^4\).
+                <br>a) ¿Cuál es su número atómico (\(Z\)) e identifica de qué elemento se trata?
+                <br>b) ¿Cuántos electrones de valencia tiene?
+                <br>c) Deduce cuál es el ion más estable que formará y escribe la configuración de dicho ion.
+            </li>
+            <li>
+                <strong>Cálculo de masa atómica promedio:</strong> El elemento Boro (\(Z=5\)) se presenta naturalmente como una mezcla de dos isótopos: \(^{10}\text{B}\) con masa isotópica \(10,01\text{ u}\) y abundancia del \(19,9\%\), y \(^{11}\text{B}\) con masa isotópica \(11,01\text{ u}\) y abundancia del \(80,1\%\). Calcula la masa atómica ponderada del boro.
+            </li>
+            <li>
+                <strong>Abundancia isotópica:</strong> El Galio cuya masa atómica promedio es \(\bar{M} = 69,72\text{ u}\) está formado por dos isótopos estables: \(^{69}\text{Ga}\) (\(68,93\text{ u}\)) y \(^{71}\text{Ga}\) (\(70,92\text{ u}\)). Calcula la abundancia relativa porcentual de cada isótopo.
+            </li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="4eso_ud2_1">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--gs-primary);">Solucionario Oficial para el Alumnado</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos facilitado por tu docente para comprobar las soluciones paso a paso.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
