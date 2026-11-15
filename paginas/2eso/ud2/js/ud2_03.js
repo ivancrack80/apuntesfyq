@@ -9,10 +9,6 @@
         return parseFloat(num.toFixed(dec));
     }
 
-    function elegirAlAzar(array) {
-        return array[Math.floor(Math.random() * array.length)];
-    }
-
     function num(valor, decimales) {
         let d = decimales === undefined ? 2 : decimales;
         return valor.toFixed(d).replace('.', ',');
@@ -58,7 +54,7 @@
         
         problemasActuales = [];
 
-        // --- BLOQUE 1: Cambios de temperatura (3 de ºC a K y 2 de K a ºC) ---
+        // --- BLOQUE 1: Cambios de temperatura ---
         let en1 = '<strong>Cambios de temperatura:</strong> Realiza las siguientes conversiones:<br><ul style="margin-top: 5px; margin-bottom: 0;">';
         let sol1 = '<strong>Cambios de temperatura:</strong><br><ul style="margin-top: 5px; margin-bottom: 0;">';
         
@@ -80,7 +76,7 @@
         document.getElementById('act-gas-1').innerHTML = en1;
         problemasActuales.push({ enunciado: en1, solucion: sol1 });
 
-        // --- BLOQUE 2: Cambios de presión (3 de atm a mmHg y 2 de atm a Pa) ---
+        // --- BLOQUE 2: Cambios de presión ---
         let en2 = '<strong>Cambios de presión:</strong> Realiza las siguientes conversiones (recuerda: 1 atm = 760 mmHg = 101325 Pa):<br><ul style="margin-top: 5px; margin-bottom: 0;">';
         let sol2 = '<strong>Cambios de presión:</strong><br><ul style="margin-top: 5px; margin-bottom: 0;">';
         
@@ -118,7 +114,7 @@
             2º Sustituimos: \\(V_2 = \\frac{${num(p1_b,1)} \\cdot ${num(v1_b,1)}}{${num(p2_b,1)}} = \\mathbf{${num(v2_b, 2)} \\text{ L}}\\)` 
         });
 
-        // --- BLOQUE 4: Ley de Charles (con ciclo completo de temperatura) ---
+        // --- BLOQUE 4: Ley de Charles ---
         let t1_c = random(10, 50);
         let t1_k = t1_c + 273;
         let v1_c = random(1, 10, 1);
@@ -137,26 +133,21 @@
             4º Pasamos a °C: \\(t_2 = ${num(t2_k, 1)} - 273 = \\mathbf{${num(t2_c, 0)} °C}\\)` 
         });
 
-                // --- BLOQUE 5: Ley General (con cambio de unidades de P y T) ---
+        // --- BLOQUE 5: Ley General (CON VARIABLES RENOMBRADAS PARA EVITAR CONFLICTOS) ---
         let p1_g = random(1, 5, 1);
-        let p1_g_mmhg = p1_g * 760; // Damos P1 en mmHg
+        let p1_g_mmhg = p1_g * 760; 
         let v1_g = random(5, 15, 1);
         
-        // Generamos T1 en ºC (entre -20 y 150 para que sea realista)
-        let t1_c = random(-20, 150);
-        let t1_g = t1_c + 273;
+        let t1_c_5 = random(-20, 150); // <-- Renombrada
+        let t1_g = t1_c_5 + 273;
         
-        // Generamos P2 en atm
         let p2_g = random(1, 4, 1);
+        let t2_c_5 = random(t1_c_5 + 20, t1_c_5 + 150); // <-- Renombrada
+        let t2_g = t2_c_5 + 273;
         
-        // Generamos T2 en ºC (mayor que T1 para que V2 sea mayor)
-        let t2_c = random(t1_c + 20, t1_c + 150);
-        let t2_g = t2_c + 273;
-        
-        // Calculamos V2
         let v2_g = (p1_g * v1_g * t2_g) / (t1_g * p2_g);
         
-        let en5 = `Un gas se encuentra a <strong>${num(p1_g_mmhg, 0)} mmHg</strong> y <strong>${num(v1_g,1)} L</strong> a una temperatura de <strong>${t1_c} ºC</strong>. Si cambiamos las condiciones a <strong>${num(p2_g,1)} atm</strong> y <strong>${t2_c} ºC</strong>, ¿qué volumen ocupará?`;
+        let en5 = `Un gas se encuentra a <strong>${num(p1_g_mmhg, 0)} mmHg</strong> y <strong>${num(v1_g,1)} L</strong> a una temperatura de <strong>${t1_c_5} ºC</strong>. Si cambiamos las condiciones a <strong>${num(p2_g,1)} atm</strong> y <strong>${t2_c_5} ºC</strong>, ¿qué volumen ocupará?`;
         
         document.getElementById('act-gas-5').innerHTML = en5;
         
@@ -166,8 +157,8 @@
             Es la Ley General de los Gases: \\(\\frac{P_1 \\cdot V_1}{T_1} = \\frac{P_2 \\cdot V_2}{T_2}\\)<br><br>
             1º Pasamos \\(P_1\\) de mmHg a atm: \\(P_1 = \\frac{${num(p1_g_mmhg, 0)}}{760} = ${num(p1_g, 2)} \\text{ atm}\\)<br><br>
             2º Pasamos las temperaturas a Kelvin: <br>
-            • \\(T_1 = ${t1_c} + 273 = ${t1_g} \\text{ K}\\)<br><br>
-            • \\(T_2 = ${t2_c} + 273 = ${t2_g} \\text{ K}\\)<br><br>
+            • \\(T_1 = ${t1_c_5} + 273 = ${t1_g} \\text{ K}\\)<br><br>
+            • \\(T_2 = ${t2_c_5} + 273 = ${t2_g} \\text{ K}\\)<br><br>
             3º Despejamos \\(V_2\\): \\(V_2 = \\frac{P_1 \\cdot V_1 \\cdot T_2}{T_1 \\cdot P_2}\\)<br><br>
             4º Sustituimos: \\(V_2 = \\frac{${num(p1_g,2)} \\cdot ${num(v1_g,1)} \\cdot ${t2_g}}{${t1_g} \\cdot ${num(p2_g,1)}} = \\mathbf{${num(v2_g, 2)} \\text{ L}}\\)
             ` 
