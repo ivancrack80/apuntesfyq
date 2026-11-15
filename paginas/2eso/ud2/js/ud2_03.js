@@ -137,26 +137,40 @@
             4º Pasamos a °C: \\(t_2 = ${num(t2_k, 1)} - 273 = \\mathbf{${num(t2_c, 0)} °C}\\)` 
         });
 
-        // --- BLOQUE 5: Ley General ---
+                // --- BLOQUE 5: Ley General (con cambio de unidades de P y T) ---
         let p1_g = random(1, 5, 1);
         let p1_g_mmhg = p1_g * 760; // Damos P1 en mmHg
         let v1_g = random(5, 15, 1);
-        let t1_c = random(-50, 350);
+        
+        // Generamos T1 en ºC (entre -20 y 150 para que sea realista)
+        let t1_c = random(-20, 150);
         let t1_g = t1_c + 273;
+        
+        // Generamos P2 en atm
         let p2_g = random(1, 4, 1);
-        let t2_c = random(175, 387);
+        
+        // Generamos T2 en ºC (mayor que T1 para que V2 sea mayor)
+        let t2_c = random(t1_c + 20, t1_c + 150);
         let t2_g = t2_c + 273;
+        
+        // Calculamos V2
         let v2_g = (p1_g * v1_g * t2_g) / (t1_g * p2_g);
         
         let en5 = `Un gas se encuentra a <strong>${num(p1_g_mmhg, 0)} mmHg</strong> y <strong>${num(v1_g,1)} L</strong> a una temperatura de <strong>${t1_c} ºC</strong>. Si cambiamos las condiciones a <strong>${num(p2_g,1)} atm</strong> y <strong>${t2_c} ºC</strong>, ¿qué volumen ocupará?`;
+        
         document.getElementById('act-gas-5').innerHTML = en5;
+        
         problemasActuales.push({ 
             enunciado: en5, 
-            solucion: `Es la Ley General de los Gases: \\(\\frac{P_1 \\cdot V_1}{T_1} = \\frac{P_2 \\cdot V_2}{T_2}\\)<br><br><br>
-            1º Pasamos \\(P_1\\) de mmHg a atm: \\(P_1 = \\frac{${num(p1_g_mmhg, 0)}}{760} = ${num(p1_g, 2)} \\text{ atm}\\)<br><br><br>
-            2º Pasamos las temperaturas de ºC a K: \\(T_1 = ${num(t1_c, 0)} + 273 = ${num(t1_g, 2)} \\text{ K}\\) y  \\(T_2 = ${num(t2_c, 0)} + 273 = ${num(t2_g, 2)} \\text{ K}\\)<br><br><br>
+            solucion: `
+            Es la Ley General de los Gases: \\(\\frac{P_1 \\cdot V_1}{T_1} = \\frac{P_2 \\cdot V_2}{T_2}\\)<br><br>
+            1º Pasamos \\(P_1\\) de mmHg a atm: \\(P_1 = \\frac{${num(p1_g_mmhg, 0)}}{760} = ${num(p1_g, 2)} \\text{ atm}\\)<br><br>
+            2º Pasamos las temperaturas a Kelvin: <br>
+            • \\(T_1 = ${t1_c} + 273 = ${t1_g} \\text{ K}\\)<br><br>
+            • \\(T_2 = ${t2_c} + 273 = ${t2_g} \\text{ K}\\)<br><br>
             3º Despejamos \\(V_2\\): \\(V_2 = \\frac{P_1 \\cdot V_1 \\cdot T_2}{T_1 \\cdot P_2}\\)<br><br>
-            4º Sustituimos: \\(V_2 = \\frac{${num(p1_g,2)} \\cdot ${num(v1_g,1)} \\cdot ${t2_g}}{${t1_g} \\cdot ${num(p2_g,1)}} = \\mathbf{${num(v2_g, 2)} \\text{ L}}\\)` 
+            4º Sustituimos: \\(V_2 = \\frac{${num(p1_g,2)} \\cdot ${num(v1_g,1)} \\cdot ${t2_g}}{${t1_g} \\cdot ${num(p2_g,1)}} = \\mathbf{${num(v2_g, 2)} \\text{ L}}\\)
+            ` 
         });
 
         // Ocultar soluciones si estaban abiertas y reiniciar el candado
