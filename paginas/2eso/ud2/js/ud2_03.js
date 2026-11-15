@@ -152,10 +152,10 @@
         document.getElementById('act-gas-5').innerHTML = en5;
         problemasActuales.push({ 
             enunciado: en5, 
-            solucion: `Es la Ley General de los Gases: \\(\\frac{P_1 \\cdot V_1}{T_1} = \\frac{P_2 \\cdot V_2}{T_2}\\)<br>
-            1º Pasamos \\(P_1\\) de mmHg a atm: \\(P_1 = \\frac{${num(p1_g_mmhg, 0)}}{760} = ${num(p1_g, 2)} \\text{ atm}\\)<br>
-            2º Pasamos las temperaturas de ºC a K: \\(T_1 = ${num(t1_c, 0)} + 273 = ${num(t1_g, 2)} \\text{ K}\\) y  \\(T_2 = ${num(t2_c, 0)} + 273 = ${num(t2_g, 2)} \\text{ K}\\)<br>
-            3º Despejamos \\(V_2\\): \\(V_2 = \\frac{P_1 \\cdot V_1 \\cdot T_2}{T_1 \\cdot P_2}\\)<br>
+            solucion: `Es la Ley General de los Gases: \\(\\frac{P_1 \\cdot V_1}{T_1} = \\frac{P_2 \\cdot V_2}{T_2}\\)<br><br><br>
+            1º Pasamos \\(P_1\\) de mmHg a atm: \\(P_1 = \\frac{${num(p1_g_mmhg, 0)}}{760} = ${num(p1_g, 2)} \\text{ atm}\\)<br><br><br>
+            2º Pasamos las temperaturas de ºC a K: \\(T_1 = ${num(t1_c, 0)} + 273 = ${num(t1_g, 2)} \\text{ K}\\) y  \\(T_2 = ${num(t2_c, 0)} + 273 = ${num(t2_g, 2)} \\text{ K}\\)<br><br><br>
+            3º Despejamos \\(V_2\\): \\(V_2 = \\frac{P_1 \\cdot V_1 \\cdot T_2}{T_1 \\cdot P_2}\\)<br><br>
             4º Sustituimos: \\(V_2 = \\frac{${num(p1_g,2)} \\cdot ${num(v1_g,1)} \\cdot ${t2_g}}{${t1_g} \\cdot ${num(p2_g,1)}} = \\mathbf{${num(v2_g, 2)} \\text{ L}}\\)` 
         });
 
