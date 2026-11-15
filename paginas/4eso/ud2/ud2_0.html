@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 2 - Estructura Atómica, Enlace y Nomenclatura</title>
+
+    <link rel="stylesheet" href="https://ivancrack80.github.io/apuntesfyq/css/gs-styles.css">
+    <script src="https://ivancrack80.github.io/apuntesfyq/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 4.º ESO · Unidad 2</div>
+        <h1 class="gs-title">Estructura Atómica, Enlace y Nomenclatura</h1>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div class="gs-subtitle" style="flex: 1; min-width: 250px;">Desde el interior del átomo hasta el lenguaje de los compuestos químicos</div>
+            <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; color: #475569; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-regular fa-clock" style="color: var(--gs-primary);"></i> 
+                <strong>Temporalización estimada:</strong> 6-7 sesiones.
+            </div>
+        </div>
+    </header>
+
+    <!-- GANCHO COTIDIANO -->
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-mobile-screen-button"></i> ¿Cómo se unen los átomos para formar el mundo que nos rodea?</div>
+        <p>
+            Cuando tocas la pantalla de tu teléfono móvil, estás interactuando con una combinación de elementos químicos que están <strong>enlazados</strong> entre sí. El <strong>indio</strong> y el <strong>estaño</strong> se unen para hacer que la pantalla sea táctil; el <strong>silicio</strong> forma una red cristalina que procesa la información; y el <strong>litio</strong> permite almacenar energía en la batería.
+        </p>
+        <p style="margin-bottom: 0;">
+            Para entender todo esto, primero abriremos el átomo para ver cómo se organizan sus electrones. Luego, descubriremos cómo esos electrones dictan la forma en que los átomos se unen (enlace iónico, covalente o metálico). Y, por último, aprenderemos el lenguaje universal (la nomenclatura) para nombrar las millones de sustancias que resultan de esas uniones.
+        </p>
+    </div>
+
+    <!-- RUTA DE LA UNIDAD -->
+    <h2 class="gs-section-title">Ruta de la Unidad: ¿Qué vamos a dominar?</h2>
+    <ul class="gs-index-list">
+        <li class="gs-index-item">
+            <span class="gs-index-num">1</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Estructura Atómica de la Materia</span>
+                <span class="gs-index-desc">Analizaremos la evolución de los modelos atómicos (Dalton, Thomson, Rutherford, Bohr y Schrödinger) y las partículas subatómicas (protones, neutrones y electrones). Dominaremos el número atómico (Z), el número másico (A), los isótopos y el cálculo de masas atómicas promedio. Finalmente, aprenderemos a organizar los electrones en la corteza mediante la configuración electrónica y a relacionarla con la Tabla Periódica.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">2</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">El Enlace Químico y las Fuerzas Intermoleculares</span>
+                <span class="gs-index-desc">Estudiaremos por qué se unen los átomos para alcanzar la estabilidad. Analizaremos los tres tipos de enlace (iónico, covalente y metálico) y cómo influyen en las propiedades físicas y químicas de las sustancias. Veremos la polaridad de las moléculas (XYn) y las fuerzas intermoleculares, destacando los puentes de hidrógeno y su importancia en el agua.</span>
+            </div>
+        </li>
+        <li class="gs-index-item">
+            <span class="gs-index-num">3</span>
+            <div class="gs-index-content">
+                <span class="gs-index-name">Formulación y Nomenclatura Química</span>
+                <span class="gs-index-desc">Aprenderemos el lenguaje de la química. Estudiaremos la formulación y nomenclatura de compuestos binarios (óxidos, hidruros, sales) y ternarios (hidróxidos, oxoácidos y sales ternarias) según las normas de la IUPAC, incluyendo el uso de números de oxidación.</span>
+            </div>
+        </li>
+    </ul>
+
+    <!-- DEBATE INICIAL -->
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-comments"></i> Cuestiones para la reflexión inicial</div>
+        <p>
+            Antes de adentrarnos en los contenidos del tema, reflexiona sobre estas dos cuestiones:
+        </p>
+        <ol style="margin-bottom: 0;">
+            <li style="margin-bottom: 10px;"><strong>El estado de la materia:</strong> ¿Por qué el agua hierve a 100 °C pero el hierro necesita casi 3000 °C para fundirse? Si ambos están formados por átomos, ¿qué hace que unos materiales sean sólidos a temperatura ambiente y otros gases?</li>
+            <li><strong>La magia de los nombres:</strong> Existen millones de compuestos químicos diferentes. Si todos están hechos de los mismos 118 elementos, ¿cómo podemos saber de qué está hecha una sustancia simplemente leyendo su nombre o su fórmula?</li>
+        </ol>
+    </div>
+
+</div>
+
+</body>
+</html>
