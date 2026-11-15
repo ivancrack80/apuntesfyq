@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. El Enlace Químico - 4º ESO</title>
+
+    <link rel="stylesheet" href="https://ivancrack80.github.io/apuntesfyq/css/gs-styles.css">
+    <script src="https://ivancrack80.github.io/apuntesfyq/js/gs-core.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 4.º ESO · Unidad 2</div>
+        <h1 class="gs-title">4. El Enlace Químico</h1>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div class="gs-subtitle" style="flex: 1; min-width: 250px;">Cómo se unen los átomos y por qué la materia se comporta como lo hace</div>
+            <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; color: #475569; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-regular fa-clock" style="color: var(--gs-primary);"></i> 
+                <strong>Temporalización estimada:</strong> 4 sesiones.
+            </div>
+        </div>
+    </header>
+
+    <!-- 4.1 INTRODUCCIÓN Y TIPOS DE SUSTANCIA -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-cubes"></i> 4.1. Los tipos de sustancias y el enlace químico</h2>
+    
+    <p>
+        En el tema anterior estudiamos los elementos químicos. En la naturaleza, estos elementos no suelen encontrarse como átomos aislados, sino que se unen formando estructuras estables. Comprender <strong>por qué se unen</strong> y <strong>cómo lo hacen</strong> es fundamental en química: el tipo de enlace no solo determina qué sustancia se forma, sino también sus propiedades físicas y químicas (si es sólida, si conduce la electricidad, si se disuelve en agua, etc.).
+    </p>
+
+    <p>Según cómo se agrupen los átomos, distinguimos tres tipos fundamentales de sustancias:</p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-atom"></i> 1. Sustancias gaseosas monoatómicas</div>
+        <p style="margin-bottom: 0;">
+            Los <strong>gases nobles</strong> (He, Ne, Ar, Kr, Xe, Rn) son los únicos elementos que se presentan como átomos aislados a temperatura ambiente. Esto se debe a que tienen su capa de valencia completa (regla del octeto), lo que les confiere una estabilidad máxima que les impide unirse a otros átomos.
+        </p>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-shapes"></i> 2. Sustancias moleculares</div>
+        <p>
+            Una <strong>molécula</strong> es una agrupación eléctricamente neutra de un número concreto (generalmente pequeño) de átomos no metálicos unidos siempre de la misma manera. Pueden ser de elementos iguales (sustancias simples como \(N_2\) u \(O_2\)) o de elementos diferentes (compuestos como \(H_2O\) o \(CO_2\)).
+        </p>
+        <p style="margin-bottom: 0;">
+            Una sustancia molecular está formada por trillones de moléculas. Dependiendo de la fuerza que las mantiene unidas, pueden ser sólidos, líquidos o gases.
+        </p>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-cubes"></i> 3. Redes cristalinas</div>
+        <p style="margin-bottom: 0;">
+            Un <strong>cristal</strong> es una agrupación de trillones de átomos, iones o moléculas con una estructura interna ordenada que se extiende en las tres dimensiones del espacio. A temperatura ambiente son sólidos. Según las partículas que los formen, habrá cristales iónicos, covalentes o metálicos.
+        </p>
+    </div>
+
+    <!-- 4.2 DEFINICIÓN DE ENLACE Y LEY DE COULOMB -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-link"></i> 4.2. ¿Qué es el enlace químico?</h2>
+    
+    <p>
+        Para entender cómo se unen las partículas, debemos distinguir dos conceptos fundamentales:
+    </p>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-arrows-left-right"></i> Enlace químico vs. Fuerzas intermoleculares</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Enlace químico (interatómico):</strong> Conjunto de fuerzas que mantienen unidos, de forma estable, los átomos que forman parte de una molécula o de un cristal. Se origina un sistema estable cuyo estado energético es inferior al de los átomos aislados.</li>
+            <li><strong>Fuerzas intermoleculares:</strong> Conjunto de fuerzas que mantienen unidas las moléculas entre sí. Son las responsables de que una sustancia molecular se presente en estado sólido, líquido o gas.</li>
+        </ul>
+    </div>
+
+    <p>
+        En todos los casos, las <strong>fuerzas involucradas en estas uniones son de naturaleza eléctrica</strong>. La fuerza eléctrica obedece la <strong>Ley de Coulomb</strong>:
+    </p>
+    
+    <div class="gs-latex-container" style="text-align: center; font-size: 1.2rem;">
+        \(F = K \cdot \frac{Q_1 \cdot Q_2}{r^2}\)
+    </div>
+
+    <p>
+        Donde \(Q_1\) y \(Q_2\) son las cargas eléctricas, \(r\) es la distancia entre ellas y \(K\) es una constante. Esta fórmula nos dice que:
+    </p>
+    <ul>
+        <li>A mayor carga de los iones (\(Q\)), mayor es la fuerza de atracción.</li>
+        <li>A mayor distancia entre los núcleos (\(r\)), menor es la fuerza (se debilita rápidamente porque está al cuadrado).</li>
+        <li>Si las cargas tienen el mismo signo, la fuerza es de repulsión; si tienen signos opuestos, es de atracción.</li>
+    </ul>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-triangle-exclamation"></i> La gran diferencia de fortaleza</div>
+        <p style="margin-bottom: 0;">
+            La fuerza de un <strong>enlace químico</strong> entre átomos es muchísimo mayor que la de las <strong>fuerzas intermoleculares</strong>. Por eso, para fundir un cristal iónico o covalente (romper enlaces) se necesita muchísima energía, mientras que para hervir una sustancia molecular (romper fuerzas entre moléculas) se necesita mucha menos.
+        </p>
+    </div>
+
+    <!-- EJEMPLO VISUAL: ENLACE VS FUERZAS INTERMOLECULARES -->
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-eye"></i> Ejemplo visual: El agua (H₂O)</div>
+        <p>En el agua líquida, los átomos de H y O están unidos por fuertes enlaces covalentes (dentro de la molécula). Sin embargo, unas moléculas de agua se atraen a otras mediante débiles fuerzas intermoleculares.</p>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <svg viewBox="0 0 400 150" style="width: 100%; max-width: 500px; height: auto; font-family: sans-serif;">
+                <!-- Molécula 1 -->
+                <g transform="translate(50, 40)">
+                    <!-- Oxígeno -->
+                    <circle cx="40" cy="40" r="20" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                    <text x="40" y="46" text-anchor="middle" font-size="16" font-weight="bold" fill="#7f1d1d">O</text>
+                    <!-- Hidrógenos -->
+                    <circle cx="10" cy="10" r="10" fill="#dbeafe" stroke="#1e3a8a" stroke-width="2"/>
+                    <text x="10" y="15" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a8a">H</text>
+                    <circle cx="70" cy="10" r="10" fill="#dbeafe" stroke="#1e3a8a" stroke-width="2"/>
+                    <text x="70" y="15" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a8a">H</text>
+                    <!-- Enlaces covalentes -->
+                    <line x1="35" y1="30" x2="15" y2="15" stroke="#1e3a8a" stroke-width="3"/>
+                    <line x1="45" y1="30" x2="65" y2="15" stroke="#1e3a8a" stroke-width="3"/>
+                    <text x="25" y="60" font-size="10" fill="#1e3a8a" text-anchor="middle">Enlace covalente (fuerte)</text>
+                </g>
+
+                <!-- Fuerzas intermoleculares -->
+                <line x1="140" y1="80" x2="220" y2="80" stroke="#ca8a04" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="180" y="70" font-size="12" fill="#ca8a04" text-anchor="middle" font-weight="bold">Fuerza intermolecular (débil)</text>
+
+                <!-- Molécula 2 -->
+                <g transform="translate(230, 40)">
+                    <!-- Oxígeno -->
+                    <circle cx="40" cy="40" r="20" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
+                    <text x="40" y="46" text-anchor="middle" font-size="16" font-weight="bold" fill="#7f1d1d">O</text>
+                    <!-- Hidrógenos -->
+                    <circle cx="10" cy="10" r="10" fill="#dbeafe" stroke="#1e3a8a" stroke-width="2"/>
+                    <text x="10" y="15" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a8a">H</text>
+                    <circle cx="70" cy="10" r="10" fill="#dbeafe" stroke="#1e3a8a" stroke-width="2"/>
+                    <text x="70" y="15" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e3a8a">H</text>
+                    <!-- Enlaces covalentes -->
+                    <line x1="35" y1="30" x2="15" y2="15" stroke="#1e3a8a" stroke-width="3"/>
+                    <line x1="45" y1="30" x2="65" y2="15" stroke="#1e3a8a" stroke-width="3"/>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
