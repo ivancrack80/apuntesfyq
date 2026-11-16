@@ -1611,6 +1611,10 @@ body.dyslexia-mode .gs-index-item {
     .gs-material-grid { grid-template-columns: repeat(3, 1fr) !important; }
     .gs-material-img { height: 100px !important; }
 }
+    /* 9. Alineación del texto para papel (evitar justificado) */
+    body, p, li, td, th, blockquote {
+        text-align: left !important;
+    }
 /* ==========================================================================
    IFRAME DE PTABLE (AJUSTE DEFINITIVO)
    ========================================================================== */
