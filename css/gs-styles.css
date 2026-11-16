@@ -1568,10 +1568,10 @@ body.dyslexia-mode .gs-index-item {
 
     /* 4. Tipografía para papel (Verdana 13pt) */
     body, p, td, th, li {
-        font-size: 13pt !important;
+        font-size: 12pt !important;
         line-height: 1.5 !important;
         color: #000000 !important;
-        font-family: 'Verdana', sans-serif !important;
+        font-family: 'Atkinson Hyperlegible', 'Verdana', sans-serif !important;
     }
    /* 4.bis Alineación del texto para papel (evitar justificado) */
     body, p, li, td, th, blockquote {
