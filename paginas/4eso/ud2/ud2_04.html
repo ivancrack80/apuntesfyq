@@ -171,36 +171,65 @@
         El sodio (Na) tiene 1 electrón de valencia, que pierde fácilmente para formar el catión \(\text{Na}^+\) (configuración del Neón). El cloro (Cl) tiene 7 electrones de valencia y necesita 1 para completar su octeto, por lo que capta el electrón del sodio y forma el anión \(\text{Cl}^-\) (configuración del Argón).
     </p>
     <p style="margin-bottom: 0;">
-        Como ambos iones tienen la misma carga (pero de distinto signo), se combinan en una proporción 1:1, dando lugar a la fórmula <strong>NaCl</strong>.
+        Como ambos iones tienen la misma carga (pero de distinto signo), se combinan en una proporción 1:1, dando lugar a la fórmula <strong>NaCl</strong>. En los diagramas de Lewis, los iones resultantes se representan entre corchetes:
     </p>
 
-    <!-- SVG: Cesión de electrones -->
-    <div style="text-align: center; margin: 20px 0;">
-        <svg viewBox="0 0 400 120" style="width: 100%; max-width: 500px; height: auto; font-family: sans-serif;">
-            <!-- Átomo de Sodio -->
-            <circle cx="60" cy="60" r="30" fill="#fca5a5" stroke="#991b1b" stroke-width="2"/>
-            <text x="60" y="65" text-anchor="middle" font-size="16" font-weight="bold" fill="#7f1d1d">Na</text>
-            <circle cx="85" cy="45" r="3" fill="#1e3a8a"/> <!-- Electrón de valencia -->
-            
-            <!-- Flecha de cesión -->
-            <path d="M 95 45 Q 150 20 200 45" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-red)"/>
-            <text x="150" y="25" text-anchor="middle" font-size="11" fill="#dc2626">Cede 1 e⁻</text>
+    <div style="text-align: center; margin: 20px 0; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+        
+        <!-- Átomo de Sodio -->
+        <div style="position: relative; width: 80px; height: 80px; display: flex; justify-content: center; align-items: center;">
+            <span style="font-size: 2rem; font-weight: bold; color: #1e293b; z-index: 10;">Na</span>
+            <!-- Electrón de valencia -->
+            <span style="position: absolute; top: 5px; right: 0px; font-size: 1.5rem; color: #dc2626; font-weight: bold;">•</span>
+        </div>
 
-            <!-- Átomo de Cloro -->
-            <circle cx="250" cy="60" r="30" fill="#bbf7d0" stroke="#166534" stroke-width="2"/>
-            <text x="250" y="65" text-anchor="middle" font-size="16" font-weight="bold" fill="#14532d">Cl</text>
-            <circle cx="225" cy="45" r="3" fill="#1e3a8a"/> <!-- Electrón que recibe -->
+        <!-- Flecha -->
+        <div style="font-size: 2rem; color: #64748b;">→</div>
 
-            <!-- Iones resultantes -->
-            <text x="60" y="110" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">Catión Na⁺</text>
-            <text x="250" y="110" text-anchor="middle" font-size="14" font-weight="bold" fill="#166534">Anión Cl⁻</text>
-            
-            <defs>
-                <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626" />
-                </marker>
-            </defs>
-        </svg>
+        <!-- Catión Sodio -->
+        <div style="position: relative; width: 80px; height: 80px; display: flex; justify-content: center; align-items: center;">
+            <span style="font-size: 2rem; font-weight: bold; color: #1e293b; z-index: 10;">[Na]</span>
+            <span style="position: absolute; top: 0; right: -15px; font-size: 1.2rem; color: #dc2626; font-weight: bold;">+</span>
+            <!-- Corchetes -->
+            <span style="position: absolute; top: -5px; left: 0px; font-size: 3rem; font-weight: 300; color: #64748b;">[</span>
+            <span style="position: absolute; top: -5px; right: 0px; font-size: 3rem; font-weight: 300; color: #64748b;">]</span>
+        </div>
+
+        <div style="font-size: 2rem; color: #64748b;">+</div>
+
+        <!-- Átomo de Cloro -->
+        <div style="position: relative; width: 80px; height: 80px; display: flex; justify-content: center; align-items: center;">
+            <span style="font-size: 2rem; font-weight: bold; color: #1e293b; z-index: 10;">Cl</span>
+            <!-- 7 electrones de valencia -->
+            <span style="position: absolute; top: 5px; left: 0px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 5px; right: 0px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 25px; left: -10px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 25px; right: -10px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; left: 0px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; right: 0px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 25px; left: -10px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+        </div>
+
+        <!-- Flecha -->
+        <div style="font-size: 2rem; color: #64748b;">→</div>
+
+        <!-- Anión Cloro -->
+        <div style="position: relative; width: 80px; height: 80px; display: flex; justify-content: center; align-items: center;">
+            <span style="font-size: 2rem; font-weight: bold; color: #1e293b; z-index: 10;">[Cl]</span>
+            <span style="position: absolute; top: 0; right: -15px; font-size: 1.2rem; color: #dc2626; font-weight: bold;">-</span>
+            <!-- Corchetes -->
+            <span style="position: absolute; top: -5px; left: 0px; font-size: 3rem; font-weight: 300; color: #64748b;">[</span>
+            <span style="position: absolute; top: -5px; right: 0px; font-size: 3rem; font-weight: 300; color: #64748b;">]</span>
+            <!-- 8 electrones (octeto completo) -->
+            <span style="position: absolute; top: 5px; left: 5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 5px; right: 5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 25px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 25px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; left: 5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; right: 5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 25px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 25px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+        </div>
     </div>
 </div>
 
@@ -294,26 +323,31 @@
 
 <h3>4.4.1. La representación de Lewis y el orden de enlace</h3>
 <p>
-    El químico Gilbert N. Lewis propuso una forma muy útil de representar los electrones de valencia de los átomos. En un <strong>diagrama de Lewis</strong>, el símbolo del elemento representa el núcleo y los electrones internos, mientras que los <strong>puntos</strong> alrededor representan los electrones de la capa de valencia (los que participan en el enlace).
+    El químico Gilbert N. Lewis propuso una forma muy útil de representar los electrones de valencia de los átomos. En un <strong>diagrama de Lewis</strong>, el símbolo del elemento representa el núcleo y los electrones internos, mientras que los <strong>puntos</strong> alrededor (arriba, abajo, izquierda y derecha) representan los electrones de la capa de valencia.
 </p>
 
 <div class="gs-box gs-comprender">
     <div class="gs-comprender-title"><i class="fa-solid fa-eye"></i> El diagrama de Lewis de un átomo aislado</div>
     <p>Por ejemplo, el sodio (Na) tiene 1 electrón de valencia y el cloro (Cl) tiene 7:</p>
-    <div style="text-align: center; margin: 15px 0;">
-        <svg viewBox="0 0 300 60" style="width: 100%; max-width: 300px; height: auto;">
-            <text x="50" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e293b">Na</text>
-            <circle cx="75" cy="32" r="3" fill="#dc2626"/>
-            <text x="160" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e293b">Cl</text>
-            <!-- Electrones del Cl -->
-            <circle cx="140" cy="25" r="2.5" fill="#1e3a8a"/>
-            <circle cx="140" cy="35" r="2.5" fill="#1e3a8a"/>
-            <circle cx="180" cy="25" r="2.5" fill="#1e3a8a"/>
-            <circle cx="180" cy="35" r="2.5" fill="#1e3a8a"/>
-            <circle cx="150" cy="15" r="2.5" fill="#1e3a8a"/>
-            <circle cx="170" cy="15" r="2.5" fill="#1e3a8a"/>
-            <circle cx="160" cy="48" r="2.5" fill="#1e3a8a"/>
-        </svg>
+    <div style="display: flex; justify-content: center; gap: 50px; margin: 20px 0; font-size: 2rem; font-weight: bold; font-family: sans-serif;">
+        
+        <!-- Na -->
+        <div style="position: relative; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            Na
+            <span style="position: absolute; top: 5px; right: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+        </div>
+        
+        <!-- Cl -->
+        <div style="position: relative; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            Cl
+            <span style="position: absolute; top: 5px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 5px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 25px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 25px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 25px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+        </div>
     </div>
 </div>
 
@@ -325,99 +359,91 @@
 <div class="gs-box gs-ejemplo">
     <div class="gs-ejemplo-title"><i class="fa-solid fa-link"></i> Ejemplos de enlace covalente simple, doble y triple</div>
     
-    <p><strong>1. Molécula de Cloro (\(\text{Cl}_2\)) - Enlace simple:</strong> Cada Cl comparte 1 electrón, formando un par enlazante (orden de enlace = 1).</p>
-    <div style="text-align: center; margin-bottom: 15px;">
-        <svg viewBox="0 0 300 60" style="width: 100%; max-width: 300px; height: auto;">
-            <text x="100" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#166534">Cl</text>
-            <text x="200" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#166534">Cl</text>
-            <!-- Enlace (puntos compartidos) -->
-            <circle cx="140" cy="32" r="3" fill="#dc2626"/>
-            <circle cx="160" cy="32" r="3" fill="#dc2626"/>
-            <!-- Electrones solitarios -->
-            <circle cx="80" cy="25" r="2.5" fill="#475569"/><circle cx="80" cy="39" r="2.5" fill="#475569"/>
-            <circle cx="85" cy="15" r="2.5" fill="#475569"/><circle cx="115" cy="15" r="2.5" fill="#475569"/>
-            <circle cx="120" cy="25" r="2.5" fill="#475569"/><circle cx="120" cy="39" r="2.5" fill="#475569"/>
-            
-            <circle cx="185" cy="15" r="2.5" fill="#475569"/><circle cx="215" cy="15" r="2.5" fill="#475569"/>
-            <circle cx="220" cy="25" r="2.5" fill="#475569"/><circle cx="220" cy="39" r="2.5" fill="#475569"/>
-            <circle cx="185" cy="48" r="2.5" fill="#475569"/><circle cx="215" cy="48" r="2.5" fill="#475569"/>
-        </svg>
-        <p style="font-size: 0.9rem; color: #475569; margin-top: 5px;">\( \text{Cl}_2 \) (Orden de enlace 1)</p>
+    <p><strong>1. Molécula de Cloro (\(\text{Cl}_2\)) - Enlace simple:</strong> Cada Cl comparte 1 electrón, formando un par enlazante en el centro (orden de enlace = 1).</p>
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 25px; font-size: 2rem; font-weight: bold; font-family: sans-serif;">
+        <!-- Cl izquierda -->
+        <div style="position: relative; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            Cl
+            <span style="position: absolute; top: 5px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 5px; right: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 25px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 25px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+        </div>
+        <!-- Enlace -->
+        <div style="padding: 0 10px; font-size: 1.5rem; color: #dc2626; margin-top: -5px;">• •</div>
+        <!-- Cl derecha -->
+        <div style="position: relative; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            Cl
+            <span style="position: absolute; top: 5px; left: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 5px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 25px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 25px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+        </div>
     </div>
 
-    <p><strong>2. Molécula de Oxígeno (\(\text{O}_2\)) - Enlace doble:</strong> Cada O comparte 2 electrones, formando dos pares enlazantes (orden de enlace = 2).</p>
-    <div style="text-align: center; margin-bottom: 15px;">
-        <svg viewBox="0 0 300 60" style="width: 100%; max-width: 300px; height: auto;">
-            <text x="100" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#166534">O</text>
-            <text x="200" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#166534">O</text>
-            <!-- Enlace doble -->
-            <circle cx="140" cy="28" r="3" fill="#dc2626"/><circle cx="140" cy="36" r="3" fill="#dc2626"/>
-            <circle cx="160" cy="28" r="3" fill="#dc2626"/><circle cx="160" cy="36" r="3" fill="#dc2626"/>
-            <!-- Solitarios -->
-            <circle cx="80" cy="25" r="2.5" fill="#475569"/><circle cx="80" cy="39" r="2.5" fill="#475569"/>
-            <circle cx="120" cy="15" r="2.5" fill="#475569"/><circle cx="120" cy="25" r="2.5" fill="#475569"/><circle cx="120" cy="39" r="2.5" fill="#475569"/><circle cx="120" cy="48" r="2.5" fill="#475569"/>
-            <circle cx="180" cy="15" r="2.5" fill="#475569"/><circle cx="180" cy="25" r="2.5" fill="#475569"/><circle cx="180" cy="39" r="2.5" fill="#475569"/><circle cx="180" cy="48" r="2.5" fill="#475569"/>
-        </svg>
-        <p style="font-size: 0.9rem; color: #475569; margin-top: 5px;">\( \text{O}_2 \) (Orden de enlace 2)</p>
+    <p><strong>2. Molécula de Oxígeno (\(\text{O}_2\)) - Enlace doble:</strong> Cada O comparte 2 electrones (orden de enlace = 2).</p>
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 25px; font-size: 2rem; font-weight: bold; font-family: sans-serif;">
+        <!-- O izquierda -->
+        <div style="position: relative; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            O
+            <span style="position: absolute; top: 5px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 5px; right: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 30px; right: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 25px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+        </div>
+        <!-- Enlace doble -->
+        <div style="padding: 0 10px; font-size: 1.5rem; color: #dc2626; margin-top: -5px; display: flex; flex-direction: column; line-height: 0.8;">
+            <span>• •</span>
+            <span>• •</span>
+        </div>
+        <!-- O derecha -->
+        <div style="position: relative; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            O
+            <span style="position: absolute; top: 5px; left: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 30px; left: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 5px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 25px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; bottom: 5px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+        </div>
     </div>
 
     <p><strong>3. Molécula de Nitrógeno (\(\text{N}_2\)) - Enlace triple:</strong> Cada N comparte 3 electrones (orden de enlace = 3).</p>
-    <div style="text-align: center; margin-bottom: 0;">
-        <svg viewBox="0 0 300 60" style="width: 100%; max-width: 300px; height: auto;">
-            <text x="100" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#166534">N</text>
-            <text x="200" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#166534">N</text>
-            <!-- Enlace triple -->
-            <circle cx="140" cy="25" r="3" fill="#dc2626"/><circle cx="140" cy="32" r="3" fill="#dc2626"/><circle cx="140" cy="39" r="3" fill="#dc2626"/>
-            <circle cx="160" cy="25" r="3" fill="#dc2626"/><circle cx="160" cy="32" r="3" fill="#dc2626"/><circle cx="160" cy="39" r="3" fill="#dc2626"/>
-            <!-- Solitario -->
-            <circle cx="80" cy="25" r="2.5" fill="#475569"/><circle cx="80" cy="39" r="2.5" fill="#475569"/>
-            <circle cx="190" cy="25" r="2.5" fill="#475569"/><circle cx="190" cy="39" r="2.5" fill="#475569"/>
-        </svg>
-        <p style="font-size: 0.9rem; color: #475569; margin-top: 5px;">\( \text{N}_2 \) (Orden de enlace 3)</p>
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 0; font-size: 2rem; font-weight: bold; font-family: sans-serif;">
+        <!-- N izquierda -->
+        <div style="position: relative; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            N
+            <span style="position: absolute; top: 5px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 5px; right: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 30px; right: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 50px; right: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 30px; left: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+        </div>
+        <!-- Enlace triple -->
+        <div style="padding: 0 10px; font-size: 1.5rem; color: #dc2626; margin-top: -5px; display: flex; flex-direction: column; line-height: 0.8;">
+            <span>• •</span>
+            <span>• •</span>
+            <span>• •</span>
+        </div>
+        <!-- N derecha -->
+        <div style="position: relative; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            N
+            <span style="position: absolute; top: 5px; left: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 30px; left: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 50px; left: -5px; font-size: 1.5rem; color: #dc2626; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 5px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+            <span style="position: absolute; top: 30px; right: -5px; font-size: 1.5rem; color: #1e3a8a; line-height: 0.5;">•</span>
+        </div>
     </div>
 </div>
 
-<!-- OTROS EJEMPLOS DE MOLÉCULAS -->
-<h4>Más ejemplos de moléculas</h4>
-<p>
-    Cuando hay más de dos átomos, siempre hay un <strong>átomo central</strong> (el menos electronegativo) y el resto se denominan <strong>terminales</strong>. Aquí tienes algunos ejemplos de estructuras de Lewis:
-</p>
-
-<div class="gs-table-wrapper">
-    <table class="gs-table">
-        <thead>
-            <tr>
-                <th>Molécula</th>
-                <th>Diagrama de Lewis</th>
-                <th>Tipo de enlace</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Agua (\(H_2O\))</strong></td>
-                <td>H - O - H (con dos pares solitarios en el O)</td>
-                <td>Enlaces simples</td>
-            </tr>
-            <tr>
-                <td><strong>Amoniaco (\(NH_3\))</strong></td>
-                <td>H - N - H (con un par solitario en el N) y otro H</td>
-                <td>Enlaces simples</td>
-            </tr>
-            <tr>
-                <td><strong>Metano (\(CH_4\))</strong></td>
-                <td>H - C - H (con cuatro H alrededor del C)</td>
-                <td>Enlaces simples</td>
-            </tr>
-            <tr>
-                <td><strong>Dióxido de carbono (\(CO_2\))</strong></td>
-                <td>O = C = O (con dos pares solitarios en cada O)</td>
-                <td>Enlaces dobles</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<!-- PROCEDIMIENTO PASO A PASO -->
+<!-- PROCEDIMIENTO PASO A PASO (PCl3) -->
 <div class="gs-box gs-ejemplo">
     <div class="gs-ejemplo-title"><i class="fa-solid fa-list-ol"></i> Procedimiento para obtener la estructura de Lewis</div>
     <p>Para moléculas más complejas, seguimos estos pasos. Veámoslo con el <strong>Tricloruro de fósforo (\(PCl_3\))</strong>:</p>
@@ -432,31 +458,46 @@
         <li><strong>Completamos con los electrones no enlazantes:</strong> Repartimos los 10 pares entre los Cl (3 pares a cada uno) y el P (1 par).</li>
     </ol>
 
-    <div style="text-align: center; margin-top: 20px;">
-        <svg viewBox="0 0 200 150" style="width: 100%; max-width: 200px; height: auto;">
-            <!-- Átomo central P -->
-            <text x="100" y="80" text-anchor="middle" font-size="24" font-weight="bold" fill="#b45309">P</text>
+    <!-- SVG PCl3 Corregido -->
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 30px; margin-bottom: 10px; font-size: 1.8rem; font-weight: bold; font-family: sans-serif;">
+        <!-- Estructura de PCl3 hecha con posicionamiento absoluto -->
+        <div style="position: relative; width: 200px; height: 180px;">
             <!-- Cl Arriba -->
-            <text x="100" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#166534">Cl</text>
-            <line x1="100" y1="40" x2="100" y2="60" stroke="#1e3a8a" stroke-width="2"/>
+            <div style="position: absolute; top: 0px; left: 80px; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; color: #166534;">Cl</div>
+            <span style="position: absolute; top: 5px; left: 70px; font-size: 1.2rem; color: #475569;">•</span>
+            <span style="position: absolute; top: 5px; left: 115px; font-size: 1.2rem; color: #475569;">•</span>
+            <span style="position: absolute; top: 20px; left: 70px; font-size: 1.2rem; color: #475569;">•</span>
+            <span style="position: absolute; top: 20px; left: 115px; font-size: 1.2rem; color: #475569;">•</span>
+            <span style="position: absolute; top: 35px; left: 70px; font-size: 1.2rem; color: #475569;">•</span>
+            <span style="position: absolute; top: 35px; left: 115px; font-size: 1.2rem; color: #475569;">•</span>
+            
+            <!-- Enlace Arriba -->
+            <span style="position: absolute; top: 40px; left: 93px; font-size: 1.2rem; color: #1e3a8a;">•</span>
+            <span style="position: absolute; top: 55px; left: 93px; font-size: 1.2rem; color: #1e3a8a;">•</span>
+            <span style="position: absolute; top: 70px; left: 93px; font-size: 1.2rem; color: #1e3a8a;">•</span>
+            <span style="position: absolute; top: 85px; left: 93px; font-size: 1.2rem; color: #1e3a8a;">•</span>
+            <span style="position: absolute; top: 100px; left: 93px; font-size: 1.2rem; color: #1e3a8a;">•</span>
+
+            <!-- P Centro -->
+            <div style="position: absolute; top: 70px; left: 80px; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; color: #b45309;">P</div>
+            <!-- Par solitario P -->
+            <span style="position: absolute; top: 75px; left: 65px; font-size: 1.2rem; color: #475569;">•</span>
+            <span style="position: absolute; top: 95px; left: 65px; font-size: 1.2rem; color: #475569;">•</span>
+
             <!-- Cl Izquierda -->
-            <text x="30" y="85" text-anchor="middle" font-size="20" font-weight="bold" fill="#166534">Cl</text>
-            <line x1="45" y1="80" x2="80" y2="80" stroke="#1e3a8a" stroke-width="2"/>
+            <div style="position: absolute; top: 70px; left: 0px; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; color: #166534;">Cl</div>
+            <!-- Enlace Izquierda -->
+            <span style="position: absolute; top: 85px; left: 45px; font-size: 1.2rem; color: #1e3a8a;">•</span>
+            <span style="position: absolute; top: 85px; left: 60px; font-size: 1.2rem; color: #1e3a8a;">•</span>
+            <span style="position: absolute; top: 85px; left: 75px; font-size: 1.2rem; color: #1e3a8a;">•</span>
+
             <!-- Cl Derecha -->
-            <text x="170" y="85" text-anchor="middle" font-size="20" font-weight="bold" fill="#166534">Cl</text>
-            <line x1="120" y1="80" x2="155" y2="80" stroke="#1e3a8a" stroke-width="2"/>
-            
-            <!-- Pares solitarios en Cl -->
-            <circle cx="90" cy="20" r="2" fill="#475569"/><circle cx="110" cy="20" r="2" fill="#475569"/>
-            <circle cx="20" cy="75" r="2" fill="#475569"/><circle cx="40" cy="75" r="2" fill="#475569"/>
-            <circle cx="160" cy="75" r="2" fill="#475569"/><circle cx="180" cy="75" r="2" fill="#475569"/>
-            <circle cx="90" cy="95" r="2" fill="#475569"/><circle cx="110" cy="95" r="2" fill="#475569"/>
-            <circle cx="20" cy="95" r="2" fill="#475569"/><circle cx="40" cy="95" r="2" fill="#475569"/>
-            <circle cx="160" cy="95" r="2" fill="#475569"/><circle cx="180" cy="95" r="2" fill="#475569"/>
-            
-            <!-- Par solitario en P -->
-            <circle cx="90" cy="120" r="2" fill="#475569"/><circle cx="110" cy="120" r="2" fill="#475569"/>
-        </svg>
+            <div style="position: absolute; top: 70px; left: 160px; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; color: #166534;">Cl</div>
+            <!-- Enlace Derecha -->
+            <span style="position: absolute; top: 85px; left: 125px; font-size: 1.2rem; color: #1e3a8a;">•</span>
+            <span style="position: absolute; top: 85px; left: 140px; font-size: 1.2rem; color: #1e3a8a;">•</span>
+            <span style="position: absolute; top: 85px; left: 155px; font-size: 1.2rem; color: #1e3a8a;">•</span>
+        </div>
     </div>
 </div>
 
