@@ -14,7 +14,7 @@
 /* El "cuadrado" invisible alrededor del símbolo */
 .lewis-atom { 
     position: relative; 
-    width: 80px; /* Un poco más ancho para que quepan bien los corchetes */
+    width: 80px; 
     height: 80px; 
     display: flex; 
     justify-content: center; 
@@ -22,51 +22,51 @@
     font-size: 1.5rem; 
     font-weight: bold; 
     font-family: monospace; 
-    margin: 0 10px; /* Margen para los corchetes */
+    margin: 0 10px; 
 }
 
-/* Contenedor de los electrones (el que centra todo) */
+/* Contenedor base de los electrones */
 .lewis-dot { 
     position: absolute; 
     color: var(--gs-primary, #1e3a8a); 
     font-size: 1.4rem; 
     line-height: 1;
     display: flex;
-    gap: 2px; 
+    /* Forzamos que el contenedor se ajuste al contenido (no se estire) */
+    width: max-content; 
+    height: max-content;
 }
 
-/* POSICIONES Y CENTRADO */
+/* POSICIONES EXACTAS */
 
-/* Arriba y Abajo: Centrado horizontal, pareja en línea horizontal */
+/* Arriba y Abajo: Línea HORIZONTAL */
 .lewis-dot.top { 
-    top: -10px; 
-    left: 0;
-    right: 0;
-    justify-content: center; /* Centra el punto o la pareja */
-    align-items: center;
+    top: -8px; 
+    left: 50%;
+    transform: translateX(-50%); /* Centrado horizontal perfecto */
+    flex-direction: row; /* Horizontal */
+    gap: 2px;
 }
 .lewis-dot.bottom { 
-    bottom: -10px; 
-    left: 0;
-    right: 0;
-    justify-content: center; /* Centra el punto o la pareja */
-    align-items: center;
+    bottom: -8px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    flex-direction: row; /* Horizontal */
+    gap: 2px;
 }
 
-/* Izquierda y Derecha: Centrado vertical, pareja en línea vertical */
+/* Izquierda y Derecha: Línea VERTICAL */
 .lewis-dot.left { 
-    left: -12px; 
-    top: 0;
-    bottom: 0;
-    flex-direction: column; /* Pone los puntos uno encima de otro */
-    justify-content: center; /* Centra el punto o la pareja */
-    align-items: center;
+    left: -10px; 
+    top: 50%;
+    transform: translateY(-50%); /* Centrado vertical perfecto */
+    flex-direction: column; /* Vertical */
+    gap: 2px;
 }
 .lewis-dot.right { 
-    right: -12px; 
-    top: 0;
-    bottom: 0;
-    flex-direction: column; /* Pone los puntos uno encima de otro */
-    justify-content: center; /* Centra el punto o la pareja */
-    align-items: center;
+    right: -10px; 
+    top: 50%;
+    transform: translateY(-50%); 
+    flex-direction: column; /* Vertical */
+    gap: 2px;
 }
