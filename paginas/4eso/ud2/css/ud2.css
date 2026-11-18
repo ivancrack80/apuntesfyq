@@ -1,0 +1,65 @@
+/* =========================================
+   ESTILOS LOCALES - 4º ESO UD2 (Lewis)
+   ========================================= */
+
+/* Contenedor para átomos aislados */
+.lewis-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+    margin: 20px 0; 
+    flex-wrap: wrap; 
+}
+
+/* El "cuadrado" invisible alrededor del símbolo */
+.lewis-atom { 
+    position: relative; 
+    width: 70px; 
+    height: 70px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    font-family: monospace; 
+}
+
+/* Puntos de electrones */
+.lewis-dot { 
+    position: absolute; 
+    font-size: 1.2rem; 
+    color: var(--gs-primary, #1e3a8a); 
+    line-height: 0.8; 
+}
+
+/* Posiciones: los de arriba/abajo en horizontal, los lados en vertical */
+.lewis-dot.top { 
+    top: -5px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+    gap: 2px; 
+}
+.lewis-dot.bottom { 
+    bottom: -5px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+    gap: 2px; 
+}
+.lewis-dot.left { 
+    left: -10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    display: flex; 
+    flex-direction: column; /* Pareja en vertical */
+    gap: 2px; 
+}
+.lewis-dot.right { 
+    right: -10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    display: flex; 
+    flex-direction: column; /* Pareja en vertical */
+    gap: 2px; 
+}
