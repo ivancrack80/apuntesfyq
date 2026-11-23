@@ -1,3 +1,4 @@
+md
 # GUÍA DEL PROYECTO — Apuntes FyQ
 
 Sistema unificado de apuntes de Física y Química para ESO, publicados en HTML estático y servidos vía GitHub Pages.
@@ -8,64 +9,64 @@ Sistema unificado de apuntes de Física y Química para ESO, publicados en HTML 
 ---
 
 ## 1. Estructura del repositorio
+
+```text
 apuntesfyq/
 ├── css/
-│ └── gs-styles.css ← Hoja de estilos única del sistema
+│   └── gs-styles.css              ← Hoja de estilos única del sistema
 ├── js/
-│ └── gs-core.js ← Núcleo JS común (afecta a TODAS las páginas)
-├── pictogramas/ ← SVGs de pictogramas GHS
-├── materiales/ ← Fotos del material de laboratorio
-├── soluciones/ ← HTML con las soluciones para el GAS
+│   └── gs-core.js                 ← Núcleo JS común (afecta a TODAS las páginas)
+├── pictogramas/                   ← SVGs de pictogramas GHS
+├── materiales/                    ← Fotos del material de laboratorio
+├── soluciones/                    ← HTML con las soluciones para el GAS
 ├── 2eso/
-│ ├── info.html ← Presentación del curso
-│ ├── criterios.html ← Guía de evaluación
-│ ├── ud1/ ...
-│ └── ud2/
-│ ├── README.md
-│ ├── 2eso_ud2_0.html
-│ ├── 2eso_ud2_1.html
-│ ├── 2eso_ud2_2.html
-│ ├── 2eso_ud2_3.html
-│ └── js/ (scripts locales de la unidad)
+│   ├── info.html                  ← Presentación del curso
+│   ├── criterios.html             ← Guía de evaluación
+│   ├── ud1/ ...
+│   └── ud2/
+│       ├── README.md
+│       ├── 2eso_ud2_0.html
+│       ├── 2eso_ud2_1.html
+│       ├── 2eso_ud2_2.html
+│       ├── 2eso_ud2_3.html
+│       └── js/ (scripts locales de la unidad)
 ├── 3eso/
-│ ├── info.html
-│ ├── criterios.html
-│ └── ud1/
-│ ├── README.md
-│ ├── 3eso_ud1_0.html
-│ ├── 3eso_ud1_1.html
-│ ├── 3eso_ud1_2.html
-│ ├── 3eso_ud1_3.html
-│ ├── 3eso_ud1_4.html
-│ ├── 3eso_ud1_sda.html
-│ ├── 3eso_ud1_actfin.html
-│ └── js/ud1_02.js
+│   ├── info.html
+│   ├── criterios.html
+│   └── ud1/
+│       ├── README.md
+│       ├── 3eso_ud1_0.html
+│       ├── 3eso_ud1_1.html
+│       ├── 3eso_ud1_2.html
+│       ├── 3eso_ud1_3.html
+│       ├── 3eso_ud1_4.html
+│       ├── 3eso_ud1_sda.html
+│       ├── 3eso_ud1_actfin.html
+│       └── js/ud1_02.js
 ├── 4eso/
-│ ├── info.html
-│ ├── criterios.html
-│ └── ud2/
-│ ├── README.md
-│ ├── 4eso_ud2_0.html
-│ ├── 4eso_ud2_1.html
-│ ├── 4eso_ud2_2.html
-│ ├── 4eso_ud2_3.html
-│ └── 4eso_ud2_4.html
-└── GUIA.md ← Este archivo
+│   ├── info.html
+│   ├── criterios.html
+│   └── ud2/
+│       ├── README.md
+│       ├── 4eso_ud2_0.html
+│       ├── 4eso_ud2_1.html
+│       ├── 4eso_ud2_2.html
+│       ├── 4eso_ud2_3.html
+│       └── 4eso_ud2_4.html
+└── GUIA.md                        ← Este archivo
+Convenciones de nombres
+Carpetas de curso: 2eso/, 3eso/, 4eso/.
 
-text
+Carpetas de unidad: ud1/, ud2/, ...
 
-### Convenciones de nombres
-- **Carpetas de curso:** `2eso/`, `3eso/`, `4eso/`.
-- **Carpetas de unidad:** `ud1/`, `ud2/`, ...
-- **Archivos HTML:** `{curso}_ud{N}_{MM}.html` (`00` portada, `01..n` apartados, `sda` situación de aprendizaje, `actfin` actividades finales).
-- **IDs de unidad (GAS):** `{curso}_ud{N}_{M}` (ej. `4eso_ud2_3`).
-- **JS local:** dentro de `ud{N}/js/`, llamado `ud{N}_{MM}.js`.
+Archivos HTML: {curso}_ud{N}_{MM}.html (00 portada, 01..n apartados, sda situación de aprendizaje, actfin actividades finales).
 
----
+IDs de unidad (GAS): {curso}_ud{N}_{M} (ej. 4eso_ud2_3).
 
-## 2. Cabecera común de todos los HTML
+JS local: dentro de ud{N}/js/, llamado ud{N}_{MM}.js.
 
-```html
+2. Cabecera común de todos los HTML
+html
 <!DOCTYPE html>
 <html lang="es">
 <head>
