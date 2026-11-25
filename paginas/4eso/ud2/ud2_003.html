@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. El Sistema Periódico - 4º ESO</title>
+
+    <link rel="stylesheet" href="https://ivancrack80.github.io/apuntesfyq/css/gs-styles.css">
+    <!-- CSS LOCAL DE LA UNIDAD -->
+    <link rel="stylesheet" href="css/ud2.css">
+    
+    <script src="https://ivancrack80.github.io/apuntesfyq/js/gs-core.js"></script>
+    <!-- JS LOCAL DE LA UNIDAD -->
+    <script src="js/ud2_03.js"></script>
+</head>
+<body>
+
+<div class="gs-container">
+
+    <!-- BARRA DE ACCESIBILIDAD -->
+    <div class="accessibility-bar">
+        <div class="font-size-controls" title="Ajustar tamaño de texto">
+            <span style="font-size: 0.75rem; color: #64748b; margin-right: 4px; font-weight:600;"><i class="fa-solid fa-text-height"></i></span>
+            <button class="font-btn" onclick="setFontSize('small')">A-</button>
+            <button class="font-btn" onclick="setFontSize('normal')">A</button>
+            <button class="font-btn" onclick="setFontSize('large')">A+</button>
+            <button class="font-btn" onclick="setFontSize('xlarge')">A++</button>
+        </div>
+        <button class="dyslexia-btn" onclick="toggleDyslexiaMode()" id="dyslexiaToggleBtn">
+            <i class="fa-solid fa-universal-access"></i> Lectura Fácil
+        </button>
+    </div>
+
+    <!-- CABECERA -->
+    <header class="gs-header">
+        <div class="gs-header-meta">Física y Química · 4.º ESO · Unidad 2</div>
+        <h1 class="gs-title">3. El Sistema Periódico</h1>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div class="gs-subtitle" style="flex: 1; min-width: 250px;">Estructura, familias y propiedades periódicas de los elementos</div>
+            <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; color: #475569; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-regular fa-clock" style="color: var(--gs-primary);"></i> 
+                <strong>Temporalización estimada:</strong> 2 h.
+            </div>
+        </div>
+    </header>
+
+    <!-- 3.1 INTRODUCCIÓN -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-clock-rotate-left"></i> 3.1. Introducción y Origen de la Tabla Periódica</h2>
+    <p>
+        A lo largo del siglo XVIII y XIX aumentó el número de elementos químicos conocidos y esto hizo que hubiera la necesidad de clasificarlos y ordenarlos. Varios científicos propusieron diferentes clasificaciones; sin embargo, no tuvieron gran éxito hasta que llegó la clasificación de <strong>Dmitri Ivanovich Mendeléiev</strong>, quien propuso una ordenación según las propiedades químicas de los elementos, dejando huecos para predecir la existencia de elementos aún por descubrir.
+    </p>
+    <p>
+        Actualmente se conocen <strong>118 elementos químicos</strong> que se disponen por orden creciente de número atómico (Z), resultando una distribución en filas y columnas, de tal forma que los elementos que están en la misma columna tienen propiedades químicas parecidas. Esta distribución es supervisada y actualizada por la <strong>IUPAC</strong> (Unión Internacional de Química Pura y Aplicada).
+    </p>
+    <ul>
+        <li><strong>Periodos:</strong> Cada fila de la tabla periódica. Hay 7 periodos. Al desplazarnos hacia la derecha en un periodo, el número atómico aumenta: cada elemento tiene un protón más en su núcleo. Los elementos que están en un mismo periodo tienen el mismo número de capas con electrones.</li>
+        <li><strong>Grupos o Familias:</strong> Cada columna de la tabla periódica. Hay 18 grupos. Los elementos en el mismo grupo tienen propiedades químicas parecidas porque poseen la misma configuración electrónica en la capa más externa.</li>
+    </ul>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-earth-europe"></i> Datos clave sobre los elementos conocidos</div>
+        <ul style="margin-bottom: 0;">
+            <li>Existen unos <strong>90 elementos naturales</strong>, siendo el resto artificiales e inestables.</li>
+            <li>La mayoría de los elementos son <strong>metales</strong> que se sitúan a la izquierda de la tabla (con la excepción del hidrógeno).</li>
+            <li>Solo hay <strong>16 elementos no metales</strong> (incluyendo los gases nobles), situados a la derecha de la tabla.</li>
+            <li>Entre ambos grupos se encuentran los <strong>semimetales o metaloides</strong>, que se comportan como metales o no metales según la ocasión.</li>
+            <li>A temperatura ambiente, la mayoría son <strong>sólidos</strong>, dos son <strong>líquidos</strong> (Br y Hg) y 11 son <strong>gases</strong> (H, N, O, F, Cl más los 6 gases nobles).</li>
+        </ul>
+    </div>
+
+    <!-- 3.2 TABLA INTERACTIVA -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-table-cells-large"></i> 3.2. Tabla Periódica Interactiva</h2>
+    <p class="no-print">Consulta los 118 elementos con sus nombres, masas y propiedades en tiempo real:</p>
+    
+    <div class="iframe-cropper no-print">
+        <iframe src="https://ptable.com/?lang=es#Propiedades" class="cropped-iframe" allowfullscreen title="Tabla Periódica Ptable"></iframe>
+    </div>
+
+    <!-- Aviso para la versión impresa -->
+    <div class="gs-box gs-lectura" id="aviso-tabla-impresa" style="display: none;">
+        <div class="gs-lectura-title"><i class="fa-solid fa-print"></i> Tabla Periódica en formato papel</div>
+        <p style="margin-bottom: 0;">
+            Por motivos de formato, la tabla periódica interactiva no se puede imprimir en este documento. 
+            Por favor, ten en cuenta <strong>la tabla periódica entregada en clase</strong> para realizar las actividades.
+        </p>
+    </div>
+
+    <!-- 3.3 FAMILIAS QUÍMICAS -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-people-group"></i> 3.3. Familias Químicas</h2>
+    <p>A continuación, se indican los nombres de los grupos de elementos organizados por familias:</p>
+
+    <!-- SVG FAMILIAS -->
+    <div style="width: 100%; overflow-x: auto; margin-bottom: 25px;">
+        <svg viewBox="0 0 850 420" style="width: 100%; min-width: 700px; height: auto; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+            <!-- NÚMEROS DE GRUPOS -->
+            <g text-anchor="middle" dominant-baseline="central" font-size="11" font-weight="700">
+                <rect x="40" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="59" y="22" fill="#ffffff">G1</text>
+                <rect x="80" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="99" y="22" fill="#ffffff">G2</text>
+                <rect x="120" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="139" y="22" fill="#ffffff">G3</text>
+                <rect x="160" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="179" y="22" fill="#ffffff">G4</text>
+                <rect x="200" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="219" y="22" fill="#ffffff">G5</text>
+                <rect x="240" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="259" y="22" fill="#ffffff">G6</text>
+                <rect x="280" y="10" width="38" height="24" rx="4" fill="#293548"/><text x="299" y="22" fill="#ffffff">G7</text>
+                <rect x="320" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="339" y="22" fill="#ffffff">G8</text>
+                <rect x="360" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="379" y="22" fill="#ffffff">G9</text>
+                <rect x="400" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="419" y="22" fill="#ffffff">G10</text>
+                <rect x="440" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="459" y="22" fill="#ffffff">G11</text>
+                <rect x="480" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="499" y="22" fill="#ffffff">G12</text>
+                <rect x="520" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="539" y="22" fill="#ffffff">G13</text>
+                <rect x="560" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="579" y="22" fill="#ffffff">G14</text>
+                <rect x="600" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="619" y="22" fill="#ffffff">G15</text>
+                <rect x="640" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="659" y="22" fill="#ffffff">G16</text>
+                <rect x="680" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="699" y="22" fill="#ffffff">G17</text>
+                <rect x="720" y="10" width="38" height="24" rx="4" fill="#1e293b"/><text x="739" y="22" fill="#ffffff">G18</text>
+            </g>
+
+            <!-- BLOQUES DE FAMILIAS -->
+            <g stroke-width="1.5" text-anchor="middle" dominant-baseline="central">
+                <rect x="40" y="45" width="38" height="40" rx="3" fill="#e2e8f0" stroke="#94a3b8"/>
+                <text x="59" y="65" font-size="18" font-weight="bold" fill="#0f172a">H</text>
+
+                <rect x="40" y="87" width="38" height="210" rx="3" fill="#dbeafe" stroke="#3b82f6"/>
+                <text x="59" y="192" font-size="11" font-weight="700" fill="#1e3a8a" letter-spacing="0.5" transform="rotate(-90 59 192)">METALES ALCALINOS</text>
+
+                <rect x="80" y="87" width="38" height="210" rx="3" fill="#ffedd5" stroke="#f97316"/>
+                <text x="99" y="192" font-size="11" font-weight="700" fill="#9a3412" letter-spacing="0.5" transform="rotate(-90 99 192)">ALCALINOTÉRREOS</text>
+
+                <rect x="120" y="130" width="398" height="167" rx="4" fill="#dcfce7" stroke="#22c55e"/>
+                <text x="319" y="213" font-size="15" font-weight="800" fill="#14532d" letter-spacing="1">ELEMENTOS DE TRANSICIÓN</text>
+
+                <rect x="520" y="87" width="38" height="210" rx="3" fill="#fef9c3" stroke="#eab308"/>
+                <text x="539" y="192" font-size="10.5" font-weight="700" fill="#713f12" letter-spacing="0.5" transform="rotate(-90 539 192)">TÉRREOS O BOROIDEOS</text>
+
+                <rect x="560" y="87" width="38" height="210" rx="3" fill="#f3e8ff" stroke="#a855f7"/>
+                <text x="579" y="192" font-size="10.5" font-weight="700" fill="#581c87" letter-spacing="0.5" transform="rotate(-90 579 192)">CARBONOIDEOS</text>
+
+                <rect x="600" y="87" width="38" height="210" rx="3" fill="#e0f2fe" stroke="#0ea5e9"/>
+                <text x="619" y="192" font-size="9.5" font-weight="700" fill="#0c4a6e" letter-spacing="0.3" transform="rotate(-90 619 192)">NITROGENOIDEOS O PNICTÓGENOS</text>
+
+                <rect x="640" y="87" width="38" height="210" rx="3" fill="#fee2e2" stroke="#ef4444"/>
+                <text x="659" y="192" font-size="9.5" font-weight="700" fill="#7f1d1d" letter-spacing="0.3" transform="rotate(-90 659 192)">ANFÍGENOS O CALCÓGENOS</text>
+
+                <rect x="680" y="87" width="38" height="210" rx="3" fill="#fce7f3" stroke="#ec4899"/>
+                <text x="699" y="192" font-size="11" font-weight="700" fill="#831843" letter-spacing="0.5" transform="rotate(-90 699 192)">HALÓGENOS</text>
+
+                <rect x="720" y="45" width="38" height="252" rx="3" fill="#fae8ff" stroke="#d946ef"/>
+                <text x="739" y="171" font-size="11" font-weight="700" fill="#701a75" letter-spacing="0.5" transform="rotate(-90 739 171)">GASES NOBLES</text>
+            </g>
+
+            <!-- TRANSICIÓN INTERNA -->
+            <g stroke-width="1.5" text-anchor="middle" dominant-baseline="central">
+                <rect x="120" y="315" width="638" height="35" rx="4" fill="#f1f5f9" stroke="#64748b"/>
+                <text x="439" y="332" font-size="13" font-weight="700" fill="#1e293b" letter-spacing="1">LANTÁNIDOS</text>
+
+                <rect x="120" y="354" width="638" height="35" rx="4" fill="#fff7ed" stroke="#f97316"/>
+                <text x="439" y="371" font-size="13" font-weight="700" fill="#7c2d12" letter-spacing="1">ACTÍNIDOS</text>
+
+                <g text-anchor="end" font-size="9.5" font-weight="800" fill="#15803d">
+                    <text x="112" y="327">ELEMENTOS DE</text>
+                    <text x="112" y="339">TRANSICIÓN INTERNA</text>
+                </g>
+
+                <g text-anchor="start" font-size="9.5" font-weight="800" fill="#475569">
+                    <text x="765" y="347">TIERRAS</text>
+                    <text x="765" y="359">RARAS</text>
+                </g>
+            </g>
+        </svg>
+    </div>
+
+    <h3>Ion más probable por familia</h3>
+    <p>Tabla de tendencia de ionización por grupos:</p>
+
+    <div class="gs-table-wrapper">
+        <table class="gs-table">
+            <thead>
+                <tr>
+                    <th class="center">Grupo</th>
+                    <th>Familia Química</th>
+                    <th class="center">Ion Más Probable</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="center"><strong>1</strong></td><td>Alcalinos (excepto H)</td><td class="center"><strong>\(X^+\) (\(H\) es \(H^-\) o \(H^+\))</strong></td></tr>
+                <tr><td class="center"><strong>2</strong></td><td>Alcalinotérreos</td><td class="center"><strong>\(X^{2+}\)</strong></td></tr>
+                <tr><td class="center"><strong>3 - 12</strong></td><td>Elementos de Transición</td><td class="center"><strong>\(X^{2+}\) (el más común)</strong></td></tr>
+                <tr><td class="center"><strong>13</strong></td><td>Térreos o Boroideos</td><td class="center"><strong>\(X^{3+}\)</strong></td></tr>
+                <tr><td class="center"><strong>14</strong></td><td>Carbonoideos</td><td class="center"><strong>\(X^{4+}\) o \(X^{4-}\)</strong></td></tr>
+                <tr><td class="center"><strong>15</strong></td><td>Pnictógenos o Nitrogenoideos</td><td class="center"><strong>\(X^{3-}\)</strong></td></tr>
+                <tr><td class="center"><strong>16</strong></td><td>Calcógenos o Anfígenos</td><td class="center"><strong>\(X^{2-}\)</strong></td></tr>
+                <tr><td class="center"><strong>17</strong></td><td>Halógenos</td><td class="center"><strong>\(X^{-}\)</strong></td></tr>
+                <tr><td class="center"><strong>18</strong></td><td>Gases Nobles</td><td class="center"><strong>No forma (0)</strong></td></tr>
+                <tr><td class="center"><strong>Transición Interna</strong></td><td>Lantánidos y Actínidos</td><td class="center"><strong>\(X^{2+}\)</strong></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 3.4 ELECTRÓN DIFERENCIADOR -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-bullseye"></i> 3.4. El Electrón Diferenciador y la Tabla Periódica</h2>
+
+    <h3>3.4.1. El electrón diferenciador</h3>
+    <p>Se llama <strong>electrón diferenciador</strong> al último electrón que se coloca en la secuencia de la configuración electrónica que nos hace distinguir un elemento de otro cuando el elemento es eléctricamente neutro.</p>
+    
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title"><i class="fa-solid fa-search"></i> Ejemplos</div>
+        <p style="margin-bottom: 5px;"><strong>Oxígeno (Z = 8):</strong> \(1s^2\ 2s^2\ 2p^4\) ➔ Electrón diferenciador: <strong>\(2p^4\)</strong></p>
+        <p style="margin-bottom: 0;"><strong>Flúor (Z = 9):</strong> \(1s^2\ 2s^2\ 2p^5\) ➔ Electrón diferenciador: <strong>\(2p^5\)</strong></p>
+    </div>
+
+    <h3>3.4.2. La configuración electrónica y la Tabla Periódica</h3>
+    <p>La Tabla Periódica está ordenada según la configuración electrónica del elemento. Los elementos de un mismo grupo tienen la misma configuración electrónica en la capa de valencia. Por ejemplo, los elementos del grupo 1 tienen una configuración electrónica de la capa de valencia <strong>\(ns^1\)</strong>, siendo \(n\) el número cuántico principal (coincide con el número de capas que tiene el elemento).</p>
+
+    <!-- SILUETA DE BLOQUES -->
+    <div style="width: 100%; overflow-x: auto; margin-bottom: 25px;">
+        <p style="font-weight: bold; margin-bottom: 8px; color: #334155;">Bloques de Elementos según el Electrón Diferenciador (Detalle por Casillas)</p>
+        <svg viewBox="0 0 820 380" style="width: 100%; min-width: 700px; height: auto; font-family: Arial, sans-serif;">
+            <defs>
+                <style>
+                    .c-s { fill: #fbcfe8; stroke: #db2777; stroke-width: 1; }
+                    .c-d { fill: #fef08a; stroke: #eab308; stroke-width: 1; }
+                    .c-p { fill: #bbf7d0; stroke: #22c55e; stroke-width: 1; }
+                    .c-f { fill: #cfeefd; stroke: #0284c7; stroke-width: 1; }
+                    .txt-num { font-size: 10px; font-weight: bold; fill: #1e293b; text-anchor: middle; }
+                    .txt-conf { font-size: 11px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
+                </style>
+            </defs>
+
+            <!-- NÚMEROS DE COLUMNAS -->
+            <text x="29" y="15" class="txt-num">1</text><text x="49" y="15" class="txt-num">2</text><text x="94" y="15" class="txt-num">3</text><text x="114" y="15" class="txt-num">4</text><text x="134" y="15" class="txt-num">5</text><text x="154" y="15" class="txt-num">6</text><text x="174" y="15" class="txt-num">7</text><text x="194" y="15" class="txt-num">8</text><text x="214" y="15" class="txt-num">9</text><text x="234" y="15" class="txt-num">10</text><text x="254" y="15" class="txt-num">11</text><text x="274" y="15" class="txt-num">12</text><text x="320" y="15" class="txt-num">13</text><text x="340" y="15" class="txt-num">14</text><text x="360" y="15" class="txt-num">15</text><text x="380" y="15" class="txt-num">16</text><text x="400" y="15" class="txt-num">17</text><text x="420" y="15" class="txt-num">18</text>
+
+            <!-- H Y HE -->
+            <rect x="145" y="25" width="18" height="18" class="c-s"/><text x="154" y="38" class="txt-num" fill="#db2777">H</text>
+            <rect x="411" y="25" width="18" height="18" class="c-s"/><text x="420" y="38" class="txt-num" fill="#db2777">He</text>
+
+            <!-- CONFIGURACIONES -->
+            <text x="29" y="55" class="txt-conf">s¹</text><text x="49" y="55" class="txt-conf">s²</text>
+            <text x="94" y="95" class="txt-conf">d¹</text><text x="114" y="95" class="txt-conf">d²</text><text x="134" y="95" class="txt-conf">d³</text><text x="154" y="95" class="txt-conf">d⁴</text><text x="174" y="95" class="txt-conf">d⁵</text><text x="194" y="95" class="txt-conf">d⁶</text><text x="214" y="95" class="txt-conf">d⁷</text><text x="234" y="95" class="txt-conf">d⁸</text><text x="254" y="95" class="txt-conf">d⁹</text><text x="274" y="95" class="txt-conf">d¹⁰</text>
+            <text x="320" y="55" class="txt-conf">p¹</text><text x="340" y="55" class="txt-conf">p²</text><text x="360" y="55" class="txt-conf">p³</text><text x="380" y="55" class="txt-conf">p⁴</text><text x="400" y="55" class="txt-conf">p⁵</text><text x="420" y="55" class="txt-conf">p⁶</text>
+            <text x="149" y="275" class="txt-conf">f¹</text><text x="169" y="275" class="txt-conf">f²</text><text x="189" y="275" class="txt-conf">f³</text><text x="209" y="275" class="txt-conf">f⁴</text><text x="229" y="275" class="txt-conf">f⁵</text><text x="249" y="275" class="txt-conf">f⁶</text><text x="269" y="275" class="txt-conf">f⁷</text><text x="289" y="275" class="txt-conf">f⁸</text><text x="309" y="275" class="txt-conf">f⁹</text><text x="329" y="275" class="txt-conf">f¹⁰</text><text x="349" y="275" class="txt-conf">f¹¹</text><text x="369" y="275" class="txt-conf">f¹²</text><text x="389" y="275" class="txt-conf">f¹³</text><text x="409" y="275" class="txt-conf">f¹⁴</text>
+
+            <!-- CASILLAS DE BLOQUES -->
+            <g class="c-s">
+                <rect x="20" y="65" width="18" height="22"/><rect x="40" y="65" width="18" height="22"/>
+                <rect x="20" y="89" width="18" height="22"/><rect x="40" y="89" width="18" height="22"/>
+                <rect x="20" y="113" width="18" height="22"/><rect x="40" y="113" width="18" height="22"/>
+                <rect x="20" y="137" width="18" height="22"/><rect x="40" y="137" width="18" height="22"/>
+                <rect x="20" y="161" width="18" height="22"/><rect x="40" y="161" width="18" height="22"/>
+            </g>
+            <g class="c-d">
+                <rect x="85" y="105" width="18" height="22"/><rect x="105" y="105" width="18" height="22"/><rect x="125" y="105" width="18" height="22"/><rect x="145" y="105" width="18" height="22"/><rect x="165" y="105" width="18" height="22"/>
+                <rect x="185" y="105" width="18" height="22"/><rect x="205" y="105" width="18" height="22"/><rect x="225" y="105" width="18" height="22"/><rect x="245" y="105" width="18" height="22"/><rect x="265" y="105" width="18" height="22"/>
+                <rect x="85" y="129" width="18" height="22"/><rect x="105" y="129" width="18" height="22"/><rect x="125" y="129" width="18" height="22"/><rect x="145" y="129" width="18" height="22"/><rect x="165" y="129" width="18" height="22"/>
+                <rect x="185" y="129" width="18" height="22"/><rect x="205" y="129" width="18" height="22"/><rect x="225" y="129" width="18" height="22"/><rect x="245" y="129" width="18" height="22"/><rect x="265" y="129" width="18" height="22"/>
+                <rect x="85" y="153" width="18" height="22"/><rect x="105" y="153" width="18" height="22"/><rect x="125" y="153" width="18" height="22"/><rect x="145" y="153" width="18" height="22"/><rect x="165" y="153" width="18" height="22"/>
+                <rect x="185" y="153" width="18" height="22"/><rect x="205" y="153" width="18" height="22"/><rect x="225" y="153" width="18" height="22"/><rect x="245" y="153" width="18" height="22"/><rect x="265" y="153" width="18" height="22"/>
+                <rect x="85" y="177" width="18" height="22"/><rect x="105" y="177" width="18" height="22"/><rect x="125" y="177" width="18" height="22"/><rect x="145" y="177" width="18" height="22"/><rect x="165" y="177" width="18" height="22"/>
+                <rect x="185" y="177" width="18" height="22"/><rect x="205" y="177" width="18" height="22"/><rect x="225" y="177" width="18" height="22"/><rect x="245" y="177" width="18" height="22"/><rect x="265" y="177" width="18" height="22"/>
+            </g>
+            <g class="c-p">
+                <rect x="311" y="65" width="18" height="22"/><rect x="331" y="65" width="18" height="22"/><rect x="351" y="65" width="18" height="22"/><rect x="371" y="65" width="18" height="22"/><rect x="391" y="65" width="18" height="22"/><rect x="411" y="65" width="18" height="22"/>
+                <rect x="311" y="89" width="18" height="22"/><rect x="331" y="89" width="18" height="22"/><rect x="351" y="89" width="18" height="22"/><rect x="371" y="89" width="18" height="22"/><rect x="391" y="89" width="18" height="22"/><rect x="411" y="89" width="18" height="22"/>
+                <rect x="311" y="113" width="18" height="22"/><rect x="331" y="113" width="18" height="22"/><rect x="351" y="113" width="18" height="22"/><rect x="371" y="113" width="18" height="22"/><rect x="391" y="113" width="18" height="22"/><rect x="411" y="113" width="18" height="22"/>
+                <rect x="311" y="137" width="18" height="22"/><rect x="331" y="137" width="18" height="22"/><rect x="351" y="137" width="18" height="22"/><rect x="371" y="137" width="18" height="22"/><rect x="391" y="137" width="18" height="22"/><rect x="411" y="137" width="18" height="22"/>
+                <rect x="311" y="161" width="18" height="22"/><rect x="331" y="161" width="18" height="22"/><rect x="351" y="161" width="18" height="22"/><rect x="371" y="161" width="18" height="22"/><rect x="391" y="161" width="18" height="22"/><rect x="411" y="161" width="18" height="22"/>
+            </g>
+            <g class="c-f">
+                <rect x="140" y="285" width="18" height="22"/><rect x="160" y="285" width="18" height="22"/><rect x="180" y="285" width="18" height="22"/><rect x="200" y="285" width="18" height="22"/><rect x="220" y="285" width="18" height="22"/><rect x="240" y="285" width="18" height="22"/><rect x="260" y="285" width="18" height="22"/><rect x="280" y="285" width="18" height="22"/><rect x="300" y="285" width="18" height="22"/><rect x="320" y="285" width="18" height="22"/><rect x="340" y="285" width="18" height="22"/><rect x="360" y="285" width="18" height="22"/><rect x="380" y="285" width="18" height="22"/><rect x="400" y="285" width="18" height="22"/>
+                <rect x="140" y="309" width="18" height="22"/><rect x="160" y="309" width="18" height="22"/><rect x="180" y="309" width="18" height="22"/><rect x="200" y="309" width="18" height="22"/><rect x="220" y="309" width="18" height="22"/><rect x="240" y="309" width="18" height="22"/><rect x="260" y="309" width="18" height="22"/><rect x="280" y="309" width="18" height="22"/><rect x="300" y="309" width="18" height="22"/><rect x="320" y="309" width="18" height="22"/><rect x="340" y="309" width="18" height="22"/><rect x="360" y="309" width="18" height="22"/><rect x="380" y="309" width="18" height="22"/><rect x="400" y="309" width="18" height="22"/>
+            </g>
+
+            <!-- LEYENDA -->
+            <g font-size="13" font-weight="bold" fill="#0f172a">
+                <rect x="520" y="65" width="22" height="22" class="c-s"/><text x="550" y="81">Bloque "s"</text>
+                <rect x="520" y="105" width="22" height="22" class="c-d"/><text x="550" y="121">Bloque "d"</text>
+                <rect x="520" y="145" width="22" height="22" class="c-p"/><text x="550" y="161">Bloque "p"</text>
+                <rect x="520" y="185" width="22" height="22" class="c-f"/><text x="550" y="201">Bloque "f"</text>
+            </g>
+        </svg>
+    </div>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-circle-info"></i> Consideraciones importantes</div>
+        <ul style="margin-bottom: 0;">
+            <li>La configuración electrónica real se determina de forma experimental, por ello, algunas veces la configuración obtenida por el diagrama de Möeller no coincidirá con la real.</li>
+            <li>No es objetivo de este curso aprenderse las configuraciones electrónicas reales de aquellos elementos que difieren a la obtenida por Möeller como puede ser el caso del Lantano (La), cuya configuración electrónica real es \(5d^1\) (por lo que es un elemento de transición), mientras que por Möeller obtendríamos \(4f^1\) (el primer elemento de transición interna).</li>
+            <li>Realizaremos la configuración electrónica según el <strong>diagrama de Möeller</strong>, ya que con ello podremos obtener el grupo, periodo y elemento de forma sencilla.</li>
+            <li>La configuración electrónica del <strong>He</strong> es \(1s^2\). Sin embargo, pertenece al <strong>grupo 18 (Gases Nobles)</strong> en vez de al grupo 2 debido a su comportamiento inerte.</li>
+        </ul>
+    </div>
+
+    <!-- 3.5 DETERMINACIÓN DE GRUPO Y PERIODO -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-magnifying-glass-chart"></i> 3.5. Determinación del Grupo y Periodo de un Elemento</h2>
+    <p>Debido a que cada grupo de elementos comparte la misma configuración electrónica de valencia, solo necesitamos conocer el <strong>electrón diferenciador</strong> para deducir el grupo y periodo al que pertenece.</p>
+
+    <h3>• Elementos del bloque s</h3>
+    <p>El electrón diferenciador tiene la forma de <strong>\(ns^1\)</strong> (grupo 1) o <strong>\(ns^2\)</strong> (grupo 2). El valor de \(n\) (número cuántico principal) nos indica el <strong>periodo</strong>.</p>
+    <div class="gs-box gs-ejemplo">
+        <p style="margin-bottom: 5px;"><strong>\(5s^1\)</strong> ➔ Periodo 5 y Grupo 1 ➔ Se trata del <strong>Rb</strong> (Rubidio).</p>
+        <p style="margin-bottom: 0;"><strong>\(3s^2\)</strong> ➔ Periodo 3 y Grupo 2 ➔ Se trata del <strong>Mg</strong> (Magnesio). <em>(Nota: el Ca posee \(4s^2\))</em>.</p>
+    </div>
+
+    <h3>• Elementos del bloque p</h3>
+    <p>El electrón diferenciador tiene la forma de <strong>\(np^x\)</strong> (donde \(n\) va de 2 a 7 y \(x\) de 1 a 6). El periodo es igual al valor de \(n\) y el grupo es <strong>\(x + 12\)</strong> (grupos 13 al 18).</p>
+    <div class="gs-box gs-ejemplo">
+        <p style="margin-bottom: 5px;"><strong>\(3p^4\)</strong> ➔ Periodo 3 y Grupo 16 (12 + 4) ➔ Se trata del <strong>S</strong> (Azufre).</p>
+        <p style="margin-bottom: 0;"><strong>\(5p^6\)</strong> ➔ Periodo 5 y Grupo 18 (12 + 6) ➔ Se trata del <strong>Xe</strong> (Xenón).</p>
+    </div>
+
+    <h3>• Elementos del bloque d</h3>
+    <p>El primer orbital que se rellena de tipo \(d\) es el 3d (en el periodo 4, tras completarse el orbital 4s). Su configuración tiene la forma <strong>\((n-1)d^x\ ns^2\)</strong>. El periodo es el valor de \(n\) y el grupo es <strong>\(x + 2\)</strong> (grupos 3 al 12). Los elementos del bloque d están desfasados un periodo respecto al orbital d que se llena.</p>
+    <div class="gs-box gs-ejemplo">
+        <p style="margin-bottom: 5px;"><strong>\(4d^8\)</strong> ➔ Periodo 5 (se llena antes el 5s) y Grupo 10 (8 + 2) ➔ Se trata del <strong>Pd</strong> (Paladio).</p>
+        <p style="margin-bottom: 0;"><strong>\(5d^3\)</strong> ➔ Periodo 6 (se llena antes el 6s) y Grupo 5 (3 + 2) ➔ Se trata del <strong>Ta</strong> (Tántalo).</p>
+    </div>
+
+    <h3>• Elementos del bloque f</h3>
+    <p>El primer orbital \(f\) que se llena es el 4f (tras rellenar el orbital 6s). Tienen la forma <strong>\((n-2)f^x\ ns^2\)</strong>. El valor de \(n\) indica el periodo. Si se rellena el <strong>4f</strong> pertenece a los <strong>Lantánidos</strong> (periodo 6) y si se rellena el <strong>5f</strong> a los <strong>Actínidos</strong> (periodo 7). Los elementos de transición interna no tienen número de grupo asignado y están desfasados dos periodos.</p>
+    <div class="gs-box gs-ejemplo">
+        <p style="margin-bottom: 5px;"><strong>\(4f^7\)</strong> ➔ Periodo 6 ➔ Familia de los <strong>Lantánidos</strong>.</p>
+        <p style="margin-bottom: 0;"><strong>\(5f^{12}\)</strong> ➔ Periodo 7 ➔ Familia de los <strong>Actínidos</strong>.</p>
+    </div>
+
+    <!-- 3.6 EJERCICIO PRÁCTICO INTERACTIVO -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-pen-to-square"></i> 3.6. Ejercicio Práctico: Deducción de Ubicación</h2>
+    <p>Completa la siguiente tabla deduciendo los datos que faltan a partir de la información proporcionada. Para la columna de clasificación utiliza las siguientes abreviaturas:</p>
+    
+    <div class="gs-box gs-lectura" style="margin-bottom: 20px;">
+        <div class="gs-lectura-title"><i class="fa-solid fa-list-check"></i> Leyenda de Clasificación</div>
+        <ul style="margin-top: 6px; margin-bottom: 0; display: flex; gap: 20px; flex-wrap: wrap; list-style: none; padding-left: 0;">
+            <li><strong>M:</strong> Metal</li>
+            <li><strong>NM:</strong> No Metal</li>
+            <li><strong>SM:</strong> Semimetal</li>
+            <li><strong>GN:</strong> Gas Noble</li>
+        </ul>
+    </div>
+
+    <div style="margin-bottom: 16px; text-align: right;">
+        <button id="btn-solucion" class="btn-solucion" onclick="toggleSolucion()">
+            👁️ Ver solución
+        </button>
+    </div>
+
+    <div class="gs-table-wrapper">
+        <table class="gs-table" id="tabla-ejercicio">
+            <thead>
+                <tr>
+                    <th>Dato de partida</th>
+                    <th class="center">Electrón Dif.</th>
+                    <th class="center">Grupo</th>
+                    <th>Familia Química</th>
+                    <th class="center">Periodo</th>
+                    <th>Elemento (Símbolo)</th>
+                    <th class="center">Clasificación</th>
+                    <th class="center">Ion más probable</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>a) Electrón dif.:</strong> 3p<sup>4</sup></td>
+                    <td class="center">3p<sup>4</sup></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">16</span></td>
+                    <td class="sol-cell"><span class="placeholder"></span><span class="sol-data">Calcógenos / Anfígenos</span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">3</span></td>
+                    <td class="sol-cell"><span class="placeholder"></span><span class="sol-data">Azufre (S)</span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">NM</span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">S<sup>2−</sup></span></td>
+                </tr>
+                <tr>
+                    <td><strong>b) Grupo y Periodo:</strong> G1, P4</td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">4s<sup>1</sup></span></td>
+                    <td class="center">1</td>
+                    <td class="sol-cell"><span class="placeholder"></span><span class="sol-data">Metales Alcalinos</span></td>
+                    <td class="center">4</td>
+                    <td class="sol-cell"><span class="placeholder"></span><span class="sol-data">Potasio (K)</span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">M</span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">K<sup>+</sup></span></td>
+                </tr>
+                <tr>
+                    <td><strong>c) Nombre/Símbolo:</strong> Hierro (Fe)</td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">3d<sup>6</sup></span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">8</span></td>
+                    <td class="sol-cell"><span class="placeholder"></span><span class="sol-data">Elementos de Transición</span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">4</span></td>
+                    <td>Hierro (Fe)</td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">M</span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">X<sup>n+</sup> (Fe<sup>2+</sup>/Fe<sup>3+</sup>)</span></td>
+                </tr>
+                <tr>
+                    <td><strong>d) Familia y Periodo:</strong> Lantánidos, P6</td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">4f<sup>x</sup></span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">No aplica</span></td>
+                    <td>Lantánidos</td>
+                    <td class="center">6</td>
+                    <td class="sol-cell"><span class="placeholder"></span><span class="sol-data">No aplica</span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">M</span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">X<sup>2+</sup></span></td>
+                </tr>
+                <tr>
+                    <td><strong>e) Familia y Periodo:</strong> Gases Nobles, P2</td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">2p<sup>6</sup></span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">18</span></td>
+                    <td>Gases Nobles</td>
+                    <td class="center">2</td>
+                    <td class="sol-cell"><span class="placeholder"></span><span class="sol-data">Neón (Ne)</span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">GN</span></td>
+                    <td class="center sol-cell"><span class="placeholder"></span><span class="sol-data">No forma (0)</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Explicación detallada paso a paso</h3>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title">Caso a) A partir del electrón diferenciador (\(3p^4\))</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Periodo:</strong> El número cuántico principal \(n = 3\) indica directamente el <strong>Periodo 3</strong>.</li>
+            <li><strong>Grupo:</strong> Pertenece al bloque \(p\), por lo que aplicamos la regla: Grupo = \(x + 12 = 4 + 12 = \mathbf{16}\).</li>
+            <li><strong>Familia:</strong> El grupo 16 se denomina <strong>Calcógenos o Anfígenos</strong>.</li>
+            <li><strong>Elemento:</strong> En la intersección de Periodo 3 y Grupo 16 localizamos el <strong>Azufre (S)</strong>.</li>
+            <li><strong>Clasificación:</strong> Situado a la derecha de la tabla, es un No Metal (<strong>NM</strong>).</li>
+            <li><strong>Ion más probable:</strong> Le faltan 2 electrones para completar el octeto (\(3p^6\)), formando el anión <strong>\(S^{2−}\)</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title">Caso b) A partir del Grupo y Periodo (Grupo 1, Periodo 4)</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Electrón diferenciador:</strong> El Grupo 1 es bloque \(s\) (\(s^1\)). Con Periodo 4 (\(n = 4\)), su electrón diferenciador es <strong>\(4s^1\)</strong>.</li>
+            <li><strong>Familia:</strong> Los elementos del Grupo 1 son los <strong>Metales Alcalinos</strong>.</li>
+            <li><strong>Elemento:</strong> Cruzando Grupo 1 y Periodo 4 encontramos el <strong>Potasio (K)</strong>.</li>
+            <li><strong>Clasificación:</strong> Ubicado a la izquierda, es un Metal (<strong>M</strong>).</li>
+            <li><strong>Ion más probable:</strong> Pierde su único electrón de valencia (\(4s^1\)) para adquirir estructura estable de gas noble, formando el catión <strong>\(K^+\)</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title">Caso c) A partir del Nombre o Símbolo (Hierro, Fe)</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Ubicación:</strong> Al buscar el Hierro (Z = 26) en la tabla, se sitúa en el <strong>Periodo 4</strong> y <strong>Grupo 8</strong>.</li>
+            <li><strong>Familia:</strong> Los grupos 3 al 12 conforman los <strong>Elementos de Transición</strong> (bloque \(d\)).</li>
+            <li><strong>Electrón diferenciador:</strong> En el bloque \(d\), el grupo es \(x + 2\). Como Grupo = 8, tenemos \(x = 8 − 2 = 6\) electrones \(d\). Estando en el periodo 4, se llena el orbital 3d (desfasado un periodo), luego el electrón diferenciador es <strong>\(3d^6\)</strong>.</li>
+            <li><strong>Clasificación:</strong> Es un Metal (<strong>M</strong>).</li>
+            <li><strong>Ion más probable:</strong> Los metales de transición pierden electrones originando cationes de carga variable <strong>\(X^{n+}\)</strong> (en el caso del hierro, Fe<sup>2+</sup> o Fe<sup>3+</sup>).</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title">Caso d) A partir de la Familia y Periodo (Lantánidos, Periodo 6)</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Familia y Grupo:</strong> Los Lantánidos son la primera fila de la Transición Interna (bloque \(f\)). No se les asigna un número de grupo específico (<strong>No aplica</strong>).</li>
+            <li><strong>Electrón diferenciador:</strong> Al ser Lantánidos en el Periodo 6, se está rellenando el orbital 4f (desfasado dos periodos), por lo que su forma general es <strong>\(4f^x\)</strong>.</li>
+            <li><strong>Nombre y Símbolo:</strong> Al no especificar un elemento concreto de la serie, se indica <strong>No aplica</strong>.</li>
+            <li><strong>Clasificación:</strong> Todos los elementos de transición interna son Metales (<strong>M</strong>).</li>
+            <li><strong>Ion más probable:</strong> La tendencia general para estos elementos es perder electrones de su capa externa formando cationes de tipo <strong>\(X^{2+}\)</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title">Caso e) A partir de la Familia y Periodo (Gases Nobles, Periodo 2)</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Grupo:</strong> La familia de los Gases Nobles equivale al <strong>Grupo 18</strong>.</li>
+            <li><strong>Electrón diferenciador:</strong> El grupo 18 (bloque \(p\) completo) en el periodo 2 (\(n = 2\)) tiene el subnivel lleno: <strong>\(2p^6\)</strong>.</li>
+            <li><strong>Elemento:</strong> El gas noble del segundo periodo es el <strong>Neón (Ne)</strong>.</li>
+            <li><strong>Clasificación:</strong> Pertenece a los Gases Nobles (<strong>GN</strong>).</li>
+            <li><strong>Ion más probable:</strong> Al tener su capa de valencia completa (\(2s^2\ 2p^6\)), goza de máxima estabilidad y <strong>no forma iones (0)</strong>.</li>
+        </ul>
+    </div>
+
+    <!-- 3.7 PROPIEDADES PERIÓDICAS -->
+    <h2 class="gs-section-title"><i class="fa-solid fa-chart-line"></i> 3.7. Propiedades Periódicas</h2>
+    <p>
+        La configuración electrónica de la capa más externa (capa de valencia) se repite de manera análoga en los elementos de un mismo grupo, confiriéndoles un comportamiento químico similar. 
+        Al ordenar los elementos por su número atómico (\(Z\)), sus propiedades varían de forma regular siguiendo la <strong>ley periódica</strong>.
+    </p>
+
+    <h3>3.7.1. El radio atómico</h3>
+    <p>
+        El <strong>radio atómico</strong> representa la distancia media entre el núcleo y la capa de valencia. Nos da una idea del tamaño del átomo.
+    </p>
+    <p>
+        Puesto que el átomo está formado por protones en el núcleo y electrones en la corteza, la variación del radio se explica mediante la <strong>Ley de Coulomb</strong>:
+    </p>
+    <div class="gs-latex-container">
+        $$F = K \cdot \frac{|q_1 \cdot q_2|}{r^2}$$
+    </div>
+
+    <div class="gs-box gs-lectura" style="border-left-color: #dc2626;">
+        <div class="gs-lectura-title" style="color: #dc2626;"><i class="fa-solid fa-triangle-exclamation"></i> ¡Ojo en las explicaciones!</div>
+        <p style="margin: 0;">
+            Para justificar la variación del radio atómico nunca te limites a decir «aumenta hacia abajo porque sí». Debes mencionar siempre la <strong>carga nuclear</strong> (\(q_1\)) y el <strong>número de capas o distancia al núcleo</strong> (\(r\)) aplicando la Ley de Coulomb.
+        </p>
+    </div>
+
+    <!-- SVG PROPIEDADES -->
+    <div style="width: 100%; overflow-x: auto; margin-bottom: 25px;">
+        <svg viewBox="0 0 880 480" style="width: 100%; min-width: 700px; height: auto; font-family: system-ui, -apple-system, sans-serif;">
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444" /></marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a" /></marker>
+                <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" /></marker>
+                <style>
+                    .grid-cell { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1; }
+                    .grid-dot { fill: #334155; }
+                    .txt-label { font-size: 12px; font-weight: 800; text-anchor: middle; dominant-baseline: central; }
+                    .txt-sub { font-size: 10px; font-weight: 600; text-anchor: middle; dominant-baseline: central; fill: #64748b; }
+                </style>
+            </defs>
+
+            <text x="440" y="25" class="txt-label" font-size="15" fill="#1e3a8a">VARIACIÓN GENERAL DE LAS PROPIEDADES PERIÓDICAS</text>
+
+            <g transform="translate(100, 70)">
+                <rect x="0" y="0" width="30" height="30" class="grid-cell"/><circle cx="15" cy="15" r="2.5" class="grid-dot"/>
+                <rect x="0" y="32" width="30" height="30" class="grid-cell"/><circle cx="15" cy="47" r="4" class="grid-dot"/>
+                <rect x="0" y="64" width="30" height="30" class="grid-cell"/><circle cx="15" cy="79" r="5.5" class="grid-dot"/>
+                <rect x="0" y="96" width="30" height="30" class="grid-cell"/><circle cx="15" cy="111" r="7" class="grid-dot"/>
+                <rect x="0" y="128" width="30" height="30" class="grid-cell"/><circle cx="15" cy="143" r="8.5" class="grid-dot"/>
+                <rect x="0" y="160" width="30" height="30" class="grid-cell"/><circle cx="15" cy="175" r="10" class="grid-dot"/>
+                <rect x="0" y="192" width="30" height="30" class="grid-cell" fill="#fca5a5" stroke="#ef4444"/><circle cx="15" cy="207" r="11.5" fill="#991b1b"/>
+                <text x="15" y="232" class="txt-sub" font-weight="800" fill="#dc2626">Fr</text>
+
+                <rect x="32" y="32" width="30" height="30" class="grid-cell"/><circle cx="47" cy="47" r="3" class="grid-dot"/>
+                <rect x="32" y="64" width="30" height="30" class="grid-cell"/><circle cx="47" cy="79" r="4.5" class="grid-dot"/>
+                <rect x="32" y="96" width="30" height="30" class="grid-cell"/><circle cx="47" cy="111" r="6" class="grid-dot"/>
+                <rect x="32" y="128" width="30" height="30" class="grid-cell"/><circle cx="47" cy="143" r="7.5" class="grid-dot"/>
+                <rect x="32" y="160" width="30" height="30" class="grid-cell"/><circle cx="47" cy="175" r="9" class="grid-dot"/>
+                <rect x="32" y="192" width="30" height="30" class="grid-cell"/><circle cx="47" cy="207" r="10" class="grid-dot"/>
+
+                <g transform="translate(64, 96)">
+                    <rect x="0" y="0" width="300" height="126" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-dasharray="4 4"/>
+                    <text x="150" y="63" class="txt-sub" font-size="12">METALES DE TRANSICIÓN</text>
+                </g>
+
+                <g transform="translate(366, 32)">
+                    <rect x="0" y="0" width="30" height="30" class="grid-cell"/><circle cx="15" cy="15" r="2.8" class="grid-dot"/>
+                    <rect x="32" y="0" width="30" height="30" class="grid-cell"/><circle cx="47" cy="15" r="2.5" class="grid-dot"/>
+                    <rect x="64" y="0" width="30" height="30" class="grid-cell"/><circle cx="79" cy="15" r="2.2" class="grid-dot"/>
+                    <rect x="96" y="0" width="30" height="30" class="grid-cell"/><circle cx="111" cy="15" r="2.0" class="grid-dot"/>
+                    <rect x="128" y="0" width="30" height="30" class="grid-cell" fill="#bae6fd" stroke="#0284c7"/><circle cx="143" cy="15" r="1.8" fill="#0369a1"/>
+                    <rect x="160" y="0" width="30" height="30" class="grid-cell"/><circle cx="175" cy="15" r="1.5" class="grid-dot"/>
+                    <text x="143" y="-10" class="txt-sub" font-weight="800" fill="#0369a1">F</text>
+
+                    <rect x="0" y="32" width="190" height="160" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-dasharray="4 4"/>
+                    <text x="95" y="112" class="txt-sub" font-size="12">NO METALES Y SEMIMETALES</text>
+                </g>
+
+                <rect x="526" y="0" width="30" height="30" class="grid-cell"/><circle cx="541" cy="15" r="1.2" class="grid-dot"/>
+            </g>
+
+            <line x1="630" y1="45" x2="105" y2="45" stroke="#ef4444" stroke-width="3" marker-end="url(#arrow-red)"/>
+            <text x="367" y="35" class="txt-label" fill="#dc2626">Aumento del Radio Atómico</text>
+
+            <line x1="55" y1="70" x2="55" y2="280" stroke="#ef4444" stroke-width="3" marker-end="url(#arrow-red)"/>
+            <text x="42" y="175" class="txt-label" fill="#dc2626" transform="rotate(-90 42 175)">Aumento del Radio Atómico</text>
+
+            <line x1="630" y1="320" x2="105" y2="320" stroke="#16a34a" stroke-width="3" marker-end="url(#arrow-green)"/>
+            <text x="367" y="335" class="txt-label" fill="#15803d">Aumento del Carácter Metálico</text>
+
+            <line x1="100" y1="365" x2="620" y2="365" stroke="#0284c7" stroke-width="3" marker-end="url(#arrow-purple)"/>
+            <text x="360" y="380" class="txt-label" fill="#0369a1">Aumento de la Electronegatividad</text>
+
+            <line x1="680" y1="300" x2="680" y2="75" stroke="#0284c7" stroke-width="3" marker-end="url(#arrow-purple)"/>
+            <text x="695" y="187" class="txt-label" fill="#0369a1" transform="rotate(90 695 187)">Aumento de la Electronegatividad</text>
+        </svg>
+    </div>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-lightbulb"></i> Regla para recordar el Radio Atómico</div>
+        <ul style="margin-bottom: 0;">
+            <li><strong>Al bajar en un grupo (aumenta):</strong> Se añaden capas electrónicas (\(r\) mayor), por lo que la fuerza de atracción nuclear disminuye y el átomo se expande.</li>
+            <li><strong>Al avanzar en un periodo (disminuye):</strong> El número de capas es el mismo, pero aumenta el número de protones (\(Z\)). La mayor carga nuclear atrae a los electrones con más fuerza, contrayendo el átomo.</li>
+        </ul>
+    </div>
+
+    <h3>3.7.2. El radio iónico</h3>
+    <p>
+        El <strong>radio iónico</strong> es el tamaño que presenta un átomo cuando ha ganado o perdido electrones para convertirse en un ion estable.
+    </p>
+
+    <div class="gs-box gs-ejemplo">
+        <div class="gs-ejemplo-title">Reglas de comparación del Radio Iónico</div>
+        <ol style="margin-bottom: 0;">
+            <li><strong>Cationes &lt; Átomo neutro:</strong> Al perder electrones, la repulsión e⁻-e⁻ disminuye y los protones restantes atraen con mayor fuerza a la corteza (\(\text{Na}^+ < \text{Na}\)).</li>
+            <li><strong>Aniones &gt; Átomo neutro:</strong> Al ganar electrones, aumenta la repulsión entre ellos dentro de la misma capa, expandiendo la nube electrónica (\(\text{F}^- > \text{F}\)).</li>
+            <li><strong>Cationes del mismo periodo:</strong> Es más pequeño el de mayor carga positiva (\(\text{Mg}^{2+} < \text{Na}^+\)).</li>
+            <li><strong>Aniones del mismo periodo:</strong> Es más grande el de mayor carga negativa (\(\text{N}^{3-} > \text{F}^-\)).</li>
+        </ol>
+    </div>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-magnifying-glass"></i> Caso Especial: Especies Isoelectrónicas</div>
+        <p style="margin-bottom: 0;">
+            Dos especies son <strong>isoelectrónicas</strong> si tienen el mismo número de electrones. En este caso, <strong>es más pequeño el ion con mayor número atómico (\(Z\))</strong>, ya que un núcleo con más protones ejerce una fuerza de atracción superior.<br><br>
+            <em>Ejemplo:</em> El \(\text{Cl}^-\) (\(Z=17\)) y el \(\text{K}^+\) (\(Z=19\)) tienen ambos 18 electrones. El potasio atrae con 19 protones a la corteza frente a los 17 del cloro, por lo que: <strong>\(\text{Cl}^- > \text{K}^+\)</strong>.
+        </p>
+    </div>
+
+    <h3>3.7.3. Carácter metálico de los elementos</h3>
+    <p>
+        Mide la facilidad que tiene un átomo para ceder electrones y formar cationes (iones positivos). Cuanto menor sea la fuerza de retención sobre los electrones de valencia, mayor será su carácter metálico.
+    </p>
+
+    <div class="gs-box gs-comprender">
+        <div class="gs-comprender-title"><i class="fa-solid fa-lightbulb"></i> Tendencia del Carácter Metálico</div>
+        <p style="margin-bottom: 0;">
+            • <strong>En un grupo:</strong> Aumenta al bajar (\(\text{Li} < \text{Rb}\)), pues el electrón de valencia está más lejos y cuesta menos arrancarlo.<br>
+            • <strong>En un periodo:</strong> Disminuye al avanzar a la derecha (\(\text{K} > \text{Cu} > \text{Br}\)), ya que la carga nuclear aumenta y retiene a los electrones con más fuerza.
+        </p>
+    </div>
+
+    <h3>3.7.4. La electronegatividad</h3>
+    <p>
+        La <strong>electronegatividad</strong> mide la capacidad que tiene un átomo enlazado (especialmente en un enlace covalente) para atraer hacia sí los electrones compartidos.
+    </p>
+
+    <div class="gs-box gs-lectura">
+        <div class="gs-lectura-title"><i class="fa-solid fa-scale-balanced"></i> La Escala de Pauling</div>
+        <p>
+            Linus Pauling diseñó una escala donde el elemento más electronegativo es el <strong>Flúor (F)</strong> (valor 4,0), seguido del Oxígeno (O) y del Nitrógeno (N).
+        </p>
+        <p style="margin-bottom: 0;">
+            <strong>Nota clave:</strong> Los <strong>gases nobles</strong> (Grupo 18) no presentan valor de electronegatividad en esta escala porque poseen la capa de valencia completa y no forman enlaces covalentes en condiciones habituales.
+        </p>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="gs-box gs-aplicar">
+        <div class="gs-aplicar-title"><i class="fa-solid fa-pen-clip"></i> Actividades de aplicación</div>
+        <ol class="gs-actividades">
+            <li>
+                Justifica cuál de las siguientes especies presenta un tamaño mayor aplicando la Ley de Coulomb: 
+                <strong>a)</strong> \(\text{Na}\) o \(\text{K}\); 
+                <strong>b)</strong> \(\text{Na}\) o \(\text{Mg}\).
+            </li>
+            <li>
+                Ordena de menor a mayor radio las siguientes especies isoelectrónicas: \(\text{O}^{2-}\), \(\text{F}^-\), \(\text{Na}^+\) y \(\text{Mg}^{2+}\).
+            </li>
+            <li>
+                Indica cuál es el elemento más electronegativo y el de mayor carácter metálico entre el Bromo (Br), el Calcio (Ca) y el Potasio (K).
+            </li>
+        </ol>
+    </div>
+
+    <!-- SOLUCIONARIO -->
+    <div class="sol-lock-box" data-unit="4eso_ud2_3">
+        <div class="sol-lock-header">
+            <div class="sol-lock-icon">
+                <i class="fa-solid fa-user-lock" id="lockIcon"></i>
+            </div>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--gs-primary);">Solucionario Oficial para el Alumnado</h3>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 18px;">
+            Introduce el código PIN de 6 dígitos facilitado por tu docente para comprobar las soluciones paso a paso.
+        </p>
+
+        <div id="solAuthContainer" style="display: flex; gap: 10px; max-width: 450px; flex-wrap: wrap;">
+            <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" id="solPinInput" placeholder="Código de 6 dígitos..."
+                   style="flex: 1; min-width: 180px; padding: 10px 15px; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 0.95rem; outline: none;">
+            <button onclick="verifySolPin()" id="btnUnlockSol"
+                    style="background-color: var(--gs-primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; cursor: pointer;">
+                Comprobar
+            </button>
+        </div>
+        <p id="solErrorMsg" style="font-size: 0.88rem; font-weight: 600; margin-top: 10px; display: none;"></p>
+
+        <div id="protectedSolutions" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;"></div>
+    </div>
+
+</div> <!-- CIERRE DEL GS-CONTAINER -->
+
+</body>
+</html>
