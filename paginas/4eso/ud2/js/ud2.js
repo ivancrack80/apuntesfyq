@@ -1,4 +1,4 @@
-// Esperar a que el sistema global esté listo (buena práctica de tu GUIA.md)
+// Esperar a que el sistema global esté listo (buena práctica de tu GUIA.md.)
 document.addEventListener('gs-ready', () => {
     // Inicializar cualquier componente si fuera necesario
 });
