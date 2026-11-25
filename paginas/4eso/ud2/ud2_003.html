@@ -614,68 +614,112 @@
     La <strong>electronegatividad</strong> mide la capacidad que tiene un átomo enlazado (especialmente en un enlace covalente) para atraer hacia sí los electrones compartidos.
 </p>
 
-<!-- SVG ESCALA DE PAULING (Diseño propio para tu web) -->
+<!-- SVG ESCALA Y TENDENCIA DE LA ELECTRONEGATIVIDAD -->
 <div style="width: 100%; overflow-x: auto; margin: 30px 0;">
-    <svg viewBox="0 0 800 200" style="width: 100%; min-width: 600px; height: auto; font-family: system-ui, -apple-system, sans-serif;">
+    <svg viewBox="0 0 800 320" style="width: 100%; min-width: 600px; height: auto; font-family: system-ui, -apple-system, sans-serif;">
         <defs>
-            <!-- Degradado de tu paleta: Azul (bajo) -> Amarillo (medio) -> Rojo (alto) -->
             <linearGradient id="grad-pauling" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#1e3a8a" />   <!-- Azul primario -->
-                <stop offset="50%" stop-color="#fcd34d" />  <!-- Amarillo -->
-                <stop offset="100%" stop-color="#dc2626" /> <!-- Rojo -->
+                <stop offset="0%" stop-color="#1e3a8a" />   <!-- Azul (baja) -->
+                <stop offset="50%" stop-color="#fcd34d" />  <!-- Amarillo (media) -->
+                <stop offset="100%" stop-color="#dc2626" /> <!-- Rojo (alta) -->
             </linearGradient>
+            <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7" />
+            </marker>
+            <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#dc2626" />
+            </marker>
         </defs>
 
-        <!-- Barra de gradiente -->
-        <rect x="50" y="80" width="700" height="30" rx="15" fill="url(#grad-pauling)" />
+        <!-- Título del gráfico -->
+        <text x="400" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a8a">VALORES Y TENDENCIA DE LA ELECTRONEGATIVIDAD</text>
+
+        <!-- 1. Barra de gradiente con valores -->
+        <rect x="50" y="60" width="700" height="20" rx="10" fill="url(#grad-pauling)" />
         
-        <!-- Etiquetas de los extremos -->
-        <text x="50" y="140" text-anchor="start" font-size="14" font-weight="bold" fill="#1e3a8a">Menos electronegativos</text>
-        <text x="750" y="140" text-anchor="end" font-size="14" font-weight="bold" fill="#dc2626">Más electronegativos</text>
+        <text x="50" y="100" text-anchor="start" font-size="12" font-weight="bold" fill="#1e3a8a">Menos electronegativos (Metales)</text>
+        <text x="750" y="100" text-anchor="end" font-size="12" font-weight="bold" fill="#dc2626">Más electronegativos (No metales)</text>
 
         <!-- Elementos sobre la barra -->
-        <g text-anchor="middle" font-size="16" font-weight="bold">
+        <g text-anchor="middle" font-size="14" font-weight="bold">
             <!-- K (0.8) -->
-            <circle cx="80" cy="95" r="18" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
-            <text x="80" y="100" fill="#1e3a8a">K</text>
-            <text x="80" y="65" text-anchor="middle" font-size="12" fill="#475569">0.8</text>
+            <circle cx="80" cy="70" r="14" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+            <text x="80" y="75" fill="#1e3a8a">K</text>
+            <text x="80" y="50" text-anchor="middle" font-size="11" fill="#475569">0.8</text>
 
             <!-- Na (0.9) -->
-            <circle cx="150" cy="95" r="18" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
-            <text x="150" y="100" fill="#1e3a8a">Na</text>
-            <text x="150" y="65" text-anchor="middle" font-size="12" fill="#475569">0.9</text>
+            <circle cx="150" cy="70" r="14" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+            <text x="150" y="75" fill="#1e3a8a">Na</text>
+            <text x="150" y="50" text-anchor="middle" font-size="11" fill="#475569">0.9</text>
 
             <!-- H (2.1) -->
-            <circle cx="300" cy="95" r="18" fill="#ffffff" stroke="#854d0e" stroke-width="2"/>
-            <text x="300" y="100" fill="#854d0e">H</text>
-            <text x="300" y="65" text-anchor="middle" font-size="12" fill="#475569">2.1</text>
+            <circle cx="300" cy="70" r="14" fill="#ffffff" stroke="#854d0e" stroke-width="2"/>
+            <text x="300" y="75" fill="#854d0e">H</text>
+            <text x="300" y="50" text-anchor="middle" font-size="11" fill="#475569">2.1</text>
 
             <!-- C (2.5) -->
-            <circle cx="400" cy="95" r="18" fill="#ffffff" stroke="#854d0e" stroke-width="2"/>
-            <text x="400" y="100" fill="#854d0e">C</text>
-            <text x="400" y="65" text-anchor="middle" font-size="12" fill="#475569">2.5</text>
+            <circle cx="400" cy="70" r="14" fill="#ffffff" stroke="#854d0e" stroke-width="2"/>
+            <text x="400" y="75" fill="#854d0e">C</text>
+            <text x="400" y="50" text-anchor="middle" font-size="11" fill="#475569">2.5</text>
 
             <!-- N (3.0) -->
-            <circle cx="500" cy="95" r="18" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
-            <text x="500" y="100" fill="#dc2626">N</text>
-            <text x="500" y="65" text-anchor="middle" font-size="12" fill="#475569">3.0</text>
+            <circle cx="500" cy="70" r="14" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+            <text x="500" y="75" fill="#dc2626">N</text>
+            <text x="500" y="50" text-anchor="middle" font-size="11" fill="#475569">3.0</text>
 
             <!-- Cl (3.0) -->
-            <circle cx="560" cy="95" r="18" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
-            <text x="560" y="100" fill="#dc2626">Cl</text>
-            <text x="560" y="65" text-anchor="middle" font-size="12" fill="#475569">3.0</text>
+            <circle cx="560" cy="70" r="14" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+            <text x="560" y="75" fill="#dc2626">Cl</text>
+            <text x="560" y="50" text-anchor="middle" font-size="11" fill="#475569">3.0</text>
 
             <!-- O (3.5) -->
-            <circle cx="650" cy="95" r="18" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
-            <text x="650" y="100" fill="#dc2626">O</text>
-            <text x="650" y="65" text-anchor="middle" font-size="12" fill="#475569">3.5</text>
+            <circle cx="650" cy="70" r="14" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+            <text x="650" y="75" fill="#dc2626">O</text>
+            <text x="650" y="50" text-anchor="middle" font-size="11" fill="#475569">3.5</text>
 
             <!-- F (4.0) -->
-            <circle cx="720" cy="95" r="18" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
-            <text x="720" y="100" fill="#dc2626">F</text>
-            <text x="720" y="65" text-anchor="middle" font-size="12" fill="#475569">4.0</text>
+            <circle cx="720" cy="70" r="14" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+            <text x="720" y="75" fill="#dc2626">F</text>
+            <text x="720" y="50" text-anchor="middle" font-size="11" fill="#475569">4.0</text>
+        </g>
+
+        <!-- 2. Flechas de Tendencia -->
+        <!-- Flecha hacia abajo (Aumenta en el grupo) -->
+        <line x1="150" y1="140" x2="150" y2="250" stroke="#0284c7" stroke-width="3" marker-end="url(#arrow-blue)"/>
+        <text x="160" y="195" font-size="13" font-weight="bold" fill="#0284c7">Aumenta al subir en un grupo</text>
+        <text x="160" y="215" font-size="11" fill="#475569">(Menos capas, núcleo más cerca)</text>
+
+        <!-- Flecha hacia la derecha (Aumenta en el periodo) -->
+        <line x1="450" y1="200" x2="650" y2="200" stroke="#dc2626" stroke-width="3" marker-end="url(#arrow-red)"/>
+        <text x="500" y="185" font-size="13" font-weight="bold" fill="#dc2626">Aumenta al avanzar en un periodo</text>
+        <text x="500" y="220" font-size="11" fill="#475569">(Mayor carga nuclear, atrae más)</text>
+
+        <!-- Ejemplo visual de la dirección -->
+        <g transform="translate(350, 230)">
+            <rect x="0" y="0" width="20" height="20" fill="#f1f5f9" stroke="#cbd5e1"/>
+            <rect x="20" y="0" width="20" height="20" fill="#f1f5f9" stroke="#cbd5e1"/>
+            <rect x="0" y="20" width="20" height="20" fill="#f1f5f9" stroke="#cbd5e1"/>
+            <rect x="20" y="20" width="20" height="20" fill="#f1f5f9" stroke="#cbd5e1"/>
+            <text x="10" y="14" text-anchor="middle" font-size="10" fill="#0f172a">Li</text>
+            <text x="30" y="14" text-anchor="middle" font-size="10" fill="#0f172a">Be</text>
+            <text x="10" y="34" text-anchor="middle" font-size="10" fill="#0f172a">Na</text>
+            <text x="30" y="34" text-anchor="middle" font-size="10" fill="#0f172a">Mg</text>
+            <!-- Flecha diagonal simulada -->
+            <path d="M 5 5 L 35 35" stroke="#dc2626" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrow-red)"/>
         </g>
     </svg>
+</div>
+
+<div class="gs-box gs-comprender">
+    <div class="gs-comprender-title"><i class="fa-solid fa-lightbulb"></i> ¿Por qué varía así?</div>
+    <ul style="margin-bottom: 0;">
+        <li>
+            <strong>En un periodo (➔):</strong> Aumenta hacia la derecha. Al avanzar en un periodo, los átomos tienen el mismo número de capas, pero <strong>aumenta la carga del núcleo</strong> (más protones). Como los electrones de valencia están a la misma distancia, el núcleo los atrae con más fuerza, aumentando la electronegatividad.
+        </li>
+        <li style="margin-top: 10px;">
+            <strong>En un grupo (⬆):</strong> Aumenta hacia arriba. Al subir en un grupo, <strong>disminuye el número de capas electrónicas</strong>. El electrón de valencia está más cerca del núcleo, por lo que la fuerza de atracción es mayor y la electronegatividad aumenta. El Flúor (F), al estar arriba y a la derecha, es el más electronegativo.
+        </li>
+    </ul>
 </div>
 
 <div class="gs-box gs-lectura">
