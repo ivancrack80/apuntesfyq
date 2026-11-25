@@ -610,19 +610,83 @@
     </div>
 
     <h3>3.7.4. La electronegatividad</h3>
-    <p>
-        La <strong>electronegatividad</strong> mide la capacidad que tiene un átomo enlazado (especialmente en un enlace covalente) para atraer hacia sí los electrones compartidos.
-    </p>
+<p>
+    La <strong>electronegatividad</strong> mide la capacidad que tiene un átomo enlazado (especialmente en un enlace covalente) para atraer hacia sí los electrones compartidos.
+</p>
 
-    <div class="gs-box gs-lectura">
-        <div class="gs-lectura-title"><i class="fa-solid fa-scale-balanced"></i> La Escala de Pauling</div>
-        <p>
-            Linus Pauling diseñó una escala donde el elemento más electronegativo es el <strong>Flúor (F)</strong> (valor 4,0), seguido del Oxígeno (O) y del Nitrógeno (N).
-        </p>
-        <p style="margin-bottom: 0;">
-            <strong>Nota clave:</strong> Los <strong>gases nobles</strong> (Grupo 18) no presentan valor de electronegatividad en esta escala porque poseen la capa de valencia completa y no forman enlaces covalentes en condiciones habituales.
-        </p>
-    </div>
+<!-- SVG ESCALA DE PAULING (Diseño propio para tu web) -->
+<div style="width: 100%; overflow-x: auto; margin: 30px 0;">
+    <svg viewBox="0 0 800 200" style="width: 100%; min-width: 600px; height: auto; font-family: system-ui, -apple-system, sans-serif;">
+        <defs>
+            <!-- Degradado de tu paleta: Azul (bajo) -> Amarillo (medio) -> Rojo (alto) -->
+            <linearGradient id="grad-pauling" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#1e3a8a" />   <!-- Azul primario -->
+                <stop offset="50%" stop-color="#fcd34d" />  <!-- Amarillo -->
+                <stop offset="100%" stop-color="#dc2626" /> <!-- Rojo -->
+            </linearGradient>
+        </defs>
+
+        <!-- Barra de gradiente -->
+        <rect x="50" y="80" width="700" height="30" rx="15" fill="url(#grad-pauling)" />
+        
+        <!-- Etiquetas de los extremos -->
+        <text x="50" y="140" text-anchor="start" font-size="14" font-weight="bold" fill="#1e3a8a">Menos electronegativos</text>
+        <text x="750" y="140" text-anchor="end" font-size="14" font-weight="bold" fill="#dc2626">Más electronegativos</text>
+
+        <!-- Elementos sobre la barra -->
+        <g text-anchor="middle" font-size="16" font-weight="bold">
+            <!-- K (0.8) -->
+            <circle cx="80" cy="95" r="18" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+            <text x="80" y="100" fill="#1e3a8a">K</text>
+            <text x="80" y="65" text-anchor="middle" font-size="12" fill="#475569">0.8</text>
+
+            <!-- Na (0.9) -->
+            <circle cx="150" cy="95" r="18" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+            <text x="150" y="100" fill="#1e3a8a">Na</text>
+            <text x="150" y="65" text-anchor="middle" font-size="12" fill="#475569">0.9</text>
+
+            <!-- H (2.1) -->
+            <circle cx="300" cy="95" r="18" fill="#ffffff" stroke="#854d0e" stroke-width="2"/>
+            <text x="300" y="100" fill="#854d0e">H</text>
+            <text x="300" y="65" text-anchor="middle" font-size="12" fill="#475569">2.1</text>
+
+            <!-- C (2.5) -->
+            <circle cx="400" cy="95" r="18" fill="#ffffff" stroke="#854d0e" stroke-width="2"/>
+            <text x="400" y="100" fill="#854d0e">C</text>
+            <text x="400" y="65" text-anchor="middle" font-size="12" fill="#475569">2.5</text>
+
+            <!-- N (3.0) -->
+            <circle cx="500" cy="95" r="18" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+            <text x="500" y="100" fill="#dc2626">N</text>
+            <text x="500" y="65" text-anchor="middle" font-size="12" fill="#475569">3.0</text>
+
+            <!-- Cl (3.0) -->
+            <circle cx="560" cy="95" r="18" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+            <text x="560" y="100" fill="#dc2626">Cl</text>
+            <text x="560" y="65" text-anchor="middle" font-size="12" fill="#475569">3.0</text>
+
+            <!-- O (3.5) -->
+            <circle cx="650" cy="95" r="18" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+            <text x="650" y="100" fill="#dc2626">O</text>
+            <text x="650" y="65" text-anchor="middle" font-size="12" fill="#475569">3.5</text>
+
+            <!-- F (4.0) -->
+            <circle cx="720" cy="95" r="18" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+            <text x="720" y="100" fill="#dc2626">F</text>
+            <text x="720" y="65" text-anchor="middle" font-size="12" fill="#475569">4.0</text>
+        </g>
+    </svg>
+</div>
+
+<div class="gs-box gs-lectura">
+    <div class="gs-lectura-title"><i class="fa-solid fa-scale-balanced"></i> La Escala de Pauling</div>
+    <p>
+        Linus Pauling diseñó una escala donde el elemento más electronegativo es el <strong>Flúor (F)</strong> (valor 4,0), seguido del Oxígeno (O) y del Nitrógeno (N).
+    </p>
+    <p style="margin-bottom: 0;">
+        <strong>Nota clave:</strong> Los <strong>gases nobles</strong> (Grupo 18) no presentan valor de electronegatividad en esta escala porque poseen la capa de valencia completa y no forman enlaces covalentes en condiciones habituales.
+    </p>
+</div>
 
     <!-- ACTIVIDADES -->
     <div class="gs-box gs-aplicar">
